@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme inline {
+@theme {
   /* BeautyShare Pro Brand Colors - from brand board */
   --color-orange: #FA6A27;
   --color-orange-light: #FF8F56;
