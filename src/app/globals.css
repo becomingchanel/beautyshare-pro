@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* BeautyShare Pro Brand Colors */
+  --color-brand-50: #FDF8F3;
+  --color-brand-100: #F5F0EB;
+  --color-brand-200: #E8DDD2;
+  --color-brand-300: #D4C4B0;
+  --color-brand-400: #B8976E;
+  --color-brand-500: #A0764A;
+  --color-brand-600: #8B4513;
+  --color-brand-700: #723910;
+  --color-brand-800: #5A2D0D;
+  --color-brand-900: #42210A;
+  --color-brand-950: #2A1507;
+
+  --color-cream-50: #FFFDFB;
+  --color-cream-100: #FDF8F3;
+  --color-cream-200: #F5F0EB;
+  --color-cream-300: #EDE5DB;
+  --color-cream-400: #E0D3C3;
+
+  --color-accent: #D4840A;
+  --color-accent-light: #F5A623;
+  --color-accent-dark: #A36708;
+
+  --color-success: #16A34A;
+  --color-success-light: #DCFCE7;
+  --color-warning: #D97706;
+  --color-warning-light: #FEF3C7;
+  --color-danger: #DC2626;
+  --color-danger-light: #FEE2E2;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream-100);
+  color: var(--color-brand-900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-300);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-400);
+}
+
+/* Focus outline for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
