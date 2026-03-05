@@ -1,11 +1,41 @@
+'use client';
+
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 /* ================================================================
-   BeautyShare Pro — Full SaaS Landing Page (Image-Rich)
+   BeautyShare Pro — Full SaaS Landing Page
+   Bright, inviting design with cursive/serif + sans-serif contrast
    Brand Colors: #FA6A27 (orange), #D61465 (pink), #DCBDEF (lavender),
                  #E2AD37 (gold), #000000, #FFFFFF
    ================================================================ */
 
+/* ── Cursive accent helper ──────────────────────────────────────── */
+const Cursive = ({
+  children,
+  className = '',
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <span
+    className={className}
+    style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic' }}
+  >
+    {children}
+  </span>
+);
+
+/* ── Hero images for animated carousel ──────────────────────────── */
+const heroImages = [
+  { src: '/images/hero-model.png', alt: 'Premium hair extensions model' },
+  { src: '/images/model-curly-1.png', alt: 'Curly hair extensions' },
+  { src: '/images/model-straight-1.png', alt: 'Straight hair extensions' },
+  { src: '/images/model-curly-2.png', alt: 'Body wave hair extensions' },
+  { src: '/images/model-straight-2.png', alt: 'Deep wave hair extensions' },
+];
+
+/* ── SVG Icons ──────────────────────────────────────────────────── */
 const Icon = {
   check: (
     <svg className="h-5 w-5 shrink-0" viewBox="0 0 20 20" fill="currentColor">
@@ -17,34 +47,9 @@ const Icon = {
       <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
     </svg>
   ),
-  store: (
-    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" />
-    </svg>
-  ),
-  box: (
-    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
-    </svg>
-  ),
-  chart: (
-    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-    </svg>
-  ),
-  sparkle: (
-    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
-    </svg>
-  ),
-  shield: (
-    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-    </svg>
-  ),
-  users: (
-    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+  x: (
+    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
     </svg>
   ),
   star: (
@@ -57,96 +62,168 @@ const Icon = {
       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
     </svg>
   ),
-  x: (
-    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+  shield: (
+    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
     </svg>
   ),
 };
 
+/* ── Feature icons (for "Your Business, Your Way" section) ────── */
+const FeatureIcons = {
+  inventory: (
+    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+    </svg>
+  ),
+  store: (
+    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" />
+    </svg>
+  ),
+  academy: (
+    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+    </svg>
+  ),
+  price: (
+    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  ),
+  support: (
+    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+    </svg>
+  ),
+  launch: (
+    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+    </svg>
+  ),
+};
+
+/* ================================================================
+   MAIN PAGE COMPONENT
+   ================================================================ */
 export default function HomePage() {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
 
       {/* ═══════════════════════════════════════════════════════════
           NAVIGATION
           ═══════════════════════════════════════════════════════════ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
         <div className="mx-auto max-w-7xl flex items-center justify-between px-5 py-3 md:px-8">
           <Link href="/" className="flex items-center">
             <img src="/images/logo.png" alt="BeautyShare Pro" className="h-10 md:h-12 w-auto" />
           </Link>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-            <a href="#why" className="hover:text-orange transition-colors">Why Us</a>
-            <a href="#hair" className="hover:text-orange transition-colors">Our Hair</a>
+          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-black/60">
             <a href="#how-it-works" className="hover:text-orange transition-colors">How It Works</a>
+            <a href="#why" className="hover:text-orange transition-colors">Why BSP</a>
+            <a href="#hair" className="hover:text-orange transition-colors">Our Hair</a>
             <a href="#compare" className="hover:text-orange transition-colors">Compare</a>
-            <a href="#pricing" className="hover:text-orange transition-colors">Pricing</a>
+            <a href="#pricing" className="hover:text-orange transition-colors">Plans</a>
+            <a href="#reviews" className="hover:text-orange transition-colors">Reviews</a>
             <a href="#faq" className="hover:text-orange transition-colors">FAQ</a>
           </div>
           <div className="flex items-center gap-3">
-            <Link href="/login" className="hidden sm:inline-flex text-sm font-semibold text-gray-700 hover:text-orange transition-colors">
-              Sign In
+            <Link href="/login" className="hidden sm:inline-flex text-sm font-semibold text-black hover:text-orange transition-colors">
+              Log In
             </Link>
             <Link href="/signup" className="inline-flex items-center gap-2 rounded-full brand-gradient-pink px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity shadow-lg shadow-orange/20">
-              Get Started {Icon.arrow}
+              Get Started
             </Link>
           </div>
         </div>
       </nav>
 
       {/* ═══════════════════════════════════════════════════════════
-          HERO — Split layout with model image
+          HERO — Animated model carousel + text with cursive accent
           ═══════════════════════════════════════════════════════════ */}
-      <section className="relative pt-28 pb-12 md:pt-36 md:pb-20 overflow-hidden">
-        <div className="absolute inset-0 brand-gradient opacity-[0.05]" />
-        <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-lavender/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange/10 rounded-full blur-3xl" />
+      <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-white">
+        <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-orange/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-lavender/10 rounded-full blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div className="text-center md:text-left">
-              <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 border border-orange-200 px-4 py-1.5 text-sm font-semibold text-orange mb-8">
+              <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 border border-orange/20 px-4 py-1.5 text-sm font-semibold text-orange mb-8">
                 <span className="h-2 w-2 rounded-full bg-orange animate-pulse" />
                 Now Accepting New Members
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 leading-[1.1]">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-black leading-[1.1]">
                 Launch Your{' '}
-                <span className="brand-gradient-text">Hair Empire</span>
+                <span className="brand-gradient-text">Hair Empire,</span>
                 <br />
-                <span className="text-pink">Without The Risk</span>
+                <Cursive className="text-pink">Without The Risk</Cursive>
               </h1>
-              <p className="mt-6 max-w-xl text-lg md:text-xl text-gray-500 leading-relaxed md:mx-0 mx-auto">
+              <p className="mt-6 max-w-xl text-lg md:text-xl text-black/60 leading-relaxed md:mx-0 mx-auto">
                 Get premium hair extensions at wholesale prices, your own branded Shopify store,
                 and automated fulfillment — all for one monthly fee.{' '}
-                <strong className="text-gray-700">No inventory. No guesswork. No limits.</strong>
+                <strong className="text-black">No inventory. No guesswork. No limits.</strong>
               </p>
               <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row md:justify-start sm:justify-center">
                 <Link href="/signup" className="group inline-flex items-center gap-2 rounded-full brand-gradient-pink px-8 py-4 text-base font-bold text-white shadow-xl shadow-orange/25 hover:shadow-2xl hover:shadow-orange/30 transition-all hover:-translate-y-0.5">
                   Become A BeautyShare Boss
                   <span className="group-hover:translate-x-1 transition-transform">{Icon.arrow}</span>
                 </Link>
-                <Link href="#compare" className="inline-flex items-center gap-2 rounded-full border-2 border-gray-200 bg-white px-8 py-4 text-base font-semibold text-gray-700 hover:border-orange/40 hover:text-orange transition-all">
+                <Link href="#compare" className="inline-flex items-center gap-2 rounded-full border-2 border-black/10 bg-white px-8 py-4 text-base font-semibold text-black hover:border-orange/40 hover:text-orange transition-all">
                   See How We Compare
                 </Link>
               </div>
             </div>
+
+            {/* Animated hero image carousel */}
             <div className="flex justify-center md:justify-end">
-              <img src="/images/hero-model.png" alt="Beautiful model showcasing premium hair extensions" className="w-[340px] md:w-[440px] lg:w-[500px] h-auto object-contain drop-shadow-2xl" />
+              <div className="relative w-[320px] md:w-[420px] lg:w-[480px] h-[420px] md:h-[540px] lg:h-[600px]">
+                {heroImages.map((img, i) => (
+                  <img
+                    key={img.src}
+                    src={img.src}
+                    alt={img.alt}
+                    className={`absolute inset-0 w-full h-full object-contain drop-shadow-2xl transition-opacity duration-1000 ease-in-out ${
+                      i === currentImage ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                ))}
+                {/* Carousel dots */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-2">
+                  {heroImages.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setCurrentImage(i)}
+                      className={`h-2.5 rounded-full transition-all duration-300 ${
+                        i === currentImage ? 'w-8 bg-orange' : 'w-2.5 bg-black/20'
+                      }`}
+                      aria-label={`View model ${i + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Trust bar */}
           <div className="mt-16 flex flex-wrap justify-center gap-8 md:gap-14 text-center">
             {[
-              { value: '200+', label: 'Active Bosses' },
+              { value: '500+', label: 'Happy Entrepreneurs' },
               { value: '$2.4M', label: 'Revenue Generated' },
               { value: '15K+', label: 'Orders Fulfilled' },
               { value: '4.9/5', label: 'Boss Rating' },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-2xl md:text-3xl font-extrabold brand-gradient-text">{stat.value}</div>
-                <div className="text-xs md:text-sm text-gray-400 mt-1 font-medium">{stat.label}</div>
+                <div className="text-xs md:text-sm text-black/40 mt-1 font-medium uppercase tracking-wide">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -154,25 +231,38 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          WHY BEAUTYSHARE — branded banner section
+          YOUR BUSINESS, YOUR WAY — feature grid (Lovable-inspired)
           ═══════════════════════════════════════════════════════════ */}
-      <section id="why" className="py-16 md:py-24 bg-gray-50">
+      <section id="why" className="py-20 md:py-28 bg-white">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          {/* Why BeautyShare banner */}
-          <div className="max-w-5xl mx-auto mb-12 rounded-2xl overflow-hidden">
-            <img src="/images/banner-why.png" alt="Why BeautyShare? It's our passion to empower the next wave of independent business specialists." className="w-full h-auto" />
+          <div className="text-center mb-16">
+            <p className="text-sm font-bold text-orange uppercase tracking-widest mb-4">Why Beauty Share Pro</p>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-black leading-tight">
+              Your Business,{' '}
+              <Cursive className="text-pink">Your Way</Cursive>
+            </h2>
+            <p className="mt-4 text-black/60 max-w-xl mx-auto text-lg">
+              We built the ultimate platform for aspiring hair entrepreneurs. Everything you need — nothing you don&apos;t.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto text-center">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { title: 'Zero Upfront Inventory', desc: 'No need to invest $5K+ in hair you hope will sell. We stock it, you sell it.', emoji: '📦' },
-              { title: 'Your Brand, Your Business', desc: 'Custom Shopify store with your logo, colors, and domain. Customers never see our name.', emoji: '💅' },
-              { title: 'We Handle Fulfillment', desc: 'Orders auto-sync to our warehouse. We pick, pack, and ship in YOUR branded packaging.', emoji: '🚀' },
-            ].map((item) => (
-              <div key={item.title} className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
-                <div className="text-4xl mb-4">{item.emoji}</div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+              { icon: FeatureIcons.inventory, title: 'Zero Inventory Risk', desc: 'We stock, store, and ship every order. You never touch a single product.' },
+              { icon: FeatureIcons.store, title: 'Your Own Branded Store', desc: 'Custom Shopify website with your logo, domain, and curated product catalog.' },
+              { icon: FeatureIcons.academy, title: 'Beauty Share Academy', desc: '24/7 access to digital training — marketing, sales, social media, and more.' },
+              { icon: FeatureIcons.price, title: 'You Set The Prices', desc: 'Buy at wholesale, sell at your markup. Your profit margins, your rules.' },
+              { icon: FeatureIcons.support, title: 'Dedicated Support', desc: 'Our team is always available to help you grow and troubleshoot.' },
+              { icon: FeatureIcons.launch, title: 'Launch in Days, Not Months', desc: 'Everything is set up for you. Start taking orders within days of joining.' },
+            ].map((f) => (
+              <div key={f.title} className="flex items-start gap-4 p-6 rounded-2xl hover:bg-orange-50/40 transition-colors">
+                <div className="shrink-0 h-12 w-12 rounded-full bg-orange-50 border border-orange/20 flex items-center justify-center text-orange">
+                  {f.icon}
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-black mb-1">{f.title}</h3>
+                  <p className="text-sm text-black/60 leading-relaxed">{f.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -180,68 +270,52 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          WHAT DOES A BOSS DO — pink branded banner
+          HAIR SHOWCASE — product textures + model shots (light bg)
           ═══════════════════════════════════════════════════════════ */}
-      <section className="py-0">
-        <div className="max-w-7xl mx-auto">
-          <img src="/images/banner-boss.png" alt="What does a BeautyShare Boss do? Our Specialists are Independent Bosses empowered through our platform to win." className="w-full h-auto" />
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════
-          HAIR SHOWCASE — models + product hair textures
-          ═══════════════════════════════════════════════════════════ */}
-      <section id="hair" className="py-16 md:py-24 bg-gray-950 relative overflow-hidden">
-        <div className="absolute inset-0 brand-gradient opacity-10" />
-
-        <div className="relative mx-auto max-w-7xl px-5 md:px-8">
-          <div className="text-center mb-12">
-            <p className="text-sm font-bold text-orange uppercase tracking-widest mb-3">Premium Collection</p>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-white">
-              Hair that <span className="brand-gradient-text">sells itself</span>
+      <section id="hair" className="py-20 md:py-28 bg-[#FFF8F3]">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <div className="text-center mb-14">
+            <p className="text-sm font-bold text-orange uppercase tracking-widest mb-4">Premium Collection</p>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-black">
+              Hair That <Cursive className="text-pink">Sells Itself</Cursive>
             </h2>
-            <p className="mt-4 text-gray-400 max-w-xl mx-auto">
+            <p className="mt-4 text-black/60 max-w-xl mx-auto text-lg">
               100% virgin human hair — Brazilian, Peruvian, Malaysian. Every texture your customers want, ready to ship under your brand.
             </p>
           </div>
 
           {/* Hair texture product shots */}
-          <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-3xl mx-auto mb-12">
+          <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-3xl mx-auto mb-14">
             {[
               { src: '/images/hair-wavy.png', label: 'Natural Wave' },
               { src: '/images/hair-curly.png', label: 'Deep Curly' },
               { src: '/images/hair-deep-curly.png', label: 'Kinky Curly' },
             ].map((hair) => (
               <div key={hair.label} className="text-center group">
-                <div className="rounded-2xl overflow-hidden bg-white/10 border border-white/10 group-hover:border-orange/30 transition-all p-4 mb-3">
+                <div className="rounded-2xl overflow-hidden bg-white border border-black/5 group-hover:border-orange/30 transition-all p-4 mb-3 shadow-sm">
                   <img src={hair.src} alt={hair.label} className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500" />
                 </div>
-                <p className="text-sm font-semibold text-white">{hair.label}</p>
+                <p className="text-sm font-semibold text-black">{hair.label}</p>
               </div>
             ))}
           </div>
 
           {/* Model grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
             {[
               { src: '/images/model-curly-1.png', alt: 'Curly hair extensions' },
               { src: '/images/model-straight-1.png', alt: 'Straight hair extensions' },
               { src: '/images/model-curly-2.png', alt: 'Body wave hair extensions' },
               { src: '/images/model-straight-2.png', alt: 'Deep wave hair extensions' },
             ].map((m) => (
-              <div key={m.alt} className="rounded-2xl overflow-hidden bg-white/5 border border-white/10 group hover:border-orange/30 transition-all">
+              <div key={m.alt} className="rounded-2xl overflow-hidden bg-white border border-black/5 group hover:border-orange/30 transition-all shadow-sm">
                 <img src={m.src} alt={m.alt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
             ))}
           </div>
 
-          {/* Group shot */}
-          <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden border border-white/10">
-            <img src="/images/models-group.png" alt="BeautyShare Pro models showcasing premium hair collection" className="w-full h-auto object-cover" />
-          </div>
-
           <div className="mt-10 text-center">
-            <p className="text-gray-400 text-sm mb-4">Straight &middot; Body Wave &middot; Deep Wave &middot; Loose Wave &middot; Curly &middot; Kinky Curly &middot; 10&quot; to 30&quot;</p>
+            <p className="text-black/50 text-sm mb-5">Straight &middot; Body Wave &middot; Deep Wave &middot; Loose Wave &middot; Curly &middot; Kinky Curly &middot; 10&quot; to 30&quot;</p>
             <Link href="/signup" className="inline-flex items-center gap-2 rounded-full border-2 border-orange/40 px-6 py-3 text-sm font-bold text-orange hover:bg-orange hover:text-white transition-all">
               Start Selling Premium Hair Today {Icon.arrow}
             </Link>
@@ -250,107 +324,60 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          PROBLEM → SOLUTION
-          ═══════════════════════════════════════════════════════════ */}
-      <section className="py-20 md:py-28 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900">
-              Starting a hair business is <span className="text-pink">hard</span>.
-              <br />We make it <span className="brand-gradient-text">easy</span>.
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="rounded-2xl bg-white border border-gray-200 p-8">
-              <div className="inline-flex items-center gap-2 rounded-full bg-red-50 px-3 py-1 text-sm font-semibold text-red-600 mb-6">The Old Way</div>
-              <ul className="space-y-4">
-                {['Buy $5K+ in inventory upfront (and pray it sells)','Store boxes of hair in your apartment','Ship every order yourself — trips to the post office daily','Build a website from scratch with zero tech skills','Figure out pricing, marketing, and fulfillment alone','Risk losing everything if it doesn\'t work out'].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-gray-600">
-                    <span className="text-red-400 mt-0.5">{Icon.x}</span>
-                    <span className="text-sm leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-2xl bg-gradient-to-br from-orange-50 to-lavender-50 border-2 border-orange/20 p-8 relative">
-              <div className="absolute -top-3 -right-3 bg-gold text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">BETTER WAY</div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-orange-100 px-3 py-1 text-sm font-semibold text-orange mb-6">The BeautyShare Way</div>
-              <ul className="space-y-4">
-                {['Zero inventory — we stock, store, and ship for you','Your own branded Shopify store set up in days','Orders auto-sync to our warehouse for fulfillment','Premium hair at wholesale prices (50-70% margins)','Pricing calculators, analytics, and business tools built in','Start for just $149/month — cancel anytime'].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-gray-700">
-                    <span className="text-orange mt-0.5">{Icon.check}</span>
-                    <span className="text-sm leading-relaxed font-medium">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════
-          COMPARISON CHART — BeautyShare vs DIY vs Other Platforms
+          BSP vs. GOING SOLO — Lovable-inspired 2-column comparison
           ═══════════════════════════════════════════════════════════ */}
       <section id="compare" className="py-20 md:py-28 bg-white">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="text-center mb-16">
-            <p className="text-sm font-bold text-orange uppercase tracking-widest mb-3">See The Difference</p>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900">
-              How we <span className="brand-gradient-text">stack up</span>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-black">
+              BSP vs. <Cursive className="text-pink">Going Solo</Cursive>
             </h2>
-            <p className="mt-4 text-gray-500 max-w-lg mx-auto">
-              Not all hair businesses are built the same. See why Bosses choose BeautyShare Pro.
+            <p className="mt-4 text-black/60 max-w-lg mx-auto text-lg">
+              See why hundreds of entrepreneurs choose Beauty Share Pro over starting from scratch.
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto overflow-x-auto">
+          <div className="max-w-4xl mx-auto overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr>
-                  <th className="text-left py-4 px-4 font-semibold text-gray-500 border-b border-gray-200 w-1/4"></th>
-                  <th className="py-4 px-4 border-b-2 border-orange bg-gradient-to-b from-orange-50 to-white rounded-t-xl text-center">
-                    <div className="text-orange font-extrabold text-base">BeautyShare Pro</div>
-                    <div className="text-xs text-gray-400 mt-0.5">$149/mo</div>
+                  <th className="text-left py-5 px-5 w-1/3"></th>
+                  <th className="py-5 px-5 text-center rounded-t-2xl" style={{ background: 'linear-gradient(135deg, #FA6A27, #D61465)' }}>
+                    <div className="text-white/80 text-xs font-bold uppercase tracking-widest">Beauty Share Pro</div>
+                    <div className="text-white text-lg mt-1" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic' }}>The Easy Way</div>
                   </th>
-                  <th className="py-4 px-4 font-semibold text-gray-600 border-b border-gray-200 text-center">
-                    <div>DIY Hair Business</div>
-                    <div className="text-xs text-gray-400 mt-0.5 font-normal">Self-funded</div>
-                  </th>
-                  <th className="py-4 px-4 font-semibold text-gray-600 border-b border-gray-200 text-center">
-                    <div>Other Dropship Platforms</div>
-                    <div className="text-xs text-gray-400 mt-0.5 font-normal">Varies</div>
+                  <th className="py-5 px-5 text-center rounded-t-2xl bg-black/[0.03]">
+                    <div className="text-black/40 text-xs font-bold uppercase tracking-widest">On Your Own</div>
+                    <div className="text-black/60 text-lg mt-1" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic' }}>The Hard Way</div>
                   </th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  { feature: 'Startup Cost', bs: '$248', diy: '$5,000 — $15,000+', other: '$500 — $2,000' },
-                  { feature: 'Branded Shopify Store', bs: true, diy: 'You build it', other: 'Generic template' },
-                  { feature: 'Premium Virgin Hair', bs: true, diy: 'Source yourself', other: 'Mixed quality' },
-                  { feature: 'Inventory Risk', bs: 'Zero', diy: 'All on you', other: 'Some' },
-                  { feature: 'Branded Packaging', bs: true, diy: 'You manage it', other: false },
-                  { feature: 'Automated Fulfillment', bs: true, diy: false, other: 'Partial' },
-                  { feature: 'Profit Calculators', bs: true, diy: false, other: false },
-                  { feature: 'Sales Dashboard & Analytics', bs: true, diy: 'Basic Shopify', other: 'Basic' },
-                  { feature: 'Customer CRM', bs: true, diy: false, other: false },
-                  { feature: 'Set Your Own Prices', bs: true, diy: true, other: 'Limited' },
-                  { feature: 'Community & Support', bs: '200+ Bosses', diy: 'You\'re alone', other: 'Limited forum' },
-                  { feature: 'AI Marketing Copilot', bs: 'Coming soon', diy: false, other: false },
-                  { feature: 'Cancel Anytime', bs: true, diy: 'N/A', other: 'Varies' },
-                ].map((row) => (
-                  <tr key={row.feature} className="border-b border-gray-100 hover:bg-gray-50/50">
-                    <td className="py-3.5 px-4 font-medium text-gray-700">{row.feature}</td>
-                    {[row.bs, row.diy, row.other].map((val, i) => (
-                      <td key={i} className={`py-3.5 px-4 text-center ${i === 0 ? 'bg-orange-50/30 font-semibold' : ''}`}>
-                        {val === true ? (
-                          <span className="text-green-500 inline-flex justify-center">{Icon.check}</span>
-                        ) : val === false ? (
-                          <span className="text-red-400 inline-flex justify-center">{Icon.x}</span>
-                        ) : (
-                          <span className={i === 0 ? 'text-orange font-bold' : 'text-gray-500'}>{val}</span>
-                        )}
-                      </td>
-                    ))}
+                  { feature: 'Upfront Inventory Cost', bs: 'None — $0', solo: '$5,000 – $20,000+' },
+                  { feature: 'Product Sourcing', bs: 'Done for you', solo: 'Research & negotiate yourself' },
+                  { feature: 'Branded Website', bs: 'Included', solo: '$500 – $3,000 to build' },
+                  { feature: 'Order Fulfillment', bs: 'We ship every order', solo: 'Pack & ship yourself' },
+                  { feature: 'Warehousing & Storage', bs: 'Included', solo: 'Rent storage space' },
+                  { feature: 'Custom Packaging', bs: 'Available on select plans', solo: 'Source & manage yourself' },
+                  { feature: 'Training & Education', bs: '24/7 Academy access', solo: 'Figure it out alone' },
+                  { feature: 'Time to Launch', bs: 'Days', solo: 'Weeks to months' },
+                  { feature: 'Financial Risk', bs: 'Minimal', solo: 'High' },
+                ].map((row, i) => (
+                  <tr key={row.feature} className={`border-b border-black/5 ${i % 2 === 0 ? '' : 'bg-black/[0.01]'}`}>
+                    <td className="py-4 px-5 font-medium text-black">{row.feature}</td>
+                    <td className="py-4 px-5 text-center">
+                      <span className="inline-flex items-center gap-2 text-green-600 font-semibold">
+                        <span className="text-green-500">{Icon.check}</span>
+                        {row.bs}
+                      </span>
+                    </td>
+                    <td className="py-4 px-5 text-center bg-black/[0.02]">
+                      <span className="inline-flex items-center gap-2 text-black/50">
+                        <span className="text-red-400">{Icon.x}</span>
+                        {row.solo}
+                      </span>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -359,40 +386,40 @@ export default function HomePage() {
 
           <div className="mt-10 text-center">
             <Link href="/signup" className="inline-flex items-center gap-2 rounded-full brand-gradient-pink px-8 py-4 text-base font-bold text-white shadow-xl shadow-orange/25 hover:shadow-2xl transition-all hover:-translate-y-0.5">
-              Start With BeautyShare Pro {Icon.arrow}
+              Get Started {Icon.arrow}
             </Link>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          HOW IT WORKS — with How to Join + Getting Started banners
+          HOW IT WORKS — 3 steps + banners
           ═══════════════════════════════════════════════════════════ */}
-      <section id="how-it-works" className="py-20 md:py-28 bg-gray-50">
+      <section id="how-it-works" className="py-20 md:py-28 bg-[#FFF8F3]">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           {/* How to Join banner */}
-          <div className="max-w-5xl mx-auto mb-10 rounded-2xl overflow-hidden">
+          <div className="max-w-5xl mx-auto mb-12 rounded-2xl overflow-hidden shadow-sm">
             <img src="/images/banner-howtojoin.png" alt="How to join BeautyShare Pro" className="w-full h-auto" />
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-14">
             {[
-              { step: '01', title: 'Join & Get Your Store', desc: 'Sign up, pick your brand name, and we\'ll build your custom Shopify store with our premium hair catalog already loaded.', bg: 'bg-lavender-50' },
-              { step: '02', title: 'Set Prices & Sell', desc: 'Use our profit calculators to set your retail prices. Share your store link, run your marketing, and start making sales.', bg: 'bg-orange-50' },
-              { step: '03', title: 'We Ship, You Profit', desc: 'When a customer orders, we pick, pack, and ship it with YOUR branding. You collect the retail price, keep the profit.', bg: 'bg-pink-50' },
+              { step: '01', title: 'Join & Get Your Store', desc: 'Sign up, pick your brand name, and we\'ll build your custom Shopify store with our premium hair catalog already loaded.' },
+              { step: '02', title: 'Set Prices & Sell', desc: 'Use our profit calculators to set your retail prices. Share your store link, run your marketing, and start making sales.' },
+              { step: '03', title: 'We Ship, You Profit', desc: 'When a customer orders, we pick, pack, and ship it with YOUR branding. You collect the retail price, keep the profit.' },
             ].map((item) => (
               <div key={item.step} className="text-center">
-                <div className={`inline-flex items-center justify-center h-16 w-16 rounded-2xl ${item.bg} mb-6`}>
+                <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-orange-50 border border-orange/20 mb-6">
                   <span className="text-2xl font-extrabold brand-gradient-text">{item.step}</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                <p className="text-gray-500 leading-relaxed">{item.desc}</p>
+                <h3 className="text-xl font-bold text-black mb-3">{item.title}</h3>
+                <p className="text-black/60 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
 
           {/* Getting Started Banner */}
-          <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-xl shadow-orange/10">
+          <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg shadow-orange/10">
             <img src="/images/banner-getting-started.png" alt="Getting started with BeautyShare Pro membership" className="w-full h-auto" />
           </div>
 
@@ -405,86 +432,47 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          FEATURES — with model accent
-          ═══════════════════════════════════════════════════════════ */}
-      <section id="features" className="py-20 md:py-28 bg-gray-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 brand-gradient opacity-10" />
-
-        <div className="relative mx-auto max-w-7xl px-5 md:px-8">
-          <div className="grid md:grid-cols-5 gap-10 items-start">
-            <div className="hidden md:block md:col-span-2">
-              <img src="/images/model-straight-1.png" alt="BeautyShare Pro model" className="w-full max-w-sm mx-auto rounded-2xl opacity-90" />
-            </div>
-            <div className="md:col-span-3">
-              <div className="mb-10">
-                <p className="text-sm font-bold text-orange uppercase tracking-widest mb-3">Everything You Need</p>
-                <h2 className="text-3xl md:text-4xl font-extrabold">
-                  What does a <span className="brand-gradient-text">BeautyShare Boss</span> get?
-                </h2>
-              </div>
-              <div className="grid sm:grid-cols-2 gap-5">
-                {[
-                  { icon: Icon.store, title: 'Your Branded Store', desc: 'A custom Shopify store with your logo, colors, and domain. Your customers see YOUR brand, not ours.' },
-                  { icon: Icon.box, title: 'Zero Inventory Risk', desc: 'We stock 100+ premium hair SKUs in our warehouse. You sell it, we ship it — in your branded packaging.' },
-                  { icon: Icon.chart, title: 'Business Intelligence', desc: 'Dashboard with real-time sales, profit tracking, customer analytics, and churn prediction tools.' },
-                  { icon: Icon.sparkle, title: 'AI Marketing Copilot', desc: 'Coming soon: AI-powered social captions, email sequences, and ad copy tailored to the hair industry.' },
-                  { icon: Icon.shield, title: 'Premium Hair Quality', desc: '100% virgin human hair — Brazilian, Peruvian, Malaysian. Body wave, deep wave, straight, and more.' },
-                  { icon: Icon.users, title: 'Boss Community', desc: 'Join 200+ hair entrepreneurs sharing tips, strategies, and wins. You\'re never building alone.' },
-                ].map((f) => (
-                  <div key={f.title} className="group rounded-2xl bg-white/5 border border-white/10 p-5 hover:bg-white/10 hover:border-orange/30 transition-all duration-300">
-                    <div className="text-orange mb-3">{f.icon}</div>
-                    <h3 className="text-base font-bold mb-1.5">{f.title}</h3>
-                    <p className="text-xs text-gray-400 leading-relaxed">{f.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════
           EARNINGS BREAKDOWN
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-20 md:py-28 bg-white">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="text-center mb-16">
-            <p className="text-sm font-bold text-pink uppercase tracking-widest mb-3">The Math Doesn&apos;t Lie</p>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900">
-              See what <span className="brand-gradient-text">Bosses are earning</span>
+            <p className="text-sm font-bold text-pink uppercase tracking-widest mb-4">The Math Doesn&apos;t Lie</p>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-black">
+              See What <Cursive className="brand-gradient-text">Bosses Are Earning</Cursive>
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
-              { level: 'Side Hustle', orders: '10-15', monthly: '$800 — $1,500', desc: 'Selling to friends, family, and social followers on the side', tag: 'Part-Time', tagColor: 'bg-lavender text-lavender-700' },
+              { level: 'Side Hustle', orders: '10-15', monthly: '$800 — $1,500', desc: 'Selling to friends, family, and social followers on the side', tag: 'Part-Time', tagColor: 'bg-lavender/30 text-black' },
               { level: 'Growing Brand', orders: '30-50', monthly: '$3,000 — $5,000', desc: 'Running ads, building an email list, repeat customers', tag: 'Most Popular', tagColor: 'bg-orange text-white' },
               { level: 'Full-Time Boss', orders: '80-120', monthly: '$8,000 — $15,000+', desc: 'Multiple marketing channels, loyal clientele, brand partnerships', tag: 'Top Earners', tagColor: 'bg-pink text-white' },
             ].map((tier) => (
-              <div key={tier.level} className={`rounded-2xl border p-8 text-center relative ${tier.level === 'Growing Brand' ? 'border-orange/30 bg-gradient-to-b from-orange-50 to-white shadow-xl shadow-orange/10 scale-105' : 'border-gray-200 bg-white'}`}>
+              <div key={tier.level} className={`rounded-2xl border p-8 text-center relative ${tier.level === 'Growing Brand' ? 'border-orange/30 bg-orange-50/30 shadow-xl shadow-orange/10 scale-105' : 'border-black/10 bg-white'}`}>
                 <span className={`inline-block rounded-full px-3 py-1 text-xs font-bold ${tier.tagColor} mb-4`}>{tier.tag}</span>
-                <h3 className="text-xl font-bold text-gray-900">{tier.level}</h3>
+                <h3 className="text-xl font-bold text-black">{tier.level}</h3>
                 <div className="mt-4 text-3xl md:text-4xl font-extrabold brand-gradient-text">{tier.monthly}</div>
-                <p className="text-sm text-gray-400 mt-1">/month profit</p>
-                <p className="text-sm text-gray-500 mt-1">{tier.orders} orders/month</p>
-                <p className="text-sm text-gray-500 mt-4 leading-relaxed">{tier.desc}</p>
+                <p className="text-sm text-black/40 mt-1">/month profit</p>
+                <p className="text-sm text-black/60 mt-1">{tier.orders} orders/month</p>
+                <p className="text-sm text-black/60 mt-4 leading-relaxed">{tier.desc}</p>
               </div>
             ))}
           </div>
-          <p className="text-center text-xs text-gray-400 mt-8 max-w-lg mx-auto">
+          <p className="text-center text-xs text-black/40 mt-8 max-w-lg mx-auto">
             Based on average margins of $80-120 profit per order. Individual results vary based on pricing strategy, product mix, and marketing effort.
           </p>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          TESTIMONIALS
+          TESTIMONIALS / REVIEWS
           ═══════════════════════════════════════════════════════════ */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-lavender-50 to-orange-50">
+      <section id="reviews" className="py-20 md:py-28 bg-[#FFF8F3]">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="text-center mb-16">
-            <p className="text-sm font-bold text-orange uppercase tracking-widest mb-3">Boss Testimonials</p>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900">
-              Hear from our <span className="text-pink">Bosses</span>
+            <p className="text-sm font-bold text-orange uppercase tracking-widest mb-4">Boss Testimonials</p>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-black">
+              Hear From Our <Cursive className="text-pink">Bosses</Cursive>
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -493,22 +481,22 @@ export default function HomePage() {
               { name: 'Keisha R.', location: 'Houston, TX', quote: 'The profit calculator alone was worth it. I realized I was undercharging by $40 per bundle! Within 2 months my margins went from 25% to 55% and I\'m actually making money now.', revenue: '$6,800/mo', image: '/images/model-straight-2.png' },
               { name: 'Diamond L.', location: 'Brooklyn, NY', quote: 'I was skeptical about the $149/month but the ROI is crazy. I made that back on my second order. Now I\'m doing $10K months and I never touch a single piece of hair. It just ships.', revenue: '$10,500/mo', image: '/images/model-curly-2.png' },
             ].map((t) => (
-              <div key={t.name} className="rounded-2xl bg-white p-6 shadow-sm border border-gray-100">
+              <div key={t.name} className="rounded-2xl bg-white p-6 shadow-sm border border-black/5">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (<span key={i} className="text-gold">{Icon.star}</span>))}
                 </div>
-                <p className="text-sm text-gray-600 leading-relaxed mb-6">&ldquo;{t.quote}&rdquo;</p>
-                <div className="flex items-center justify-between border-t border-gray-100 pt-4">
+                <p className="text-sm text-black/70 leading-relaxed mb-6">&ldquo;{t.quote}&rdquo;</p>
+                <div className="flex items-center justify-between border-t border-black/5 pt-4">
                   <div className="flex items-center gap-3">
                     <img src={t.image} alt={t.name} className="h-11 w-11 rounded-full object-cover border-2 border-orange/20" />
                     <div>
-                      <div className="text-sm font-semibold text-gray-900">{t.name}</div>
-                      <div className="text-xs text-gray-400">{t.location}</div>
+                      <div className="text-sm font-semibold text-black">{t.name}</div>
+                      <div className="text-xs text-black/40">{t.location}</div>
                     </div>
                   </div>
                   <div className="text-right">
                     <div className="text-sm font-bold brand-gradient-text">{t.revenue}</div>
-                    <div className="text-xs text-gray-400">avg. monthly</div>
+                    <div className="text-xs text-black/40">avg. monthly</div>
                   </div>
                 </div>
               </div>
@@ -518,59 +506,49 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          PRICING — with membership card + Join Today banner
+          PRICING — clean, no images
           ═══════════════════════════════════════════════════════════ */}
       <section id="pricing" className="py-20 md:py-28 bg-white">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="text-center mb-16">
-            <p className="text-sm font-bold text-orange uppercase tracking-widest mb-3">Simple Pricing</p>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900">
-              One plan. <span className="brand-gradient-text">Everything included.</span>
+            <p className="text-sm font-bold text-orange uppercase tracking-widest mb-4">Simple Pricing</p>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-black">
+              One Plan. <Cursive className="brand-gradient-text">Everything Included.</Cursive>
             </h2>
-            <p className="mt-4 text-gray-500 max-w-lg mx-auto">No hidden fees. No tiered nonsense. Every Boss gets the full platform.</p>
-          </div>
-
-          {/* Membership card + Join banner side by side */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-14 items-center">
-            <div className="rounded-2xl overflow-hidden shadow-lg">
-              <img src="/images/membership-card.png" alt="Monthly Dropship Membership" className="w-full h-auto" />
-            </div>
-            <div className="rounded-2xl overflow-hidden shadow-lg">
-              <img src="/images/banner-join.png" alt="Join BeautyShare Pro today" className="w-full h-auto" />
-            </div>
+            <p className="mt-4 text-black/60 max-w-lg mx-auto text-lg">No hidden fees. No tiered nonsense. Every Boss gets the full platform.</p>
           </div>
 
           <div className="mx-auto max-w-lg">
-            <div className="rounded-3xl border-2 border-orange/30 bg-gradient-to-b from-orange-50/50 to-white p-10 shadow-xl shadow-orange/10 text-center relative">
+            <div className="rounded-3xl border-2 border-orange/30 bg-white p-10 shadow-xl shadow-orange/10 text-center relative">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full brand-gradient-pink px-4 py-1.5 text-xs font-bold text-white shadow-lg">MOST POPULAR</div>
-              <h3 className="text-xl font-bold text-gray-900 mt-2">BeautyShare Boss Plan</h3>
+              <h3 className="text-xl font-bold text-black mt-2">BeautyShare Boss Plan</h3>
               <div className="mt-6 flex items-end justify-center gap-1">
-                <span className="text-6xl font-extrabold text-gray-900">$149</span>
-                <span className="mb-2 text-gray-400 font-medium">/month</span>
+                <span className="text-6xl font-extrabold text-black">$149</span>
+                <span className="mb-2 text-black/40 font-medium">/month</span>
               </div>
-              <p className="text-sm text-gray-400 mt-1">+ $99 one-time setup fee</p>
+              <p className="text-sm text-black/40 mt-1">+ $99 one-time setup fee</p>
               <div className="mt-8 space-y-3 text-left">
                 {['Premium virgin hair at wholesale prices','Custom branded Shopify store','Automated order fulfillment & shipping','One-click tracking upload','Profit & pricing calculators','Real-time sales dashboard & analytics','Customer CRM & reorder predictions','Access to Boss Community & support','AI Marketing Copilot (coming soon)'].map((feature) => (
                   <div key={feature} className="flex items-center gap-3">
                     <span className="text-orange">{Icon.check}</span>
-                    <span className="text-sm text-gray-700 font-medium">{feature}</span>
+                    <span className="text-sm text-black font-medium">{feature}</span>
                   </div>
                 ))}
               </div>
               <Link href="/signup" className="mt-10 w-full inline-flex items-center justify-center gap-2 rounded-full brand-gradient-pink py-4 text-base font-bold text-white shadow-xl shadow-orange/25 hover:shadow-2xl transition-all hover:-translate-y-0.5">
                 Become A BeautyShare Boss {Icon.arrow}
               </Link>
-              <p className="text-xs text-gray-400 mt-4">Cancel anytime. No long-term contracts.</p>
+              <p className="text-xs text-black/40 mt-4">Cancel anytime. No long-term contracts.</p>
             </div>
           </div>
 
           {/* ROI callout */}
-          <div className="mt-12 mx-auto max-w-2xl rounded-2xl bg-gray-900 p-8 text-center text-white">
+          <div className="mt-12 mx-auto max-w-2xl rounded-2xl bg-black p-8 text-center text-white">
             <p className="text-sm font-semibold text-orange uppercase tracking-wide mb-2">Quick Math</p>
             <p className="text-2xl md:text-3xl font-bold">
               Sell just <span className="text-orange">2 bundles</span> and your monthly fee is covered.
             </p>
-            <p className="text-gray-400 mt-2">Average profit per bundle: $80+. Your subscription pays for itself with your first few sales.</p>
+            <p className="text-white/60 mt-2">Average profit per bundle: $80+. Your subscription pays for itself with your first few sales.</p>
           </div>
 
           {/* Money-back guarantee */}
@@ -586,12 +564,12 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════════════
           FAQ
           ═══════════════════════════════════════════════════════════ */}
-      <section id="faq" className="py-20 md:py-28 bg-gray-50">
+      <section id="faq" className="py-20 md:py-28 bg-[#FFF8F3]">
         <div className="mx-auto max-w-3xl px-5 md:px-8">
           <div className="text-center mb-16">
-            <p className="text-sm font-bold text-orange uppercase tracking-widest mb-3">Got Questions?</p>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900">
-              Frequently Asked <span className="brand-gradient-text">Questions</span>
+            <p className="text-sm font-bold text-orange uppercase tracking-widest mb-4">Got Questions?</p>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-black">
+              Frequently Asked <Cursive className="brand-gradient-text">Questions</Cursive>
             </h2>
           </div>
           <div className="space-y-4">
@@ -606,12 +584,12 @@ export default function HomePage() {
               { q: 'Is there a contract or commitment?', a: 'No contracts whatsoever. Pay month-to-month. If it\'s not for you, cancel in one click. We believe in earning your business every single month.' },
               { q: 'What makes this different from AliExpress dropshipping?', a: 'Quality and speed. Our hair is premium 100% virgin human hair stored in US-based warehouses. Orders ship in 1-2 days, not 2-4 weeks. Plus you get a real branded store, not a generic template with 3-week shipping times.' },
             ].map((item) => (
-              <details key={item.q} className="group rounded-2xl bg-white border border-gray-200 overflow-hidden">
-                <summary className="flex items-center justify-between cursor-pointer p-6 text-left font-semibold text-gray-900 hover:text-orange transition-colors [&::-webkit-details-marker]:hidden">
+              <details key={item.q} className="group rounded-2xl bg-white border border-black/5 overflow-hidden shadow-sm">
+                <summary className="flex items-center justify-between cursor-pointer p-6 text-left font-semibold text-black hover:text-orange transition-colors [&::-webkit-details-marker]:hidden">
                   {item.q}
                   <span className="shrink-0 ml-4 group-open:rotate-180 transition-transform duration-200">{Icon.chevron}</span>
                 </summary>
-                <div className="px-6 pb-6 text-sm text-gray-500 leading-relaxed -mt-2">{item.a}</div>
+                <div className="px-6 pb-6 text-sm text-black/60 leading-relaxed -mt-2">{item.a}</div>
               </details>
             ))}
           </div>
@@ -637,20 +615,21 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════════════
           FOOTER
           ═══════════════════════════════════════════════════════════ */}
-      <footer className="bg-gray-900 border-t border-gray-800 px-5 md:px-8 py-12">
+      <footer className="bg-black px-5 md:px-8 py-12">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <img src="/images/logo.png" alt="BeautyShare Pro" className="h-9 w-auto" />
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
-              <a href="#why" className="hover:text-white transition-colors">Why Us</a>
-              <a href="#hair" className="hover:text-white transition-colors">Our Hair</a>
+            <img src="/images/logo.png" alt="BeautyShare Pro" className="h-9 w-auto brightness-0 invert" />
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-white/60">
               <a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a>
+              <a href="#why" className="hover:text-white transition-colors">Why BSP</a>
+              <a href="#hair" className="hover:text-white transition-colors">Our Hair</a>
               <a href="#compare" className="hover:text-white transition-colors">Compare</a>
-              <a href="#pricing" className="hover:text-white transition-colors">Pricing</a>
+              <a href="#pricing" className="hover:text-white transition-colors">Plans</a>
+              <a href="#reviews" className="hover:text-white transition-colors">Reviews</a>
               <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
               <Link href="/login" className="hover:text-white transition-colors">Boss Login</Link>
             </div>
-            <div className="flex gap-4 text-gray-500">
+            <div className="flex gap-4 text-white/40">
               <a href="#" className="hover:text-orange transition-colors" aria-label="Instagram">
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
               </a>
@@ -662,10 +641,10 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-          <div className="mt-8 pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
+          <div className="mt-8 pt-8 border-t border-white/10 text-center text-xs text-white/40">
             &copy; {new Date().getFullYear()} BeautyShare Pro. All rights reserved. &middot;
-            <a href="#" className="hover:text-gray-300 ml-1">Privacy Policy</a> &middot;
-            <a href="#" className="hover:text-gray-300 ml-1">Terms of Service</a>
+            <a href="#" className="hover:text-white ml-1">Privacy Policy</a> &middot;
+            <a href="#" className="hover:text-white ml-1">Terms of Service</a>
           </div>
         </div>
       </footer>
