@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 /* ================================================================
-   BeautyShare Pro — High-Converting SaaS Landing Page
+   BeautyShare Pro — Image-Rich SaaS Landing Page
    Brand Colors: #FA6A27 (orange), #D61465 (pink), #DCBDEF (lavender),
                  #E2AD37 (gold), #000000, #FFFFFF
    ================================================================ */
@@ -74,16 +74,13 @@ export default function HomePage() {
           ═══════════════════════════════════════════════════════════ */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
         <div className="mx-auto max-w-7xl flex items-center justify-between px-5 py-3 md:px-8">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="h-10 w-10 rounded-full brand-gradient flex items-center justify-center">
-              <span className="text-white font-bold text-lg">R</span>
-            </div>
-            <span className="text-xl font-bold tracking-tight">
-              <span className="brand-gradient-text">beauty</span>
-              <span className="text-gray-900">share</span>
-              <span className="text-pink font-extrabold text-sm align-super ml-0.5">PRO</span>
-            </span>
+          {/* Logo — actual brand image */}
+          <Link href="/" className="flex items-center">
+            <img
+              src="/images/logo.png"
+              alt="BeautyShare Pro"
+              className="h-10 md:h-12 w-auto"
+            />
           </Link>
 
           {/* Nav links */}
@@ -111,66 +108,151 @@ export default function HomePage() {
       </nav>
 
       {/* ═══════════════════════════════════════════════════════════
-          HERO SECTION
+          HERO SECTION — Split layout with model image
           ═══════════════════════════════════════════════════════════ */}
-      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 brand-gradient opacity-[0.07]" />
+      <section className="relative pt-28 pb-12 md:pt-36 md:pb-20 overflow-hidden">
+        {/* Background accents */}
+        <div className="absolute inset-0 brand-gradient opacity-[0.05]" />
         <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-lavender/20 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange/10 rounded-full blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-5 md:px-8">
-          <div className="mx-auto max-w-4xl text-center">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 border border-orange-200 px-4 py-1.5 text-sm font-semibold text-orange mb-8">
-              <span className="h-2 w-2 rounded-full bg-orange animate-pulse" />
-              Now Accepting New Members
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            {/* Left — Text */}
+            <div className="text-center md:text-left">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 border border-orange-200 px-4 py-1.5 text-sm font-semibold text-orange mb-8">
+                <span className="h-2 w-2 rounded-full bg-orange animate-pulse" />
+                Now Accepting New Members
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 leading-[1.1]">
+                Launch Your{' '}
+                <span className="brand-gradient-text">Hair Empire</span>
+                <br />
+                <span className="text-pink">Without The Risk</span>
+              </h1>
+
+              <p className="mt-6 max-w-xl text-lg md:text-xl text-gray-500 leading-relaxed md:mx-0 mx-auto">
+                Get premium hair extensions at wholesale prices, your own branded Shopify store,
+                and automated fulfillment — all for one monthly fee.{' '}
+                <strong className="text-gray-700">No inventory. No guesswork. No limits.</strong>
+              </p>
+
+              {/* CTA buttons */}
+              <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row md:justify-start sm:justify-center">
+                <Link
+                  href="/signup"
+                  className="group inline-flex items-center gap-2 rounded-full brand-gradient-pink px-8 py-4 text-base font-bold text-white shadow-xl shadow-orange/25 hover:shadow-2xl hover:shadow-orange/30 transition-all hover:-translate-y-0.5"
+                >
+                  Become A BeautyShare Boss
+                  <span className="group-hover:translate-x-1 transition-transform">{Icon.arrow}</span>
+                </Link>
+                <Link
+                  href="/calculators"
+                  className="inline-flex items-center gap-2 rounded-full border-2 border-gray-200 bg-white px-8 py-4 text-base font-semibold text-gray-700 hover:border-orange/40 hover:text-orange transition-all"
+                >
+                  See How Much You Can Earn
+                </Link>
+              </div>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900 leading-[1.1]">
-              Launch Your{' '}
-              <span className="brand-gradient-text">Hair Empire</span>
-              <br className="hidden sm:block" />
-              <span className="text-pink">Without The Risk</span>
-            </h1>
+            {/* Right — Hero Model Image */}
+            <div className="flex justify-center md:justify-end">
+              <div className="relative">
+                <img
+                  src="/images/hero-model.png"
+                  alt="Beautiful model showcasing premium hair extensions"
+                  className="w-[340px] md:w-[440px] lg:w-[500px] h-auto object-contain drop-shadow-2xl"
+                />
+              </div>
+            </div>
+          </div>
 
-            <p className="mx-auto mt-6 max-w-2xl text-lg md:text-xl text-gray-500 leading-relaxed">
-              Get premium hair extensions at wholesale prices, your own branded Shopify store,
-              and automated fulfillment — all for one monthly fee.{' '}
-              <strong className="text-gray-700">No inventory. No guesswork. No limits.</strong>
+          {/* Trust bar */}
+          <div className="mt-16 flex flex-wrap justify-center gap-8 md:gap-14 text-center">
+            {[
+              { value: '200+', label: 'Active Bosses' },
+              { value: '$2.4M', label: 'Revenue Generated' },
+              { value: '15K+', label: 'Orders Fulfilled' },
+              { value: '4.9/5', label: 'Boss Rating' },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <div className="text-2xl md:text-3xl font-extrabold brand-gradient-text">{stat.value}</div>
+                <div className="text-xs md:text-sm text-gray-400 mt-1 font-medium">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          HAIR SHOWCASE — Visual gallery of models & hair
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="py-16 md:py-24 bg-gray-950 relative overflow-hidden">
+        <div className="absolute inset-0 brand-gradient opacity-10" />
+
+        <div className="relative mx-auto max-w-7xl px-5 md:px-8">
+          <div className="text-center mb-12">
+            <p className="text-sm font-bold text-orange uppercase tracking-widest mb-3">Premium Quality</p>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-white">
+              Hair that <span className="brand-gradient-text">sells itself</span>
+            </h2>
+            <p className="mt-4 text-gray-400 max-w-xl mx-auto">
+              100% virgin human hair — Brazilian, Peruvian, Malaysian. Body wave, deep wave, straight, curly, and more. Your customers will keep coming back.
             </p>
+          </div>
 
-            {/* CTA buttons */}
-            <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <Link
-                href="/signup"
-                className="group inline-flex items-center gap-2 rounded-full brand-gradient-pink px-8 py-4 text-base font-bold text-white shadow-xl shadow-orange/25 hover:shadow-2xl hover:shadow-orange/30 transition-all hover:-translate-y-0.5"
-              >
-                Become A BeautyShare Boss
-                <span className="group-hover:translate-x-1 transition-transform">{Icon.arrow}</span>
-              </Link>
-              <Link
-                href="/calculators"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-gray-200 bg-white px-8 py-4 text-base font-semibold text-gray-700 hover:border-orange/40 hover:text-orange transition-all"
-              >
-                See How Much You Can Earn
-              </Link>
+          {/* Model grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+            <div className="rounded-2xl overflow-hidden bg-white/5 border border-white/10 group hover:border-orange/30 transition-all">
+              <img
+                src="/images/model-curly-1.png"
+                alt="Model with curly hair extensions"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+              />
             </div>
+            <div className="rounded-2xl overflow-hidden bg-white/5 border border-white/10 group hover:border-orange/30 transition-all">
+              <img
+                src="/images/model-straight-1.png"
+                alt="Model with straight hair extensions"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="rounded-2xl overflow-hidden bg-white/5 border border-white/10 group hover:border-orange/30 transition-all">
+              <img
+                src="/images/model-curly-2.png"
+                alt="Model with body wave hair extensions"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="rounded-2xl overflow-hidden bg-white/5 border border-white/10 group hover:border-orange/30 transition-all">
+              <img
+                src="/images/model-straight-2.png"
+                alt="Model with deep wave hair extensions"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
 
-            {/* Trust bar */}
-            <div className="mt-14 flex flex-wrap justify-center gap-8 md:gap-14 text-center">
-              {[
-                { value: '200+', label: 'Active Bosses' },
-                { value: '$2.4M', label: 'Revenue Generated' },
-                { value: '15K+', label: 'Orders Fulfilled' },
-                { value: '4.9/5', label: 'Boss Rating' },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <div className="text-2xl md:text-3xl font-extrabold brand-gradient-text">{stat.value}</div>
-                  <div className="text-xs md:text-sm text-gray-400 mt-1 font-medium">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+          {/* Group shot below */}
+          <div className="mt-8 max-w-3xl mx-auto rounded-2xl overflow-hidden border border-white/10">
+            <img
+              src="/images/models-group.png"
+              alt="BeautyShare Pro models showcasing premium hair collection"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+
+          <div className="mt-10 text-center">
+            <p className="text-gray-400 text-sm mb-4">Straight &middot; Body Wave &middot; Deep Wave &middot; Loose Wave &middot; Curly &middot; Kinky Curly &middot; 10&quot; to 30&quot;</p>
+            <Link
+              href="/signup"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-orange/40 px-6 py-3 text-sm font-bold text-orange hover:bg-orange hover:text-white transition-all"
+            >
+              Start Selling Premium Hair Today
+              {Icon.arrow}
+            </Link>
           </div>
         </div>
       </section>
@@ -241,7 +323,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          HOW IT WORKS
+          HOW IT WORKS — with Getting Started banner
           ═══════════════════════════════════════════════════════════ */}
       <section id="how-it-works" className="py-20 md:py-28 bg-white">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
@@ -252,33 +334,39 @@ export default function HomePage() {
             </h2>
           </div>
 
+          {/* Getting Started Banner */}
+          <div className="max-w-4xl mx-auto mb-14 rounded-2xl overflow-hidden shadow-xl shadow-orange/10">
+            <img
+              src="/images/banner-getting-started.png"
+              alt="Getting started with BeautyShare Pro membership"
+              className="w-full h-auto"
+            />
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
               {
                 step: '01',
                 title: 'Join & Get Your Store',
                 desc: 'Sign up, pick your brand name, and we\'ll build your custom Shopify store with our premium hair catalog already loaded.',
-                color: 'from-lavender to-lavender-dark',
                 bg: 'bg-lavender-50',
               },
               {
                 step: '02',
                 title: 'Set Prices & Sell',
                 desc: 'Use our profit calculators to set your retail prices. Share your store link, run your marketing, and start making sales.',
-                color: 'from-orange to-gold',
                 bg: 'bg-orange-50',
               },
               {
                 step: '03',
                 title: 'We Ship, You Profit',
                 desc: 'When a customer orders, we pick, pack, and ship it with YOUR branding. You collect the retail price, keep the profit.',
-                color: 'from-pink to-pink-dark',
                 bg: 'bg-pink-50',
               },
             ].map((item) => (
               <div key={item.step} className="text-center">
                 <div className={`inline-flex items-center justify-center h-16 w-16 rounded-2xl ${item.bg} mb-6`}>
-                  <span className={`text-2xl font-extrabold brand-gradient-text`}>{item.step}</span>
+                  <span className="text-2xl font-extrabold brand-gradient-text">{item.step}</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
                 <p className="text-gray-500 leading-relaxed">{item.desc}</p>
@@ -286,7 +374,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Arrow connector on desktop */}
+          {/* CTA */}
           <div className="hidden md:flex justify-center mt-12">
             <Link
               href="/signup"
@@ -300,62 +388,76 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          WHAT'S INCLUDED / FEATURES
+          WHAT'S INCLUDED / FEATURES — with model accent image
           ═══════════════════════════════════════════════════════════ */}
       <section id="features" className="py-20 md:py-28 bg-gray-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 brand-gradient opacity-10" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-orange/5 rounded-full blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-5 md:px-8">
-          <div className="text-center mb-16">
-            <p className="text-sm font-bold text-orange uppercase tracking-widest mb-3">Everything You Need</p>
-            <h2 className="text-3xl md:text-5xl font-extrabold">
-              What does a <span className="brand-gradient-text">BeautyShare Boss</span> get?
-            </h2>
-          </div>
+          <div className="grid md:grid-cols-5 gap-10 items-start">
+            {/* Left — model accent */}
+            <div className="hidden md:block md:col-span-2">
+              <img
+                src="/images/model-straight-1.png"
+                alt="BeautyShare Pro model with straight hair"
+                className="w-full max-w-sm mx-auto rounded-2xl opacity-90"
+              />
+            </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {[
-              {
-                icon: Icon.store,
-                title: 'Your Branded Store',
-                desc: 'A custom Shopify store with your logo, colors, and domain. Your customers see YOUR brand, not ours.',
-              },
-              {
-                icon: Icon.box,
-                title: 'Zero Inventory Risk',
-                desc: 'We stock 100+ premium hair SKUs in our warehouse. You sell it, we ship it — in your branded packaging.',
-              },
-              {
-                icon: Icon.chart,
-                title: 'Business Intelligence',
-                desc: 'Dashboard with real-time sales, profit tracking, customer analytics, and churn prediction tools.',
-              },
-              {
-                icon: Icon.sparkle,
-                title: 'AI Marketing Copilot',
-                desc: 'Coming soon: AI-powered social captions, email sequences, and ad copy tailored to the hair industry.',
-              },
-              {
-                icon: Icon.shield,
-                title: 'Premium Hair Quality',
-                desc: '100% virgin human hair — Brazilian, Peruvian, Malaysian. Body wave, deep wave, straight, and more.',
-              },
-              {
-                icon: Icon.users,
-                title: 'Boss Community',
-                desc: 'Join 200+ hair entrepreneurs sharing tips, strategies, and wins. You\'re never building alone.',
-              },
-            ].map((feature) => (
-              <div
-                key={feature.title}
-                className="group rounded-2xl bg-white/5 border border-white/10 p-6 hover:bg-white/10 hover:border-orange/30 transition-all duration-300"
-              >
-                <div className="text-orange mb-4">{feature.icon}</div>
-                <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{feature.desc}</p>
+            {/* Right — features content */}
+            <div className="md:col-span-3">
+              <div className="mb-10">
+                <p className="text-sm font-bold text-orange uppercase tracking-widest mb-3">Everything You Need</p>
+                <h2 className="text-3xl md:text-4xl font-extrabold">
+                  What does a <span className="brand-gradient-text">BeautyShare Boss</span> get?
+                </h2>
               </div>
-            ))}
+
+              <div className="grid sm:grid-cols-2 gap-5">
+                {[
+                  {
+                    icon: Icon.store,
+                    title: 'Your Branded Store',
+                    desc: 'A custom Shopify store with your logo, colors, and domain. Your customers see YOUR brand, not ours.',
+                  },
+                  {
+                    icon: Icon.box,
+                    title: 'Zero Inventory Risk',
+                    desc: 'We stock 100+ premium hair SKUs in our warehouse. You sell it, we ship it — in your branded packaging.',
+                  },
+                  {
+                    icon: Icon.chart,
+                    title: 'Business Intelligence',
+                    desc: 'Dashboard with real-time sales, profit tracking, customer analytics, and churn prediction tools.',
+                  },
+                  {
+                    icon: Icon.sparkle,
+                    title: 'AI Marketing Copilot',
+                    desc: 'Coming soon: AI-powered social captions, email sequences, and ad copy tailored to the hair industry.',
+                  },
+                  {
+                    icon: Icon.shield,
+                    title: 'Premium Hair Quality',
+                    desc: '100% virgin human hair — Brazilian, Peruvian, Malaysian. Body wave, deep wave, straight, and more.',
+                  },
+                  {
+                    icon: Icon.users,
+                    title: 'Boss Community',
+                    desc: 'Join 200+ hair entrepreneurs sharing tips, strategies, and wins. You\'re never building alone.',
+                  },
+                ].map((feature) => (
+                  <div
+                    key={feature.title}
+                    className="group rounded-2xl bg-white/5 border border-white/10 p-5 hover:bg-white/10 hover:border-orange/30 transition-all duration-300"
+                  >
+                    <div className="text-orange mb-3">{feature.icon}</div>
+                    <h3 className="text-base font-bold mb-1.5">{feature.title}</h3>
+                    <p className="text-xs text-gray-400 leading-relaxed">{feature.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -429,7 +531,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          TESTIMONIALS
+          TESTIMONIALS — with model-style photos
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-20 md:py-28 bg-gradient-to-br from-lavender-50 to-orange-50">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
@@ -447,21 +549,21 @@ export default function HomePage() {
                 location: 'Atlanta, GA',
                 quote: 'I went from selling hair out of my trunk to running a real online business. BeautyShare handled everything I was struggling with — inventory, shipping, even my website. I just focus on my clients now.',
                 revenue: '$4,200/mo',
-                initials: 'JT',
+                image: '/images/model-curly-1.png',
               },
               {
                 name: 'Keisha R.',
                 location: 'Houston, TX',
                 quote: 'The profit calculator alone was worth it. I realized I was undercharging by $40 per bundle! Within 2 months my margins went from 25% to 55% and I\'m actually making money now.',
                 revenue: '$6,800/mo',
-                initials: 'KR',
+                image: '/images/model-straight-2.png',
               },
               {
                 name: 'Diamond L.',
                 location: 'Brooklyn, NY',
                 quote: 'I was skeptical about the $149/month but the ROI is crazy. I made that back on my second order. Now I\'m doing $10K months and I never touch a single piece of hair. It just ships.',
                 revenue: '$10,500/mo',
-                initials: 'DL',
+                image: '/images/model-curly-2.png',
               },
             ].map((t) => (
               <div key={t.name} className="rounded-2xl bg-white p-6 shadow-sm border border-gray-100">
@@ -473,9 +575,11 @@ export default function HomePage() {
                 <p className="text-sm text-gray-600 leading-relaxed mb-6">&ldquo;{t.quote}&rdquo;</p>
                 <div className="flex items-center justify-between border-t border-gray-100 pt-4">
                   <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-full brand-gradient-pink flex items-center justify-center text-white text-sm font-bold">
-                      {t.initials}
-                    </div>
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      className="h-11 w-11 rounded-full object-cover border-2 border-orange/20"
+                    />
                     <div>
                       <div className="text-sm font-semibold text-gray-900">{t.name}</div>
                       <div className="text-xs text-gray-400">{t.location}</div>
@@ -493,7 +597,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          PRICING
+          PRICING — with Join Today banner
           ═══════════════════════════════════════════════════════════ */}
       <section id="pricing" className="py-20 md:py-28 bg-white">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
@@ -505,6 +609,15 @@ export default function HomePage() {
             <p className="mt-4 text-gray-500 max-w-lg mx-auto">
               No hidden fees. No tiered nonsense. Every Boss gets the full platform.
             </p>
+          </div>
+
+          {/* Join Today Banner */}
+          <div className="max-w-3xl mx-auto mb-14 rounded-2xl overflow-hidden shadow-lg shadow-orange/10">
+            <img
+              src="/images/banner-join.png"
+              alt="Join BeautyShare Pro today"
+              className="w-full h-auto"
+            />
           </div>
 
           <div className="mx-auto max-w-lg">
@@ -625,36 +738,29 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          FINAL CTA
+          FINAL CTA — with branded "Start Your Business" banner
           ═══════════════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-gray-900" />
-        <div className="absolute inset-0 brand-gradient opacity-20" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-orange/10 rounded-full blur-3xl" />
-
-        <div className="relative mx-auto max-w-3xl px-5 md:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight">
-            Ready to become a{' '}
-            <span className="brand-gradient-text">BeautyShare Boss</span>?
-          </h2>
-          <p className="mt-6 text-lg text-gray-400 max-w-xl mx-auto">
-            Join 200+ women who turned their hair business dreams into reality.
-            No inventory risk. No tech headaches. Just profit.
-          </p>
-
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+      <section className="relative py-0 overflow-hidden">
+        {/* Full-width branded CTA banner */}
+        <div className="relative">
+          <img
+            src="/images/startbanner.png"
+            alt="Start your hair business today with BeautyShare Pro"
+            className="w-full h-auto min-h-[300px] object-cover"
+          />
+          {/* Overlay with CTA button */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/20 px-5">
             <Link
               href="/signup"
-              className="group inline-flex items-center gap-2 rounded-full brand-gradient-pink px-10 py-4 text-lg font-bold text-white shadow-2xl shadow-orange/30 hover:-translate-y-1 transition-all"
+              className="group inline-flex items-center gap-2 rounded-full bg-white px-10 py-4 text-lg font-bold text-pink shadow-2xl hover:-translate-y-1 transition-all"
             >
               Get Started Now — $149/mo
               <span className="group-hover:translate-x-1 transition-transform">{Icon.arrow}</span>
             </Link>
+            <p className="mt-4 text-sm text-white/80 font-medium">
+              $99 setup fee &middot; Cancel anytime &middot; No contracts
+            </p>
           </div>
-
-          <p className="mt-6 text-sm text-gray-500">
-            $99 setup fee &middot; Cancel anytime &middot; No contracts
-          </p>
         </div>
       </section>
 
@@ -664,16 +770,13 @@ export default function HomePage() {
       <footer className="bg-gray-900 border-t border-gray-800 px-5 md:px-8 py-12">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            {/* Logo */}
-            <div className="flex items-center gap-2.5">
-              <div className="h-9 w-9 rounded-full brand-gradient flex items-center justify-center">
-                <span className="text-white font-bold">R</span>
-              </div>
-              <span className="text-lg font-bold">
-                <span className="text-orange">beauty</span>
-                <span className="text-white">share</span>
-                <span className="text-pink font-extrabold text-xs align-super ml-0.5">PRO</span>
-              </span>
+            {/* Logo — actual brand image */}
+            <div className="flex items-center">
+              <img
+                src="/images/logo.png"
+                alt="BeautyShare Pro"
+                className="h-9 w-auto"
+              />
             </div>
 
             {/* Links */}
@@ -685,7 +788,7 @@ export default function HomePage() {
               <Link href="/login" className="hover:text-white transition-colors">Boss Login</Link>
             </div>
 
-            {/* Social placeholder */}
+            {/* Social */}
             <div className="flex gap-4 text-gray-500">
               <a href="#" className="hover:text-orange transition-colors" aria-label="Instagram">
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
