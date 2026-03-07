@@ -55,6 +55,7 @@ interface NavItem {
 const mainNav: NavItem[] = [
   { label: 'Get Started', href: '/dashboard/onboarding', icon: <Sparkles className="h-5 w-5" />, badge: 'New' },
   { label: 'Community', href: '/dashboard/community', icon: <MessageCircle className="h-5 w-5" />, badge: 'Free' },
+  { label: 'Resources', href: '/dashboard/resources', icon: <BookOpen className="h-5 w-5" />, badge: 'Free' },
   { label: 'Academy', href: '/dashboard/academy', icon: <GraduationCap className="h-5 w-5" /> },
   { label: 'Dashboard', href: '/dashboard', icon: <LayoutDashboard className="h-5 w-5" /> },
   { label: 'Orders', href: '/dashboard/orders', icon: <ShoppingCart className="h-5 w-5" /> },
@@ -204,7 +205,10 @@ export function Sidebar() {
                     <span style={{ color: active ? '#fff' : '#8B7355' }}>{item.icon}</span>
                     <span className="truncate">{item.label}</span>
                     {item.badge && (
-                      <span className="ml-auto rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold text-white">
+                      <span
+                        className="ml-auto rounded-full px-2 py-0.5 text-[10px] font-bold text-white"
+                        style={{ backgroundColor: item.badge === 'New' ? '#D61465' : '#059669' }}
+                      >
                         {item.badge}
                       </span>
                     )}
