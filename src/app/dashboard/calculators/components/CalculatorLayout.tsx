@@ -90,7 +90,7 @@ export function CalculatorLayout({
         {/* Save Button */}
         <Button
           onClick={() => setShowSaveModal(true)}
-          className="w-full bg-gradient-to-r from-[#D4713B] to-[#E2AD37] hover:from-[#C85A25] hover:to-[#D09A20] text-white flex items-center justify-center gap-2"
+          className="w-full bg-gradient-to-r from-[#FA6A27] to-[#E2AD37] hover:from-[#E05A1A] hover:to-[#C49320] text-white flex items-center justify-center gap-2"
           disabled={isSaving}
         >
           <Save className="w-4 h-4" />

@@ -10,7 +10,7 @@ const calculators = [
     title: 'Launch Cost Calculator',
     description: 'Calculate your total startup costs including inventory, website, packaging, and marketing. See your break-even timeline.',
     icon: DollarSign,
-    gradient: 'from-[#D4713B] to-[#E2AD37]',
+    gradient: 'from-[#FA6A27] to-[#E2AD37]',
     bgGlow: 'bg-orange-50',
     href: '/dashboard/calculators/launch',
     tag: 'Most Popular',
@@ -20,8 +20,8 @@ const calculators = [
     title: 'Profit Calculator',
     description: 'Analyze profit margins per unit, monthly revenue, and ROI. Understand your business profitability at a glance.',
     icon: TrendingUp,
-    gradient: 'from-[#D4713B] to-[#E2AD37]',
-    bgGlow: 'bg-purple-50',
+    gradient: 'from-[#FA6A27] to-[#E2AD37]',
+    bgGlow: 'bg-lavender-50',
     href: '/dashboard/calculators/profit',
     tag: 'Essential',
   },
@@ -30,7 +30,7 @@ const calculators = [
     title: 'Retail Price Calculator',
     description: 'Determine optimal retail prices based on wholesale cost, target margins, and competitor pricing analysis.',
     icon: Tag,
-    gradient: 'from-[#D4713B] to-[#E2AD37]',
+    gradient: 'from-[#FA6A27] to-[#E2AD37]',
     bgGlow: 'bg-orange-50',
     href: '/dashboard/calculators/retail',
     tag: 'Strategic',
@@ -41,7 +41,7 @@ export default function CalculatorsPage() {
   return (
     <div className="space-y-8">
       {/* Hero Header */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#D4713B] via-orange-500 to-[#E2AD37] p-8 text-white">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#FA6A27] via-orange-500 to-[#E2AD37] p-8 text-white">
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">

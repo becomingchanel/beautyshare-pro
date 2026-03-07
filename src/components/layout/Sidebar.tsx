@@ -15,10 +15,7 @@ import {
   ChevronDown,
   LogOut,
   Sparkles,
-  GraduationCap,
-  MessageCircle,
   TrendingUp,
-  Truck,
   Handshake,
   UserCheck,
   Eye,
@@ -27,7 +24,6 @@ import {
   Brain,
   Calendar,
   BookOpen,
-  Shield,
   ArrowUpCircle,
   DollarSign,
   Percent,
@@ -53,12 +49,9 @@ interface NavItem {
 
 const mainNav: NavItem[] = [
   { label: 'Get Started', href: '/dashboard/onboarding', icon: <Sparkles className="h-5 w-5" />, badge: 'New' },
-  { label: 'Community', href: '/dashboard/community', icon: <MessageCircle className="h-5 w-5" />, badge: 'Free' },
   { label: 'Resources', href: '/dashboard/resources', icon: <BookOpen className="h-5 w-5" />, badge: 'Free' },
-  { label: 'Academy', href: '/dashboard/academy', icon: <GraduationCap className="h-5 w-5" /> },
   { label: 'Dashboard', href: '/dashboard', icon: <LayoutDashboard className="h-5 w-5" /> },
   { label: 'Orders', href: '/dashboard/orders', icon: <ShoppingCart className="h-5 w-5" /> },
-  { label: 'Supplier Orders', href: '/dashboard/supplier-orders', icon: <Truck className="h-5 w-5" /> },
   { label: 'Forecasting', href: '/dashboard/forecasting', icon: <TrendingUp className="h-5 w-5" /> },
   {
     label: 'Calculators',
@@ -89,7 +82,6 @@ const mainNav: NavItem[] = [
     icon: <BookOpen className="h-5 w-5" />,
   },
   { label: 'Reports', href: '/dashboard/reports', icon: <BarChart3 className="h-5 w-5" /> },
-  { label: 'Compliance', href: '/dashboard/compliance', icon: <Shield className="h-5 w-5" /> },
   { label: 'Settings', href: '/dashboard/settings', icon: <Settings className="h-5 w-5" /> },
   { label: 'Upgrade', href: '/dashboard/upgrade', icon: <ArrowUpCircle className="h-5 w-5" /> },
 ];
@@ -112,14 +104,14 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="flex h-screen w-60 flex-col flex-shrink-0 bg-white" style={{ borderRight: '1px solid #F0E6DD' }}>
+    <aside className="flex h-screen w-60 flex-col flex-shrink-0 bg-white" style={{ borderRight: '1px solid #E5E7EB' }}>
       {/* Logo — BeautySharePro gradient */}
       <div className="px-5 pt-5 pb-2">
         <Link href="/" className="flex items-center">
           <span
             className="text-xl font-bold tracking-tight"
             style={{
-              background: 'linear-gradient(90deg, #E8853B 0%, #D4627A 35%, #C94B8C 55%, #B8399E 75%, #D61465 100%)',
+              background: 'linear-gradient(90deg, #FA6A27 0%, #D61465 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
             }}
@@ -137,14 +129,14 @@ export function Sidebar() {
 
       {/* Business Name Selector */}
       <div className="mx-4 mb-3">
-        <button className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors" style={{ backgroundColor: '#FFF5F0', border: '1px solid #F5E6DC', color: '#4A3728' }}>
+        <button className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors" style={{ backgroundColor: '#F9FAFB', border: '1px solid #E5E7EB', color: '#000000' }}>
           <div className="flex items-center gap-2">
-            <div className="flex h-6 w-6 items-center justify-center rounded-md text-white text-[10px] font-bold" style={{ background: 'linear-gradient(135deg, #D61465, #E91E8C)' }}>
+            <div className="flex h-6 w-6 items-center justify-center rounded-md text-white text-[10px] font-bold" style={{ background: 'linear-gradient(135deg, #D61465, #FA6A27)' }}>
               {profile?.full_name?.charAt(0)?.toUpperCase() || 'B'}
             </div>
             <span className="truncate font-medium">{profile?.full_name || 'My Business'}</span>
           </div>
-          <ChevronDown className="h-3.5 w-3.5 flex-shrink-0 ml-2" style={{ color: '#B8A594' }} />
+          <ChevronDown className="h-3.5 w-3.5 flex-shrink-0 ml-2" style={{ color: '#9CA3AF' }} />
         </button>
       </div>
 
@@ -167,12 +159,12 @@ export function Sidebar() {
                       'flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] font-medium transition-all'
                     )}
                     style={{
-                      color: anyChildActive ? '#fff' : '#6B5A48',
+                      color: anyChildActive ? '#fff' : '#000000',
                       backgroundColor: anyChildActive ? '#D61465' : 'transparent',
                     }}
                     onMouseEnter={(e) => {
                       if (!anyChildActive) {
-                        e.currentTarget.style.backgroundColor = '#FFF5F0';
+                        e.currentTarget.style.backgroundColor = '#F9FAFB';
                       }
                     }}
                     onMouseLeave={(e) => {
@@ -181,11 +173,11 @@ export function Sidebar() {
                       }
                     }}
                   >
-                    <span style={{ color: anyChildActive ? '#fff' : '#B8A594' }}>{item.icon}</span>
+                    <span style={{ color: anyChildActive ? '#fff' : '#9CA3AF' }}>{item.icon}</span>
                     <span className="truncate">{item.label}</span>
                     <ChevronDown
                       className={cn('ml-auto h-3.5 w-3.5 transition-transform', isExpanded && 'rotate-180')}
-                      style={{ color: anyChildActive ? '#fff' : '#B8A594' }}
+                      style={{ color: anyChildActive ? '#fff' : '#9CA3AF' }}
                     />
                   </button>
                 ) : (
@@ -195,28 +187,28 @@ export function Sidebar() {
                       'flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] font-medium transition-all'
                     )}
                     style={{
-                      color: active ? '#fff' : '#6B5A48',
+                      color: active ? '#fff' : '#000000',
                       backgroundColor: active ? '#D61465' : 'transparent',
                     }}
                     onMouseEnter={(e) => {
                       if (!active) {
-                        e.currentTarget.style.backgroundColor = '#FFF5F0';
-                        e.currentTarget.style.color = '#4A3728';
+                        e.currentTarget.style.backgroundColor = '#F9FAFB';
+                        e.currentTarget.style.color = '#000000';
                       }
                     }}
                     onMouseLeave={(e) => {
                       if (!active) {
                         e.currentTarget.style.backgroundColor = 'transparent';
-                        e.currentTarget.style.color = '#6B5A48';
+                        e.currentTarget.style.color = '#000000';
                       }
                     }}
                   >
-                    <span style={{ color: active ? '#fff' : '#B8A594' }}>{item.icon}</span>
+                    <span style={{ color: active ? '#fff' : '#9CA3AF' }}>{item.icon}</span>
                     <span className="truncate">{item.label}</span>
                     {item.badge && (
                       <span
                         className="ml-auto rounded-full px-2 py-0.5 text-[10px] font-bold text-white"
-                        style={{ backgroundColor: item.badge === 'New' ? '#D61465' : '#059669' }}
+                        style={{ backgroundColor: item.badge === 'New' ? '#D61465' : '#FA6A27' }}
                       >
                         {item.badge}
                       </span>
@@ -226,7 +218,7 @@ export function Sidebar() {
 
                 {/* Children */}
                 {hasChildren && isExpanded && (
-                  <div className="mt-0.5 ml-4 space-y-0.5 pl-3" style={{ borderLeft: '1px solid #F0E6DD' }}>
+                  <div className="mt-0.5 ml-4 space-y-0.5 pl-3" style={{ borderLeft: '1px solid #E5E7EB' }}>
                     {item.children!.map((child) => {
                       const childActive = checkActive(child.href);
                       return (
@@ -235,23 +227,23 @@ export function Sidebar() {
                           href={child.href}
                           className="flex items-center gap-2 rounded-md px-2.5 py-1.5 text-[12px] font-medium transition-all"
                           style={{
-                            color: childActive ? '#D61465' : '#8B7355',
-                            backgroundColor: childActive ? '#FFF0F5' : 'transparent',
+                            color: childActive ? '#D61465' : '#6B7280',
+                            backgroundColor: childActive ? '#FDF2F8' : 'transparent',
                           }}
                           onMouseEnter={(e) => {
                             if (!childActive) {
-                              e.currentTarget.style.backgroundColor = '#FFF5F0';
-                              e.currentTarget.style.color = '#6B5A48';
+                              e.currentTarget.style.backgroundColor = '#F9FAFB';
+                              e.currentTarget.style.color = '#000000';
                             }
                           }}
                           onMouseLeave={(e) => {
                             if (!childActive) {
                               e.currentTarget.style.backgroundColor = 'transparent';
-                              e.currentTarget.style.color = '#8B7355';
+                              e.currentTarget.style.color = '#6B7280';
                             }
                           }}
                         >
-                          <span style={{ color: childActive ? '#D61465' : '#C4B5A5' }}>{child.icon}</span>
+                          <span style={{ color: childActive ? '#D61465' : '#9CA3AF' }}>{child.icon}</span>
                           <span className="truncate">{child.label}</span>
                         </Link>
                       );
@@ -265,28 +257,28 @@ export function Sidebar() {
       </nav>
 
       {/* Bottom User Area */}
-      <div className="px-3 py-3" style={{ borderTop: '1px solid #F0E6DD' }}>
+      <div className="px-3 py-3" style={{ borderTop: '1px solid #E5E7EB' }}>
         <div className="flex items-center gap-2.5">
           <div
             className="flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-white flex-shrink-0"
-            style={{ background: 'linear-gradient(135deg, #D61465, #E91E8C)' }}
+            style={{ background: 'linear-gradient(135deg, #D61465, #FA6A27)' }}
           >
             {profile?.full_name?.charAt(0)?.toUpperCase() || profile?.email?.charAt(0)?.toUpperCase() || 'C'}
           </div>
           <div className="min-w-0 flex-1">
-            <p className="truncate text-xs font-medium" style={{ color: '#4A3728' }}>
+            <p className="truncate text-xs font-medium" style={{ color: '#000000' }}>
               {profile?.role === 'admin' ? 'Super Admin' : 'Subscriber'}
             </p>
-            <p className="truncate text-[10px]" style={{ color: '#B8A594' }}>
+            <p className="truncate text-[10px]" style={{ color: '#9CA3AF' }}>
               {profile?.email || 'user@email.com'}
             </p>
           </div>
           <button
             onClick={() => signOut()}
             className="flex-shrink-0 rounded p-1 transition-colors"
-            style={{ color: '#B8A594' }}
+            style={{ color: '#9CA3AF' }}
             onMouseEnter={(e) => { e.currentTarget.style.color = '#D61465'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = '#B8A594'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = '#9CA3AF'; }}
             title="Sign out"
           >
             <LogOut className="h-4 w-4" />

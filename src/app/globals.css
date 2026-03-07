@@ -2,20 +2,20 @@
 @source "../../src";
 
 @theme {
-  /* BeautyShare Pro Brand Colors — Lovable-matched warm palette */
-  --color-orange: #D4713B;
-  --color-orange-light: #E8945C;
-  --color-orange-dark: #B85E2A;
-  --color-orange-50: #FFF7F0;
-  --color-orange-100: #FFEDD9;
-  --color-orange-200: #FFD8B0;
-  --color-orange-300: #FFC080;
-  --color-orange-400: #E8945C;
-  --color-orange-500: #D4713B;
-  --color-orange-600: #B85E2A;
-  --color-orange-700: #9A4B20;
-  --color-orange-800: #7D3B1A;
-  --color-orange-900: #632E15;
+  /* BeautyShare Pro Brand Colors — Official 6-color palette */
+  --color-orange: #FA6A27;
+  --color-orange-light: #FF8A50;
+  --color-orange-dark: #E05A1A;
+  --color-orange-50: #FFF3EB;
+  --color-orange-100: #FFE4D1;
+  --color-orange-200: #FFCBA8;
+  --color-orange-300: #FFAD78;
+  --color-orange-400: #FF8A50;
+  --color-orange-500: #FA6A27;
+  --color-orange-600: #E05A1A;
+  --color-orange-700: #C04A14;
+  --color-orange-800: #993B10;
+  --color-orange-900: #732D0C;
 
   --color-pink: #D61465;
   --color-pink-light: #F0268A;
@@ -61,38 +61,38 @@
   --color-danger: #DC2626;
   --color-danger-light: #FEE2E2;
 
-  /* Brand palette — warm orange/coral */
-  --color-brand-50: #FFF7F0;
-  --color-brand-100: #FFEDD9;
-  --color-brand-200: #FFD8B0;
-  --color-brand-300: #FFC080;
-  --color-brand-400: #E8945C;
-  --color-brand-500: #D4713B;
-  --color-brand-600: #B85E2A;
-  --color-brand-700: #9A4B20;
-  --color-brand-800: #7D3B1A;
-  --color-brand-900: #632E15;
-  --color-brand-950: #3D1B0A;
+  /* Brand palette — primary orange */
+  --color-brand-50: #FFF3EB;
+  --color-brand-100: #FFE4D1;
+  --color-brand-200: #FFCBA8;
+  --color-brand-300: #FFAD78;
+  --color-brand-400: #FF8A50;
+  --color-brand-500: #FA6A27;
+  --color-brand-600: #E05A1A;
+  --color-brand-700: #C04A14;
+  --color-brand-800: #993B10;
+  --color-brand-900: #732D0C;
+  --color-brand-950: #4A1E06;
 
-  /* Cream tones */
-  --color-cream-50: #FFFDFB;
-  --color-cream-100: #FDF8F3;
-  --color-cream-200: #F5F0EB;
-  --color-cream-300: #EDE5DB;
-  --color-cream-400: #E0D3C3;
+  /* Neutral tones */
+  --color-cream-50: #FFFFFF;
+  --color-cream-100: #F9FAFB;
+  --color-cream-200: #F3F4F6;
+  --color-cream-300: #E5E7EB;
+  --color-cream-400: #D1D5DB;
 
-  /* Sidebar dark tones */
-  --color-sidebar: #1A0F08;
-  --color-sidebar-hover: #2D1B0E;
-  --color-sidebar-active: #D4713B;
-  --color-sidebar-text: #B8A594;
-  --color-sidebar-text-hover: #E8D5B5;
-  --color-sidebar-border: #3D2A1A;
+  /* Sidebar tones */
+  --color-sidebar: #FFFFFF;
+  --color-sidebar-hover: #F9FAFB;
+  --color-sidebar-active: #D61465;
+  --color-sidebar-text: #6B7280;
+  --color-sidebar-text-hover: #000000;
+  --color-sidebar-border: #E5E7EB;
 
-  /* Semantic accent — warm orange */
-  --color-accent: #D4713B;
-  --color-accent-light: #E8945C;
-  --color-accent-dark: #B85E2A;
+  /* Semantic accent — brand orange */
+  --color-accent: #FA6A27;
+  --color-accent-light: #FF8A50;
+  --color-accent-dark: #E05A1A;
 
   /* Typography */
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -106,28 +106,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Brand gradient utility — warm orange */
+/* Brand gradient utility — brand orange */
 .brand-gradient {
-  background: linear-gradient(135deg, #D4713B 0%, #E2AD37 100%);
+  background: linear-gradient(135deg, #FA6A27 0%, #E2AD37 100%);
 }
 
 .brand-gradient-reverse {
-  background: linear-gradient(135deg, #E2AD37 0%, #D4713B 100%);
+  background: linear-gradient(135deg, #E2AD37 0%, #FA6A27 100%);
 }
 
 .brand-gradient-text {
-  background: linear-gradient(135deg, #D4713B 0%, #E2AD37 100%);
+  background: linear-gradient(135deg, #FA6A27 0%, #E2AD37 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .brand-gradient-pink {
-  background: linear-gradient(135deg, #D4713B 0%, #D61465 100%);
+  background: linear-gradient(135deg, #FA6A27 0%, #D61465 100%);
 }
 
 .brand-gradient-full {
-  background: linear-gradient(135deg, #D4713B 0%, #E2AD37 40%, #DCBDEF 70%, #D61465 100%);
+  background: linear-gradient(135deg, #FA6A27 0%, #E2AD37 40%, #DCBDEF 70%, #D61465 100%);
 }
 
 /* Animated gradient */
@@ -138,7 +138,7 @@ body {
 }
 
 .animated-gradient {
-  background: linear-gradient(135deg, #D4713B, #E2AD37, #D61465, #DCBDEF, #D4713B);
+  background: linear-gradient(135deg, #FA6A27, #E2AD37, #D61465, #DCBDEF, #FA6A27);
   background-size: 300% 300%;
   animation: gradient-shift 8s ease infinite;
 }
@@ -161,12 +161,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D4C4B0;
+  background: #D1D5DB;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B8976E;
+  background: #9CA3AF;
 }
 
 /* Sidebar-specific scrollbar */
@@ -179,17 +179,17 @@ body {
 }
 
 .sidebar-scroll::-webkit-scrollbar-thumb {
-  background: #3D2A1A;
+  background: #E5E7EB;
   border-radius: 2px;
 }
 
 .sidebar-scroll::-webkit-scrollbar-thumb:hover {
-  background: #5A3D28;
+  background: #D1D5DB;
 }
 
 /* Focus outline for accessibility */
 *:focus-visible {
-  outline: 2px solid #D4713B;
+  outline: 2px solid #FA6A27;
   outline-offset: 2px;
   border-radius: 4px;
 }

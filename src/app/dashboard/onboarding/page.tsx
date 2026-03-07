@@ -173,7 +173,7 @@ export default function OnboardingWizard() {
     selectedTemplate: '',
     // Step 4 — Brand
     logoUrl: '',
-    primaryColor: '#E91E8C',
+    primaryColor: '#FA6A27',
     secondaryColor: '#9333EA',
     accentColor: '#F59E0B',
     storeName: '',
@@ -235,12 +235,12 @@ export default function OnboardingWizard() {
   const progressPercent = ((currentStep - 1) / (totalSteps - 1)) * 100;
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#FAF7F4' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#F9FAFB' }}>
       {/* ═══════════════ GRADIENT HEADER ═══════════════ */}
       <div
         className="relative"
         style={{
-          background: 'linear-gradient(135deg, #D61465 0%, #E91E8C 40%, #F97316 100%)',
+          background: 'linear-gradient(135deg, #D61465 0%, #FA6A27 40%, #FA6A27 100%)',
         }}
       >
         <div className="mx-auto max-w-5xl px-6 py-5">
@@ -268,7 +268,7 @@ export default function OnboardingWizard() {
           className="h-1.5 transition-all duration-500 ease-out"
           style={{
             width: `${progressPercent}%`,
-            background: 'linear-gradient(90deg, #D61465, #E91E8C, #F97316)',
+            background: 'linear-gradient(90deg, #D61465, #FA6A27, #FA6A27)',
           }}
         />
       </div>
@@ -300,9 +300,9 @@ export default function OnboardingWizard() {
                   className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full transition-all"
                   style={{
                     background: isActive
-                      ? 'linear-gradient(135deg, #D61465, #F97316)'
+                      ? 'linear-gradient(135deg, #D61465, #FA6A27)'
                       : isComplete
-                      ? 'linear-gradient(135deg, #D61465, #E91E8C)'
+                      ? 'linear-gradient(135deg, #D61465, #FA6A27)'
                       : '#F3F4F6',
                     color: isActive || isComplete ? '#fff' : '#9CA3AF',
                     boxShadow: isActive ? '0 4px 12px rgba(214, 20, 101, 0.3)' : 'none',
@@ -328,7 +328,7 @@ export default function OnboardingWizard() {
 
       {/* ═══════════════ STEP CONTENT ═══════════════ */}
       <div className="mx-auto max-w-4xl px-6 py-6">
-        <div className="rounded-2xl border bg-white p-6 md:p-8 shadow-sm" style={{ borderColor: '#EDE5DB' }}>
+        <div className="rounded-2xl border bg-white p-6 md:p-8 shadow-sm" style={{ borderColor: '#E5E7EB' }}>
 
           {/* ═══ STEP 1: WELCOME ═══ */}
           {currentStep === 1 && (
@@ -337,7 +337,7 @@ export default function OnboardingWizard() {
               <div
                 className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full shadow-lg"
                 style={{
-                  background: 'linear-gradient(135deg, #D61465, #F97316)',
+                  background: 'linear-gradient(135deg, #D61465, #FA6A27)',
                   boxShadow: '0 8px 24px rgba(214, 20, 101, 0.25)',
                 }}
               >
@@ -354,7 +354,7 @@ export default function OnboardingWizard() {
                 <div className="flex flex-col items-center gap-3">
                   <div
                     className="flex h-16 w-16 items-center justify-center rounded-full shadow-lg group-hover:scale-110 transition-transform"
-                    style={{ background: 'linear-gradient(135deg, #D61465, #F97316)' }}
+                    style={{ background: 'linear-gradient(135deg, #D61465, #FA6A27)' }}
                   >
                     <Play className="h-7 w-7 text-white ml-1" />
                   </div>
@@ -376,7 +376,7 @@ export default function OnboardingWizard() {
                     <div
                       key={feature.title}
                       className="flex items-start gap-3 rounded-xl border p-4"
-                      style={{ borderColor: '#EDE5DB', backgroundColor: '#FFFDFB' }}
+                      style={{ borderColor: '#E5E7EB', backgroundColor: '#FFFFFF' }}
                     >
                       <div
                         className="flex h-10 w-10 items-center justify-center rounded-lg flex-shrink-0"
@@ -400,7 +400,7 @@ export default function OnboardingWizard() {
                 onClick={() => setCurrentStep(2)}
                 className="rounded-xl px-10 py-4 text-base font-bold text-white transition-all shadow-lg"
                 style={{
-                  background: 'linear-gradient(135deg, #D61465, #E91E8C)',
+                  background: 'linear-gradient(135deg, #D61465, #FA6A27)',
                   boxShadow: '0 4px 16px rgba(214, 20, 101, 0.25)',
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.9'; }}
@@ -622,7 +622,7 @@ export default function OnboardingWizard() {
                     title: 'Premium Template',
                     desc: 'Choose from our professionally designed templates',
                     price: 'Starting at $249',
-                    gradient: 'linear-gradient(135deg, #D61465, #E91E8C)',
+                    gradient: 'linear-gradient(135deg, #D61465, #FA6A27)',
                     badge: 'Most Popular',
                   },
                   {
@@ -631,7 +631,7 @@ export default function OnboardingWizard() {
                     title: 'Connect Existing Store',
                     desc: 'Already have a Shopify store? Connect it here',
                     price: 'Included',
-                    gradient: 'linear-gradient(135deg, #10B981, #14B8A6)',
+                    gradient: 'linear-gradient(135deg, #E2AD37, #FA6A27)',
                     badge: '',
                   },
                   {
@@ -640,7 +640,7 @@ export default function OnboardingWizard() {
                     title: 'We Build It For You',
                     desc: 'Our team will set up a custom store for you',
                     price: 'Included',
-                    gradient: 'linear-gradient(135deg, #8B5CF6, #6366F1)',
+                    gradient: 'linear-gradient(135deg, #9B6FCF, #DCBDEF)',
                     badge: '',
                   },
                 ] as const).map((p) => {
@@ -671,7 +671,7 @@ export default function OnboardingWizard() {
                       </div>
                       <h4 className="text-base font-bold text-gray-900">{p.title}</h4>
                       <p className="mt-1 text-sm text-gray-500">{p.desc}</p>
-                      <p className="mt-3 text-sm font-bold" style={{ color: p.id === 'premium-template' ? '#D61465' : '#10B981' }}>{p.price}</p>
+                      <p className="mt-3 text-sm font-bold" style={{ color: p.id === 'premium-template' ? '#D61465' : '#FA6A27' }}>{p.price}</p>
                       {isSelected && (
                         <div className="absolute top-3 right-3 flex h-6 w-6 items-center justify-center rounded-full" style={{ backgroundColor: '#D61465' }}>
                           <Check className="h-4 w-4 text-white" />
@@ -730,19 +730,19 @@ export default function OnboardingWizard() {
                     <input type="text" placeholder="your-store" className="flex-1 rounded-l-xl border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:ring-2" style={{}} onFocus={(e) => { e.currentTarget.style.borderColor = '#D61465'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(214,20,101,0.1)'; }} onBlur={(e) => { e.currentTarget.style.borderColor = '#E5E7EB'; e.currentTarget.style.boxShadow = 'none'; }} />
                     <span className="flex items-center rounded-r-xl border border-l-0 border-gray-200 bg-gray-50 px-4 text-sm text-gray-500">.myshopify.com</span>
                   </div>
-                  <button className="mt-4 flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-3 text-sm font-bold text-white hover:bg-emerald-700 transition-colors">
+                  <button className="mt-4 flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-bold text-white transition-colors" style={{ backgroundColor: '#FA6A27' }}>
                     <Store className="h-5 w-5" /> Connect Store
                   </button>
                 </div>
               )}
 
               {formData.path === 'we-build' && (
-                <div className="rounded-xl bg-purple-50 border border-purple-100 p-5 max-w-md">
+                <div className="rounded-xl p-5 max-w-md" style={{ backgroundColor: '#F5F0FA', border: '1px solid #E6D0F3' }}>
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 mt-0.5 flex-shrink-0" style={{ color: '#9B6FCF' }} />
                     <div>
-                      <h4 className="text-sm font-semibold text-purple-900">We&apos;ll handle everything!</h4>
-                      <p className="mt-1 text-sm text-purple-700">Our team will build your store with your brand settings. We&apos;ll install your products and launch it for you within 48 hours.</p>
+                      <h4 className="text-sm font-semibold" style={{ color: '#000000' }}>We&apos;ll handle everything!</h4>
+                      <p className="mt-1 text-sm" style={{ color: '#6B7280' }}>Our team will build your store with your brand settings. We&apos;ll install your products and launch it for you within 48 hours.</p>
                     </div>
                   </div>
                 </div>
@@ -1005,7 +1005,7 @@ export default function OnboardingWizard() {
                 <div
                   className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full shadow-lg"
                   style={{
-                    background: 'linear-gradient(135deg, #D61465, #F97316)',
+                    background: 'linear-gradient(135deg, #D61465, #FA6A27)',
                     boxShadow: '0 8px 24px rgba(214, 20, 101, 0.25)',
                   }}
                 >
@@ -1025,7 +1025,7 @@ export default function OnboardingWizard() {
                     className="h-3 rounded-full transition-all"
                     style={{
                       width: `${(readyCount / checklist.length) * 100}%`,
-                      background: 'linear-gradient(90deg, #D61465, #F97316)',
+                      background: 'linear-gradient(90deg, #D61465, #FA6A27)',
                     }}
                   />
                 </div>
@@ -1042,7 +1042,7 @@ export default function OnboardingWizard() {
                 </div>
                 <div className="rounded-xl border border-gray-200 p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-100"><Compass className="h-5 w-5 text-purple-600" /></div>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg" style={{ backgroundColor: '#F5F0FA' }}><Compass className="h-5 w-5" style={{ color: '#9B6FCF' }} /></div>
                     <h4 className="font-bold text-gray-900 text-sm">Your Path</h4>
                   </div>
                   <p className="text-sm text-gray-600">{formData.path ? formData.path.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : 'Not chosen'}</p>
@@ -1062,7 +1062,7 @@ export default function OnboardingWizard() {
                 </div>
                 <div className="rounded-xl border border-gray-200 p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100"><ShoppingBag className="h-5 w-5 text-emerald-600" /></div>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg" style={{ backgroundColor: '#FFF3EB' }}><ShoppingBag className="h-5 w-5" style={{ color: '#FA6A27' }} /></div>
                     <h4 className="font-bold text-gray-900 text-sm">Products</h4>
                   </div>
                   <p className="text-sm text-gray-600">{formData.selectedProducts.length} products selected</p>
@@ -1089,7 +1089,7 @@ export default function OnboardingWizard() {
                   disabled={readyCount < checklist.length}
                   className="rounded-xl px-10 py-4 text-base font-bold text-white transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none"
                   style={{
-                    background: 'linear-gradient(135deg, #D61465, #E91E8C)',
+                    background: 'linear-gradient(135deg, #D61465, #FA6A27)',
                     boxShadow: readyCount >= checklist.length ? '0 4px 16px rgba(214, 20, 101, 0.25)' : 'none',
                   }}
                 >
@@ -1116,7 +1116,7 @@ export default function OnboardingWizard() {
                 onClick={() => setCurrentStep(Math.min(totalSteps, currentStep + 1))}
                 className="flex items-center gap-1 rounded-xl px-6 py-2.5 text-sm font-bold text-white transition-all shadow-md"
                 style={{
-                  background: 'linear-gradient(135deg, #D61465, #E91E8C)',
+                  background: 'linear-gradient(135deg, #D61465, #FA6A27)',
                   boxShadow: '0 4px 12px rgba(214, 20, 101, 0.2)',
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.9'; }}

@@ -278,8 +278,8 @@ export default function ProfitCalculatorPage() {
               label="Monthly Profit"
               value={`$${results.monthly_profit.toLocaleString()}`}
               subtext="After all costs including subscription"
-              bgColor={results.monthly_profit > 0 ? 'bg-emerald-50' : 'bg-red-50'}
-              borderColor={results.monthly_profit > 0 ? 'border-emerald-200' : 'border-red-200'}
+              bgColor={results.monthly_profit > 0 ? 'bg-gold-50' : 'bg-red-50'}
+              borderColor={results.monthly_profit > 0 ? 'border-gold-200' : 'border-red-200'}
             />
           </div>
 
@@ -287,7 +287,7 @@ export default function ProfitCalculatorPage() {
             label="Return on Ad Spend (ROI)"
             value={`${results.roi.toLocaleString()}%`}
             subtext="Profit relative to marketing + subscription"
-            bgColor="bg-purple-50"
+            bgColor="bg-lavender-50"
             borderColor="border-purple-200"
           />
 

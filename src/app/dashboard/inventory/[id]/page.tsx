@@ -83,9 +83,9 @@ export default async function ProductInventoryPage({ params }: PageProps) {
 
   const getCategoryBadgeColor = (category: string) => {
     const categoryColors: Record<string, string> = {
-      bundles: 'bg-purple-100 text-purple-800',
+      bundles: 'bg-lavender-100 text-lavender-600',
       closures: 'bg-blue-100 text-blue-800',
-      frontals: 'bg-indigo-100 text-indigo-800',
+      frontals: 'bg-pink-100 text-pink-600',
       wigs: 'bg-pink-100 text-pink-800',
       accessories: 'bg-gray-100 text-gray-800',
     };

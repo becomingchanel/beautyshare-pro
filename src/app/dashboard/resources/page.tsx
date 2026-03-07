@@ -21,7 +21,7 @@ const resources = [
     icon: <Truck className="h-7 w-7" />,
     href: '/dashboard/resources/vendor-insights',
     articles: 8,
-    gradient: 'linear-gradient(135deg, #D4713B, #E2AD37)',
+    gradient: 'linear-gradient(135deg, #FA6A27, #E2AD37)',
     tag: 'Most Popular',
   },
   {
@@ -30,7 +30,7 @@ const resources = [
     icon: <DollarSign className="h-7 w-7" />,
     href: '/dashboard/resources/pricing-guidance',
     articles: 6,
-    gradient: 'linear-gradient(135deg, #D61465, #E91E8C)',
+    gradient: 'linear-gradient(135deg, #D61465, #FA6A27)',
     tag: 'Essential',
   },
   {
@@ -39,7 +39,7 @@ const resources = [
     icon: <Rocket className="h-7 w-7" />,
     href: '/dashboard/resources/launch-tips',
     articles: 10,
-    gradient: 'linear-gradient(135deg, #7C3AED, #A855F7)',
+    gradient: 'linear-gradient(135deg, #9B6FCF, #DCBDEF)',
     tag: 'New',
   },
   {
@@ -48,7 +48,7 @@ const resources = [
     icon: <Megaphone className="h-7 w-7" />,
     href: '/dashboard/resources/content-strategies',
     articles: 7,
-    gradient: 'linear-gradient(135deg, #059669, #10B981)',
+    gradient: 'linear-gradient(135deg, #E2AD37, #FA6A27)',
     tag: 'Trending',
   },
 ];
@@ -59,22 +59,22 @@ export default function ResourcesHub() {
       {/* Hero Banner */}
       <div
         className="mb-8 rounded-2xl p-8 text-white relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #1A0F08 0%, #2D1B0E 50%, #3D2A1A 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #000000 0%, #111111 50%, #222222 100%)' }}
       >
-        <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #D4713B, transparent)' }} />
+        <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #FA6A27, transparent)' }} />
         <div className="relative z-10">
           <div className="flex items-center gap-2 mb-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: 'linear-gradient(135deg, #E2AD37, #D4713B)' }}>
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: 'linear-gradient(135deg, #E2AD37, #FA6A27)' }}>
               <BookOpen className="h-5 w-5 text-white" />
             </div>
-            <span className="rounded-full px-3 py-1 text-xs font-bold" style={{ backgroundColor: 'rgba(212,113,59,0.3)', color: '#E2AD37' }}>
+            <span className="rounded-full px-3 py-1 text-xs font-bold" style={{ backgroundColor: 'rgba(250,106,39,0.3)', color: '#E2AD37' }}>
               100% FREE
             </span>
           </div>
-          <h2 className="text-2xl font-bold mb-2" style={{ color: '#E8D5B5' }}>
+          <h2 className="text-2xl font-bold mb-2" style={{ color: '#FFFFFF' }}>
             Your Hair Business Knowledge Base
           </h2>
-          <p className="text-sm max-w-lg" style={{ color: '#B8A594' }}>
+          <p className="text-sm max-w-lg" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Expert guides, insider tips, and proven strategies — all included with your BeautyShare Pro membership. No upsells, no paywalls.
           </p>
         </div>
@@ -82,27 +82,27 @@ export default function ResourcesHub() {
 
       {/* Stats Row */}
       <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm" style={{ border: '1px solid #EDE5DB' }}>
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: '#FFF5EC' }}>
-            <Gift className="h-6 w-6" style={{ color: '#D4713B' }} />
+        <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm" style={{ border: '1px solid #E5E7EB' }}>
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: '#FFF3EB' }}>
+            <Gift className="h-6 w-6" style={{ color: '#FA6A27' }} />
           </div>
           <div>
             <p className="text-2xl font-bold text-gray-900">31+</p>
             <p className="text-sm text-gray-500">Free Articles</p>
           </div>
         </div>
-        <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm" style={{ border: '1px solid #EDE5DB' }}>
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: '#FFF5EC' }}>
-            <Star className="h-6 w-6" style={{ color: '#D4713B' }} />
+        <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm" style={{ border: '1px solid #E5E7EB' }}>
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: '#FFF3EB' }}>
+            <Star className="h-6 w-6" style={{ color: '#FA6A27' }} />
           </div>
           <div>
             <p className="text-2xl font-bold text-gray-900">4.9/5</p>
             <p className="text-sm text-gray-500">Member Rating</p>
           </div>
         </div>
-        <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm" style={{ border: '1px solid #EDE5DB' }}>
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: '#FFF5EC' }}>
-            <Sparkles className="h-6 w-6" style={{ color: '#D4713B' }} />
+        <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm" style={{ border: '1px solid #E5E7EB' }}>
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: '#FFF3EB' }}>
+            <Sparkles className="h-6 w-6" style={{ color: '#FA6A27' }} />
           </div>
           <div>
             <p className="text-2xl font-bold text-gray-900">Weekly</p>
@@ -118,7 +118,7 @@ export default function ResourcesHub() {
             key={res.title}
             href={res.href}
             className="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-sm transition-all hover:shadow-md"
-            style={{ border: '1px solid #EDE5DB' }}
+            style={{ border: '1px solid #E5E7EB' }}
           >
             <div className="flex items-start justify-between">
               <div
@@ -129,7 +129,7 @@ export default function ResourcesHub() {
               </div>
               <span
                 className="rounded-full px-3 py-1 text-xs font-bold"
-                style={{ backgroundColor: '#FFF5EC', color: '#D4713B' }}
+                style={{ backgroundColor: '#FFF3EB', color: '#FA6A27' }}
               >
                 {res.tag}
               </span>
@@ -140,7 +140,7 @@ export default function ResourcesHub() {
               <span className="text-xs text-gray-400">{res.articles} articles</span>
               <div
                 className="flex items-center gap-1 text-sm font-semibold transition-all group-hover:gap-2"
-                style={{ color: '#D4713B' }}
+                style={{ color: '#FA6A27' }}
               >
                 Read Now <ArrowRight className="h-4 w-4" />
               </div>

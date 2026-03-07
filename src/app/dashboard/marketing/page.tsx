@@ -39,7 +39,7 @@ const categories = [
     href: '/dashboard/marketing/photos',
     count: 48,
     gradient: 'from-purple-500 to-violet-500',
-    bgGlow: 'bg-purple-50',
+    bgGlow: 'bg-lavender-50',
   },
   {
     title: 'Brand Asset Kit',
@@ -48,7 +48,7 @@ const categories = [
     href: '/dashboard/marketing/brand-kit',
     count: 16,
     gradient: 'from-emerald-500 to-teal-500',
-    bgGlow: 'bg-emerald-50',
+    bgGlow: 'bg-gold-50',
   },
 ];
 
@@ -83,8 +83,8 @@ export default function MarketingHub() {
           </div>
         </div>
         <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm border border-gray-100">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50">
-            <TrendingUp className="h-6 w-6 text-emerald-500" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold-50">
+            <TrendingUp className="h-6 w-6 text-gold-300" />
           </div>
           <div>
             <p className="text-2xl font-bold text-gray-900">Free</p>

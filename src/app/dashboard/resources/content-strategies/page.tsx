@@ -214,7 +214,7 @@ export default function ContentStrategies() {
       <Link
         href="/dashboard/resources"
         className="inline-flex items-center gap-1.5 text-sm font-medium mb-6 transition-colors"
-        style={{ color: '#D4713B' }}
+        style={{ color: '#FA6A27' }}
       >
         <ArrowLeft className="h-4 w-4" /> Back to Resources
       </Link>
@@ -222,7 +222,7 @@ export default function ContentStrategies() {
       {/* Header Card */}
       <div
         className="mb-8 rounded-2xl p-6 text-white relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #059669, #10B981)' }}
+        style={{ background: 'linear-gradient(135deg, #E2AD37, #FA6A27)' }}
       >
         <div className="absolute -right-8 -top-8 w-40 h-40 rounded-full opacity-20" style={{ background: 'radial-gradient(circle, white, transparent)' }} />
         <div className="relative z-10 flex items-center gap-4">
@@ -238,7 +238,7 @@ export default function ContentStrategies() {
 
       {/* Platform Quick Stats */}
       <div className="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
-        <div className="rounded-xl bg-white p-4 shadow-sm" style={{ border: '1px solid #EDE5DB' }}>
+        <div className="rounded-xl bg-white p-4 shadow-sm" style={{ border: '1px solid #E5E7EB' }}>
           <div className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg" style={{ background: 'linear-gradient(135deg, #E1306C, #F77737)' }}>
               <Instagram className="h-5 w-5 text-white" />
@@ -249,7 +249,7 @@ export default function ContentStrategies() {
             </div>
           </div>
         </div>
-        <div className="rounded-xl bg-white p-4 shadow-sm" style={{ border: '1px solid #EDE5DB' }}>
+        <div className="rounded-xl bg-white p-4 shadow-sm" style={{ border: '1px solid #E5E7EB' }}>
           <div className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-black">
               <Video className="h-5 w-5 text-white" />
@@ -260,9 +260,9 @@ export default function ContentStrategies() {
             </div>
           </div>
         </div>
-        <div className="rounded-xl bg-white p-4 shadow-sm" style={{ border: '1px solid #EDE5DB' }}>
+        <div className="rounded-xl bg-white p-4 shadow-sm" style={{ border: '1px solid #E5E7EB' }}>
           <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg" style={{ backgroundColor: '#D4713B' }}>
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg" style={{ backgroundColor: '#FA6A27' }}>
               <Mail className="h-5 w-5 text-white" />
             </div>
             <div>
@@ -278,19 +278,19 @@ export default function ContentStrategies() {
           <button
             onClick={() => setActiveArticle(null)}
             className="inline-flex items-center gap-1.5 text-sm font-medium mb-6 transition-colors"
-            style={{ color: '#D4713B' }}
+            style={{ color: '#FA6A27' }}
           >
             <ArrowLeft className="h-4 w-4" /> Back to Articles
           </button>
 
-          <div className="rounded-2xl bg-white p-8 shadow-sm" style={{ border: '1px solid #EDE5DB' }}>
+          <div className="rounded-2xl bg-white p-8 shadow-sm" style={{ border: '1px solid #E5E7EB' }}>
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl" style={{ backgroundColor: '#ECFDF5', color: '#059669' }}>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl" style={{ backgroundColor: '#FDF8EB', color: '#E2AD37' }}>
                   {activeContent.icon}
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider" style={{ color: '#059669' }}>{activeContent.category}</span>
+                  <span className="text-xs font-bold uppercase tracking-wider" style={{ color: '#E2AD37' }}>{activeContent.category}</span>
                   <div className="flex items-center gap-2 mt-0.5">
                     <Clock className="h-3.5 w-3.5 text-gray-400" />
                     <span className="text-xs text-gray-400">{activeContent.readTime}</span>
@@ -300,7 +300,7 @@ export default function ContentStrategies() {
               <button
                 onClick={() => toggleBookmark(activeContent.id)}
                 className="rounded-lg p-2 transition-colors"
-                style={{ backgroundColor: bookmarked.includes(activeContent.id) ? '#ECFDF5' : '#F9FAFB', color: bookmarked.includes(activeContent.id) ? '#059669' : '#9CA3AF' }}
+                style={{ backgroundColor: bookmarked.includes(activeContent.id) ? '#FDF8EB' : '#F9FAFB', color: bookmarked.includes(activeContent.id) ? '#E2AD37' : '#9CA3AF' }}
               >
                 <Bookmark className="h-5 w-5" />
               </button>
@@ -317,14 +317,14 @@ export default function ContentStrategies() {
               ))}
             </div>
 
-            <div className="mt-10 pt-6" style={{ borderTop: '1px solid #EDE5DB' }}>
+            <div className="mt-10 pt-6" style={{ borderTop: '1px solid #E5E7EB' }}>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <ThumbsUp className="h-4 w-4 text-gray-400" />
                   <span className="text-sm text-gray-500">Was this helpful?</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button className="rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors" style={{ backgroundColor: '#059669' }}>
+                  <button className="rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors" style={{ backgroundColor: '#E2AD37' }}>
                     Yes, thanks!
                   </button>
                   <button className="rounded-lg px-4 py-2 text-sm font-medium text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors">
@@ -342,13 +342,13 @@ export default function ContentStrategies() {
               key={article.id}
               onClick={() => setActiveArticle(article.id)}
               className="group rounded-2xl bg-white p-5 shadow-sm text-left transition-all hover:shadow-md"
-              style={{ border: '1px solid #EDE5DB' }}
+              style={{ border: '1px solid #E5E7EB' }}
             >
               <div className="flex items-start justify-between">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl" style={{ backgroundColor: '#ECFDF5', color: '#059669' }}>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl" style={{ backgroundColor: '#FDF8EB', color: '#E2AD37' }}>
                   {article.icon}
                 </div>
-                <span className="rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider" style={{ backgroundColor: '#ECFDF5', color: '#059669' }}>
+                <span className="rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider" style={{ backgroundColor: '#FDF8EB', color: '#E2AD37' }}>
                   {article.category}
                 </span>
               </div>
@@ -358,7 +358,7 @@ export default function ContentStrategies() {
                   <Clock className="h-3.5 w-3.5 text-gray-400" />
                   <span className="text-xs text-gray-400">{article.readTime}</span>
                 </div>
-                <span className="text-xs font-semibold" style={{ color: '#059669' }}>
+                <span className="text-xs font-semibold" style={{ color: '#E2AD37' }}>
                   Read →
                 </span>
               </div>

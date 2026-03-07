@@ -78,7 +78,7 @@ const themes = [
     tagline: 'Luxury / High-End',
     description:
       'Opulent black and gold theme for premium hair brands that demand elegance. Cormorant Garamond serif headlines meet sleek sans-serif body text, creating a high-fashion boutique experience.',
-    colors: { bg: '#0A0A0A', accent: '#C9A84C', text: '#F8F0E3' },
+    colors: { bg: '#000000', accent: '#E2AD37', text: '#FFFFFF' },
     fonts: 'Cormorant Garamond + Montserrat',
     features: [
       'Dramatic dark hero with gold overlay text',
@@ -87,11 +87,11 @@ const themes = [
       'Dark footer with gold social links',
     ],
     bestFor: 'High-ticket bundles, virgin hair, luxury wig brands',
-    gradient: 'from-[#0A0A0A] to-[#1a1a1a]',
-    accentColor: '#C9A84C',
-    previewBg: 'bg-[#0A0A0A]',
-    previewText: 'text-[#F8F0E3]',
-    previewAccent: 'text-[#C9A84C]',
+    gradient: 'from-[#000000] to-[#000000]',
+    accentColor: '#E2AD37',
+    previewBg: 'bg-[#000000]',
+    previewText: 'text-[#FFFFFF]',
+    previewAccent: 'text-[#E2AD37]',
   },
   {
     id: 'vibe-hair-co',
@@ -99,7 +99,7 @@ const themes = [
     tagline: 'Bold / Street Style',
     description:
       'Vibrant pink and purple energy for bold entrepreneurs who want their brand to pop. Oversized Bebas Neue headings with Poppins body text deliver that street-chic confidence.',
-    colors: { bg: '#FFFFFF', accent: '#D61465', text: '#1A1A2E' },
+    colors: { bg: '#FFFFFF', accent: '#D61465', text: '#000000' },
     fonts: 'Bebas Neue + Poppins',
     features: [
       'Bold uppercase display headings',
@@ -108,10 +108,10 @@ const themes = [
       'Energetic hover animations',
     ],
     bestFor: 'Young audiences, social-media-first brands, trend-driven styles',
-    gradient: 'from-[#D61465] to-[#8B5CF6]',
+    gradient: 'from-[#D61465] to-[#DCBDEF]',
     accentColor: '#D61465',
     previewBg: 'bg-white',
-    previewText: 'text-[#1A1A2E]',
+    previewText: 'text-[#000000]',
     previewAccent: 'text-[#D61465]',
   },
   {
@@ -120,7 +120,7 @@ const themes = [
     tagline: 'Soft / Feminine',
     description:
       'Warm blush tones and rose gold accents for a soft, inviting brand feel. Playfair Display italic headlines paired with Lato create an effortlessly pretty and trustworthy store.',
-    colors: { bg: '#FFF5F5', accent: '#B76E79', text: '#4A3A3A' },
+    colors: { bg: '#FDF2F8', accent: '#D61465', text: '#000000' },
     fonts: 'Playfair Display + Lato',
     features: [
       'Warm blush/rose background tones',
@@ -129,11 +129,11 @@ const themes = [
       'Subtle rounded elements throughout',
     ],
     bestFor: 'Bridal hair, natural hair, everyday glam, beauty salon brands',
-    gradient: 'from-[#B76E79] to-[#E8B4B8]',
-    accentColor: '#B76E79',
-    previewBg: 'bg-[#FFF5F5]',
-    previewText: 'text-[#4A3A3A]',
-    previewAccent: 'text-[#B76E79]',
+    gradient: 'from-[#D61465] to-[#FDF2F8]',
+    accentColor: '#D61465',
+    previewBg: 'bg-[#FDF2F8]',
+    previewText: 'text-[#000000]',
+    previewAccent: 'text-[#D61465]',
   },
   {
     id: 'pure-strand',
@@ -141,7 +141,7 @@ const themes = [
     tagline: 'Clean / Minimalist',
     description:
       'Crisp white space with refined black typography and a gold accent. Inter\'s clean lines throughout create a modern, editorial feel that lets your product photography shine.',
-    colors: { bg: '#FFFFFF', accent: '#B8860B', text: '#111111' },
+    colors: { bg: '#FFFFFF', accent: '#E2AD37', text: '#000000' },
     fonts: 'Inter (all weights)',
     features: [
       'Maximum white space for editorial feel',
@@ -150,11 +150,11 @@ const themes = [
       'Minimal UI — the hair is the hero',
     ],
     bestFor: 'Product-focused brands, wholesale storefronts, clean aesthetics',
-    gradient: 'from-[#111111] to-[#333333]',
-    accentColor: '#B8860B',
+    gradient: 'from-[#000000] to-[#000000]',
+    accentColor: '#E2AD37',
     previewBg: 'bg-white',
-    previewText: 'text-[#111111]',
-    previewAccent: 'text-[#B8860B]',
+    previewText: 'text-[#000000]',
+    previewAccent: 'text-[#E2AD37]',
   },
 ];
 
@@ -324,7 +324,7 @@ export default function WebsitesPage() {
                         className="inline-block px-6 py-3 text-sm font-bold rounded-full"
                         style={{
                           backgroundColor: theme.colors.accent,
-                          color: theme.id === 'luxe-crown' ? '#0A0A0A' : '#FFFFFF',
+                          color: theme.id === 'luxe-crown' ? '#000000' : '#FFFFFF',
                           borderRadius: theme.id === 'pure-strand' ? '0' : theme.id === 'blossom-beauty' ? '9999px' : '9999px',
                         }}
                       >

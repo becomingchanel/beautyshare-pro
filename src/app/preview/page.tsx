@@ -72,7 +72,7 @@ function Badge({ variant, children }: { variant: string; children: React.ReactNo
     danger: 'bg-red-50 text-red-700 ring-red-600/20',
     info: 'bg-blue-50 text-blue-700 ring-blue-600/20',
     neutral: 'bg-gray-50 text-gray-700 ring-gray-600/20',
-    purple: 'bg-purple-50 text-purple-700 ring-purple-600/20',
+    purple: 'bg-lavender-50 text-lavender-700 ring-lavender-600/20',
   };
   return (
     <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 ring-inset ${colors[variant] || colors.neutral}`}>

@@ -17,7 +17,7 @@ export function DashboardLayout({ children, title, description }: DashboardLayou
 
   if (loading) {
     return (
-      <div className="flex h-screen items-center justify-center" style={{ backgroundColor: '#FFFDFB' }}>
+      <div className="flex h-screen items-center justify-center bg-white">
         <div className="flex flex-col items-center gap-3">
           <Spinner size="lg" />
           <p className="text-sm text-gray-500">Loading your dashboard...</p>
@@ -29,23 +29,23 @@ export function DashboardLayout({ children, title, description }: DashboardLayou
   const isAdmin = profile?.role === 'admin';
 
   return (
-    <div className="flex h-screen" style={{ backgroundColor: '#FAF7F4' }}>
+    <div className="flex h-screen" style={{ backgroundColor: '#F9FAFB' }}>
       <Sidebar />
 
       <div className="flex flex-1 flex-col overflow-hidden">
         {/* Top bar */}
-        <header className="flex h-14 items-center justify-between border-b bg-white px-6" style={{ borderColor: '#F0E6DD' }}>
+        <header className="flex h-14 items-center justify-between border-b bg-white px-6" style={{ borderColor: '#E5E7EB' }}>
           <div>
-            {title && <h1 className="text-lg font-bold text-gray-900">{title}</h1>}
+            {title && <h1 className="text-lg font-bold text-black">{title}</h1>}
             {description && <p className="text-xs text-gray-500 mt-0.5">{description}</p>}
           </div>
           <div className="flex items-center gap-3">
             {/* Admin View Toggle */}
             {isAdmin && (
-              <button className="flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors" style={{ borderColor: '#F0E6DD', color: '#6B5A48' }}>
+              <button className="flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors" style={{ borderColor: '#E5E7EB', color: '#000000' }}>
                 <div className="h-2 w-2 rounded-full" style={{ backgroundColor: '#D61465' }} />
                 <span>Admin View</span>
-                <ChevronDown className="h-3 w-3" style={{ color: '#B8A594' }} />
+                <ChevronDown className="h-3 w-3" style={{ color: '#9CA3AF' }} />
               </button>
             )}
 
@@ -56,9 +56,9 @@ export function DashboardLayout({ children, title, description }: DashboardLayou
                 type="text"
                 placeholder="Search products, orders..."
                 className="h-9 w-56 rounded-lg border bg-gray-50 pl-9 pr-3 text-sm text-gray-700 placeholder:text-gray-400 focus:outline-none transition-colors"
-                style={{ borderColor: '#F0E6DD' }}
+                style={{ borderColor: '#E5E7EB' }}
                 onFocus={(e) => { e.currentTarget.style.borderColor = '#D61465'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(214,20,101,0.08)'; }}
-                onBlur={(e) => { e.currentTarget.style.borderColor = '#F0E6DD'; e.currentTarget.style.boxShadow = 'none'; }}
+                onBlur={(e) => { e.currentTarget.style.borderColor = '#E5E7EB'; e.currentTarget.style.boxShadow = 'none'; }}
               />
             </div>
 

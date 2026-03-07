@@ -27,8 +27,8 @@ const emailTemplates: EmailTemplate[] = [
   { id: '8', name: 'We Miss You', category: 'reengagement', subject: 'It\'s been a while! Here\'s 15% off your next order', preview: 'Win back inactive customers with a personal touch and discount.', icon: <Heart className="h-5 w-5" />, color: 'text-pink-500 bg-pink-50' },
   { id: '9', name: 'Restock Reminder', category: 'reengagement', subject: 'Time for a restock? Your hair is probably due for some TLC', preview: 'Timely reminder based on typical hair replacement cycles.', icon: <Heart className="h-5 w-5" />, color: 'text-pink-500 bg-pink-50' },
   { id: '10', name: 'VIP Exclusive', category: 'reengagement', subject: 'You\'re a VIP — here\'s early access to our next drop', preview: 'Reward loyal customers with exclusive early access and perks.', icon: <Heart className="h-5 w-5" />, color: 'text-pink-500 bg-pink-50' },
-  { id: '11', name: 'Cart Reminder', category: 'abandoned', subject: 'You left something gorgeous in your cart!', preview: 'Gentle first reminder with product image and easy checkout link.', sequence: 1, icon: <ShoppingBag className="h-5 w-5" />, color: 'text-purple-500 bg-purple-50' },
-  { id: '12', name: 'Last Chance Cart', category: 'abandoned', subject: 'Last chance! Your cart is about to expire', preview: 'Urgency-driven follow-up with scarcity and optional discount.', sequence: 2, icon: <ShoppingBag className="h-5 w-5" />, color: 'text-purple-500 bg-purple-50' },
+  { id: '11', name: 'Cart Reminder', category: 'abandoned', subject: 'You left something gorgeous in your cart!', preview: 'Gentle first reminder with product image and easy checkout link.', sequence: 1, icon: <ShoppingBag className="h-5 w-5" />, color: 'text-lavender-500 bg-lavender-50' },
+  { id: '12', name: 'Last Chance Cart', category: 'abandoned', subject: 'Last chance! Your cart is about to expire', preview: 'Urgency-driven follow-up with scarcity and optional discount.', sequence: 2, icon: <ShoppingBag className="h-5 w-5" />, color: 'text-lavender-500 bg-lavender-50' },
 ];
 
 const categoryLabels = {
