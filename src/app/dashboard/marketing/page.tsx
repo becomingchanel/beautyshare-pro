@@ -65,8 +65,8 @@ export default function MarketingHub() {
       {/* Stats Bar */}
       <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm border border-gray-100">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-50">
-            <Download className="h-6 w-6 text-orange-500" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-pink-50">
+            <Download className="h-6 w-6 text-pink-500" />
           </div>
           <div>
             <p className="text-2xl font-bold text-gray-900">100+</p>
@@ -99,7 +99,7 @@ export default function MarketingHub() {
           <Link
             key={cat.title}
             href={cat.href}
-            className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-orange-200"
+            className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-pink-200"
           >
             <div className="flex items-start justify-between">
               <div className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${cat.gradient} text-white`}>
@@ -111,7 +111,7 @@ export default function MarketingHub() {
             </div>
             <h3 className="mt-4 text-lg font-bold text-gray-900">{cat.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-gray-500">{cat.description}</p>
-            <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-orange-500 group-hover:gap-2 transition-all">
+            <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-pink-500 group-hover:gap-2 transition-all">
               Browse Collection <ArrowRight className="h-4 w-4" />
             </div>
           </Link>

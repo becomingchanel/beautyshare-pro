@@ -70,13 +70,13 @@ export function Sidebar() {
       <div className="flex h-16 items-center border-b border-gray-200 px-4">
         {!collapsed && (
           <Link href="/" className="flex items-center gap-2">
-            <Crown className="h-7 w-7 text-orange" />
+            <Crown className="h-7 w-7 text-pink-500" />
             <span className="font-display text-lg font-bold text-gray-900">BSP</span>
           </Link>
         )}
         {collapsed && (
           <Link href="/" className="mx-auto">
-            <Crown className="h-7 w-7 text-orange" />
+            <Crown className="h-7 w-7 text-pink-500" />
           </Link>
         )}
       </div>
@@ -88,7 +88,7 @@ export function Sidebar() {
             className={cn(
               'inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium',
               isAdmin
-                ? 'bg-orange-50 text-orange-700'
+                ? 'bg-pink-50 text-pink-700'
                 : 'bg-lavender-100 text-lavender-700',
             )}
           >
@@ -108,7 +108,7 @@ export function Sidebar() {
               className={cn(
                 'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors',
                 isActive
-                  ? 'bg-orange-50 text-orange'
+                  ? 'bg-pink-50 text-pink-600'
                   : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
                 collapsed && 'justify-center px-2',
               )}

@@ -72,7 +72,7 @@ export function CalculatorLayout({
       <div className="lg:col-span-2 space-y-6">
         {/* Header */}
         <div>
-          <Link href="/dashboard/calculators" className="flex items-center text-orange-600 hover:text-orange-700 mb-4">
+          <Link href="/dashboard/calculators" className="flex items-center text-pink-600 hover:text-pink-700 mb-4">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Calculators
           </Link>
@@ -90,7 +90,7 @@ export function CalculatorLayout({
         {/* Save Button */}
         <Button
           onClick={() => setShowSaveModal(true)}
-          className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white flex items-center justify-center gap-2"
+          className="w-full bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white flex items-center justify-center gap-2"
           disabled={isSaving}
         >
           <Save className="w-4 h-4" />
@@ -115,7 +115,7 @@ export function CalculatorLayout({
                 placeholder="Enter a name for this calculation (e.g., 'Q1 Launch Plan')"
                 value={calculationName}
                 onChange={(e) => setCalculationName(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 mb-6"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 mb-6"
               />
 
               <div className="flex gap-3">
@@ -131,7 +131,7 @@ export function CalculatorLayout({
                 <button
                   onClick={handleSave}
                   disabled={isSaving || !calculationName.trim()}
-                  className="flex-1 px-4 py-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-lg hover:from-orange-600 hover:to-pink-600 transition-colors disabled:opacity-50"
+                  className="flex-1 px-4 py-2 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-lg hover:from-pink-600 hover:to-orange-600 transition-colors disabled:opacity-50"
                 >
                   {isSaving ? 'Saving...' : 'Save'}
                 </button>

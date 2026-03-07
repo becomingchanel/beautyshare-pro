@@ -43,10 +43,10 @@ export function DashboardLayout({ children, title, description }: DashboardLayou
             </button>
             <button className="relative rounded-lg p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600">
               <Bell className="h-5 w-5" />
-              <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-orange" />
+              <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-pink-500" />
             </button>
             <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange text-sm font-bold text-white">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-orange-500 text-sm font-bold text-white">
                 {profile?.full_name?.charAt(0)?.toUpperCase() || profile?.email?.charAt(0)?.toUpperCase() || '?'}
               </div>
               <span className="hidden text-sm font-medium text-gray-700 md:block">

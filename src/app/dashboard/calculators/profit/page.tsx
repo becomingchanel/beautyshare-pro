@@ -271,8 +271,8 @@ export default function ProfitCalculatorPage() {
               label="Monthly COGS"
               value={`$${results.monthly_cogs.toLocaleString()}`}
               subtext="Wholesale + Shipping costs"
-              bgColor="bg-orange-50"
-              borderColor="border-orange-200"
+              bgColor="bg-pink-50"
+              borderColor="border-pink-200"
             />
             <MetricCard
               label="Monthly Profit"

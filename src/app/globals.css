@@ -62,17 +62,17 @@
   --color-danger-light: #FEE2E2;
 
   /* Brand palette kept for dashboard */
-  --color-brand-50: #FDF8F3;
-  --color-brand-100: #F5F0EB;
-  --color-brand-200: #E8DDD2;
-  --color-brand-300: #D4C4B0;
-  --color-brand-400: #B8976E;
-  --color-brand-500: #A0764A;
-  --color-brand-600: #8B4513;
-  --color-brand-700: #723910;
-  --color-brand-800: #5A2D0D;
-  --color-brand-900: #42210A;
-  --color-brand-950: #2A1507;
+  --color-brand-50: #FFF0F6;
+  --color-brand-100: #FFE0ED;
+  --color-brand-200: #FFC2DB;
+  --color-brand-300: #FF8DBB;
+  --color-brand-400: #FF4D96;
+  --color-brand-500: #D61465;
+  --color-brand-600: #B00E53;
+  --color-brand-700: #8F0A42;
+  --color-brand-800: #700836;
+  --color-brand-900: #50052A;
+  --color-brand-950: #2A0115;
 
   --color-cream-50: #FFFDFB;
   --color-cream-100: #FDF8F3;
@@ -80,9 +80,9 @@
   --color-cream-300: #EDE5DB;
   --color-cream-400: #E0D3C3;
 
-  --color-accent: #FA6A27;
-  --color-accent-light: #FF8F56;
-  --color-accent-dark: #E05510;
+  --color-accent: #D61465;
+  --color-accent-light: #F0268A;
+  --color-accent-dark: #B00E53;
 
   /* Typography */
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -98,26 +98,26 @@ body {
 
 /* Brand gradient utility */
 .brand-gradient {
-  background: linear-gradient(135deg, #DCBDEF 0%, #FA6A27 100%);
+  background: linear-gradient(135deg, #D61465 0%, #FA6A27 100%);
 }
 
 .brand-gradient-reverse {
-  background: linear-gradient(135deg, #FA6A27 0%, #DCBDEF 100%);
+  background: linear-gradient(135deg, #FA6A27 0%, #D61465 100%);
 }
 
 .brand-gradient-text {
-  background: linear-gradient(135deg, #FA6A27 0%, #D61465 100%);
+  background: linear-gradient(135deg, #D61465 0%, #FA6A27 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .brand-gradient-pink {
-  background: linear-gradient(135deg, #FA6A27 0%, #D61465 100%);
+  background: linear-gradient(135deg, #D61465 0%, #9333EA 100%);
 }
 
 .brand-gradient-full {
-  background: linear-gradient(135deg, #DCBDEF 0%, #E2AD37 40%, #FA6A27 70%, #D61465 100%);
+  background: linear-gradient(135deg, #D61465 0%, #FA6A27 40%, #E2AD37 70%, #DCBDEF 100%);
 }
 
 /* Animated gradient */
@@ -128,7 +128,7 @@ body {
 }
 
 .animated-gradient {
-  background: linear-gradient(135deg, #DCBDEF, #E2AD37, #FA6A27, #D61465, #DCBDEF);
+  background: linear-gradient(135deg, #D61465, #FA6A27, #E2AD37, #DCBDEF, #D61465);
   background-size: 300% 300%;
   animation: gradient-shift 8s ease infinite;
 }
@@ -161,7 +161,7 @@ body {
 
 /* Focus outline for accessibility */
 *:focus-visible {
-  outline: 2px solid #FA6A27;
+  outline: 2px solid #D61465;
   outline-offset: 2px;
   border-radius: 4px;
 }

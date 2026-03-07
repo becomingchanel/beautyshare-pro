@@ -197,9 +197,9 @@ export default function RetailPriceCalculatorPage() {
           <h2 className="text-xl font-semibold text-gray-900 mb-6">Pricing Recommendation</h2>
 
           {/* Main Suggestion Card */}
-          <Card className="bg-gradient-to-br from-orange-50 to-pink-50 border border-orange-200 p-8 mb-8">
+          <Card className="bg-gradient-to-br from-pink-50 to-orange-50 border border-pink-200 p-8 mb-8">
             <p className="text-gray-700 font-medium mb-2">Suggested Retail Price</p>
-            <p className="text-5xl font-bold text-orange-600 mb-4">
+            <p className="text-5xl font-bold text-pink-600 mb-4">
               ${results.suggested_retail.toFixed(2)}
             </p>
             <p className="text-gray-600">
@@ -274,28 +274,28 @@ export default function RetailPriceCalculatorPage() {
               </div>
               <div className="flex justify-between items-center py-3">
                 <span className="text-gray-900 font-semibold">Retail Price</span>
-                <span className="text-lg font-bold text-orange-600">${results.suggested_retail.toFixed(2)}</span>
+                <span className="text-lg font-bold text-pink-600">${results.suggested_retail.toFixed(2)}</span>
               </div>
             </div>
           </Card>
 
           {/* Margin Info */}
-          <Card className="mt-8 p-6 border-l-4 border-blue-500 bg-blue-50">
+          <Card className="mt-8 p-6 border-l-4 border-pink-500 bg-pink-50">
             <h4 className="font-semibold text-gray-900 mb-2">About Profit Margins</h4>
             <p className="text-gray-700 text-sm mb-3">
-              Your profit margin is the percentage of each sale that's profit after covering wholesale costs.
+              Your profit margin is the percentage of each sale that&apos;s profit after covering wholesale costs.
             </p>
             <ul className="text-sm text-gray-700 space-y-2">
               <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 mt-1.5 flex-shrink-0" />
+                <span className="w-2 h-2 bg-pink-500 rounded-full mr-2 mt-1.5 flex-shrink-0" />
                 <span><strong>50-55%:</strong> Standard for beauty products</span>
               </li>
               <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 mt-1.5 flex-shrink-0" />
+                <span className="w-2 h-2 bg-pink-500 rounded-full mr-2 mt-1.5 flex-shrink-0" />
                 <span><strong>55-65%:</strong> Healthy margin with room for marketing</span>
               </li>
               <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 mt-1.5 flex-shrink-0" />
+                <span className="w-2 h-2 bg-pink-500 rounded-full mr-2 mt-1.5 flex-shrink-0" />
                 <span><strong>65%+:</strong> Premium positioning, must justify with quality/brand</span>
               </li>
             </ul>

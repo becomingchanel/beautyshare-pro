@@ -175,19 +175,19 @@ export default function LaunchCostCalculatorPage() {
         <div>
           <h2 className="text-xl font-semibold text-gray-900 mb-6">BeautyShare Pro Costs</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-orange-50 p-6 rounded-lg border border-orange-200">
+            <div className="bg-pink-50 p-6 rounded-lg border border-pink-200">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Monthly Subscription
               </label>
-              <p className="text-3xl font-bold text-orange-600">${inputs.monthly_subscription}</p>
+              <p className="text-3xl font-bold text-pink-600">${inputs.monthly_subscription}</p>
               <p className="text-xs text-gray-600 mt-2">Fixed monthly cost</p>
             </div>
 
-            <div className="bg-orange-50 p-6 rounded-lg border border-orange-200">
+            <div className="bg-pink-50 p-6 rounded-lg border border-pink-200">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Setup Fee
               </label>
-              <p className="text-3xl font-bold text-orange-600">${inputs.setup_fee}</p>
+              <p className="text-3xl font-bold text-pink-600">${inputs.setup_fee}</p>
               <p className="text-xs text-gray-600 mt-2">One-time setup charge</p>
             </div>
           </div>
@@ -215,9 +215,9 @@ export default function LaunchCostCalculatorPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <Card className="bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 p-6">
+            <Card className="bg-gradient-to-br from-pink-50 to-pink-100 border border-pink-200 p-6">
               <p className="text-gray-700 font-medium mb-2">Orders to Break Even</p>
-              <p className="text-4xl font-bold text-orange-600">{results.break_even_orders}</p>
+              <p className="text-4xl font-bold text-pink-600">{results.break_even_orders}</p>
               <p className="text-sm text-gray-600 mt-3">
                 Assuming $30 average profit per order
               </p>
@@ -260,7 +260,7 @@ export default function LaunchCostCalculatorPage() {
               </div>
               <div className="border-t border-gray-300 pt-3 flex justify-between items-center">
                 <span className="text-gray-900 font-semibold">Total</span>
-                <span className="text-lg font-bold text-orange-600">
+                <span className="text-lg font-bold text-pink-600">
                   ${results.total_startup_cost}
                 </span>
               </div>
