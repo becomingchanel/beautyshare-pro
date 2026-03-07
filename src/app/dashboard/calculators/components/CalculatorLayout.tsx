@@ -72,7 +72,7 @@ export function CalculatorLayout({
       <div className="lg:col-span-2 space-y-6">
         {/* Header */}
         <div>
-          <Link href="/dashboard/calculators" className="flex items-center text-pink-600 hover:text-pink-700 mb-4">
+          <Link href="/dashboard/calculators" className="flex items-center text-orange-600 hover:text-orange-700 mb-4">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Calculators
           </Link>
@@ -90,7 +90,7 @@ export function CalculatorLayout({
         {/* Save Button */}
         <Button
           onClick={() => setShowSaveModal(true)}
-          className="w-full bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white flex items-center justify-center gap-2"
+          className="w-full bg-gradient-to-r from-[#D4713B] to-[#E2AD37] hover:from-[#C85A25] hover:to-[#D09A20] text-white flex items-center justify-center gap-2"
           disabled={isSaving}
         >
           <Save className="w-4 h-4" />

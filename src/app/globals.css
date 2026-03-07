@@ -2,20 +2,20 @@
 @source "../../src";
 
 @theme {
-  /* BeautyShare Pro Brand Colors - from brand board */
-  --color-orange: #FA6A27;
-  --color-orange-light: #FF8F56;
-  --color-orange-dark: #E05510;
-  --color-orange-50: #FFF4ED;
-  --color-orange-100: #FFE6D5;
-  --color-orange-200: #FFCAA8;
-  --color-orange-300: #FFA76B;
-  --color-orange-400: #FF8940;
-  --color-orange-500: #FA6A27;
-  --color-orange-600: #E05510;
-  --color-orange-700: #B83E0A;
-  --color-orange-800: #933210;
-  --color-orange-900: #782C11;
+  /* BeautyShare Pro Brand Colors — Lovable-matched warm palette */
+  --color-orange: #D4713B;
+  --color-orange-light: #E8945C;
+  --color-orange-dark: #B85E2A;
+  --color-orange-50: #FFF7F0;
+  --color-orange-100: #FFEDD9;
+  --color-orange-200: #FFD8B0;
+  --color-orange-300: #FFC080;
+  --color-orange-400: #E8945C;
+  --color-orange-500: #D4713B;
+  --color-orange-600: #B85E2A;
+  --color-orange-700: #9A4B20;
+  --color-orange-800: #7D3B1A;
+  --color-orange-900: #632E15;
 
   --color-pink: #D61465;
   --color-pink-light: #F0268A;
@@ -61,28 +61,38 @@
   --color-danger: #DC2626;
   --color-danger-light: #FEE2E2;
 
-  /* Brand palette kept for dashboard */
-  --color-brand-50: #FFF0F6;
-  --color-brand-100: #FFE0ED;
-  --color-brand-200: #FFC2DB;
-  --color-brand-300: #FF8DBB;
-  --color-brand-400: #FF4D96;
-  --color-brand-500: #D61465;
-  --color-brand-600: #B00E53;
-  --color-brand-700: #8F0A42;
-  --color-brand-800: #700836;
-  --color-brand-900: #50052A;
-  --color-brand-950: #2A0115;
+  /* Brand palette — warm orange/coral */
+  --color-brand-50: #FFF7F0;
+  --color-brand-100: #FFEDD9;
+  --color-brand-200: #FFD8B0;
+  --color-brand-300: #FFC080;
+  --color-brand-400: #E8945C;
+  --color-brand-500: #D4713B;
+  --color-brand-600: #B85E2A;
+  --color-brand-700: #9A4B20;
+  --color-brand-800: #7D3B1A;
+  --color-brand-900: #632E15;
+  --color-brand-950: #3D1B0A;
 
+  /* Cream tones */
   --color-cream-50: #FFFDFB;
   --color-cream-100: #FDF8F3;
   --color-cream-200: #F5F0EB;
   --color-cream-300: #EDE5DB;
   --color-cream-400: #E0D3C3;
 
-  --color-accent: #D61465;
-  --color-accent-light: #F0268A;
-  --color-accent-dark: #B00E53;
+  /* Sidebar dark tones */
+  --color-sidebar: #1A0F08;
+  --color-sidebar-hover: #2D1B0E;
+  --color-sidebar-active: #D4713B;
+  --color-sidebar-text: #B8A594;
+  --color-sidebar-text-hover: #E8D5B5;
+  --color-sidebar-border: #3D2A1A;
+
+  /* Semantic accent — warm orange */
+  --color-accent: #D4713B;
+  --color-accent-light: #E8945C;
+  --color-accent-dark: #B85E2A;
 
   /* Typography */
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -96,28 +106,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Brand gradient utility */
+/* Brand gradient utility — warm orange */
 .brand-gradient {
-  background: linear-gradient(135deg, #D61465 0%, #FA6A27 100%);
+  background: linear-gradient(135deg, #D4713B 0%, #E2AD37 100%);
 }
 
 .brand-gradient-reverse {
-  background: linear-gradient(135deg, #FA6A27 0%, #D61465 100%);
+  background: linear-gradient(135deg, #E2AD37 0%, #D4713B 100%);
 }
 
 .brand-gradient-text {
-  background: linear-gradient(135deg, #D61465 0%, #FA6A27 100%);
+  background: linear-gradient(135deg, #D4713B 0%, #E2AD37 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .brand-gradient-pink {
-  background: linear-gradient(135deg, #D61465 0%, #9333EA 100%);
+  background: linear-gradient(135deg, #D4713B 0%, #D61465 100%);
 }
 
 .brand-gradient-full {
-  background: linear-gradient(135deg, #D61465 0%, #FA6A27 40%, #E2AD37 70%, #DCBDEF 100%);
+  background: linear-gradient(135deg, #D4713B 0%, #E2AD37 40%, #DCBDEF 70%, #D61465 100%);
 }
 
 /* Animated gradient */
@@ -128,7 +138,7 @@ body {
 }
 
 .animated-gradient {
-  background: linear-gradient(135deg, #D61465, #FA6A27, #E2AD37, #DCBDEF, #D61465);
+  background: linear-gradient(135deg, #D4713B, #E2AD37, #D61465, #DCBDEF, #D4713B);
   background-size: 300% 300%;
   animation: gradient-shift 8s ease infinite;
 }
@@ -159,9 +169,27 @@ body {
   background: #B8976E;
 }
 
+/* Sidebar-specific scrollbar */
+.sidebar-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: #3D2A1A;
+  border-radius: 2px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: #5A3D28;
+}
+
 /* Focus outline for accessibility */
 *:focus-visible {
-  outline: 2px solid #D61465;
+  outline: 2px solid #D4713B;
   outline-offset: 2px;
   border-radius: 4px;
 }
