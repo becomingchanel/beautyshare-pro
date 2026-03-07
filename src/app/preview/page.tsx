@@ -71,7 +71,7 @@ function Badge({ variant, children }: { variant: string; children: React.ReactNo
     warning: 'bg-yellow-50 text-yellow-700 ring-yellow-600/20',
     danger: 'bg-red-50 text-red-700 ring-red-600/20',
     info: 'bg-blue-50 text-blue-700 ring-blue-600/20',
-    neutral: 'bg-gray-50 text-gray-700 ring-gray-600/20',
+    neutral: 'bg-muted text-foreground ring-gray-600/20',
     purple: 'bg-lavender-50 text-lavender-700 ring-lavender-600/20',
   };
   return (
@@ -83,14 +83,14 @@ function Badge({ variant, children }: { variant: string; children: React.ReactNo
 
 function MetricCard({ label, value, trend, icon }: { label: string; value: string; trend?: number; icon: React.ReactNode }) {
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+    <div className="rounded-xl border border-border bg-white p-6 shadow-sm">
       <div className="flex items-center justify-between">
-        <p className="text-sm font-medium text-gray-500">{label}</p>
-        <div className="text-[#D61465]">{icon}</div>
+        <p className="text-sm font-medium text-muted-foreground">{label}</p>
+        <div className="text-[hsl(var(--primary))]">{icon}</div>
       </div>
-      <p className="mt-2 text-2xl font-bold text-gray-900">{value}</p>
+      <p className="mt-2 text-2xl font-bold text-foreground">{value}</p>
       {trend !== undefined && (
-        <div className={`mt-2 flex items-center gap-1 text-xs font-medium ${trend > 0 ? 'text-green-600' : trend < 0 ? 'text-red-600' : 'text-gray-500'}`}>
+        <div className={`mt-2 flex items-center gap-1 text-xs font-medium ${trend > 0 ? 'text-green-600' : trend < 0 ? 'text-red-600' : 'text-muted-foreground'}`}>
           {trend > 0 ? <TrendingUp className="h-3.5 w-3.5" /> : trend < 0 ? <TrendingDown className="h-3.5 w-3.5" /> : <Minus className="h-3.5 w-3.5" />}
           <span>{Math.abs(trend)}%</span>
           <span className="text-gray-400">vs last 30d</span>
@@ -118,10 +118,10 @@ function Sidebar({ activeView, setActiveView, role }: { activeView: string; setA
   const nav = role === 'admin' ? adminNav : subscriberNav;
 
   return (
-    <div className="w-64 min-h-screen bg-gray-900 text-white flex flex-col">
+    <div className="w-64 min-h-screen bg-foreground text-white flex flex-col">
       <div className="p-6 border-b border-gray-800">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#D61465] to-[#D61465] flex items-center justify-center">
+          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[hsl(var(--primary))] to-[hsl(var(--primary))] flex items-center justify-center">
             <Crown className="w-5 h-5 text-white" />
           </div>
           <div>
@@ -136,7 +136,7 @@ function Sidebar({ activeView, setActiveView, role }: { activeView: string; setA
             key={item.id}
             onClick={() => setActiveView(item.id)}
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-              activeView === item.id ? 'bg-[#D61465] text-white' : 'text-gray-400 hover:text-white hover:bg-gray-800'
+              activeView === item.id ? 'bg-[hsl(var(--primary))] text-white' : 'text-gray-400 hover:text-white hover:bg-foreground'
             }`}
           >
             <item.icon className="w-5 h-5" />
@@ -146,12 +146,12 @@ function Sidebar({ activeView, setActiveView, role }: { activeView: string; setA
       </nav>
       <div className="p-4 border-t border-gray-800">
         <div className="flex items-center gap-3 px-3 py-2">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#DCBDEF] to-[#D61465] flex items-center justify-center text-xs font-bold">
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[hsl(var(--muted))] to-[hsl(var(--primary))] flex items-center justify-center text-xs font-bold">
             {role === 'admin' ? 'CA' : 'JW'}
           </div>
           <div>
             <p className="text-sm font-medium">{role === 'admin' ? 'Chanel Admin' : 'Jasmine Williams'}</p>
-            <p className="text-xs text-gray-500">{role === 'admin' ? 'becomingchanel@gmail.com' : 'jasmine@glowuphair.com'}</p>
+            <p className="text-xs text-muted-foreground">{role === 'admin' ? 'becomingchanel@gmail.com' : 'jasmine@glowuphair.com'}</p>
           </div>
         </div>
       </div>
@@ -162,11 +162,11 @@ function Sidebar({ activeView, setActiveView, role }: { activeView: string; setA
 // ============ TOPBAR ============
 function TopBar({ title }: { title: string }) {
   return (
-    <div className="h-16 border-b border-gray-200 bg-white flex items-center justify-between px-8">
-      <h1 className="text-xl font-bold text-gray-900">{title}</h1>
+    <div className="h-16 border-b border-border bg-white flex items-center justify-between px-8">
+      <h1 className="text-xl font-bold text-foreground">{title}</h1>
       <div className="flex items-center gap-4">
-        <button className="p-2 rounded-lg hover:bg-gray-100 text-gray-500"><Search className="w-5 h-5" /></button>
-        <button className="p-2 rounded-lg hover:bg-gray-100 text-gray-500 relative">
+        <button className="p-2 rounded-lg hover:bg-gray-100 text-muted-foreground"><Search className="w-5 h-5" /></button>
+        <button className="p-2 rounded-lg hover:bg-gray-100 text-muted-foreground relative">
           <Bell className="w-5 h-5" />
           <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500" />
         </button>
@@ -189,19 +189,19 @@ function AdminView() {
       </div>
 
       {/* Revenue Chart */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <h3 className="text-lg font-semibold text-gray-900 mb-1">Revenue Overview</h3>
-        <p className="text-sm text-gray-500 mb-6">Last 30 days</p>
+      <div className="rounded-xl border border-border bg-white p-6 shadow-sm">
+        <h3 className="text-lg font-semibold text-foreground mb-1">Revenue Overview</h3>
+        <p className="text-sm text-muted-foreground mb-6">Last 30 days</p>
         <div className="flex items-center gap-6 mb-4">
-          <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-[#D61465]" /><span className="text-sm text-gray-600">SaaS Revenue</span></div>
-          <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-[#DCBDEF]" /><span className="text-sm text-gray-600">Wholesale Revenue</span></div>
+          <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-[hsl(var(--primary))]" /><span className="text-sm text-foreground/80">SaaS Revenue</span></div>
+          <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-[hsl(var(--muted))]" /><span className="text-sm text-foreground/80">Wholesale Revenue</span></div>
         </div>
         <div className="h-64 flex items-end gap-2">
           {revenueData.map((d, i) => (
             <div key={i} className="flex-1 flex flex-col items-center gap-1">
               <div className="w-full flex gap-0.5" style={{ height: '200px', alignItems: 'flex-end' }}>
-                <div className="flex-1 rounded-t-sm bg-[#D61465] opacity-80" style={{ height: `${(d.saas / maxVal) * 100}%` }} />
-                <div className="flex-1 rounded-t-sm bg-[#DCBDEF] opacity-80" style={{ height: `${(d.wholesale / maxVal) * 100}%` }} />
+                <div className="flex-1 rounded-t-sm bg-[hsl(var(--primary))] opacity-80" style={{ height: `${(d.saas / maxVal) * 100}%` }} />
+                <div className="flex-1 rounded-t-sm bg-[hsl(var(--muted))] opacity-80" style={{ height: `${(d.wholesale / maxVal) * 100}%` }} />
               </div>
               <span className="text-[10px] text-gray-400">{d.day}</span>
             </div>
@@ -211,17 +211,17 @@ function AdminView() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Churn Alerts */}
-        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+        <div className="rounded-xl border border-border bg-white p-6 shadow-sm">
           <div className="flex items-center gap-2 mb-4">
-            <AlertTriangle className="w-5 h-5 text-[#D61465]" />
-            <h3 className="text-lg font-semibold text-gray-900">Churn Alerts</h3>
+            <AlertTriangle className="w-5 h-5 text-[hsl(var(--primary))]" />
+            <h3 className="text-lg font-semibold text-foreground">Churn Alerts</h3>
           </div>
           <div className="space-y-3">
             {churnAlerts.map(alert => (
-              <div key={alert.name} className="flex items-center justify-between p-3 rounded-lg bg-gray-50">
+              <div key={alert.name} className="flex items-center justify-between p-3 rounded-lg bg-muted">
                 <div>
-                  <p className="font-medium text-gray-900 text-sm">{alert.name}</p>
-                  <p className="text-xs text-gray-500">{alert.daysSinceOrder} days since last order</p>
+                  <p className="font-medium text-foreground text-sm">{alert.name}</p>
+                  <p className="text-xs text-muted-foreground">{alert.daysSinceOrder} days since last order</p>
                 </div>
                 <Badge variant={alert.risk === 'critical' ? 'danger' : alert.risk === 'high' ? 'warning' : 'info'}>
                   {alert.risk} ({alert.score}%)
@@ -232,22 +232,22 @@ function AdminView() {
         </div>
 
         {/* Recent Orders */}
-        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Orders</h3>
+        <div className="rounded-xl border border-border bg-white p-6 shadow-sm">
+          <h3 className="text-lg font-semibold text-foreground mb-4">Recent Orders</h3>
           <div className="space-y-3">
             {recentOrders.map(order => (
-              <div key={order.id} className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors">
+              <div key={order.id} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
-                    <ShoppingCart className="w-4 h-4 text-gray-500" />
+                    <ShoppingCart className="w-4 h-4 text-muted-foreground" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-gray-900">{order.id}</p>
-                    <p className="text-xs text-gray-500">{order.customer} · {order.time}</p>
+                    <p className="text-sm font-medium text-foreground">{order.id}</p>
+                    <p className="text-xs text-muted-foreground">{order.customer} · {order.time}</p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm font-semibold text-gray-900">${order.amount.toFixed(2)}</p>
+                  <p className="text-sm font-semibold text-foreground">${order.amount.toFixed(2)}</p>
                   <Badge variant={
                     order.status === 'delivered' ? 'success' :
                     order.status === 'shipped' ? 'purple' :
@@ -272,22 +272,22 @@ function SubscriberView() {
         {subscriberKPIs.map(kpi => <MetricCard key={kpi.label} {...kpi} />)}
       </div>
 
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Orders</h3>
+      <div className="rounded-xl border border-border bg-white p-6 shadow-sm">
+        <h3 className="text-lg font-semibold text-foreground mb-4">Recent Orders</h3>
         <div className="space-y-3">
           {recentOrders.slice(0, 4).map(order => (
-            <div key={order.id} className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors">
+            <div key={order.id} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-pink-50 flex items-center justify-center">
-                  <ShoppingCart className="w-5 h-5 text-[#D61465]" />
+                  <ShoppingCart className="w-5 h-5 text-[hsl(var(--primary))]" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-gray-900">{order.id} · {order.customer}</p>
-                  <p className="text-xs text-gray-500">{order.time}</p>
+                  <p className="text-sm font-medium text-foreground">{order.id} · {order.customer}</p>
+                  <p className="text-xs text-muted-foreground">{order.time}</p>
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-sm font-semibold text-gray-900">${order.amount.toFixed(2)}</p>
+                <p className="text-sm font-semibold text-foreground">${order.amount.toFixed(2)}</p>
                 <Badge variant={
                   order.status === 'delivered' ? 'success' :
                   order.status === 'shipped' ? 'purple' : 'warning'
@@ -319,7 +319,7 @@ function OrdersView() {
           <input
             type="text"
             placeholder="Search orders by ID, customer, or store..."
-            className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:border-[#D61465] focus:ring-1 focus:ring-[#D61465] outline-none"
+            className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:border-[hsl(var(--primary))] focus:ring-1 focus:ring-[hsl(var(--primary))] outline-none"
           />
         </div>
         <select className="rounded-lg border border-gray-300 px-3 py-2.5 text-sm bg-white">
@@ -332,32 +332,32 @@ function OrdersView() {
       </div>
 
       {/* Table */}
-      <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+      <div className="rounded-xl border border-border bg-white shadow-sm overflow-hidden">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-gray-200 bg-gray-50">
-              <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Order ID</th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Customer</th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Items</th>
-              <th className="px-4 py-3 text-right text-sm font-semibold text-gray-900">Total</th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Status</th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Payment</th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Date</th>
-              <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900">Action</th>
+            <tr className="border-b border-border bg-muted">
+              <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Order ID</th>
+              <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Customer</th>
+              <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Items</th>
+              <th className="px-4 py-3 text-right text-sm font-semibold text-foreground">Total</th>
+              <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Status</th>
+              <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Payment</th>
+              <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Date</th>
+              <th className="px-4 py-3 text-center text-sm font-semibold text-foreground">Action</th>
             </tr>
           </thead>
           <tbody>
             {ordersListFull.map(order => (
-              <tr key={order.id} className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                <td className="px-4 py-3 text-sm font-medium text-gray-900">#{order.id}</td>
-                <td className="px-4 py-3 text-sm text-gray-700">{order.customer}</td>
-                <td className="px-4 py-3 text-sm text-gray-700">{order.items} {order.items === 1 ? 'item' : 'items'}</td>
-                <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">${order.total.toFixed(2)}</td>
+              <tr key={order.id} className="border-b border-border hover:bg-muted transition-colors">
+                <td className="px-4 py-3 text-sm font-medium text-foreground">#{order.id}</td>
+                <td className="px-4 py-3 text-sm text-foreground">{order.customer}</td>
+                <td className="px-4 py-3 text-sm text-foreground">{order.items} {order.items === 1 ? 'item' : 'items'}</td>
+                <td className="px-4 py-3 text-sm font-medium text-foreground text-right">${order.total.toFixed(2)}</td>
                 <td className="px-4 py-3"><Badge variant={statusColors[order.status] || 'neutral'}>{order.status}</Badge></td>
                 <td className="px-4 py-3"><Badge variant={paymentColors[order.payment] || 'neutral'}>{order.payment}</Badge></td>
-                <td className="px-4 py-3 text-sm text-gray-600">{order.date}</td>
+                <td className="px-4 py-3 text-sm text-foreground/80">{order.date}</td>
                 <td className="px-4 py-3 text-center">
-                  <button className="px-3 py-1.5 text-xs font-medium rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50">View</button>
+                  <button className="px-3 py-1.5 text-xs font-medium rounded-lg border border-gray-300 text-foreground hover:bg-muted">View</button>
                 </td>
               </tr>
             ))}
@@ -384,7 +384,7 @@ function InventoryView() {
       {/* Product Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {products.map(product => (
-          <div key={product.sku} className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow">
+          <div key={product.sku} className="rounded-xl border border-border bg-white p-5 shadow-sm hover:shadow-md transition-shadow">
             <div className="flex items-start justify-between mb-3">
               <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
                 <Package className="w-6 h-6 text-gray-400" />
@@ -396,18 +396,18 @@ function InventoryView() {
                 {product.status === 'in_stock' ? 'In Stock' : product.status === 'low_stock' ? 'Low Stock' : 'Out of Stock'}
               </Badge>
             </div>
-            <h3 className="font-semibold text-gray-900 text-sm">{product.name}</h3>
-            <p className="text-xs text-gray-500 mt-0.5">SKU: {product.sku} · {product.category}</p>
+            <h3 className="font-semibold text-foreground text-sm">{product.name}</h3>
+            <p className="text-xs text-muted-foreground mt-0.5">SKU: {product.sku} · {product.category}</p>
             <div className="mt-4 flex items-center justify-between">
               <div>
-                <p className="text-xs text-gray-500">Stock</p>
-                <p className={`text-lg font-bold ${product.stock === 0 ? 'text-red-600' : product.stock < product.threshold ? 'text-yellow-600' : 'text-gray-900'}`}>
+                <p className="text-xs text-muted-foreground">Stock</p>
+                <p className={`text-lg font-bold ${product.stock === 0 ? 'text-red-600' : product.stock < product.threshold ? 'text-yellow-600' : 'text-foreground'}`}>
                   {product.stock}
                 </p>
               </div>
               <div>
-                <p className="text-xs text-gray-500">Wholesale</p>
-                <p className="text-lg font-bold text-gray-900">${product.price.toFixed(2)}</p>
+                <p className="text-xs text-muted-foreground">Wholesale</p>
+                <p className="text-lg font-bold text-foreground">${product.price.toFixed(2)}</p>
               </div>
             </div>
             {/* Stock bar */}
@@ -431,17 +431,17 @@ function CalculatorsHub() {
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
-          { name: 'Launch Cost Calculator', desc: 'Calculate your total startup investment and monthly costs to launch your hair business.', icon: Rocket, color: 'from-[#D61465] to-[#D61465]' },
-          { name: 'Profit Calculator', desc: 'See your profit margins, net profit per unit, and ROI on every product you sell.', icon: PiggyBank, color: 'from-[#D61465] to-[#DCBDEF]' },
-          { name: 'Retail Price Calculator', desc: 'Find the optimal retail price based on your costs, desired margin, and competitor pricing.', icon: Tag, color: 'from-[#DCBDEF] to-[#E2AD37]' },
+          { name: 'Launch Cost Calculator', desc: 'Calculate your total startup investment and monthly costs to launch your hair business.', icon: Rocket, color: 'from-[hsl(var(--primary))] to-[hsl(var(--primary))]' },
+          { name: 'Profit Calculator', desc: 'See your profit margins, net profit per unit, and ROI on every product you sell.', icon: PiggyBank, color: 'from-[hsl(var(--primary))] to-[hsl(var(--muted))]' },
+          { name: 'Retail Price Calculator', desc: 'Find the optimal retail price based on your costs, desired margin, and competitor pricing.', icon: Tag, color: 'from-[hsl(var(--muted))] to-[#E2AD37]' },
         ].map(calc => (
-          <div key={calc.name} className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow cursor-pointer group">
+          <div key={calc.name} className="rounded-xl border border-border bg-white p-6 shadow-sm hover:shadow-lg transition-shadow cursor-pointer group">
             <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${calc.color} flex items-center justify-center mb-4`}>
               <calc.icon className="w-7 h-7 text-white" />
             </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">{calc.name}</h3>
-            <p className="text-sm text-gray-500 mb-4">{calc.desc}</p>
-            <div className="flex items-center text-[#D61465] text-sm font-medium group-hover:gap-2 transition-all">
+            <h3 className="text-lg font-bold text-foreground mb-2">{calc.name}</h3>
+            <p className="text-sm text-muted-foreground mb-4">{calc.desc}</p>
+            <div className="flex items-center text-[hsl(var(--primary))] text-sm font-medium group-hover:gap-2 transition-all">
               Open Calculator <ArrowRight className="w-4 h-4 ml-1" />
             </div>
           </div>
@@ -456,44 +456,44 @@ function LaunchCalculator() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
       <div className="lg:col-span-2 space-y-6">
-        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-          <h3 className="text-lg font-bold text-gray-900 mb-1">Launch Cost Calculator</h3>
-          <p className="text-sm text-gray-500 mb-6">Calculate your total startup investment to launch with BeautyShare Pro</p>
+        <div className="rounded-xl border border-border bg-white p-6 shadow-sm">
+          <h3 className="text-lg font-bold text-foreground mb-1">Launch Cost Calculator</h3>
+          <p className="text-sm text-muted-foreground mb-6">Calculate your total startup investment to launch with BeautyShare Pro</p>
 
           <div className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">BSP Monthly Subscription</label>
+              <label className="block text-sm font-medium text-foreground mb-1.5">BSP Monthly Subscription</label>
               <div className="relative">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">$</span>
-                <input type="text" value="149" readOnly className="w-full pl-7 pr-4 py-2.5 rounded-lg border border-gray-300 text-sm bg-gray-50 text-gray-500" />
+                <input type="text" value="149" readOnly className="w-full pl-7 pr-4 py-2.5 rounded-lg border border-gray-300 text-sm bg-muted text-muted-foreground" />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">Setup Fee (One-Time)</label>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Setup Fee (One-Time)</label>
               <div className="relative">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">$</span>
-                <input type="text" value="99" readOnly className="w-full pl-7 pr-4 py-2.5 rounded-lg border border-gray-300 text-sm bg-gray-50 text-gray-500" />
+                <input type="text" value="99" readOnly className="w-full pl-7 pr-4 py-2.5 rounded-lg border border-gray-300 text-sm bg-muted text-muted-foreground" />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">Marketing Budget (Monthly)</label>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Marketing Budget (Monthly)</label>
               <div className="relative">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">$</span>
-                <input type="text" defaultValue="200" className="w-full pl-7 pr-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:border-[#D61465] focus:ring-1 focus:ring-[#D61465] outline-none" />
+                <input type="text" defaultValue="200" className="w-full pl-7 pr-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:border-[hsl(var(--primary))] focus:ring-1 focus:ring-[hsl(var(--primary))] outline-none" />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">Starting Inventory Investment</label>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Starting Inventory Investment</label>
               <div className="relative">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">$</span>
-                <input type="text" defaultValue="500" className="w-full pl-7 pr-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:border-[#D61465] focus:ring-1 focus:ring-[#D61465] outline-none" />
+                <input type="text" defaultValue="500" className="w-full pl-7 pr-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:border-[hsl(var(--primary))] focus:ring-1 focus:ring-[hsl(var(--primary))] outline-none" />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">Other Monthly Costs</label>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Other Monthly Costs</label>
               <div className="relative">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">$</span>
-                <input type="text" defaultValue="50" className="w-full pl-7 pr-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:border-[#D61465] focus:ring-1 focus:ring-[#D61465] outline-none" />
+                <input type="text" defaultValue="50" className="w-full pl-7 pr-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:border-[hsl(var(--primary))] focus:ring-1 focus:ring-[hsl(var(--primary))] outline-none" />
               </div>
             </div>
           </div>
@@ -502,28 +502,28 @@ function LaunchCalculator() {
         {/* Results */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="rounded-xl border border-blue-200 bg-blue-50 p-5">
-            <p className="text-sm font-medium text-gray-500">Total Startup Cost</p>
-            <p className="mt-1 text-2xl font-bold text-gray-900">$848</p>
-            <p className="mt-0.5 text-xs text-gray-500">One-time investment</p>
+            <p className="text-sm font-medium text-muted-foreground">Total Startup Cost</p>
+            <p className="mt-1 text-2xl font-bold text-foreground">$848</p>
+            <p className="mt-0.5 text-xs text-muted-foreground">One-time investment</p>
           </div>
           <div className="rounded-xl border border-pink-200 bg-pink-50 p-5">
-            <p className="text-sm font-medium text-gray-500">Monthly Burn</p>
-            <p className="mt-1 text-2xl font-bold text-gray-900">$399</p>
-            <p className="mt-0.5 text-xs text-gray-500">Recurring monthly costs</p>
+            <p className="text-sm font-medium text-muted-foreground">Monthly Burn</p>
+            <p className="mt-1 text-2xl font-bold text-foreground">$399</p>
+            <p className="mt-0.5 text-xs text-muted-foreground">Recurring monthly costs</p>
           </div>
           <div className="rounded-xl border border-green-200 bg-green-50 p-5">
-            <p className="text-sm font-medium text-gray-500">Break Even</p>
-            <p className="mt-1 text-2xl font-bold text-gray-900">~8 orders</p>
-            <p className="mt-0.5 text-xs text-gray-500">At $50 avg profit/order</p>
+            <p className="text-sm font-medium text-muted-foreground">Break Even</p>
+            <p className="mt-1 text-2xl font-bold text-foreground">~8 orders</p>
+            <p className="mt-0.5 text-xs text-muted-foreground">At $50 avg profit/order</p>
           </div>
         </div>
       </div>
 
       {/* Saved Calculations Sidebar */}
       <div>
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Saved Calculations</h3>
-        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm text-center">
-          <p className="text-gray-500 text-sm">No saved calculations yet. Save your first calculation to see it here.</p>
+        <h3 className="text-lg font-semibold text-foreground mb-4">Saved Calculations</h3>
+        <div className="rounded-xl border border-border bg-white p-6 shadow-sm text-center">
+          <p className="text-muted-foreground text-sm">No saved calculations yet. Save your first calculation to see it here.</p>
         </div>
       </div>
     </div>
@@ -534,36 +534,36 @@ function LaunchCalculator() {
 function BillingView() {
   return (
     <div className="max-w-2xl space-y-6">
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <h3 className="text-lg font-bold text-gray-900 mb-1">Subscription</h3>
-        <p className="text-sm text-gray-500 mb-6">Manage your BeautyShare Pro subscription</p>
+      <div className="rounded-xl border border-border bg-white p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-foreground mb-1">Subscription</h3>
+        <p className="text-sm text-muted-foreground mb-6">Manage your BeautyShare Pro subscription</p>
         <div className="space-y-4">
           <div className="flex items-center justify-between py-3 border-b border-gray-100">
-            <span className="text-sm text-gray-500">Plan</span>
-            <span className="text-sm font-semibold text-gray-900">BeautyShare Pro · $149/mo</span>
+            <span className="text-sm text-muted-foreground">Plan</span>
+            <span className="text-sm font-semibold text-foreground">BeautyShare Pro · $149/mo</span>
           </div>
           <div className="flex items-center justify-between py-3 border-b border-gray-100">
-            <span className="text-sm text-gray-500">Status</span>
+            <span className="text-sm text-muted-foreground">Status</span>
             <Badge variant="success">Active</Badge>
           </div>
           <div className="flex items-center justify-between py-3 border-b border-gray-100">
-            <span className="text-sm text-gray-500">Next Billing Date</span>
-            <span className="text-sm font-medium text-gray-900">April 6, 2026</span>
+            <span className="text-sm text-muted-foreground">Next Billing Date</span>
+            <span className="text-sm font-medium text-foreground">April 6, 2026</span>
           </div>
           <div className="flex items-center justify-between py-3 border-b border-gray-100">
-            <span className="text-sm text-gray-500">Payment Method</span>
-            <span className="text-sm font-medium text-gray-900">Visa ending in 4242</span>
+            <span className="text-sm text-muted-foreground">Payment Method</span>
+            <span className="text-sm font-medium text-foreground">Visa ending in 4242</span>
           </div>
           <div className="flex items-center justify-between py-3">
-            <span className="text-sm text-gray-500">Member Since</span>
-            <span className="text-sm font-medium text-gray-900">January 15, 2026</span>
+            <span className="text-sm text-muted-foreground">Member Since</span>
+            <span className="text-sm font-medium text-foreground">January 15, 2026</span>
           </div>
         </div>
         <div className="mt-6 flex gap-3">
-          <button className="px-4 py-2.5 rounded-lg bg-[#D61465] text-white text-sm font-medium hover:bg-[#B00E53] transition-colors">
+          <button className="px-4 py-2.5 rounded-lg bg-[hsl(var(--primary))] text-white text-sm font-medium hover:bg-[#B00E53] transition-colors">
             Manage Subscription
           </button>
-          <button className="px-4 py-2.5 rounded-lg border border-gray-300 text-gray-700 text-sm font-medium hover:bg-gray-50 transition-colors">
+          <button className="px-4 py-2.5 rounded-lg border border-gray-300 text-foreground text-sm font-medium hover:bg-muted transition-colors">
             View Invoices
           </button>
         </div>
@@ -592,23 +592,23 @@ export default function PreviewPage() {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-50" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <div className="flex min-h-screen bg-muted" style={{ fontFamily: "'Inter', sans-serif" }}>
       <Sidebar activeView={activeView} setActiveView={handleViewChange} role={role} />
       <div className="flex-1 flex flex-col">
         <TopBar title={viewTitles[activeView] || 'Dashboard'} />
         <div className="flex-1 p-8 overflow-auto">
           {/* Role switcher */}
-          <div className="mb-6 flex items-center gap-3 p-3 bg-white rounded-xl border border-gray-200 shadow-sm">
-            <span className="text-sm font-medium text-gray-500 mr-2">Preview as:</span>
+          <div className="mb-6 flex items-center gap-3 p-3 bg-white rounded-xl border border-border shadow-sm">
+            <span className="text-sm font-medium text-muted-foreground mr-2">Preview as:</span>
             <button
               onClick={() => { setRole('admin'); setActiveView('admin'); }}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${role === 'admin' ? 'bg-[#D61465] text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${role === 'admin' ? 'bg-[hsl(var(--primary))] text-white' : 'bg-gray-100 text-foreground/80 hover:bg-gray-200'}`}
             >
               Admin
             </button>
             <button
               onClick={() => { setRole('subscriber'); setActiveView('subscriber'); }}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${role === 'subscriber' ? 'bg-[#D61465] text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${role === 'subscriber' ? 'bg-[hsl(var(--primary))] text-white' : 'bg-gray-100 text-foreground/80 hover:bg-gray-200'}`}
             >
               Subscriber
             </button>
@@ -617,7 +617,7 @@ export default function PreviewPage() {
                 <span className="text-gray-300">|</span>
                 <button
                   onClick={() => setActiveView('launch-calc')}
-                  className="px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  className="px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 text-foreground/80 hover:bg-gray-200"
                 >
                   Open Launch Calculator
                 </button>
@@ -628,7 +628,7 @@ export default function PreviewPage() {
                 <span className="text-gray-300">|</span>
                 <button
                   onClick={() => setActiveView('calculators')}
-                  className="px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  className="px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 text-foreground/80 hover:bg-gray-200"
                 >
                   ← Back to Calculators
                 </button>

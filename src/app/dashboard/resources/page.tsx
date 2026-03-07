@@ -21,7 +21,7 @@ const resources = [
     icon: <Truck className="h-7 w-7" />,
     href: '/dashboard/resources/vendor-insights',
     articles: 8,
-    gradient: 'linear-gradient(135deg, #FA6A27, #E2AD37)',
+    gradient: 'linear-gradient(135deg, hsl(var(--accent)), hsl(var(--highlight)))',
     tag: 'Most Popular',
   },
   {
@@ -30,7 +30,7 @@ const resources = [
     icon: <DollarSign className="h-7 w-7" />,
     href: '/dashboard/resources/pricing-guidance',
     articles: 6,
-    gradient: 'linear-gradient(135deg, #D61465, #FA6A27)',
+    gradient: 'linear-gradient(135deg, #D61465, hsl(var(--accent)))',
     tag: 'Essential',
   },
   {
@@ -48,7 +48,7 @@ const resources = [
     icon: <Megaphone className="h-7 w-7" />,
     href: '/dashboard/resources/content-strategies',
     articles: 7,
-    gradient: 'linear-gradient(135deg, #E2AD37, #FA6A27)',
+    gradient: 'linear-gradient(135deg, hsl(var(--highlight)), hsl(var(--accent)))',
     tag: 'Trending',
   },
 ];
@@ -61,13 +61,13 @@ export default function ResourcesHub() {
         className="mb-8 rounded-2xl p-8 text-white relative overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #000000 0%, #111111 50%, #222222 100%)' }}
       >
-        <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #FA6A27, transparent)' }} />
+        <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10" style={{ background: 'radial-gradient(circle, hsl(var(--accent)), transparent)' }} />
         <div className="relative z-10">
           <div className="flex items-center gap-2 mb-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: 'linear-gradient(135deg, #E2AD37, #FA6A27)' }}>
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: 'linear-gradient(135deg, hsl(var(--highlight)), hsl(var(--accent)))' }}>
               <BookOpen className="h-5 w-5 text-white" />
             </div>
-            <span className="rounded-full px-3 py-1 text-xs font-bold" style={{ backgroundColor: 'rgba(250,106,39,0.3)', color: '#E2AD37' }}>
+            <span className="rounded-full px-3 py-1 text-xs font-bold" style={{ backgroundColor: 'rgba(250,106,39,0.3)', color: 'hsl(var(--highlight))' }}>
               100% FREE
             </span>
           </div>
@@ -82,31 +82,31 @@ export default function ResourcesHub() {
 
       {/* Stats Row */}
       <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm" style={{ border: '1px solid #E5E7EB' }}>
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: '#FFF3EB' }}>
-            <Gift className="h-6 w-6" style={{ color: '#FA6A27' }} />
+        <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm" style={{ border: '1px solid hsl(var(--border))' }}>
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: 'hsl(var(--muted))' }}>
+            <Gift className="h-6 w-6" style={{ color: 'hsl(var(--accent))' }} />
           </div>
           <div>
-            <p className="text-2xl font-bold text-gray-900">31+</p>
-            <p className="text-sm text-gray-500">Free Articles</p>
+            <p className="text-2xl font-bold text-foreground">31+</p>
+            <p className="text-sm text-muted-foreground">Free Articles</p>
           </div>
         </div>
-        <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm" style={{ border: '1px solid #E5E7EB' }}>
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: '#FFF3EB' }}>
-            <Star className="h-6 w-6" style={{ color: '#FA6A27' }} />
+        <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm" style={{ border: '1px solid hsl(var(--border))' }}>
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: 'hsl(var(--muted))' }}>
+            <Star className="h-6 w-6" style={{ color: 'hsl(var(--accent))' }} />
           </div>
           <div>
-            <p className="text-2xl font-bold text-gray-900">4.9/5</p>
-            <p className="text-sm text-gray-500">Member Rating</p>
+            <p className="text-2xl font-bold text-foreground">4.9/5</p>
+            <p className="text-sm text-muted-foreground">Member Rating</p>
           </div>
         </div>
-        <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm" style={{ border: '1px solid #E5E7EB' }}>
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: '#FFF3EB' }}>
-            <Sparkles className="h-6 w-6" style={{ color: '#FA6A27' }} />
+        <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm" style={{ border: '1px solid hsl(var(--border))' }}>
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: 'hsl(var(--muted))' }}>
+            <Sparkles className="h-6 w-6" style={{ color: 'hsl(var(--accent))' }} />
           </div>
           <div>
-            <p className="text-2xl font-bold text-gray-900">Weekly</p>
-            <p className="text-sm text-gray-500">New Content Added</p>
+            <p className="text-2xl font-bold text-foreground">Weekly</p>
+            <p className="text-sm text-muted-foreground">New Content Added</p>
           </div>
         </div>
       </div>
@@ -118,7 +118,7 @@ export default function ResourcesHub() {
             key={res.title}
             href={res.href}
             className="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-sm transition-all hover:shadow-md"
-            style={{ border: '1px solid #E5E7EB' }}
+            style={{ border: '1px solid hsl(var(--border))' }}
           >
             <div className="flex items-start justify-between">
               <div
@@ -129,18 +129,18 @@ export default function ResourcesHub() {
               </div>
               <span
                 className="rounded-full px-3 py-1 text-xs font-bold"
-                style={{ backgroundColor: '#FFF3EB', color: '#FA6A27' }}
+                style={{ backgroundColor: 'hsl(var(--muted))', color: 'hsl(var(--accent))' }}
               >
                 {res.tag}
               </span>
             </div>
-            <h3 className="mt-4 text-lg font-bold text-gray-900">{res.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-gray-500">{res.description}</p>
+            <h3 className="mt-4 text-lg font-bold text-foreground">{res.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{res.description}</p>
             <div className="mt-5 flex items-center justify-between">
-              <span className="text-xs text-gray-400">{res.articles} articles</span>
+              <span className="text-xs text-muted-foreground/70">{res.articles} articles</span>
               <div
                 className="flex items-center gap-1 text-sm font-semibold transition-all group-hover:gap-2"
-                style={{ color: '#FA6A27' }}
+                style={{ color: 'hsl(var(--accent))' }}
               >
                 Read Now <ArrowRight className="h-4 w-4" />
               </div>

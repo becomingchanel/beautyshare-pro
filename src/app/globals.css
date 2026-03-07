@@ -1,8 +1,141 @@
 @import "tailwindcss";
 @source "../../src";
 
-@theme {
-  /* BeautyShare Pro Brand Colors — Official 6-color palette */
+/* ═══════════════════════════════════════════════════════════════
+   BeautyShare Pro — Design Token System
+   Based on shadcn/ui HSL pattern from Lovable design spec
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ────────── Light Theme ────────── */
+:root {
+  --background: 270 20% 98%;
+  --foreground: 330 30% 15%;
+  --card: 0 0% 100%;
+  --card-foreground: 330 30% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 330 30% 15%;
+  --primary: 330 83% 46%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 270 52% 83%;
+  --secondary-foreground: 330 30% 15%;
+  --muted: 270 30% 95%;
+  --muted-foreground: 330 15% 40%;
+  --accent: 18 96% 57%;
+  --accent-foreground: 0 0% 100%;
+  --highlight: 40 76% 55%;
+  --highlight-foreground: 0 0% 0%;
+  --tertiary: 270 52% 83%;
+  --tertiary-foreground: 330 30% 15%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 270 40% 86%;
+  --input: 270 40% 86%;
+  --ring: 330 83% 46%;
+  --radius: 0.625rem;
+
+  /* Brand-specific named colors */
+  --gold: 40 76% 55%;
+  --lavender: 270 52% 83%;
+
+  /* Chart colors */
+  --chart-1: 330 83% 46%;
+  --chart-2: 18 96% 57%;
+  --chart-3: 270 52% 83%;
+  --chart-4: 40 76% 55%;
+  --chart-5: 330 60% 60%;
+
+  /* Sidebar — pink primary bg */
+  --sidebar-background: 330 83% 46%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-primary: 0 0% 100%;
+  --sidebar-primary-foreground: 330 83% 46%;
+  --sidebar-accent: 300 50% 55%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 330 70% 40%;
+}
+
+/* ────────── Dark Theme ────────── */
+.dark {
+  --background: 0 0% 6%;
+  --foreground: 0 0% 95%;
+  --card: 0 0% 10%;
+  --card-foreground: 0 0% 95%;
+  --popover: 0 0% 10%;
+  --popover-foreground: 0 0% 95%;
+  --primary: 330 83% 46%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 270 40% 70%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 70%;
+  --accent: 18 90% 55%;
+  --accent-foreground: 0 0% 100%;
+  --highlight: 40 70% 55%;
+  --highlight-foreground: 0 0% 0%;
+  --tertiary: 270 40% 70%;
+  --tertiary-foreground: 0 0% 0%;
+  --destructive: 0 62% 50%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 18%;
+  --input: 0 0% 18%;
+  --ring: 330 83% 46%;
+  --sidebar-background: 330 80% 40%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-primary: 0 0% 100%;
+  --sidebar-primary-foreground: 330 83% 46%;
+  --sidebar-accent: 330 75% 34%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 330 70% 36%;
+}
+
+/* ────────── Tailwind v4 Theme — maps CSS vars to utility classes ────────── */
+@theme inline {
+  /* Semantic colors → bg-primary, text-foreground, border-border, etc. */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-highlight: hsl(var(--highlight));
+  --color-highlight-foreground: hsl(var(--highlight-foreground));
+  --color-tertiary: hsl(var(--tertiary));
+  --color-tertiary-foreground: hsl(var(--tertiary-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  /* Named brand colors (for direct use: bg-gold, text-lavender, etc.) */
+  --color-gold: hsl(var(--gold));
+  --color-lavender: hsl(var(--lavender));
+
+  /* Chart colors */
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  /* Sidebar */
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+
+  /* Original hex color scales (backward compat while migrating) */
   --color-orange: #FA6A27;
   --color-orange-light: #FF8A50;
   --color-orange-dark: #E05A1A;
@@ -31,7 +164,6 @@
   --color-pink-800: #700836;
   --color-pink-900: #50052A;
 
-  --color-lavender: #DCBDEF;
   --color-lavender-light: #EDD8F7;
   --color-lavender-dark: #C49BE5;
   --color-lavender-50: #F9F3FD;
@@ -43,7 +175,6 @@
   --color-lavender-600: #8B4FC0;
   --color-lavender-700: #6E3A9E;
 
-  --color-gold: #E2AD37;
   --color-gold-light: #F0C65C;
   --color-gold-dark: #C49320;
   --color-gold-50: #FDF8EC;
@@ -53,26 +184,13 @@
   --color-gold-400: #C49320;
   --color-gold-500: #A67B18;
 
-  /* Semantic colors */
+  /* Semantic status */
   --color-success: #16A34A;
   --color-success-light: #DCFCE7;
   --color-warning: #D97706;
   --color-warning-light: #FEF3C7;
   --color-danger: #DC2626;
   --color-danger-light: #FEE2E2;
-
-  /* Brand palette — primary orange */
-  --color-brand-50: #FFF3EB;
-  --color-brand-100: #FFE4D1;
-  --color-brand-200: #FFCBA8;
-  --color-brand-300: #FFAD78;
-  --color-brand-400: #FF8A50;
-  --color-brand-500: #FA6A27;
-  --color-brand-600: #E05A1A;
-  --color-brand-700: #C04A14;
-  --color-brand-800: #993B10;
-  --color-brand-900: #732D0C;
-  --color-brand-950: #4A1E06;
 
   /* Neutral tones */
   --color-cream-50: #FFFFFF;
@@ -81,53 +199,90 @@
   --color-cream-300: #E5E7EB;
   --color-cream-400: #D1D5DB;
 
-  /* Sidebar tones */
-  --color-sidebar: #FFFFFF;
-  --color-sidebar-hover: #F9FAFB;
-  --color-sidebar-active: #D61465;
-  --color-sidebar-text: #6B7280;
-  --color-sidebar-text-hover: #000000;
-  --color-sidebar-border: #E5E7EB;
-
-  /* Semantic accent — brand orange */
-  --color-accent: #FA6A27;
-  --color-accent-light: #FF8A50;
-  --color-accent-dark: #E05A1A;
+  /* Border radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 
   /* Typography */
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Playfair Display', Georgia, serif;
 }
 
-/* Base styles */
+/* ────────── Base Styles ────────── */
 body {
   font-family: var(--font-sans);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Brand gradient utility — brand orange */
+/* ────────── Component Base Classes (shadcn/ui pattern) ────────── */
+
+/* Card */
+.card {
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+/* Stat / KPI Card */
+.stat-card {
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+}
+
+/* Nav link (sidebar) */
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: hsl(var(--sidebar-foreground) / 0.7);
+  transition: all 0.15s ease;
+}
+.nav-link:hover {
+  background: hsl(var(--sidebar-accent));
+  color: hsl(var(--sidebar-accent-foreground));
+}
+.nav-link.active {
+  background: hsl(var(--sidebar-accent));
+  color: hsl(var(--sidebar-accent-foreground));
+  font-weight: 600;
+}
+
+/* ────────── Brand Gradient Utilities ────────── */
 .brand-gradient {
-  background: linear-gradient(135deg, #FA6A27 0%, #E2AD37 100%);
+  background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--highlight)) 100%);
 }
 
 .brand-gradient-reverse {
-  background: linear-gradient(135deg, #E2AD37 0%, #FA6A27 100%);
+  background: linear-gradient(135deg, hsl(var(--highlight)) 0%, hsl(var(--accent)) 100%);
 }
 
 .brand-gradient-text {
-  background: linear-gradient(135deg, #FA6A27 0%, #E2AD37 100%);
+  background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--highlight)) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .brand-gradient-pink {
-  background: linear-gradient(135deg, #FA6A27 0%, #D61465 100%);
+  background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--primary)) 100%);
 }
 
 .brand-gradient-full {
-  background: linear-gradient(135deg, #FA6A27 0%, #E2AD37 40%, #DCBDEF 70%, #D61465 100%);
+  background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--highlight)) 40%, hsl(var(--secondary)) 70%, hsl(var(--primary)) 100%);
 }
 
 /* Animated gradient */
@@ -138,7 +293,7 @@ body {
 }
 
 .animated-gradient {
-  background: linear-gradient(135deg, #FA6A27, #E2AD37, #D61465, #DCBDEF, #FA6A27);
+  background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--highlight)), hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent)));
   background-size: 300% 300%;
   animation: gradient-shift 8s ease infinite;
 }
@@ -151,50 +306,25 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-}
+/* ────────── Scrollbar Styling ────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
+.sidebar-scroll::-webkit-scrollbar { width: 4px; }
+.sidebar-scroll::-webkit-scrollbar-track { background: transparent; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: hsl(var(--sidebar-border)); border-radius: 2px; }
+.sidebar-scroll::-webkit-scrollbar-thumb:hover { background: hsl(var(--sidebar-foreground) / 0.3); }
 
-::-webkit-scrollbar-thumb {
-  background: #D1D5DB;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #9CA3AF;
-}
-
-/* Sidebar-specific scrollbar */
-.sidebar-scroll::-webkit-scrollbar {
-  width: 4px;
-}
-
-.sidebar-scroll::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.sidebar-scroll::-webkit-scrollbar-thumb {
-  background: #E5E7EB;
-  border-radius: 2px;
-}
-
-.sidebar-scroll::-webkit-scrollbar-thumb:hover {
-  background: #D1D5DB;
-}
-
-/* Focus outline for accessibility */
+/* ────────── Accessibility ────────── */
 *:focus-visible {
-  outline: 2px solid #FA6A27;
+  outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
   border-radius: 4px;
 }
 
-/* Smooth scrolling */
+/* ────────── Smooth Scrolling ────────── */
 html {
   scroll-behavior: smooth;
 }

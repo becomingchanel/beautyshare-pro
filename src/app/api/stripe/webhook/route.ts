@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
           .from('subscriptions')
           .upsert(
             {
-              user_id: userId,
+              profile_id: userId,
               stripe_subscription_id: session.subscription as string,
               stripe_customer_id: session.customer as string,
               status: 'active',
@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
               current_period_end: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
               updated_at: new Date().toISOString(),
             },
-            { onConflict: 'user_id' }
+            { onConflict: 'profile_id' }
           );
 
         if (error) {
@@ -85,7 +85,7 @@ export async function POST(request: NextRequest) {
       // Find user by customer ID
       const { data: subscriptions } = await supabase
         .from('subscriptions')
-        .select('user_id')
+        .select('profile_id')
         .eq('stripe_customer_id', customerId)
         .single();
 
@@ -109,7 +109,7 @@ export async function POST(request: NextRequest) {
         const { error } = await supabase
           .from('subscriptions')
           .update(updates)
-          .eq('user_id', subscriptions.user_id);
+          .eq('profile_id', subscriptions.profile_id);
 
         if (error) {
           console.error('Error updating subscription:', error);
@@ -124,7 +124,7 @@ export async function POST(request: NextRequest) {
       // Find and update subscription
       const { data: subscriptions } = await supabase
         .from('subscriptions')
-        .select('user_id')
+        .select('profile_id')
         .eq('stripe_customer_id', customerId)
         .single();
 
@@ -135,7 +135,7 @@ export async function POST(request: NextRequest) {
             status: 'canceled',
             updated_at: new Date().toISOString(),
           })
-          .eq('user_id', subscriptions.user_id);
+          .eq('profile_id', subscriptions.profile_id);
 
         if (error) {
           console.error('Error canceling subscription:', error);

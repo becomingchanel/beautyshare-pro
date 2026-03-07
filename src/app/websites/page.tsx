@@ -6,8 +6,8 @@ import { useState } from 'react';
 /* ================================================================
    BeautyShare Pro — Semi-Custom Shopify Store Designs
    /websites showcase page
-   Brand Colors: #FA6A27 (orange), #D61465 (pink), #DCBDEF (lavender),
-                 #E2AD37 (gold), #000000, #FFFFFF
+   Brand Colors: #FA6A27 (orange), hsl(var(--primary)) (pink), #DCBDEF (lavender),
+                 hsl(var(--highlight)) (gold), hsl(var(--foreground)), hsl(var(--background))
    ================================================================ */
 
 /* ── Cursive accent helper ──────────────────────────────────────── */
@@ -78,7 +78,7 @@ const themes = [
     tagline: 'Luxury / High-End',
     description:
       'Opulent black and gold theme for premium hair brands that demand elegance. Cormorant Garamond serif headlines meet sleek sans-serif body text, creating a high-fashion boutique experience.',
-    colors: { bg: '#000000', accent: '#E2AD37', text: '#FFFFFF' },
+    colors: { bg: 'hsl(var(--foreground))', accent: 'hsl(var(--highlight))', text: 'hsl(var(--background))' },
     fonts: 'Cormorant Garamond + Montserrat',
     features: [
       'Dramatic dark hero with gold overlay text',
@@ -87,11 +87,11 @@ const themes = [
       'Dark footer with gold social links',
     ],
     bestFor: 'High-ticket bundles, virgin hair, luxury wig brands',
-    gradient: 'from-[#000000] to-[#000000]',
-    accentColor: '#E2AD37',
-    previewBg: 'bg-[#000000]',
-    previewText: 'text-[#FFFFFF]',
-    previewAccent: 'text-[#E2AD37]',
+    gradient: 'from-[hsl(var(--foreground))] to-[hsl(var(--foreground))]',
+    accentColor: 'hsl(var(--highlight))',
+    previewBg: 'bg-[hsl(var(--foreground))]',
+    previewText: 'text-[hsl(var(--background))]',
+    previewAccent: 'text-[hsl(var(--highlight))]',
   },
   {
     id: 'vibe-hair-co',
@@ -99,7 +99,7 @@ const themes = [
     tagline: 'Bold / Street Style',
     description:
       'Vibrant pink and purple energy for bold entrepreneurs who want their brand to pop. Oversized Bebas Neue headings with Poppins body text deliver that street-chic confidence.',
-    colors: { bg: '#FFFFFF', accent: '#D61465', text: '#000000' },
+    colors: { bg: 'hsl(var(--background))', accent: 'hsl(var(--primary))', text: 'hsl(var(--foreground))' },
     fonts: 'Bebas Neue + Poppins',
     features: [
       'Bold uppercase display headings',
@@ -108,11 +108,11 @@ const themes = [
       'Energetic hover animations',
     ],
     bestFor: 'Young audiences, social-media-first brands, trend-driven styles',
-    gradient: 'from-[#D61465] to-[#DCBDEF]',
-    accentColor: '#D61465',
+    gradient: 'from-[hsl(var(--primary))] to-[#DCBDEF]',
+    accentColor: 'hsl(var(--primary))',
     previewBg: 'bg-white',
-    previewText: 'text-[#000000]',
-    previewAccent: 'text-[#D61465]',
+    previewText: 'text-[hsl(var(--foreground))]',
+    previewAccent: 'text-[hsl(var(--primary))]',
   },
   {
     id: 'blossom-beauty',
@@ -120,7 +120,7 @@ const themes = [
     tagline: 'Soft / Feminine',
     description:
       'Warm blush tones and rose gold accents for a soft, inviting brand feel. Playfair Display italic headlines paired with Lato create an effortlessly pretty and trustworthy store.',
-    colors: { bg: '#FDF2F8', accent: '#D61465', text: '#000000' },
+    colors: { bg: 'hsl(var(--background))', accent: 'hsl(var(--primary))', text: 'hsl(var(--foreground))' },
     fonts: 'Playfair Display + Lato',
     features: [
       'Warm blush/rose background tones',
@@ -129,11 +129,11 @@ const themes = [
       'Subtle rounded elements throughout',
     ],
     bestFor: 'Bridal hair, natural hair, everyday glam, beauty salon brands',
-    gradient: 'from-[#D61465] to-[#FDF2F8]',
-    accentColor: '#D61465',
-    previewBg: 'bg-[#FDF2F8]',
-    previewText: 'text-[#000000]',
-    previewAccent: 'text-[#D61465]',
+    gradient: 'from-[hsl(var(--primary))] to-[hsl(var(--background))]',
+    accentColor: 'hsl(var(--primary))',
+    previewBg: 'bg-[hsl(var(--background))]',
+    previewText: 'text-[hsl(var(--foreground))]',
+    previewAccent: 'text-[hsl(var(--primary))]',
   },
   {
     id: 'pure-strand',
@@ -141,7 +141,7 @@ const themes = [
     tagline: 'Clean / Minimalist',
     description:
       'Crisp white space with refined black typography and a gold accent. Inter\'s clean lines throughout create a modern, editorial feel that lets your product photography shine.',
-    colors: { bg: '#FFFFFF', accent: '#E2AD37', text: '#000000' },
+    colors: { bg: 'hsl(var(--background))', accent: 'hsl(var(--highlight))', text: 'hsl(var(--foreground))' },
     fonts: 'Inter (all weights)',
     features: [
       'Maximum white space for editorial feel',
@@ -150,11 +150,11 @@ const themes = [
       'Minimal UI — the hair is the hero',
     ],
     bestFor: 'Product-focused brands, wholesale storefronts, clean aesthetics',
-    gradient: 'from-[#000000] to-[#000000]',
-    accentColor: '#E2AD37',
+    gradient: 'from-[hsl(var(--foreground))] to-[hsl(var(--foreground))]',
+    accentColor: 'hsl(var(--highlight))',
     previewBg: 'bg-white',
-    previewText: 'text-[#000000]',
-    previewAccent: 'text-[#E2AD37]',
+    previewText: 'text-[hsl(var(--foreground))]',
+    previewAccent: 'text-[hsl(var(--highlight))]',
   },
 ];
 
@@ -324,7 +324,7 @@ export default function WebsitesPage() {
                         className="inline-block px-6 py-3 text-sm font-bold rounded-full"
                         style={{
                           backgroundColor: theme.colors.accent,
-                          color: theme.id === 'luxe-crown' ? '#000000' : '#FFFFFF',
+                          color: theme.id === 'luxe-crown' ? 'hsl(var(--foreground))' : 'hsl(var(--background))',
                           borderRadius: theme.id === 'pure-strand' ? '0' : theme.id === 'blossom-beauty' ? '9999px' : '9999px',
                         }}
                       >

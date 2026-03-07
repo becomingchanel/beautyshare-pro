@@ -342,7 +342,7 @@ export default function HomePage() {
               <thead>
                 <tr>
                   <th className="text-left py-5 px-5 w-1/3"></th>
-                  <th className="py-5 px-5 text-center rounded-t-2xl" style={{ background: 'linear-gradient(135deg, #FA6A27, #D61465)' }}>
+                  <th className="py-5 px-5 text-center rounded-t-2xl" style={{ background: 'linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)))' }}>
                     <div className="text-white/80 text-xs font-bold uppercase tracking-widest">Beauty Share Pro</div>
                     <div className="text-white text-lg mt-1" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic' }}>The Easy Way</div>
                   </th>

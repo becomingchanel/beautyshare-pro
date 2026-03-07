@@ -37,8 +37,8 @@ export function RevenueChart({ data }: RevenueChartProps) {
             <AreaChart data={chartData} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
               <defs>
                 <linearGradient id="colorSaas" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#FA6A27" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="#FA6A27" stopOpacity={0} />
+                  <stop offset="5%" stopColor="hsl(var(--accent))" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="hsl(var(--accent))" stopOpacity={0} />
                 </linearGradient>
                 <linearGradient id="colorWholesale" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#DCBDEF" stopOpacity={0.3} />
@@ -46,10 +46,10 @@ export function RevenueChart({ data }: RevenueChartProps) {
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-              <XAxis dataKey="date" tick={{ fontSize: 12 }} stroke="#9ca3af" />
+              <XAxis dataKey="date" tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" />
               <YAxis
                 tick={{ fontSize: 12 }}
-                stroke="#9ca3af"
+                stroke="hsl(var(--muted-foreground))"
                 tickFormatter={(v) => `$${v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}`}
               />
               <Tooltip
@@ -58,14 +58,14 @@ export function RevenueChart({ data }: RevenueChartProps) {
                     ? new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value)
                     : '$0'
                 }
-                contentStyle={{ borderRadius: '8px', border: '1px solid #e5e7eb' }}
+                contentStyle={{ borderRadius: '8px', border: '1px solid hsl(var(--border))' }}
               />
               <Legend />
               <Area
                 type="monotone"
                 dataKey="saas"
                 name="SaaS Revenue"
-                stroke="#FA6A27"
+                stroke="hsl(var(--accent))"
                 fillOpacity={1}
                 fill="url(#colorSaas)"
                 strokeWidth={2}

@@ -72,12 +72,12 @@ export function CalculatorLayout({
       <div className="lg:col-span-2 space-y-6">
         {/* Header */}
         <div>
-          <Link href="/dashboard/calculators" className="flex items-center text-orange-600 hover:text-orange-700 mb-4">
+          <Link href="/dashboard/calculators" className="flex items-center text-accent hover:text-accent/80 mb-4">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Calculators
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900">{title}</h1>
-          <p className="text-gray-600 mt-2">{description}</p>
+          <h1 className="text-3xl font-bold text-foreground">{title}</h1>
+          <p className="text-foreground/70 mt-2">{description}</p>
         </div>
 
         {/* Calculator Content */}
@@ -90,7 +90,7 @@ export function CalculatorLayout({
         {/* Save Button */}
         <Button
           onClick={() => setShowSaveModal(true)}
-          className="w-full bg-gradient-to-r from-[#FA6A27] to-[#E2AD37] hover:from-[#E05A1A] hover:to-[#C49320] text-white flex items-center justify-center gap-2"
+          className="w-full bg-gradient-to-r from-accent to-highlight hover:from-accent/90 hover:to-highlight/90 text-white flex items-center justify-center gap-2"
           disabled={isSaving}
         >
           <Save className="w-4 h-4" />
@@ -108,14 +108,14 @@ export function CalculatorLayout({
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <Card className="w-full max-w-md">
             <div className="p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Save Calculation</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">Save Calculation</h2>
               
               <input
                 type="text"
                 placeholder="Enter a name for this calculation (e.g., 'Q1 Launch Plan')"
                 value={calculationName}
                 onChange={(e) => setCalculationName(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 mb-6"
+                className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 mb-6"
               />
 
               <div className="flex gap-3">
@@ -124,7 +124,7 @@ export function CalculatorLayout({
                     setShowSaveModal(false);
                     setCalculationName('');
                   }}
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                  className="flex-1 px-4 py-2 border border-border rounded-lg hover:bg-muted transition-colors"
                 >
                   Cancel
                 </button>

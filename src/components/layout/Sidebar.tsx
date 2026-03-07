@@ -45,6 +45,7 @@ interface NavItem {
   icon: React.ReactNode;
   badge?: string;
   children?: NavChild[];
+  adminOnly?: boolean;
 }
 
 const mainNav: NavItem[] = [
@@ -69,18 +70,14 @@ const mainNav: NavItem[] = [
     ],
   },
   { label: 'Customers', href: '/dashboard/customers', icon: <Users className="h-5 w-5" /> },
-  { label: 'Partners', href: '/dashboard/partners', icon: <Handshake className="h-5 w-5" /> },
-  { label: 'Resellers', href: '/dashboard/resellers', icon: <UserCheck className="h-5 w-5" /> },
-  { label: 'Competitor Monitor', href: '/dashboard/competitors', icon: <Eye className="h-5 w-5" /> },
-  { label: 'Conversion Detector', href: '/dashboard/conversions', icon: <Target className="h-5 w-5" /> },
-  { label: 'CEO Task Planner', href: '/dashboard/ceo-planner', icon: <ListTodo className="h-5 w-5" /> },
-  { label: 'Content Intelligence', href: '/dashboard/content-intel', icon: <Brain className="h-5 w-5" /> },
-  { label: 'Content Day Planner', href: '/dashboard/content-planner', icon: <Calendar className="h-5 w-5" /> },
-  {
-    label: 'Content Library',
-    href: '/dashboard/marketing',
-    icon: <BookOpen className="h-5 w-5" />,
-  },
+  { label: 'Partners', href: '/dashboard/partners', icon: <Handshake className="h-5 w-5" />, adminOnly: true },
+  { label: 'Resellers', href: '/dashboard/resellers', icon: <UserCheck className="h-5 w-5" />, adminOnly: true },
+  { label: 'Competitor Monitor', href: '/dashboard/competitors', icon: <Eye className="h-5 w-5" />, adminOnly: true },
+  { label: 'Conversion Detector', href: '/dashboard/conversions', icon: <Target className="h-5 w-5" />, adminOnly: true },
+  { label: 'CEO Task Planner', href: '/dashboard/ceo-planner', icon: <ListTodo className="h-5 w-5" />, adminOnly: true },
+  { label: 'Content Intelligence', href: '/dashboard/content-intel', icon: <Brain className="h-5 w-5" />, adminOnly: true },
+  { label: 'Content Day Planner', href: '/dashboard/content-planner', icon: <Calendar className="h-5 w-5" />, adminOnly: true },
+  { label: 'Content Library', href: '/dashboard/marketing', icon: <BookOpen className="h-5 w-5" />, adminOnly: true },
   { label: 'Reports', href: '/dashboard/reports', icon: <BarChart3 className="h-5 w-5" /> },
   { label: 'Settings', href: '/dashboard/settings', icon: <Settings className="h-5 w-5" /> },
   { label: 'Upgrade', href: '/dashboard/upgrade', icon: <ArrowUpCircle className="h-5 w-5" /> },
@@ -91,6 +88,8 @@ export function Sidebar() {
   const profile = useAuthStore((s) => s.profile);
   const signOut = useAuthStore((s) => s.signOut);
   const [expandedSections, setExpandedSections] = useState<string[]>(['Calculators']);
+  const isAdmin = profile?.role === 'admin';
+  const visibleNav = mainNav.filter((item) => !item.adminOnly || isAdmin);
 
   const toggleSection = (label: string) => {
     setExpandedSections((prev) =>
@@ -104,23 +103,16 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="flex h-screen w-60 flex-col flex-shrink-0 bg-white" style={{ borderRight: '1px solid #E5E7EB' }}>
-      {/* Logo — BeautySharePro gradient */}
-      <div className="px-5 pt-5 pb-2">
+    <aside className="fixed left-0 top-0 z-40 flex h-screen w-64 flex-col bg-sidebar border-r border-sidebar-border">
+      {/* Logo */}
+      <div className="flex h-16 items-center justify-center border-b border-sidebar-border px-6">
         <Link href="/" className="flex items-center">
-          <span
-            className="text-xl font-bold tracking-tight"
-            style={{
-              background: 'linear-gradient(90deg, #FA6A27 0%, #D61465 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
+          <span className="text-xl font-bold tracking-tight text-white">
             beautyshare
           </span>
           <span
-            className="text-xs font-bold tracking-widest ml-0.5"
-            style={{ color: '#D61465', writingMode: 'vertical-rl', lineHeight: 1, marginTop: '2px' }}
+            className="text-xs font-bold tracking-widest text-white/80 ml-0.5"
+            style={{ writingMode: 'vertical-rl', lineHeight: 1, marginTop: '2px' }}
           >
             PRO
           </span>
@@ -128,87 +120,69 @@ export function Sidebar() {
       </div>
 
       {/* Business Name Selector */}
-      <div className="mx-4 mb-3">
-        <button className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors" style={{ backgroundColor: '#F9FAFB', border: '1px solid #E5E7EB', color: '#000000' }}>
+      <div className="px-3 py-3 border-b border-sidebar-border">
+        <button className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors bg-white/10 hover:bg-white/20 text-white">
           <div className="flex items-center gap-2">
-            <div className="flex h-6 w-6 items-center justify-center rounded-md text-white text-[10px] font-bold" style={{ background: 'linear-gradient(135deg, #D61465, #FA6A27)' }}>
+            <div className="flex h-6 w-6 items-center justify-center rounded-md bg-white/20 text-white text-[10px] font-bold">
               {profile?.full_name?.charAt(0)?.toUpperCase() || 'B'}
             </div>
             <span className="truncate font-medium">{profile?.full_name || 'My Business'}</span>
           </div>
-          <ChevronDown className="h-3.5 w-3.5 flex-shrink-0 ml-2" style={{ color: '#9CA3AF' }} />
+          <ChevronDown className="h-3.5 w-3.5 flex-shrink-0 ml-2 text-white/60" />
         </button>
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 overflow-y-auto px-3 pb-4 sidebar-scroll">
-        <div className="space-y-0.5">
-          {mainNav.map((item) => {
+      <nav className="flex-1 overflow-y-auto px-3 py-4 sidebar-scroll">
+        <ul className="space-y-1">
+          {visibleNav.map((item) => {
             const active = checkActive(item.href);
             const hasChildren = item.children && item.children.length > 0;
             const isExpanded = expandedSections.includes(item.label);
             const anyChildActive = hasChildren && item.children!.some((c) => checkActive(c.href));
+            const isHighlighted = active || anyChildActive;
 
             return (
-              <div key={item.label}>
+              <li key={item.label}>
                 {/* Parent Item */}
                 {hasChildren ? (
                   <button
                     onClick={() => toggleSection(item.label)}
                     className={cn(
-                      'flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] font-medium transition-all'
+                      'flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] font-medium transition-all',
+                      isHighlighted
+                        ? 'bg-sidebar-accent text-sidebar-accent-foreground'
+                        : 'text-white/70 hover:bg-white/10 hover:text-white'
                     )}
-                    style={{
-                      color: anyChildActive ? '#fff' : '#000000',
-                      backgroundColor: anyChildActive ? '#D61465' : 'transparent',
-                    }}
-                    onMouseEnter={(e) => {
-                      if (!anyChildActive) {
-                        e.currentTarget.style.backgroundColor = '#F9FAFB';
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!anyChildActive) {
-                        e.currentTarget.style.backgroundColor = 'transparent';
-                      }
-                    }}
                   >
-                    <span style={{ color: anyChildActive ? '#fff' : '#9CA3AF' }}>{item.icon}</span>
+                    {item.icon}
                     <span className="truncate">{item.label}</span>
                     <ChevronDown
-                      className={cn('ml-auto h-3.5 w-3.5 transition-transform', isExpanded && 'rotate-180')}
-                      style={{ color: anyChildActive ? '#fff' : '#9CA3AF' }}
+                      className={cn(
+                        'ml-auto h-3.5 w-3.5 transition-transform',
+                        isExpanded && 'rotate-180'
+                      )}
                     />
                   </button>
                 ) : (
                   <Link
                     href={item.href}
                     className={cn(
-                      'flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] font-medium transition-all'
+                      'flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] font-medium transition-all',
+                      isHighlighted
+                        ? 'bg-sidebar-accent text-sidebar-accent-foreground'
+                        : 'text-white/70 hover:bg-white/10 hover:text-white'
                     )}
-                    style={{
-                      color: active ? '#fff' : '#000000',
-                      backgroundColor: active ? '#D61465' : 'transparent',
-                    }}
-                    onMouseEnter={(e) => {
-                      if (!active) {
-                        e.currentTarget.style.backgroundColor = '#F9FAFB';
-                        e.currentTarget.style.color = '#000000';
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!active) {
-                        e.currentTarget.style.backgroundColor = 'transparent';
-                        e.currentTarget.style.color = '#000000';
-                      }
-                    }}
                   >
-                    <span style={{ color: active ? '#fff' : '#9CA3AF' }}>{item.icon}</span>
+                    {item.icon}
                     <span className="truncate">{item.label}</span>
                     {item.badge && (
                       <span
-                        className="ml-auto rounded-full px-2 py-0.5 text-[10px] font-bold text-white"
-                        style={{ backgroundColor: item.badge === 'New' ? '#D61465' : '#FA6A27' }}
+                        className="ml-auto rounded-full px-2 py-0.5 text-[10px] font-bold"
+                        style={{
+                          backgroundColor: item.badge === 'New' ? 'rgba(255,255,255,0.25)' : 'hsl(var(--accent))',
+                          color: '#fff',
+                        }}
                       >
                         {item.badge}
                       </span>
@@ -218,67 +192,50 @@ export function Sidebar() {
 
                 {/* Children */}
                 {hasChildren && isExpanded && (
-                  <div className="mt-0.5 ml-4 space-y-0.5 pl-3" style={{ borderLeft: '1px solid #E5E7EB' }}>
+                  <div className="mt-0.5 ml-4 space-y-0.5 pl-3 border-l border-white/20">
                     {item.children!.map((child) => {
                       const childActive = checkActive(child.href);
                       return (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="flex items-center gap-2 rounded-md px-2.5 py-1.5 text-[12px] font-medium transition-all"
-                          style={{
-                            color: childActive ? '#D61465' : '#6B7280',
-                            backgroundColor: childActive ? '#FDF2F8' : 'transparent',
-                          }}
-                          onMouseEnter={(e) => {
-                            if (!childActive) {
-                              e.currentTarget.style.backgroundColor = '#F9FAFB';
-                              e.currentTarget.style.color = '#000000';
-                            }
-                          }}
-                          onMouseLeave={(e) => {
-                            if (!childActive) {
-                              e.currentTarget.style.backgroundColor = 'transparent';
-                              e.currentTarget.style.color = '#6B7280';
-                            }
-                          }}
+                          className={cn(
+                            'flex items-center gap-2 rounded-md px-2.5 py-1.5 text-[12px] font-medium transition-all',
+                            childActive
+                              ? 'bg-white/20 text-white'
+                              : 'text-white/60 hover:bg-white/10 hover:text-white'
+                          )}
                         >
-                          <span style={{ color: childActive ? '#D61465' : '#9CA3AF' }}>{child.icon}</span>
+                          {child.icon}
                           <span className="truncate">{child.label}</span>
                         </Link>
                       );
                     })}
                   </div>
                 )}
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </nav>
 
       {/* Bottom User Area */}
-      <div className="px-3 py-3" style={{ borderTop: '1px solid #E5E7EB' }}>
+      <div className="border-t border-sidebar-border p-4">
         <div className="flex items-center gap-2.5">
-          <div
-            className="flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-white flex-shrink-0"
-            style={{ background: 'linear-gradient(135deg, #D61465, #FA6A27)' }}
-          >
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-sm font-bold text-white flex-shrink-0">
             {profile?.full_name?.charAt(0)?.toUpperCase() || profile?.email?.charAt(0)?.toUpperCase() || 'C'}
           </div>
           <div className="min-w-0 flex-1">
-            <p className="truncate text-xs font-medium" style={{ color: '#000000' }}>
+            <p className="truncate text-xs font-medium text-white">
               {profile?.role === 'admin' ? 'Super Admin' : 'Subscriber'}
             </p>
-            <p className="truncate text-[10px]" style={{ color: '#9CA3AF' }}>
+            <p className="truncate text-[10px] text-white/60">
               {profile?.email || 'user@email.com'}
             </p>
           </div>
           <button
             onClick={() => signOut()}
-            className="flex-shrink-0 rounded p-1 transition-colors"
-            style={{ color: '#9CA3AF' }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = '#D61465'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = '#9CA3AF'; }}
+            className="flex-shrink-0 rounded p-1 text-white/50 hover:text-white transition-colors"
             title="Sign out"
           >
             <LogOut className="h-4 w-4" />

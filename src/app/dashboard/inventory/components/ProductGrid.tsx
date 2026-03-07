@@ -54,7 +54,7 @@ export function ProductGrid({ products }: ProductGridProps) {
   if (products.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-gray-500 text-lg">No products found</p>
+        <p className="text-muted-foreground text-lg">No products found</p>
       </div>
     );
   }
@@ -80,8 +80,8 @@ export function ProductGrid({ products }: ProductGridProps) {
                   {/* Header with SKU and Category */}
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <p className="text-xs text-gray-500 font-medium">SKU</p>
-                      <p className="font-mono text-sm font-semibold text-gray-700">
+                      <p className="text-xs text-muted-foreground font-medium">SKU</p>
+                      <p className="font-mono text-sm font-semibold text-foreground">
                         {product.sku}
                       </p>
                     </div>
@@ -92,35 +92,35 @@ export function ProductGrid({ products }: ProductGridProps) {
 
                   {/* Product Name */}
                   <div>
-                    <h3 className="font-semibold text-gray-900 line-clamp-2">
+                    <h3 className="font-semibold text-foreground line-clamp-2">
                       {product.name}
                     </h3>
                   </div>
 
                   {/* Price */}
-                  <div className="border-t border-gray-200 pt-4">
-                    <p className="text-xs text-gray-500 font-medium">
+                  <div className="border-t border-border pt-4">
+                    <p className="text-xs text-muted-foreground font-medium">
                       Wholesale Price
                     </p>
-                    <p className="text-lg font-bold" style={{ color: '#FA6A27' }}>
+                    <p className="text-lg font-bold" style={{ color: 'hsl(var(--accent))' }}>
                       {formatCents(product.wholesale_price_cents)}
                     </p>
                   </div>
 
                   {/* Stock Level */}
-                  <div className="border-t border-gray-200 pt-4">
+                  <div className="border-t border-border pt-4">
                     <div className="flex items-center justify-between mb-2">
-                      <p className="text-xs text-gray-500 font-medium">
+                      <p className="text-xs text-muted-foreground font-medium">
                         Stock Level
                       </p>
                       <Badge className={indicator.color}>
                         {indicator.label}
                       </Badge>
                     </div>
-                    <p className="text-2xl font-bold text-gray-900">
+                    <p className="text-2xl font-bold text-foreground">
                       {quantity}
                     </p>
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-xs text-muted-foreground mt-1">
                       Threshold: {threshold}
                     </p>
                   </div>

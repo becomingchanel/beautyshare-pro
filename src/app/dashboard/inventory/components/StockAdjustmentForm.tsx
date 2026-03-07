@@ -110,16 +110,16 @@ export function StockAdjustmentForm({
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Current Stock Display */}
-          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-            <p className="text-sm text-gray-600">Current Stock Level</p>
-            <p className="text-3xl font-bold text-gray-900">
+          <div className="bg-muted p-4 rounded-lg border border-border">
+            <p className="text-sm text-foreground/70">Current Stock Level</p>
+            <p className="text-3xl font-bold text-foreground">
               {currentInventory.quantity_on_hand}
             </p>
           </div>
 
           {/* Adjustment Type */}
           <div className="space-y-2">
-            <label htmlFor="adjustment-type" className="text-sm font-medium text-gray-700">
+            <label htmlFor="adjustment-type" className="text-sm font-medium text-foreground">
               Adjustment Type
             </label>
             <Select
@@ -141,7 +141,7 @@ export function StockAdjustmentForm({
                 Correction (Set to exact amount)
               </option>
             </Select>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-muted-foreground mt-1">
               {adjustmentType === 'restock' &&
                 'Increases inventory by the specified amount'}
               {adjustmentType === 'write_off' &&
@@ -153,7 +153,7 @@ export function StockAdjustmentForm({
 
           {/* Quantity Input */}
           <div className="space-y-2">
-            <label htmlFor="quantity" className="text-sm font-medium text-gray-700">
+            <label htmlFor="quantity" className="text-sm font-medium text-foreground">
               Quantity
             </label>
             <Input
@@ -171,7 +171,7 @@ export function StockAdjustmentForm({
 
           {/* Notes */}
           <div className="space-y-2">
-            <label htmlFor="notes" className="text-sm font-medium text-gray-700">
+            <label htmlFor="notes" className="text-sm font-medium text-foreground">
               Notes (Optional)
             </label>
             <Input
@@ -215,7 +215,7 @@ export function StockAdjustmentForm({
             type="submit"
             disabled={isLoading || !quantity}
             className="w-full"
-            style={{ backgroundColor: '#FA6A27' }}
+            style={{ backgroundColor: 'hsl(var(--accent))' }}
           >
             {isLoading ? (
               <>

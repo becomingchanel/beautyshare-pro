@@ -131,18 +131,18 @@ export default async function ProductInventoryPage({ params }: PageProps) {
         </Link>
 
         {/* Product Header */}
-        <div className="border-b border-gray-200 pb-6">
+        <div className="border-b border-border pb-6">
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <h1 className="text-3xl font-bold text-gray-900">
+                <h1 className="text-3xl font-bold text-foreground">
                   {productWithInventory.name}
                 </h1>
                 <Badge className={getCategoryBadgeColor(productWithInventory.category)}>
                   {productWithInventory.category}
                 </Badge>
               </div>
-              <p className="text-gray-600 font-mono text-sm">
+              <p className="text-foreground/70 font-mono text-sm">
                 SKU: {productWithInventory.sku}
               </p>
             </div>
@@ -164,18 +164,18 @@ export default async function ProductInventoryPage({ params }: PageProps) {
                 {/* Description */}
                 {productWithInventory.description && (
                   <div>
-                    <h4 className="text-sm font-medium text-gray-700 mb-2">
+                    <h4 className="text-sm font-medium text-foreground mb-2">
                       Description
                     </h4>
-                    <p className="text-gray-600">
+                    <p className="text-foreground/70">
                       {productWithInventory.description}
                     </p>
                   </div>
                 )}
 
                 {/* Pricing */}
-                <div className="border-t border-gray-200 pt-6">
-                  <h4 className="text-sm font-medium text-gray-700 mb-4">
+                <div className="border-t border-border pt-6">
+                  <h4 className="text-sm font-medium text-foreground mb-4">
                     Pricing
                   </h4>
                   <div className="grid grid-cols-3 gap-4">
@@ -220,50 +220,50 @@ export default async function ProductInventoryPage({ params }: PageProps) {
                   <div className="grid grid-cols-2 gap-4">
                     {productWithInventory.hair_type && (
                       <div>
-                        <p className="text-xs text-gray-500 font-medium">
+                        <p className="text-xs text-muted-foreground font-medium">
                           Hair Type
                         </p>
-                        <p className="text-gray-900 mt-1">
+                        <p className="text-foreground mt-1">
                           {productWithInventory.hair_type}
                         </p>
                       </div>
                     )}
                     {productWithInventory.texture && (
                       <div>
-                        <p className="text-xs text-gray-500 font-medium">
+                        <p className="text-xs text-muted-foreground font-medium">
                           Texture
                         </p>
-                        <p className="text-gray-900 mt-1">
+                        <p className="text-foreground mt-1">
                           {productWithInventory.texture}
                         </p>
                       </div>
                     )}
                     {productWithInventory.length && (
                       <div>
-                        <p className="text-xs text-gray-500 font-medium">
+                        <p className="text-xs text-muted-foreground font-medium">
                           Length
                         </p>
-                        <p className="text-gray-900 mt-1">
+                        <p className="text-foreground mt-1">
                           {productWithInventory.length}
                         </p>
                       </div>
                     )}
                     {productWithInventory.color && (
                       <div>
-                        <p className="text-xs text-gray-500 font-medium">
+                        <p className="text-xs text-muted-foreground font-medium">
                           Color
                         </p>
-                        <p className="text-gray-900 mt-1">
+                        <p className="text-foreground mt-1">
                           {productWithInventory.color}
                         </p>
                       </div>
                     )}
                     {productWithInventory.weight_oz && (
                       <div>
-                        <p className="text-xs text-gray-500 font-medium">
+                        <p className="text-xs text-muted-foreground font-medium">
                           Weight
                         </p>
-                        <p className="text-gray-900 mt-1">
+                        <p className="text-foreground mt-1">
                           {productWithInventory.weight_oz} oz
                         </p>
                       </div>
@@ -272,8 +272,8 @@ export default async function ProductInventoryPage({ params }: PageProps) {
                 </div>
 
                 {/* Metadata */}
-                <div className="border-t border-gray-200 pt-6">
-                  <h4 className="text-sm font-medium text-gray-700 mb-4">
+                <div className="border-t border-border pt-6">
+                  <h4 className="text-sm font-medium text-foreground mb-4">
                     Metadata
                   </h4>
                   <div className="space-y-2 text-sm">

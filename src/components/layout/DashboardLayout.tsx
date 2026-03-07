@@ -17,10 +17,10 @@ export function DashboardLayout({ children, title, description }: DashboardLayou
 
   if (loading) {
     return (
-      <div className="flex h-screen items-center justify-center bg-white">
+      <div className="flex h-screen items-center justify-center bg-background">
         <div className="flex flex-col items-center gap-3">
           <Spinner size="lg" />
-          <p className="text-sm text-gray-500">Loading your dashboard...</p>
+          <p className="text-sm text-muted-foreground">Loading your dashboard...</p>
         </div>
       </div>
     );
@@ -29,43 +29,41 @@ export function DashboardLayout({ children, title, description }: DashboardLayou
   const isAdmin = profile?.role === 'admin';
 
   return (
-    <div className="flex h-screen" style={{ backgroundColor: '#F9FAFB' }}>
+    <div className="flex h-screen bg-background">
       <Sidebar />
 
-      <div className="flex flex-1 flex-col overflow-hidden">
+      {/* Main area offset by sidebar width */}
+      <div className="ml-64 flex flex-1 flex-col overflow-hidden">
         {/* Top bar */}
-        <header className="flex h-14 items-center justify-between border-b bg-white px-6" style={{ borderColor: '#E5E7EB' }}>
+        <header className="flex h-14 items-center justify-between border-b border-border bg-card px-6">
           <div>
-            {title && <h1 className="text-lg font-bold text-black">{title}</h1>}
-            {description && <p className="text-xs text-gray-500 mt-0.5">{description}</p>}
+            {title && <h1 className="text-lg font-bold text-foreground">{title}</h1>}
+            {description && <p className="text-xs text-muted-foreground mt-0.5">{description}</p>}
           </div>
           <div className="flex items-center gap-3">
             {/* Admin View Toggle */}
             {isAdmin && (
-              <button className="flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors" style={{ borderColor: '#E5E7EB', color: '#000000' }}>
-                <div className="h-2 w-2 rounded-full" style={{ backgroundColor: '#D61465' }} />
+              <button className="flex items-center gap-1.5 rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-muted">
+                <div className="h-2 w-2 rounded-full bg-primary" />
                 <span>Admin View</span>
-                <ChevronDown className="h-3 w-3" style={{ color: '#9CA3AF' }} />
+                <ChevronDown className="h-3 w-3 text-muted-foreground" />
               </button>
             )}
 
             {/* Search Bar */}
             <div className="relative hidden md:block">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <input
                 type="text"
                 placeholder="Search products, orders..."
-                className="h-9 w-56 rounded-lg border bg-gray-50 pl-9 pr-3 text-sm text-gray-700 placeholder:text-gray-400 focus:outline-none transition-colors"
-                style={{ borderColor: '#E5E7EB' }}
-                onFocus={(e) => { e.currentTarget.style.borderColor = '#D61465'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(214,20,101,0.08)'; }}
-                onBlur={(e) => { e.currentTarget.style.borderColor = '#E5E7EB'; e.currentTarget.style.boxShadow = 'none'; }}
+                className="h-9 w-56 rounded-lg border border-input bg-muted pl-9 pr-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/20 focus:border-primary transition-colors"
               />
             </div>
 
             {/* Notifications */}
-            <button className="relative rounded-lg p-2 text-gray-400 hover:bg-gray-50 hover:text-gray-600 transition-colors">
+            <button className="relative rounded-lg p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors">
               <Bell className="h-5 w-5" />
-              <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full" style={{ backgroundColor: '#D61465' }} />
+              <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-primary" />
             </button>
           </div>
         </header>

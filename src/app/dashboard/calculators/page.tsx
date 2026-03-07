@@ -10,7 +10,7 @@ const calculators = [
     title: 'Launch Cost Calculator',
     description: 'Calculate your total startup costs including inventory, website, packaging, and marketing. See your break-even timeline.',
     icon: DollarSign,
-    gradient: 'from-[#FA6A27] to-[#E2AD37]',
+    gradient: 'from-accent to-highlight',
     bgGlow: 'bg-orange-50',
     href: '/dashboard/calculators/launch',
     tag: 'Most Popular',
@@ -20,7 +20,7 @@ const calculators = [
     title: 'Profit Calculator',
     description: 'Analyze profit margins per unit, monthly revenue, and ROI. Understand your business profitability at a glance.',
     icon: TrendingUp,
-    gradient: 'from-[#FA6A27] to-[#E2AD37]',
+    gradient: 'from-accent to-highlight',
     bgGlow: 'bg-lavender-50',
     href: '/dashboard/calculators/profit',
     tag: 'Essential',
@@ -30,7 +30,7 @@ const calculators = [
     title: 'Retail Price Calculator',
     description: 'Determine optimal retail prices based on wholesale cost, target margins, and competitor pricing analysis.',
     icon: Tag,
-    gradient: 'from-[#FA6A27] to-[#E2AD37]',
+    gradient: 'from-accent to-highlight',
     bgGlow: 'bg-orange-50',
     href: '/dashboard/calculators/retail',
     tag: 'Strategic',
@@ -41,7 +41,7 @@ export default function CalculatorsPage() {
   return (
     <div className="space-y-8">
       {/* Hero Header */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#FA6A27] via-orange-500 to-[#E2AD37] p-8 text-white">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-accent via-orange-500 to-highlight p-8 text-white">
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
@@ -67,7 +67,7 @@ export default function CalculatorsPage() {
           const IconComponent = calc.icon;
           return (
             <Link key={calc.id} href={calc.href}>
-              <Card className="h-full hover:shadow-lg transition-all cursor-pointer group border border-gray-100 hover:border-orange-200">
+              <Card className="h-full hover:shadow-lg transition-all cursor-pointer group border border-border hover:border-orange-200">
                 <div className="p-8 h-full flex flex-col">
                   {/* Top Row */}
                   <div className="flex items-start justify-between mb-6">
@@ -80,12 +80,12 @@ export default function CalculatorsPage() {
                   </div>
 
                   {/* Title */}
-                  <h2 className="text-xl font-bold text-gray-900 mb-3">
+                  <h2 className="text-xl font-bold text-foreground mb-3">
                     {calc.title}
                   </h2>
 
                   {/* Description */}
-                  <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">
                     {calc.description}
                   </p>
 
@@ -108,23 +108,23 @@ export default function CalculatorsPage() {
             <Sparkles className="h-5 w-5 text-orange-500" />
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">How to use these calculators</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-3">How to use these calculators</h3>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="flex items-start gap-3">
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-orange-500 text-white text-xs font-bold flex-shrink-0 mt-0.5">1</span>
-                <p className="text-sm text-gray-600">Enter your business costs and pricing information</p>
+                <p className="text-sm text-foreground/70">Enter your business costs and pricing information</p>
               </div>
               <div className="flex items-start gap-3">
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-orange-500 text-white text-xs font-bold flex-shrink-0 mt-0.5">2</span>
-                <p className="text-sm text-gray-600">Results update in real-time as you adjust values</p>
+                <p className="text-sm text-foreground/70">Results update in real-time as you adjust values</p>
               </div>
               <div className="flex items-start gap-3">
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-orange-500 text-white text-xs font-bold flex-shrink-0 mt-0.5">3</span>
-                <p className="text-sm text-gray-600">Save your calculations for future reference</p>
+                <p className="text-sm text-foreground/70">Save your calculations for future reference</p>
               </div>
               <div className="flex items-start gap-3">
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-orange-500 text-white text-xs font-bold flex-shrink-0 mt-0.5">4</span>
-                <p className="text-sm text-gray-600">Use insights to make data-driven decisions</p>
+                <p className="text-sm text-foreground/70">Use insights to make data-driven decisions</p>
               </div>
             </div>
           </div>
