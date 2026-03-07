@@ -18,6 +18,8 @@ import {
   ChevronRight,
   LogOut,
   Crown,
+  Megaphone,
+  Sparkles,
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -31,6 +33,7 @@ const adminNav: NavItem[] = [
   { label: 'Command Center', href: '/dashboard/admin', icon: <LayoutDashboard className="h-5 w-5" /> },
   { label: 'Orders', href: '/dashboard/orders', icon: <ShoppingCart className="h-5 w-5" /> },
   { label: 'Inventory', href: '/dashboard/inventory', icon: <Package className="h-5 w-5" /> },
+  { label: 'Marketing', href: '/dashboard/marketing', icon: <Megaphone className="h-5 w-5" /> },
   { label: 'Subscribers', href: '/dashboard/subscribers', icon: <Users className="h-5 w-5" /> },
   { label: 'Reports', href: '/dashboard/reports', icon: <BarChart3 className="h-5 w-5" /> },
   { label: 'Settings', href: '/dashboard/settings', icon: <Settings className="h-5 w-5" /> },
@@ -39,8 +42,10 @@ const adminNav: NavItem[] = [
 const subscriberNav: NavItem[] = [
   { label: 'Dashboard', href: '/dashboard', icon: <LayoutDashboard className="h-5 w-5" /> },
   { label: 'My Orders', href: '/dashboard/orders', icon: <ShoppingCart className="h-5 w-5" /> },
+  { label: 'Marketing', href: '/dashboard/marketing', icon: <Megaphone className="h-5 w-5" /> },
   { label: 'Calculators', href: '/dashboard/calculators', icon: <Calculator className="h-5 w-5" /> },
   { label: 'My Store', href: '/dashboard/store', icon: <Store className="h-5 w-5" /> },
+  { label: 'Onboarding', href: '/dashboard/onboarding', icon: <Sparkles className="h-5 w-5" /> },
   { label: 'Billing', href: '/dashboard/settings/billing', icon: <CreditCard className="h-5 w-5" /> },
   { label: 'Settings', href: '/dashboard/settings', icon: <Settings className="h-5 w-5" /> },
 ];
