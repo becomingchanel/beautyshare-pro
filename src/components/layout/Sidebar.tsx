@@ -14,7 +14,6 @@ import {
   BarChart3,
   ChevronDown,
   LogOut,
-  Crown,
   Sparkles,
   GraduationCap,
   MessageCircle,
@@ -113,26 +112,39 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="flex h-screen w-60 flex-col flex-shrink-0" style={{ backgroundColor: '#1A0F08' }}>
-      {/* Logo */}
-      <div className="px-5 pt-5 pb-4">
-        <Link href="/" className="flex items-center gap-2.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg" style={{ background: 'linear-gradient(135deg, #E2AD37, #D4713B)' }}>
-            <Crown className="h-4.5 w-4.5 text-white" />
-          </div>
-          <div>
-            <span className="block font-display text-sm font-bold tracking-wider" style={{ color: '#E8D5B5' }}>
-              HAIR LAUNCH
-            </span>
-          </div>
+    <aside className="flex h-screen w-60 flex-col flex-shrink-0 bg-white" style={{ borderRight: '1px solid #F0E6DD' }}>
+      {/* Logo — BeautySharePro gradient */}
+      <div className="px-5 pt-5 pb-2">
+        <Link href="/" className="flex items-center">
+          <span
+            className="text-xl font-bold tracking-tight"
+            style={{
+              background: 'linear-gradient(90deg, #E8853B 0%, #D4627A 35%, #C94B8C 55%, #B8399E 75%, #D61465 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            beautyshare
+          </span>
+          <span
+            className="text-xs font-bold tracking-widest ml-0.5"
+            style={{ color: '#D61465', writingMode: 'vertical-rl', lineHeight: 1, marginTop: '2px' }}
+          >
+            PRO
+          </span>
         </Link>
       </div>
 
       {/* Business Name Selector */}
-      <div className="mx-4 mb-4">
-        <button className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors" style={{ backgroundColor: '#231510', border: '1px solid #3D2A1A', color: '#E8D5B5' }}>
-          <span className="truncate font-medium">{profile?.full_name || 'My Business'}</span>
-          <ChevronDown className="h-3.5 w-3.5 flex-shrink-0 ml-2" style={{ color: '#8B7355' }} />
+      <div className="mx-4 mb-3">
+        <button className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors" style={{ backgroundColor: '#FFF5F0', border: '1px solid #F5E6DC', color: '#4A3728' }}>
+          <div className="flex items-center gap-2">
+            <div className="flex h-6 w-6 items-center justify-center rounded-md text-white text-[10px] font-bold" style={{ background: 'linear-gradient(135deg, #D61465, #E91E8C)' }}>
+              {profile?.full_name?.charAt(0)?.toUpperCase() || 'B'}
+            </div>
+            <span className="truncate font-medium">{profile?.full_name || 'My Business'}</span>
+          </div>
+          <ChevronDown className="h-3.5 w-3.5 flex-shrink-0 ml-2" style={{ color: '#B8A594' }} />
         </button>
       </div>
 
@@ -152,18 +164,15 @@ export function Sidebar() {
                   <button
                     onClick={() => toggleSection(item.label)}
                     className={cn(
-                      'flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] font-medium transition-colors',
-                      anyChildActive
-                        ? 'text-white'
-                        : 'hover:text-[#E8D5B5]'
+                      'flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] font-medium transition-all'
                     )}
                     style={{
-                      color: anyChildActive ? '#fff' : '#B8A594',
-                      backgroundColor: anyChildActive ? '#D4713B' : 'transparent',
+                      color: anyChildActive ? '#fff' : '#6B5A48',
+                      backgroundColor: anyChildActive ? '#D61465' : 'transparent',
                     }}
                     onMouseEnter={(e) => {
                       if (!anyChildActive) {
-                        e.currentTarget.style.backgroundColor = '#2D1B0E';
+                        e.currentTarget.style.backgroundColor = '#FFF5F0';
                       }
                     }}
                     onMouseLeave={(e) => {
@@ -172,37 +181,37 @@ export function Sidebar() {
                       }
                     }}
                   >
-                    <span style={{ color: anyChildActive ? '#fff' : '#8B7355' }}>{item.icon}</span>
+                    <span style={{ color: anyChildActive ? '#fff' : '#B8A594' }}>{item.icon}</span>
                     <span className="truncate">{item.label}</span>
                     <ChevronDown
                       className={cn('ml-auto h-3.5 w-3.5 transition-transform', isExpanded && 'rotate-180')}
-                      style={{ color: anyChildActive ? '#fff' : '#8B7355' }}
+                      style={{ color: anyChildActive ? '#fff' : '#B8A594' }}
                     />
                   </button>
                 ) : (
                   <Link
                     href={item.href}
                     className={cn(
-                      'flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] font-medium transition-colors'
+                      'flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] font-medium transition-all'
                     )}
                     style={{
-                      color: active ? '#fff' : '#B8A594',
-                      backgroundColor: active ? '#D4713B' : 'transparent',
+                      color: active ? '#fff' : '#6B5A48',
+                      backgroundColor: active ? '#D61465' : 'transparent',
                     }}
                     onMouseEnter={(e) => {
                       if (!active) {
-                        e.currentTarget.style.backgroundColor = '#2D1B0E';
-                        e.currentTarget.style.color = '#E8D5B5';
+                        e.currentTarget.style.backgroundColor = '#FFF5F0';
+                        e.currentTarget.style.color = '#4A3728';
                       }
                     }}
                     onMouseLeave={(e) => {
                       if (!active) {
                         e.currentTarget.style.backgroundColor = 'transparent';
-                        e.currentTarget.style.color = '#B8A594';
+                        e.currentTarget.style.color = '#6B5A48';
                       }
                     }}
                   >
-                    <span style={{ color: active ? '#fff' : '#8B7355' }}>{item.icon}</span>
+                    <span style={{ color: active ? '#fff' : '#B8A594' }}>{item.icon}</span>
                     <span className="truncate">{item.label}</span>
                     {item.badge && (
                       <span
@@ -217,32 +226,32 @@ export function Sidebar() {
 
                 {/* Children */}
                 {hasChildren && isExpanded && (
-                  <div className="mt-0.5 ml-4 space-y-0.5 pl-3" style={{ borderLeft: '1px solid #2D1B0E' }}>
+                  <div className="mt-0.5 ml-4 space-y-0.5 pl-3" style={{ borderLeft: '1px solid #F0E6DD' }}>
                     {item.children!.map((child) => {
                       const childActive = checkActive(child.href);
                       return (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="flex items-center gap-2 rounded-md px-2.5 py-1.5 text-[12px] font-medium transition-colors"
+                          className="flex items-center gap-2 rounded-md px-2.5 py-1.5 text-[12px] font-medium transition-all"
                           style={{
-                            color: childActive ? '#fff' : '#9B8574',
-                            backgroundColor: childActive ? '#D4713B' : 'transparent',
+                            color: childActive ? '#D61465' : '#8B7355',
+                            backgroundColor: childActive ? '#FFF0F5' : 'transparent',
                           }}
                           onMouseEnter={(e) => {
                             if (!childActive) {
-                              e.currentTarget.style.backgroundColor = '#2D1B0E';
-                              e.currentTarget.style.color = '#D4C4B0';
+                              e.currentTarget.style.backgroundColor = '#FFF5F0';
+                              e.currentTarget.style.color = '#6B5A48';
                             }
                           }}
                           onMouseLeave={(e) => {
                             if (!childActive) {
                               e.currentTarget.style.backgroundColor = 'transparent';
-                              e.currentTarget.style.color = '#9B8574';
+                              e.currentTarget.style.color = '#8B7355';
                             }
                           }}
                         >
-                          <span style={{ color: childActive ? '#fff' : '#6B5A48' }}>{child.icon}</span>
+                          <span style={{ color: childActive ? '#D61465' : '#C4B5A5' }}>{child.icon}</span>
                           <span className="truncate">{child.label}</span>
                         </Link>
                       );
@@ -256,28 +265,28 @@ export function Sidebar() {
       </nav>
 
       {/* Bottom User Area */}
-      <div className="px-3 py-3" style={{ borderTop: '1px solid #2D1B0E' }}>
+      <div className="px-3 py-3" style={{ borderTop: '1px solid #F0E6DD' }}>
         <div className="flex items-center gap-2.5">
           <div
             className="flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-white flex-shrink-0"
-            style={{ backgroundColor: '#D4713B' }}
+            style={{ background: 'linear-gradient(135deg, #D61465, #E91E8C)' }}
           >
             {profile?.full_name?.charAt(0)?.toUpperCase() || profile?.email?.charAt(0)?.toUpperCase() || 'C'}
           </div>
           <div className="min-w-0 flex-1">
-            <p className="truncate text-xs font-medium" style={{ color: '#E8D5B5' }}>
+            <p className="truncate text-xs font-medium" style={{ color: '#4A3728' }}>
               {profile?.role === 'admin' ? 'Super Admin' : 'Subscriber'}
             </p>
-            <p className="truncate text-[10px]" style={{ color: '#8B7355' }}>
+            <p className="truncate text-[10px]" style={{ color: '#B8A594' }}>
               {profile?.email || 'user@email.com'}
             </p>
           </div>
           <button
             onClick={() => signOut()}
             className="flex-shrink-0 rounded p-1 transition-colors"
-            style={{ color: '#6B5A48' }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = '#D4C4B0'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = '#6B5A48'; }}
+            style={{ color: '#B8A594' }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = '#D61465'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = '#B8A594'; }}
             title="Sign out"
           >
             <LogOut className="h-4 w-4" />

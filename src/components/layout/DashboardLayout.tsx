@@ -3,7 +3,7 @@
 import { useRequireAuth } from '@/hooks/useRequireAuth';
 import { Sidebar } from './Sidebar';
 import { Spinner } from '@/components/ui/Spinner';
-import { Bell, Search } from 'lucide-react';
+import { Bell, Search, ChevronDown } from 'lucide-react';
 import type { ReactNode } from 'react';
 
 interface DashboardLayoutProps {
@@ -33,8 +33,8 @@ export function DashboardLayout({ children, title, description }: DashboardLayou
       <Sidebar />
 
       <div className="flex flex-1 flex-col overflow-hidden">
-        {/* Top bar — Lovable style */}
-        <header className="flex h-14 items-center justify-between border-b bg-white px-6" style={{ borderColor: '#EDE5DB' }}>
+        {/* Top bar */}
+        <header className="flex h-14 items-center justify-between border-b bg-white px-6" style={{ borderColor: '#F0E6DD' }}>
           <div>
             {title && <h1 className="text-lg font-bold text-gray-900">{title}</h1>}
             {description && <p className="text-xs text-gray-500 mt-0.5">{description}</p>}
@@ -42,10 +42,11 @@ export function DashboardLayout({ children, title, description }: DashboardLayou
           <div className="flex items-center gap-3">
             {/* Admin View Toggle */}
             {isAdmin && (
-              <div className="flex items-center gap-1.5 text-xs text-gray-500 mr-1">
-                <div className="h-2 w-2 rounded-full" style={{ backgroundColor: '#D4713B' }} />
-                <span className="font-medium">Admin View</span>
-              </div>
+              <button className="flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors" style={{ borderColor: '#F0E6DD', color: '#6B5A48' }}>
+                <div className="h-2 w-2 rounded-full" style={{ backgroundColor: '#D61465' }} />
+                <span>Admin View</span>
+                <ChevronDown className="h-3 w-3" style={{ color: '#B8A594' }} />
+              </button>
             )}
 
             {/* Search Bar */}
@@ -54,26 +55,18 @@ export function DashboardLayout({ children, title, description }: DashboardLayou
               <input
                 type="text"
                 placeholder="Search products, orders..."
-                className="h-9 w-56 rounded-lg border bg-gray-50 pl-9 pr-3 text-sm text-gray-700 placeholder:text-gray-400 focus:outline-none focus:ring-2 transition-colors"
-                style={{ borderColor: '#E5DDD4', }}
-                onFocus={(e) => { e.currentTarget.style.borderColor = '#D4713B'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(212,113,59,0.1)'; }}
-                onBlur={(e) => { e.currentTarget.style.borderColor = '#E5DDD4'; e.currentTarget.style.boxShadow = 'none'; }}
+                className="h-9 w-56 rounded-lg border bg-gray-50 pl-9 pr-3 text-sm text-gray-700 placeholder:text-gray-400 focus:outline-none transition-colors"
+                style={{ borderColor: '#F0E6DD' }}
+                onFocus={(e) => { e.currentTarget.style.borderColor = '#D61465'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(214,20,101,0.08)'; }}
+                onBlur={(e) => { e.currentTarget.style.borderColor = '#F0E6DD'; e.currentTarget.style.boxShadow = 'none'; }}
               />
             </div>
 
             {/* Notifications */}
-            <button className="relative rounded-lg p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors">
+            <button className="relative rounded-lg p-2 text-gray-400 hover:bg-gray-50 hover:text-gray-600 transition-colors">
               <Bell className="h-5 w-5" />
-              <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-red-500" />
+              <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full" style={{ backgroundColor: '#D61465' }} />
             </button>
-
-            {/* Avatar */}
-            <div
-              className="flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-white"
-              style={{ backgroundColor: '#D4713B' }}
-            >
-              {profile?.full_name?.charAt(0)?.toUpperCase() || profile?.email?.charAt(0)?.toUpperCase() || '?'}
-            </div>
           </div>
         </header>
 
