@@ -206,8 +206,8 @@
   --radius-xl: calc(var(--radius) + 4px);
 
   /* Typography */
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
 }
 
 /* ────────── Base Styles ────────── */
