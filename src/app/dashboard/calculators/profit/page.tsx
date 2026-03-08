@@ -1,326 +1,510 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { CalculatorLayout } from '../components/CalculatorLayout';
-import { MetricCard } from '@/components/ui/MetricCard';
-import { Input } from '@/components/ui/Input';
+import Link from 'next/link';
 import { Card } from '@/components/ui/Card';
-import { TrendingUp, TrendingDown } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
+import {
+  ArrowLeft,
+  TrendingUp,
+  TrendingDown,
+  DollarSign,
+  Percent,
+  Target,
+  Tag,
+  Download,
+  Save,
+  Info,
+  CheckCircle,
+  AlertTriangle,
+  XCircle,
+} from 'lucide-react';
 
+/* ── Tab Types ─────────────────────────────────────────────────── */
+type TabKey = 'margin' | 'markup' | 'breakeven' | 'target';
+
+const tabs: { key: TabKey; label: string; icon: React.ReactNode }[] = [
+  { key: 'margin', label: 'Margin', icon: <Percent className="h-4 w-4" /> },
+  { key: 'markup', label: 'Markup', icon: <TrendingUp className="h-4 w-4" /> },
+  { key: 'breakeven', label: 'Break-even', icon: <Target className="h-4 w-4" /> },
+  { key: 'target', label: 'Target Pricing', icon: <Tag className="h-4 w-4" /> },
+];
+
+/* ── Inputs ────────────────────────────────────────────────────── */
 interface ProfitInputs {
   wholesale_cost: number;
   retail_price: number;
   monthly_orders: number;
   shipping_cost: number;
   ad_spend_monthly: number;
-}
-
-interface ProfitResults {
-  gross_margin_per_unit: number;
-  gross_margin_pct: number;
-  monthly_revenue: number;
-  monthly_cogs: number;
-  monthly_profit: number;
-  roi: number;
-  margin_health: 'healthy' | 'warning' | 'critical';
+  target_margin: number;
+  monthly_fixed_costs: number;
 }
 
 export default function ProfitCalculatorPage() {
+  const [activeTab, setActiveTab] = useState<TabKey>('margin');
+  const [isSaving, setIsSaving] = useState(false);
+  const [showSaveModal, setShowSaveModal] = useState(false);
+  const [calculationName, setCalculationName] = useState('');
+
   const [inputs, setInputs] = useState<ProfitInputs>({
     wholesale_cost: 80,
     retail_price: 180,
     monthly_orders: 20,
     shipping_cost: 8,
     ad_spend_monthly: 200,
+    target_margin: 60,
+    monthly_fixed_costs: 349,
   });
 
-  const [results, setResults] = useState<ProfitResults>({
-    gross_margin_per_unit: 0,
-    gross_margin_pct: 0,
-    monthly_revenue: 0,
-    monthly_cogs: 0,
-    monthly_profit: 0,
-    roi: 0,
-    margin_health: 'healthy',
-  });
-
-  // Calculate results in real-time
-  useEffect(() => {
-    const grossMarginPerUnit = inputs.retail_price - inputs.wholesale_cost - inputs.shipping_cost;
-    const grossMarginPct = (grossMarginPerUnit / inputs.retail_price) * 100;
-    const monthlyRevenue = inputs.retail_price * inputs.monthly_orders;
-    const monthlyCogs = (inputs.wholesale_cost + inputs.shipping_cost) * inputs.monthly_orders;
-    const monthlyProfit = monthlyRevenue - monthlyCogs - inputs.ad_spend_monthly - 149; // 149 = subscription
-    const roi = inputs.ad_spend_monthly + 149 > 0 
-      ? (monthlyProfit / (inputs.ad_spend_monthly + 149)) * 100
-      : 0;
-
-    let marginHealth: 'healthy' | 'warning' | 'critical' = 'healthy';
-    if (grossMarginPct < 30) {
-      marginHealth = 'critical';
-    } else if (grossMarginPct < 50) {
-      marginHealth = 'warning';
-    }
-
-    setResults({
-      gross_margin_per_unit: Math.round(grossMarginPerUnit * 100) / 100,
-      gross_margin_pct: Math.round(grossMarginPct * 100) / 100,
-      monthly_revenue: monthlyRevenue,
-      monthly_cogs: monthlyCogs,
-      monthly_profit: Math.round(monthlyProfit),
-      roi: Math.round(roi),
-      margin_health: marginHealth,
-    });
-  }, [inputs]);
+  const handleInputChange = (field: keyof ProfitInputs, value: number) => {
+    setInputs((prev) => ({ ...prev, [field]: value }));
+  };
 
   // Load saved calculation
   useEffect(() => {
     const handleLoadCalculation = (event: any) => {
-      setInputs(event.detail.inputs);
+      setInputs((prev) => ({ ...prev, ...event.detail.inputs }));
     };
-
     window.addEventListener('loadCalculation', handleLoadCalculation);
-    return () => {
-      window.removeEventListener('loadCalculation', handleLoadCalculation);
-    };
+    return () => window.removeEventListener('loadCalculation', handleLoadCalculation);
   }, []);
 
-  const handleInputChange = (field: keyof ProfitInputs, value: number) => {
-    setInputs((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
-  };
+  /* ── Calculations ──────────────────────────────────────────── */
+  const costPerUnit = inputs.wholesale_cost + inputs.shipping_cost;
+  const grossMarginPerUnit = inputs.retail_price - costPerUnit;
+  const grossMarginPct = inputs.retail_price > 0 ? (grossMarginPerUnit / inputs.retail_price) * 100 : 0;
 
-  const getMarginColor = () => {
-    switch (results.margin_health) {
-      case 'healthy':
-        return 'from-green-500 to-emerald-500';
-      case 'warning':
-        return 'from-yellow-500 to-amber-500';
-      case 'critical':
-        return 'from-red-500 to-rose-500';
-      default:
-        return 'from-gray-500 to-gray-600';
+  // Markup
+  const markupDollar = inputs.retail_price - inputs.wholesale_cost;
+  const markupPct = inputs.wholesale_cost > 0 ? (markupDollar / inputs.wholesale_cost) * 100 : 0;
+
+  // Monthly
+  const monthlyRevenue = inputs.retail_price * inputs.monthly_orders;
+  const monthlyCogs = costPerUnit * inputs.monthly_orders;
+  const grossProfit = monthlyRevenue - monthlyCogs;
+  const netProfit = grossProfit - inputs.ad_spend_monthly - inputs.monthly_fixed_costs;
+  const roi = (inputs.ad_spend_monthly + inputs.monthly_fixed_costs) > 0
+    ? (netProfit / (inputs.ad_spend_monthly + inputs.monthly_fixed_costs)) * 100
+    : 0;
+
+  // Break-even
+  const contributionMarginPerUnit = grossMarginPerUnit;
+  const breakEvenUnits = contributionMarginPerUnit > 0
+    ? Math.ceil((inputs.monthly_fixed_costs + inputs.ad_spend_monthly) / contributionMarginPerUnit)
+    : 0;
+  const breakEvenRevenue = breakEvenUnits * inputs.retail_price;
+  const daysToBreakEven = inputs.monthly_orders > 0
+    ? Math.ceil(breakEvenUnits / (inputs.monthly_orders / 30))
+    : 0;
+
+  // Target pricing
+  const targetRetailPrice = inputs.target_margin > 0 && inputs.target_margin < 100
+    ? costPerUnit / (1 - inputs.target_margin / 100)
+    : 0;
+  const targetMarkup = costPerUnit > 0
+    ? ((targetRetailPrice - costPerUnit) / costPerUnit) * 100
+    : 0;
+  const targetMonthlyRevenue = targetRetailPrice * inputs.monthly_orders;
+  const targetNetProfit = (targetRetailPrice - costPerUnit) * inputs.monthly_orders - inputs.ad_spend_monthly - inputs.monthly_fixed_costs;
+
+  // Health
+  const marginHealth = grossMarginPct >= 50 ? 'healthy' : grossMarginPct >= 30 ? 'warning' : 'critical';
+
+  /* ── Save Handler ──────────────────────────────────────────── */
+  const handleSave = async () => {
+    if (!calculationName.trim()) return;
+    setIsSaving(true);
+    try {
+      const response = await fetch('/api/calculators', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          calculator_type: 'profit',
+          name: calculationName,
+          inputs,
+          results: { grossMarginPct, markupPct, netProfit, breakEvenUnits, targetRetailPrice },
+        }),
+      });
+      if (response.ok) {
+        alert('Calculation saved successfully!');
+        setCalculationName('');
+        setShowSaveModal(false);
+        window.dispatchEvent(new CustomEvent('calculationSaved'));
+      } else {
+        alert('Failed to save calculation');
+      }
+    } catch {
+      alert('Failed to save calculation');
+    } finally {
+      setIsSaving(false);
     }
   };
 
-  const getMarginBg = () => {
-    switch (results.margin_health) {
-      case 'healthy':
-        return 'bg-green-50 border-green-200';
-      case 'warning':
-        return 'bg-yellow-50 border-yellow-200';
-      case 'critical':
-        return 'bg-red-50 border-red-200';
-      default:
-        return 'bg-gray-50 border-gray-200';
-    }
+  /* ── Export PDF (stub) ─────────────────────────────────────── */
+  const handleExportPDF = () => {
+    alert('PDF export coming soon! Your projection details will be downloadable as a professional PDF report.');
   };
+
+  /* ── Shared Input Field ────────────────────────────────────── */
+  const InputField = ({
+    label,
+    value,
+    field,
+    prefix = '$',
+    suffix,
+    min = 0,
+    max,
+    step = 1,
+  }: {
+    label: string;
+    value: number;
+    field: keyof ProfitInputs;
+    prefix?: string;
+    suffix?: string;
+    min?: number;
+    max?: number;
+    step?: number;
+  }) => (
+    <div>
+      <label className="block text-sm font-medium text-foreground/70 mb-1.5">{label}</label>
+      <div className="relative">
+        {prefix && (
+          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">{prefix}</span>
+        )}
+        <input
+          type="number"
+          value={value}
+          min={min}
+          max={max}
+          step={step}
+          onChange={(e) => handleInputChange(field, Number(e.target.value))}
+          className={`w-full rounded-xl border border-border bg-card py-2.5 text-sm font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors ${prefix ? 'pl-8' : 'pl-4'} ${suffix ? 'pr-10' : 'pr-4'}`}
+        />
+        {suffix && (
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">{suffix}</span>
+        )}
+      </div>
+    </div>
+  );
+
+  /* ── Result Item ───────────────────────────────────────────── */
+  const ResultRow = ({ label, value, color }: { label: string; value: string; color?: string }) => (
+    <div className="flex items-center justify-between py-2.5">
+      <span className="text-sm text-foreground/70">{label}</span>
+      <span className={`text-sm font-bold ${color || 'text-foreground'}`}>{value}</span>
+    </div>
+  );
 
   return (
-    <CalculatorLayout
-      title="Profit Calculator"
-      description="Analyze your profit margins, revenue, and return on investment"
-      calculatorType="profit"
-      currentInputs={inputs}
-      currentResults={results}
-    >
-      <div className="space-y-8">
-        {/* Input Section */}
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-6">Product & Sales Inputs</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Wholesale Cost per Unit
-              </label>
-              <div className="flex items-center gap-2">
-                <span className="text-gray-600">$</span>
-                <Input
-                  type="number"
-                  value={inputs.wholesale_cost}
-                  onChange={(e) =>
-                    handleInputChange('wholesale_cost', Number(e.target.value))
-                  }
-                  className="flex-1"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Retail Price per Unit
-              </label>
-              <div className="flex items-center gap-2">
-                <span className="text-gray-600">$</span>
-                <Input
-                  type="number"
-                  value={inputs.retail_price}
-                  onChange={(e) =>
-                    handleInputChange('retail_price', Number(e.target.value))
-                  }
-                  className="flex-1"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Shipping Cost per Unit
-              </label>
-              <div className="flex items-center gap-2">
-                <span className="text-gray-600">$</span>
-                <Input
-                  type="number"
-                  value={inputs.shipping_cost}
-                  onChange={(e) =>
-                    handleInputChange('shipping_cost', Number(e.target.value))
-                  }
-                  className="flex-1"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Monthly Orders
-              </label>
-              <Input
-                type="number"
-                value={inputs.monthly_orders}
-                onChange={(e) =>
-                  handleInputChange('monthly_orders', Number(e.target.value))
-                }
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Monthly Ad Spend
-              </label>
-              <div className="flex items-center gap-2">
-                <span className="text-gray-600">$</span>
-                <Input
-                  type="number"
-                  value={inputs.ad_spend_monthly}
-                  onChange={(e) =>
-                    handleInputChange('ad_spend_monthly', Number(e.target.value))
-                  }
-                  className="flex-1"
-                />
-              </div>
-            </div>
-          </div>
+          <Link href="/dashboard/calculators" className="inline-flex items-center text-sm text-primary hover:text-primary/80 mb-3 transition-colors">
+            <ArrowLeft className="w-4 h-4 mr-1.5" />
+            Back to Calculators
+          </Link>
+          <h1 className="text-2xl font-bold text-foreground">Profit Calculator</h1>
+          <p className="text-sm text-muted-foreground mt-1">Analyze margins, markup, break-even, and target pricing for your products</p>
         </div>
+        <div className="flex items-center gap-2">
+          <Button
+            onClick={handleExportPDF}
+            variant="outline"
+            className="flex items-center gap-2 text-sm"
+          >
+            <Download className="h-4 w-4" />
+            Export PDF
+          </Button>
+          <Button
+            onClick={() => setShowSaveModal(true)}
+            className="flex items-center gap-2 text-sm bg-gradient-to-r from-primary to-accent text-white"
+          >
+            <Save className="h-4 w-4" />
+            Save Projection
+          </Button>
+        </div>
+      </div>
 
-        {/* Results Section */}
-        <div className="pt-8 border-t border-gray-200">
-          <h2 className="text-xl font-semibold text-gray-900 mb-6">Profitability Analysis</h2>
+      {/* Tabs */}
+      <div className="flex gap-1 rounded-xl bg-muted p-1">
+        {tabs.map((tab) => (
+          <button
+            key={tab.key}
+            onClick={() => setActiveTab(tab.key)}
+            className={`flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all flex-1 justify-center ${
+              activeTab === tab.key
+                ? 'bg-card text-foreground shadow-sm'
+                : 'text-muted-foreground hover:text-foreground'
+            }`}
+          >
+            {tab.icon}
+            <span className="hidden sm:inline">{tab.label}</span>
+          </button>
+        ))}
+      </div>
 
-          {/* Margin Health Indicator */}
-          <Card className={`border p-6 mb-8 ${getMarginBg()}`}>
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-gray-700 font-medium mb-2">Margin Health</p>
-                <p className="text-lg font-semibold text-gray-900">
-                  {results.margin_health === 'healthy'
-                    ? 'Excellent'
-                    : results.margin_health === 'warning'
-                    ? 'Fair'
-                    : 'Poor'}
-                </p>
-              </div>
-              <div className={`bg-gradient-to-br ${getMarginColor()} rounded-lg p-4`}>
-                {results.margin_health === 'healthy' ? (
-                  <TrendingUp className="w-8 h-8 text-white" />
-                ) : (
-                  <TrendingDown className="w-8 h-8 text-white" />
-                )}
-              </div>
+      {/* Main Content — Two Columns */}
+      <div className="grid lg:grid-cols-5 gap-6">
+        {/* ═══ Left — Inputs (3 cols) ═══ */}
+        <div className="lg:col-span-3 space-y-6">
+          {/* Core Inputs Card */}
+          <Card className="p-6">
+            <h3 className="text-base font-semibold text-foreground mb-5">Product & Sales Inputs</h3>
+            <div className="grid sm:grid-cols-2 gap-5">
+              <InputField label="Wholesale Cost per Unit" value={inputs.wholesale_cost} field="wholesale_cost" />
+              <InputField label="Retail Price per Unit" value={inputs.retail_price} field="retail_price" />
+              <InputField label="Shipping Cost per Unit" value={inputs.shipping_cost} field="shipping_cost" />
+              <InputField label="Monthly Orders" value={inputs.monthly_orders} field="monthly_orders" prefix="" />
             </div>
-            <p className="text-sm text-gray-600 mt-3">
-              {results.margin_health === 'healthy'
-                ? 'Your margins are strong. You have room for growth and marketing investment.'
-                : results.margin_health === 'warning'
-                ? 'Your margins are adequate but have limited room for error. Consider optimizing costs.'
-                : 'Your margins are tight. Review your costs or increase pricing.'}
+          </Card>
+
+          {/* Expense Inputs */}
+          <Card className="p-6">
+            <h3 className="text-base font-semibold text-foreground mb-5">Monthly Expenses</h3>
+            <div className="grid sm:grid-cols-2 gap-5">
+              <InputField label="Monthly Ad Spend" value={inputs.ad_spend_monthly} field="ad_spend_monthly" />
+              <InputField label="Monthly Fixed Costs" value={inputs.monthly_fixed_costs} field="monthly_fixed_costs" />
+            </div>
+            <p className="text-xs text-muted-foreground mt-3">
+              Fixed costs include subscription fee ($149/mo), tools, software, etc.
             </p>
           </Card>
 
-          {/* Key Metrics Grid */}
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <MetricCard
-              label="Gross Margin per Unit"
-              value={`$${results.gross_margin_per_unit.toFixed(2)}`}
-              subtext={`${results.gross_margin_pct.toFixed(1)}% of retail price`}
-              bgColor="bg-blue-50"
-              borderColor="border-blue-200"
-            />
-            <MetricCard
-              label="Monthly Revenue"
-              value={`$${results.monthly_revenue.toLocaleString()}`}
-              subtext={`${inputs.monthly_orders} orders × $${inputs.retail_price}`}
-              bgColor="bg-green-50"
-              borderColor="border-green-200"
-            />
-          </div>
+          {/* Target Pricing Input — only show on target tab */}
+          {activeTab === 'target' && (
+            <Card className="p-6 border-primary/20">
+              <h3 className="text-base font-semibold text-foreground mb-5">Target Pricing</h3>
+              <InputField
+                label="Target Profit Margin"
+                value={inputs.target_margin}
+                field="target_margin"
+                prefix=""
+                suffix="%"
+                min={1}
+                max={99}
+              />
+              <p className="text-xs text-muted-foreground mt-3">
+                Set your desired profit margin and we'll calculate the retail price you need.
+              </p>
+            </Card>
+          )}
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <MetricCard
-              label="Monthly COGS"
-              value={`$${results.monthly_cogs.toLocaleString()}`}
-              subtext="Wholesale + Shipping costs"
-              bgColor="bg-pink-50"
-              borderColor="border-pink-200"
-            />
-            <MetricCard
-              label="Monthly Profit"
-              value={`$${results.monthly_profit.toLocaleString()}`}
-              subtext="After all costs including subscription"
-              bgColor={results.monthly_profit > 0 ? 'bg-gold-50' : 'bg-red-50'}
-              borderColor={results.monthly_profit > 0 ? 'border-gold-200' : 'border-red-200'}
-            />
-          </div>
+          {/* Financial Breakdown — show on margin/markup tabs */}
+          {(activeTab === 'margin' || activeTab === 'markup') && (
+            <Card className="p-6 bg-muted/30">
+              <h3 className="text-base font-semibold text-foreground mb-4">Monthly Financial Breakdown</h3>
+              <div className="divide-y divide-border">
+                <ResultRow label="Monthly Revenue" value={`$${monthlyRevenue.toLocaleString()}`} color="text-green-600" />
+                <ResultRow label="COGS (Wholesale + Shipping)" value={`-$${monthlyCogs.toLocaleString()}`} color="text-red-500" />
+                <ResultRow label="Gross Profit" value={`$${grossProfit.toLocaleString()}`} />
+                <ResultRow label="Ad Spend" value={`-$${inputs.ad_spend_monthly.toLocaleString()}`} color="text-red-500" />
+                <ResultRow label="Fixed Costs" value={`-$${inputs.monthly_fixed_costs.toLocaleString()}`} color="text-red-500" />
+                <div className="flex items-center justify-between py-3">
+                  <span className="text-sm font-semibold text-foreground">Net Profit</span>
+                  <span className={`text-lg font-extrabold ${netProfit >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                    {netProfit >= 0 ? '+' : ''}${netProfit.toLocaleString()}
+                  </span>
+                </div>
+              </div>
+            </Card>
+          )}
+        </div>
 
-          <MetricCard
-            label="Return on Ad Spend (ROI)"
-            value={`${results.roi.toLocaleString()}%`}
-            subtext="Profit relative to marketing + subscription"
-            bgColor="bg-lavender-50"
-            borderColor="border-purple-200"
-          />
+        {/* ═══ Right — Results (2 cols) ═══ */}
+        <div className="lg:col-span-2 space-y-6">
+          {/* Margin Health */}
+          <Card className={`p-5 border ${
+            marginHealth === 'healthy' ? 'border-green-200 bg-green-50/50' :
+            marginHealth === 'warning' ? 'border-yellow-200 bg-yellow-50/50' :
+            'border-red-200 bg-red-50/50'
+          }`}>
+            <div className="flex items-center gap-3 mb-3">
+              {marginHealth === 'healthy' ? (
+                <CheckCircle className="h-5 w-5 text-green-600" />
+              ) : marginHealth === 'warning' ? (
+                <AlertTriangle className="h-5 w-5 text-yellow-600" />
+              ) : (
+                <XCircle className="h-5 w-5 text-red-500" />
+              )}
+              <span className={`text-sm font-bold ${
+                marginHealth === 'healthy' ? 'text-green-700' :
+                marginHealth === 'warning' ? 'text-yellow-700' :
+                'text-red-600'
+              }`}>
+                {marginHealth === 'healthy' ? 'Healthy Margins' :
+                 marginHealth === 'warning' ? 'Margins Need Attention' :
+                 'Critical — Low Margins'}
+              </span>
+            </div>
+            <p className="text-xs text-foreground/60">
+              {marginHealth === 'healthy'
+                ? 'Your margins are strong. Room for growth and marketing investment.'
+                : marginHealth === 'warning'
+                ? 'Adequate margins but limited flexibility. Consider optimizing costs.'
+                : 'Margins are too tight. Review costs or increase retail pricing.'}
+            </p>
+          </Card>
 
-          {/* Detailed Breakdown */}
-          <Card className="mt-8 p-6 bg-gray-50">
-            <h3 className="font-semibold text-gray-900 mb-4">Financial Breakdown</h3>
-            <div className="space-y-3">
-              <div className="flex justify-between items-center">
-                <span className="text-gray-700">Monthly Revenue</span>
-                <span className="font-semibold text-green-600">+${results.monthly_revenue.toLocaleString()}</span>
+          {/* ── Margin Tab Results ── */}
+          {activeTab === 'margin' && (
+            <Card className="p-5">
+              <h3 className="text-sm font-semibold text-foreground mb-4 flex items-center gap-2">
+                <Percent className="h-4 w-4 text-primary" />
+                Margin Analysis
+              </h3>
+              <div className="space-y-1 divide-y divide-border">
+                <ResultRow label="Gross Margin / Unit" value={`$${grossMarginPerUnit.toFixed(2)}`} />
+                <ResultRow label="Gross Margin %" value={`${grossMarginPct.toFixed(1)}%`} color={grossMarginPct >= 50 ? 'text-green-600' : grossMarginPct >= 30 ? 'text-yellow-600' : 'text-red-500'} />
+                <ResultRow label="Cost per Unit" value={`$${costPerUnit.toFixed(2)}`} />
+                <ResultRow label="Net Profit / Month" value={`$${netProfit.toLocaleString()}`} color={netProfit >= 0 ? 'text-green-600' : 'text-red-500'} />
+                <ResultRow label="ROI" value={`${roi.toFixed(0)}%`} color={roi >= 100 ? 'text-green-600' : roi >= 0 ? 'text-yellow-600' : 'text-red-500'} />
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-700">COGS (Wholesale + Shipping)</span>
-                <span className="font-semibold text-red-600">-${results.monthly_cogs.toLocaleString()}</span>
+            </Card>
+          )}
+
+          {/* ── Markup Tab Results ── */}
+          {activeTab === 'markup' && (
+            <Card className="p-5">
+              <h3 className="text-sm font-semibold text-foreground mb-4 flex items-center gap-2">
+                <TrendingUp className="h-4 w-4 text-primary" />
+                Markup Analysis
+              </h3>
+              <div className="space-y-1 divide-y divide-border">
+                <ResultRow label="Markup (Dollar)" value={`$${markupDollar.toFixed(2)}`} />
+                <ResultRow label="Markup %" value={`${markupPct.toFixed(1)}%`} color={markupPct >= 100 ? 'text-green-600' : markupPct >= 50 ? 'text-yellow-600' : 'text-red-500'} />
+                <ResultRow label="Wholesale Cost" value={`$${inputs.wholesale_cost.toFixed(2)}`} />
+                <ResultRow label="Retail Price" value={`$${inputs.retail_price.toFixed(2)}`} />
+                <ResultRow label="Monthly Revenue" value={`$${monthlyRevenue.toLocaleString()}`} color="text-green-600" />
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-700">Ad Spend</span>
-                <span className="font-semibold text-red-600">-${inputs.ad_spend_monthly}</span>
+              <div className="mt-4 p-3 rounded-lg bg-muted/50">
+                <div className="flex items-start gap-2">
+                  <Info className="h-4 w-4 text-muted-foreground mt-0.5 flex-shrink-0" />
+                  <p className="text-xs text-muted-foreground">
+                    Hair industry standard markup is 100-200%. A {markupPct.toFixed(0)}% markup means you&#39;re charging {(markupPct / 100).toFixed(1)}x your wholesale cost.
+                  </p>
+                </div>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-700">Subscription Fee</span>
-                <span className="font-semibold text-red-600">-$149</span>
+            </Card>
+          )}
+
+          {/* ── Break-even Tab Results ── */}
+          {activeTab === 'breakeven' && (
+            <Card className="p-5">
+              <h3 className="text-sm font-semibold text-foreground mb-4 flex items-center gap-2">
+                <Target className="h-4 w-4 text-primary" />
+                Break-even Analysis
+              </h3>
+              <div className="space-y-1 divide-y divide-border">
+                <ResultRow label="Break-even Units" value={`${breakEvenUnits} units`} color="text-primary" />
+                <ResultRow label="Break-even Revenue" value={`$${breakEvenRevenue.toLocaleString()}`} />
+                <ResultRow label="Days to Break-even" value={`${daysToBreakEven} days`} color={daysToBreakEven <= 30 ? 'text-green-600' : 'text-yellow-600'} />
+                <ResultRow label="Contribution Margin / Unit" value={`$${contributionMarginPerUnit.toFixed(2)}`} />
+                <ResultRow label="Monthly Fixed + Ad Costs" value={`$${(inputs.monthly_fixed_costs + inputs.ad_spend_monthly).toLocaleString()}`} />
               </div>
-              <div className="border-t border-gray-300 pt-3 flex justify-between items-center">
-                <span className="text-gray-900 font-semibold">Net Profit</span>
-                <span className={`text-lg font-bold ${results.monthly_profit > 0 ? 'text-green-600' : 'text-red-600'}`}>
-                  {results.monthly_profit > 0 ? '+' : ''}${results.monthly_profit}
-                </span>
+              <div className="mt-4 p-3 rounded-lg bg-primary/5 border border-primary/10">
+                <p className="text-xs text-foreground/70">
+                  You need to sell <span className="font-bold text-primary">{breakEvenUnits} units</span> per month to cover all costs.
+                  {inputs.monthly_orders >= breakEvenUnits
+                    ? ` At ${inputs.monthly_orders} orders/mo, you're ${inputs.monthly_orders - breakEvenUnits} units above break-even.`
+                    : ` At ${inputs.monthly_orders} orders/mo, you need ${breakEvenUnits - inputs.monthly_orders} more to break even.`
+                  }
+                </p>
+              </div>
+            </Card>
+          )}
+
+          {/* ── Target Pricing Tab Results ── */}
+          {activeTab === 'target' && (
+            <Card className="p-5">
+              <h3 className="text-sm font-semibold text-foreground mb-4 flex items-center gap-2">
+                <Tag className="h-4 w-4 text-primary" />
+                Target Pricing Results
+              </h3>
+              <div className="space-y-1 divide-y divide-border">
+                <div className="flex items-center justify-between py-3">
+                  <span className="text-sm text-foreground/70">Suggested Retail Price</span>
+                  <span className="text-xl font-extrabold text-primary">${targetRetailPrice.toFixed(2)}</span>
+                </div>
+                <ResultRow label="Target Margin" value={`${inputs.target_margin}%`} />
+                <ResultRow label="Required Markup" value={`${targetMarkup.toFixed(1)}%`} />
+                <ResultRow label="Projected Revenue / Mo" value={`$${targetMonthlyRevenue.toLocaleString()}`} />
+                <ResultRow label="Projected Net Profit / Mo" value={`$${targetNetProfit.toLocaleString()}`} color={targetNetProfit >= 0 ? 'text-green-600' : 'text-red-500'} />
+              </div>
+              <div className="mt-4 p-3 rounded-lg bg-muted/50">
+                <div className="flex items-start gap-2">
+                  <Info className="h-4 w-4 text-muted-foreground mt-0.5 flex-shrink-0" />
+                  <p className="text-xs text-muted-foreground">
+                    {targetRetailPrice > inputs.retail_price
+                      ? `To hit ${inputs.target_margin}% margin, you'd need to increase your price by $${(targetRetailPrice - inputs.retail_price).toFixed(2)} from your current $${inputs.retail_price}.`
+                      : `Your current price of $${inputs.retail_price} already exceeds the target of $${targetRetailPrice.toFixed(2)}. You're in great shape!`
+                    }
+                  </p>
+                </div>
+              </div>
+            </Card>
+          )}
+
+          {/* Quick Stats — always visible */}
+          <Card className="p-5 bg-gradient-to-br from-primary/5 to-accent/5 border-primary/10">
+            <h3 className="text-sm font-semibold text-foreground mb-3">Quick Stats</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="text-center">
+                <p className="text-2xl font-extrabold text-primary">{grossMarginPct.toFixed(0)}%</p>
+                <p className="text-[11px] text-muted-foreground mt-0.5">Gross Margin</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-extrabold text-accent">{markupPct.toFixed(0)}%</p>
+                <p className="text-[11px] text-muted-foreground mt-0.5">Markup</p>
+              </div>
+              <div className="text-center">
+                <p className={`text-2xl font-extrabold ${netProfit >= 0 ? 'text-green-600' : 'text-red-500'}`}>
+                  ${Math.abs(netProfit).toLocaleString()}
+                </p>
+                <p className="text-[11px] text-muted-foreground mt-0.5">Net Profit / Mo</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-extrabold text-foreground">{breakEvenUnits}</p>
+                <p className="text-[11px] text-muted-foreground mt-0.5">Break-even Units</p>
               </div>
             </div>
           </Card>
         </div>
       </div>
-    </CalculatorLayout>
+
+      {/* Save Modal */}
+      {showSaveModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <Card className="w-full max-w-md">
+            <div className="p-6">
+              <h2 className="text-xl font-bold text-foreground mb-4">Save Projection</h2>
+              <input
+                type="text"
+                placeholder="e.g. 'Q1 Body Wave Projection'"
+                value={calculationName}
+                onChange={(e) => setCalculationName(e.target.value)}
+                className="w-full px-4 py-2.5 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary mb-6 text-sm"
+              />
+              <div className="flex gap-3">
+                <button
+                  onClick={() => { setShowSaveModal(false); setCalculationName(''); }}
+                  className="flex-1 px-4 py-2.5 border border-border rounded-xl text-sm font-medium hover:bg-muted transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleSave}
+                  disabled={isSaving || !calculationName.trim()}
+                  className="flex-1 px-4 py-2.5 bg-gradient-to-r from-primary to-accent text-white rounded-xl text-sm font-medium hover:opacity-90 transition-colors disabled:opacity-50"
+                >
+                  {isSaving ? 'Saving...' : 'Save Projection'}
+                </button>
+              </div>
+            </div>
+          </Card>
+        </div>
+      )}
+    </div>
   );
 }

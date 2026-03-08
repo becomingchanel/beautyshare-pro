@@ -30,6 +30,7 @@ import {
   Tag,
   Bookmark,
   Rocket,
+  Megaphone,
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -54,18 +55,16 @@ const mainNav: NavItem[] = [
   { label: 'Dashboard', href: '/dashboard', icon: <LayoutDashboard className="h-5 w-5" /> },
   { label: 'Orders', href: '/dashboard/orders', icon: <ShoppingCart className="h-5 w-5" /> },
   { label: 'Forecasting', href: '/dashboard/forecasting', icon: <TrendingUp className="h-5 w-5" /> },
+  { label: 'AI Ads Engine', href: '/ads', icon: <Megaphone className="h-5 w-5" />, badge: 'New' },
   {
     label: 'Calculators',
     href: '/dashboard/calculators',
     icon: <Calculator className="h-5 w-5" />,
     children: [
       { label: 'Launch Calculator', href: '/dashboard/calculators/launch', icon: <Rocket className="h-4 w-4" /> },
-      { label: 'Inventory Calculator', href: '/dashboard/calculators/inventory', icon: <Package className="h-4 w-4" /> },
       { label: 'Profit Calculator', href: '/dashboard/calculators/profit', icon: <DollarSign className="h-4 w-4" /> },
       { label: 'Discount & Ads', href: '/dashboard/calculators/discount', icon: <Percent className="h-4 w-4" /> },
-      { label: 'Wholesale Pricing', href: '/dashboard/calculators/wholesale', icon: <DollarSign className="h-4 w-4" /> },
       { label: 'BeautyShare Pricing', href: '/dashboard/calculators/beautyshare', icon: <DollarSign className="h-4 w-4" /> },
-      { label: 'Retail Price', href: '/dashboard/calculators/retail', icon: <Tag className="h-4 w-4" /> },
       { label: 'Saved Projections', href: '/dashboard/calculators/saved', icon: <Bookmark className="h-4 w-4" /> },
     ],
   },

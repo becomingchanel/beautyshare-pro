@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Card } from '@/components/ui/Card';
-import { DollarSign, TrendingUp, Tag, ArrowRight, Calculator, Sparkles } from 'lucide-react';
+import { DollarSign, TrendingUp, Percent, ArrowRight, Calculator, Sparkles } from 'lucide-react';
 
 const calculators = [
   {
@@ -18,7 +18,7 @@ const calculators = [
   {
     id: 'profit',
     title: 'Profit Calculator',
-    description: 'Analyze profit margins per unit, monthly revenue, and ROI. Understand your business profitability at a glance.',
+    description: 'Analyze profit margins, markup, break-even point, and target pricing. Understand your business profitability at a glance.',
     icon: TrendingUp,
     gradient: 'from-accent to-highlight',
     bgGlow: 'bg-lavender-50',
@@ -26,13 +26,13 @@ const calculators = [
     tag: 'Essential',
   },
   {
-    id: 'retail',
-    title: 'Retail Price Calculator',
-    description: 'Determine optimal retail prices based on wholesale cost, target margins, and competitor pricing analysis.',
-    icon: Tag,
+    id: 'discount',
+    title: 'Discount & Ads Calculator',
+    description: 'Plan promotions, calculate discount impact on margins, and forecast ad spend return on investment.',
+    icon: Percent,
     gradient: 'from-accent to-highlight',
     bgGlow: 'bg-orange-50',
-    href: '/dashboard/calculators/retail',
+    href: '/dashboard/calculators/discount',
     tag: 'Strategic',
   },
 ];
