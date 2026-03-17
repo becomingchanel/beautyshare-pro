@@ -506,7 +506,7 @@ export default function MarketingPlaybookPage() {
           <div className="badge">Complete Marketing System</div>
           <h1>Go from Zero to Consistent Sales</h1>
           <p className="hero-subtitle">
-            The full marketing system â Instagram growth, paid ads, email, repeat buyers, and referrals.
+            The full marketing system — Instagram growth, paid ads, email, repeat buyers, and referrals.
           </p>
           <div className="price-section">
             <div className="price-main">
@@ -514,7 +514,7 @@ export default function MarketingPlaybookPage() {
               <span className="price-crossed">$1,050 value</span>
             </div>
           </div>
-          <button className="cta-button">Get the Marketing Playbook â $197</button>
+          <button className="cta-button">Get the Marketing Playbook — $197</button>
         </div>
       </section>
 
@@ -628,7 +628,7 @@ export default function MarketingPlaybookPage() {
         <div className="container">
           <h2>Ready to Go from Zero to Consistent Sales?</h2>
           <p>Stop guessing. Start systematizing. Get the Marketing Playbook today and build your sales engine.</p>
-          <button className="cta-button-white">Get the Marketing Playbook â $197</button>
+          <button className="cta-button-white">Get the Marketing Playbook — $197</button>
         </div>
       </section>
 

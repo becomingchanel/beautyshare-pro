@@ -503,7 +503,7 @@ export default function FastTrackPage() {
           <div className="badge">BSP Member Exclusive</div>
           <h1>Make Your First $1K in 7 Days</h1>
           <p className="hero-subtitle">
-            Your complete launch action plan â DM scripts, pricing guide, content calendar, and first sale checklist.
+            Your complete launch action plan — DM scripts, pricing guide, content calendar, and first sale checklist.
           </p>
           <div className="price-section">
             <div className="price-main">
@@ -511,7 +511,7 @@ export default function FastTrackPage() {
               <span className="price-crossed">$650 value</span>
             </div>
           </div>
-          <button className="cta-button">Get the Fast Track â $67</button>
+          <button className="cta-button">Get the Fast Track — $67</button>
         </div>
       </section>
 
@@ -521,19 +521,19 @@ export default function FastTrackPage() {
           <h2 className="section-title">What's Inside</h2>
           <div className="modules-grid">
             <div className="module-card">
-              <h3>Days 1-2 â Get Your Store Live in 2 Hours</h3>
+              <h3>Days 1-2 — Get Your Store Live in 2 Hours</h3>
               <p>Complete your profile, select your 3 hero products, and set your pricing using the proven 1.55x margin formula.</p>
             </div>
             <div className="module-card">
-              <h3>Days 3-4 â 20 Warm Market DM Scripts</h3>
+              <h3>Days 3-4 — 20 Warm Market DM Scripts</h3>
               <p>4 script templates (close friend, acquaintance, someone who asked, cold warm follower) plus follow-up variations to seal the deal.</p>
             </div>
             <div className="module-card">
-              <h3>Days 5-7 â 7-Day Content Calendar</h3>
+              <h3>Days 5-7 — 7-Day Content Calendar</h3>
               <p>Daily post types, caption starters, and soft CTAs designed specifically for beauty sellers to build urgency without being pushy.</p>
             </div>
             <div className="module-card">
-              <h3>First Sale Checklist â 10 Actions in 72 Hours</h3>
+              <h3>First Sale Checklist — 10 Actions in 72 Hours</h3>
               <p>10 specific actions from profile setup to first order celebration. Follow this and your first sale is nearly guaranteed.</p>
             </div>
           </div>
@@ -617,7 +617,7 @@ export default function FastTrackPage() {
         <div className="container">
           <h2>Ready to Make Your First $1K?</h2>
           <p>Stop waiting. Start selling. Get the Fast Track today and launch your store in 7 days.</p>
-          <button className="cta-button-white">Get the Fast Track â $67</button>
+          <button className="cta-button-white">Get the Fast Track — $67</button>
         </div>
       </section>
 

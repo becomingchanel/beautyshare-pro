@@ -135,6 +135,7 @@ export default function HomePage() {
             <a href="#pricing" className="hover:text-orange transition-colors">Plans</a>
             <Link href="/websites" className="hover:text-orange transition-colors">Store Designs</Link>
             <a href="#faq" className="hover:text-orange transition-colors">FAQ</a>
+            <Link href="/webinar" className="text-orange font-bold hover:text-orange/80 transition-colors">Free Webinar</Link>
           </div>
           <div className="flex items-center gap-3">
             <Link href="/login" className="hidden sm:inline-flex text-sm font-semibold text-black hover:text-orange transition-colors">
@@ -641,6 +642,7 @@ export default function HomePage() {
               <a href="#pricing" className="hover:text-white transition-colors">Plans</a>
               <Link href="/websites" className="hover:text-white transition-colors">Store Designs</Link>
               <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
+              <Link href="/webinar" className="text-orange hover:text-white transition-colors font-semibold">Free Webinar</Link>
               <Link href="/login" className="hover:text-white transition-colors">Boss Login</Link>
             </div>
             <div className="flex gap-4 text-white/40">

@@ -5,7 +5,7 @@ export async function middleware(request: NextRequest) {
   const { user, supabaseResponse, supabase } = await updateSession(request);
   const { pathname } = request.nextUrl;
 
-  // Public routes â no auth needed
+  // Public routes — no auth needed
   const publicRoutes = ['/', '/login', '/signup', '/websites', '/auth', '/api/stripe/webhook', '/webinar', '/upsells', '/stylist-calculator', '/fast-track', '/marketing-playbook'];
   const isPublic = publicRoutes.some(
     (route) => pathname === route || pathname.startsWith(route + '/'),
@@ -15,7 +15,7 @@ export async function middleware(request: NextRequest) {
     return supabaseResponse;
   }
 
-  // Protected routes â redirect to login if not authenticated
+  // Protected routes — redirect to login if not authenticated
   if (!user && pathname.startsWith('/dashboard')) {
     const url = request.nextUrl.clone();
     url.pathname = '/login';
