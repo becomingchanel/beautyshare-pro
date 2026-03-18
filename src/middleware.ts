@@ -6,7 +6,7 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Public routes — no auth needed
-  const publicRoutes = ['/', '/login', '/signup', '/websites', '/auth', '/api/stripe/webhook', '/webinar', '/upsells', '/stylist-calculator', '/fast-track', '/marketing-playbook'];
+  const publicRoutes = ['/', '/login', '/signup', '/websites', '/auth', '/api/stripe/webhook', '/webinar', '/upsells', '/stylist-calculator', '/fast-track', '/marketing-playbook', '/thank-you', '/upgrade'];
   const isPublic = publicRoutes.some(
     (route) => pathname === route || pathname.startsWith(route + '/'),
   );
