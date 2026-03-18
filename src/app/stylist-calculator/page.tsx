@@ -2,6 +2,13 @@
 
 import { useEffect } from 'react';
 
+declare global {
+  interface Window {
+    setService: (id: string) => void;
+    calculate: () => void;
+  }
+}
+
 export default function StylistCalculator() {
   useEffect(() => {
     // Set meta tags
