@@ -11,8 +11,8 @@ const products = [
     priceNote: 'No credit card required',
     href: '/products/blueprint',
     badge: 'FREE DOWNLOAD',
-    badgeColor: 'bg-green-500',
-    accent: '#22c55e',
+    badgeColor: 'bg-[#E2AD37]',
+    accent: '#E2AD37',
     features: ['30-day launch roadmap', '$1K warm market DM script', '5 most profitable niches', 'Revenue stacking strategy'],
   },
   {

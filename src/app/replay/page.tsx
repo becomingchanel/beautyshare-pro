@@ -137,7 +137,7 @@ export default function ReplayPage() {
               Launch Your <span className="or">Hair Business</span> in 30 Days — No Inventory
             </h1>
             <p className="rp-sub">
-              Watch Chanel D walk through the exact BeautyShare Pro model — how she built a six-figure raw hair brand with zero inventory, and how you can do the same this month.
+              Watch Chanel walk through the exact BeautyShare Pro model — how she built a six-figure raw hair brand with zero inventory, and how you can do the same this month.
             </p>
           </div>
         </section>
@@ -166,20 +166,20 @@ export default function ReplayPage() {
             <div className="rp-offers-eyebrow">Webinar-Only Pricing</div>
             <h2 className="rp-offers-title">Ready to launch? Pick your path.</h2>
             <p className="rp-offers-sub">
-              These resources are only available at this price for replay viewers. They&apos;re built to get you results the same week.
+              These resources are only available at this price for replay viewers. They&apos;re built to get you results if you apply all of the steps.
             </p>
 
             <div className="rp-offer-grid">
               {/* Free Blueprint */}
               <div className="rp-offer-card">
-                <div className="rp-offer-stripe" style={{ background: '#22c55e' }} />
+                <div className="rp-offer-stripe" style={{ background: '#E2AD37' }} />
                 <div className="rp-offer-body">
-                  <div className="rp-offer-badge" style={{ background: '#22c55e' }}>FREE</div>
+                  <div className="rp-offer-badge" style={{ background: '#E2AD37' }}>FREE</div>
                   <h3 className="rp-offer-title">Raw Hair Business Blueprint</h3>
                   <p className="rp-offer-desc">The 30-day launch framework with 40+ action items. Start here if you&apos;re brand new.</p>
-                  <div className="rp-offer-price" style={{ color: '#22c55e' }}>Free</div>
+                  <div className="rp-offer-price" style={{ color: '#E2AD37' }}>Free</div>
                   <div className="rp-offer-note">No credit card required</div>
-                  <Link href="/products/blueprint" className="rp-offer-btn" style={{ background: '#22c55e' }}>
+                  <Link href="/products/blueprint" className="rp-offer-btn" style={{ background: '#E2AD37' }}>
                     Download Free →
                   </Link>
                 </div>

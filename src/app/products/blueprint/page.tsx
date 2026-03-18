@@ -298,7 +298,7 @@ body{font-family:var(--fb);color:var(--text);background:var(--white);-webkit-fon
         <div class="hero-author">
           <div class="hero-author-av">CD</div>
           <div>
-            <div class="hero-author-name">Chanel D</div>
+            <div class="hero-author-name">Chanel</div>
             <div class="hero-author-title">Founder, BeautyShare Pro & Aavya Hair · @BecomingChanelD on YouTube</div>
           </div>
         </div>
@@ -358,7 +358,7 @@ body{font-family:var(--fb);color:var(--text);background:var(--white);-webkit-fon
 <section class="video-section">
   <div class="vs-inner">
     <span class="vs-ey">Watch This First</span>
-    <h2 class="vs-title">A message from Chanel D</h2>
+    <h2 class="vs-title">A message from Chanel</h2>
     <p class="vs-sub">To add your video: replace the placeholder below with your YouTube embed iframe</p>
     <div class="vs-frame">
       <!--
@@ -514,7 +514,7 @@ body{font-family:var(--fb);color:var(--text);background:var(--white);-webkit-fon
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to be a BSP member to use this? <span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">No. The Blueprint is designed for people who are considering BeautyShare Pro or have recently joined. Part 3 explains exactly what BSP is and how it works. You can read the entire Blueprint before deciding whether to join.</div></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is this different from the paid education products? <span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">The Blueprint is the foundation framework — the 30-day roadmap, market context, brand setup, and first-sale strategy. The paid products go deeper: the First $1K Fast Track is a daily fillable workbook with 20 DM scripts for your first 7 days; the Marketing Playbook is a 5-module long-term marketing system; the Stylist Pack is for licensed hairstylists adding BSP packages. The Blueprint is where everyone starts.</div></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How long does it take to read through the Blueprint? <span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Most people read through it in 45–60 minutes. The real time investment is executing it — which the 30-day roadmap structures for you day by day. Set aside 1–2 hours the first day to read and complete the Week 1 action items.</div></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will I be added to an email list? <span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Yes — by downloading the Blueprint you'll be added to the BSP Education email list. We send free webinar notifications, new resource drops, and hair business strategy content from Chanel D. You can unsubscribe at any time with one click.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will I be added to an email list? <span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Yes — by downloading the Blueprint you'll be added to the BSP Education email list. We send free webinar notifications, new resource drops, and hair business strategy content from Chanel. You can unsubscribe at any time with one click.</div></div></div>
     </div>
   </div>
 </section>
@@ -572,7 +572,7 @@ body{font-family:var(--fb);color:var(--text);background:var(--white);-webkit-fon
       <a href="#" class="footer-link">Terms of Service</a>
       <a href="#" class="footer-link">Contact</a>
     </div>
-    <div class="footer-copy">© 2026 BeautyShare Pro · www.BeautySharePro.com · All rights reserved. Blueprint created by Chanel D — Founder of BeautyShare Pro, Aavya Hair, and Solvé. Follow @BecomingChanelD on YouTube.</div>
+    <div class="footer-copy">© 2026 BeautyShare Pro · www.BeautySharePro.com · All rights reserved. Blueprint created by Chanel — Founder of BeautyShare Pro, Aavya Hair, and Solvé. Follow @BecomingChanelD on YouTube.</div>
   </div>
 </footer>
 
