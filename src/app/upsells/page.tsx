@@ -594,14 +594,14 @@ export default function UpsellsPage() {
 
   const product = products[activeTab];
 
-  const toggleFaq = (index) => {
+  const toggleFaq = (index: number) => {
     const faqButton = document.querySelector(`[data-faq="${index}"]`);
     if (faqButton) {
       faqButton.classList.toggle('active');
     }
   };
 
-  const getCardAccent = (productId) => {
+  const getCardAccent = (productId: number) => {
     if (productId === 0) return 'accent-orange';
     if (productId === 1) return 'accent-pink';
     return 'accent-lavender';
