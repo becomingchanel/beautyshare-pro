@@ -108,6 +108,7 @@ const FeatureIcons = {
    ================================================================ */
 export default function HomePage() {
   const [currentImage, setCurrentImage] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -127,7 +128,7 @@ export default function HomePage() {
           <Link href="/" className="flex items-center">
             <img src="/images/logo.png" alt="BeautyShare Pro" className="h-10 md:h-12 w-auto" />
           </Link>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-black/60">
+          <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-black/60">
             <a href="#how-it-works" className="hover:text-orange transition-colors">How It Works</a>
             <a href="#why" className="hover:text-orange transition-colors">Why BSP</a>
             <a href="#hair" className="hover:text-orange transition-colors">Our Hair</a>
@@ -142,11 +143,42 @@ export default function HomePage() {
             <Link href="/login" className="hidden sm:inline-flex text-sm font-semibold text-black hover:text-orange transition-colors">
               Log In
             </Link>
-            <Link href="/signup" className="inline-flex items-center gap-2 rounded-full brand-gradient-pink px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity shadow-lg shadow-orange/20">
+            <Link href="/signup" className="hidden sm:inline-flex items-center gap-2 rounded-full brand-gradient-pink px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity shadow-lg shadow-orange/20">
               Get Started
             </Link>
+            {/* Mobile hamburger */}
+            <button
+              className="lg:hidden flex flex-col items-center justify-center w-10 h-10 gap-1.5"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <span className={`block w-6 h-0.5 bg-black transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+              <span className={`block w-6 h-0.5 bg-black transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+              <span className={`block w-6 h-0.5 bg-black transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden bg-white border-t border-black/5 shadow-xl">
+            <div className="flex flex-col px-6 py-4 gap-4 text-base font-medium text-black/70">
+              <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">How It Works</a>
+              <a href="#why" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">Why BSP</a>
+              <a href="#hair" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">Our Hair</a>
+              <a href="#compare" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">Compare</a>
+              <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">Plans</a>
+              <Link href="/websites" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">Store Designs</Link>
+              <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">FAQ</a>
+              <Link href="/education" onClick={() => setMobileMenuOpen(false)} className="font-semibold hover:text-orange transition-colors py-1">Education</Link>
+              <Link href="/webinar" onClick={() => setMobileMenuOpen(false)} className="text-orange font-bold py-1">Free Webinar</Link>
+              <div className="flex gap-3 pt-2 border-t border-black/10">
+                <Link href="/login" className="flex-1 text-center py-3 rounded-full border-2 border-black/10 font-semibold text-sm hover:border-orange/40 transition-colors">Log In</Link>
+                <Link href="/signup" className="flex-1 text-center py-3 rounded-full brand-gradient-pink text-white font-semibold text-sm shadow-lg shadow-orange/20">Get Started</Link>
+              </div>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* ═══════════════════════════════════════════════════════════
