@@ -45,7 +45,7 @@ function PreviewFooter() {
   );
 }
 
-function MiniCard({ label, hasbadge }: { label: string; hasBadge?: boolean }) {
+function MiniCard({ label, hasBadge }: { label: string; hasBadge?: boolean }) {
   return (
     <div style={{ background: "#fff", borderRadius: 3, overflow: "hidden", border: "1px solid rgba(0,0,0,.04)" }}>
       <div style={{ position: "relative", aspectRatio: "3/4", background: "linear-gradient(135deg, " + C.smoke + ", " + C.sand + ")" }}>
