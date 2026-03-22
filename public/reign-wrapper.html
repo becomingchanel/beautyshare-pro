@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>REIGN — Template Preview</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>REIGN — Preview</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;height:100%;overflow:hidden;background:#FAF7F4}
@@ -14,107 +14,75 @@ iframe{width:100%;height:100%;border:none}
 <iframe id="preview" src="reign-preview.html"></iframe>
 <script>
 var IMAGES = {
-  wavy:        '',
-  wavyCurly:   '',
-  curly:       '',
-  closureWavy: '',
-  closureWavyCurly: '',
-  closureCurly: '',
-  heroModel:   '',
-  editorialBanner: '',
-  aboutHero:   '',
-  aboutMission:'',
-  look1: '', look2: '', look3: '',
-  look4: '', look5: '', look6: '',
-  look7: '', look8: '', look9: '',
-  ugc1: '', ugc2: '', ugc3: '', ugc4: '', ugc5: '',
-  guide1: '', guide2: '', guide3: '', guide4: '',
-  eduWavy: '', eduWavyCurly: '', eduCurly: '',
-  shopHero: ''
+  heroModel:     'images/model-curly-1.png',
+  heroVideo:     '',
+  editorialBanner: 'images/model-straight-1.png',
+  strip1: 'images/model-curly-1.png',
+  strip2: 'images/model-straight-2.png',
+  strip3: 'images/model-curly-2.png',
+  strip4: 'images/hero-model.png',
+  strip5: 'images/model-straight-1.png',
+  strip6: 'images/model-curly-1.png',
+  'shop-wavy':          'images/hair-wavy.png',
+  'shop-wavyCurly':     'images/hair-curly.png',
+  'shop-curly':         'images/hair-deep-curly.png',
+  'shop-closureWavy':   'images/hair-wavy.png',
+  'shop-closureWavyCurly': 'images/hair-curly.png',
+  'shop-closureCurly':  'images/hair-deep-curly.png',
+  guide1: 'images/model-straight-2.png',
+  guide2: 'images/model-curly-2.png',
+  look1:  'images/model-curly-1.png',
+  look2:  'images/model-straight-1.png',
+  look3:  'images/model-curly-2.png',
+  look4:  'images/hero-model.png',
+  look5:  'images/model-straight-2.png',
+  look6:  'images/model-curly-1.png',
+  look7:  'images/model-straight-1.png',
+  look8:  'images/model-curly-2.png',
+  look9:  'images/hero-model.png',
+  look10: 'images/model-straight-2.png',
+  aboutHero:    'images/model-curly-1.png',
+  aboutMission: 'images/model-straight-1.png'
 };
 
 var iframe = document.getElementById('preview');
 iframe.addEventListener('load', function() {
-  var doc = iframe.contentDocument || iframe.contentWindow.document;
-  var allImgs = doc.querySelectorAll('img');
-  allImgs.forEach(function(img) { img.style.visibility = 'visible'; });
-  var styles = doc.querySelectorAll('style');
-  styles.forEach(function(style) {
-    if (style.textContent.indexOf('visibility:hidden') !== -1) {
-      style.textContent = style.textContent.replace(/visibility:\s*hidden/g, 'visibility:visible');
+  var doc = iframe.contentDocument;
+  if (!doc) return;
+
+  /* Remove visibility:hidden from all images */
+  var imgs = doc.querySelectorAll('img');
+  for (var i = 0; i < imgs.length; i++) {
+    imgs[i].style.visibility = 'visible';
+  }
+
+  /* Inject image sources by ID */
+  for (var key in IMAGES) {
+    if (!IMAGES[key]) continue;
+    var el = doc.getElementById('img-' + key);
+    if (el) {
+      el.src = IMAGES[key];
+      el.style.visibility = 'visible';
     }
-  });
-  function setImg(el, url) { if (url && el) { el.src = url; el.style.visibility = 'visible'; } }
-  function setBg(el, url) { if (url && el) { el.style.backgroundImage = 'url(' + url + ')'; el.style.backgroundSize = 'cover'; el.style.backgroundPosition = 'center'; } }
-
-  var homePage = doc.getElementById('page-home');
-  if (homePage) {
-    setBg(homePage.querySelector('.hero-bg'), IMAGES.heroModel);
-    var homeCards = homePage.querySelectorAll('.product-grid .product-card-img img');
-    if (homeCards[0]) setImg(homeCards[0], IMAGES.wavy);
-    if (homeCards[1]) setImg(homeCards[1], IMAGES.wavyCurly);
-    if (homeCards[2]) setImg(homeCards[2], IMAGES.curly);
-    var texCards = homePage.querySelectorAll('.texture-card-img img');
-    if (texCards[0]) setImg(texCards[0], IMAGES.wavy);
-    if (texCards[1]) setImg(texCards[1], IMAGES.wavyCurly);
-    if (texCards[2]) setImg(texCards[2], IMAGES.curly);
-    var editBg = homePage.querySelector('.editorial-banner-bg');
-    if (editBg && IMAGES.editorialBanner) { editBg.src = IMAGES.editorialBanner; editBg.style.visibility = 'visible'; }
-    var ugcImgs = homePage.querySelectorAll('.ugc-item img');
-    ['ugc1','ugc2','ugc3','ugc4','ugc5'].forEach(function(k, i) { if (ugcImgs[i]) setImg(ugcImgs[i], IMAGES[k]); });
   }
 
-  var shopPage = doc.getElementById('page-shop');
-  if (shopPage) {
-    var shopHeroBg = shopPage.querySelector('.collection-hero-bg');
-    if (shopHeroBg && IMAGES.shopHero) { shopHeroBg.src = IMAGES.shopHero; shopHeroBg.style.visibility = 'visible'; }
-    var shopCards = shopPage.querySelectorAll('.product-card-img img');
-    [IMAGES.wavy, IMAGES.wavyCurly, IMAGES.curly, IMAGES.closureWavy, IMAGES.closureWavyCurly, IMAGES.closureCurly].forEach(function(url, i) { if (shopCards[i]) setImg(shopCards[i], url); });
-  }
-
-  var productPage = doc.getElementById('page-product');
-  if (productPage) {
-    setImg(doc.getElementById('productMainImg'), IMAGES.wavy);
-    productPage.querySelectorAll('.product-thumb img').forEach(function(t) { if (IMAGES.wavy) setImg(t, IMAGES.wavy); });
-    setImg(doc.getElementById('stickyImg'), IMAGES.wavy);
-  }
-
-  var eduPage = doc.getElementById('page-education');
-  if (eduPage) {
-    var eduImgs = eduPage.querySelectorAll('.texture-compare-img img');
-    if (eduImgs[0]) setImg(eduImgs[0], IMAGES.eduWavy || IMAGES.wavy);
-    if (eduImgs[1]) setImg(eduImgs[1], IMAGES.eduWavyCurly || IMAGES.wavyCurly);
-    if (eduImgs[2]) setImg(eduImgs[2], IMAGES.eduCurly || IMAGES.curly);
-  }
-
-  var guidePage = doc.getElementById('page-haircare');
-  if (guidePage) {
-    var guideImgs = guidePage.querySelectorAll('.guide-img img');
-    ['guide1','guide2','guide3','guide4'].forEach(function(k, i) { if (guideImgs[i]) setImg(guideImgs[i], IMAGES[k]); });
-  }
-
-  var lookPage = doc.getElementById('page-lookbook');
-  if (lookPage) {
-    var lookImgs = lookPage.querySelectorAll('.lookbook-item img');
-    ['look1','look2','look3','look4','look5','look6','look7','look8','look9'].forEach(function(k, i) { if (lookImgs[i]) setImg(lookImgs[i], IMAGES[k]); });
-  }
-
-  var aboutPage = doc.getElementById('page-about');
-  if (aboutPage) {
-    var aboutHeroBg = aboutPage.querySelector('.about-hero-bg');
-    if (aboutHeroBg && IMAGES.aboutHero) { aboutHeroBg.src = IMAGES.aboutHero; aboutHeroBg.style.visibility = 'visible'; }
-    setImg(aboutPage.querySelector('.about-img img'), IMAGES.aboutMission);
-  }
-
-  var win = iframe.contentWindow;
-  if (win && win.products) {
-    win.products[0].img = IMAGES.wavy;
-    win.products[1].img = IMAGES.wavyCurly;
-    win.products[2].img = IMAGES.curly;
-    win.products[3].img = IMAGES.closureWavy;
-    win.products[4].img = IMAGES.closureWavyCurly;
-    win.products[5].img = IMAGES.closureCurly;
-  }
+  /* Handle dynamically rendered product cards */
+  setTimeout(function() {
+    for (var key in IMAGES) {
+      if (!IMAGES[key]) continue;
+      var els = doc.querySelectorAll('#img-' + key);
+      for (var j = 0; j < els.length; j++) {
+        els[j].src = IMAGES[key];
+        els[j].style.visibility = 'visible';
+      }
+      /* Also match by id across shadow copies */
+      var all = doc.querySelectorAll('[id="img-' + key + '"]');
+      for (var j = 0; j < all.length; j++) {
+        all[j].src = IMAGES[key];
+        all[j].style.visibility = 'visible';
+      }
+    }
+  }, 500);
 });
 </script>
 </body>
