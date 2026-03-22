@@ -4,13 +4,13 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 /* ================================================================
-   BeautyShare Pro â Semi-Custom Shopify Store Designs
+   BeautyShare Pro Ã¢ÂÂ Semi-Custom Shopify Store Designs
    /websites showcase page
    Brand Colors: #FA6A27 (orange), hsl(var(--primary)) (pink), #DCBDEF (lavender),
                  hsl(var(--highlight)) (gold), hsl(var(--foreground)), hsl(var(--background))
    ================================================================ */
 
-/* ââ Cursive accent helper ââââââââââââââââââââââââââââââââââââââââ */
+/* Ã¢ÂÂÃ¢ÂÂ Cursive accent helper Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
 const Cursive = ({
   children,
   className = '',
@@ -26,7 +26,7 @@ const Cursive = ({
   </span>
 );
 
-/* ââ SVG Icons ââââââââââââââââââââââââââââââââââââââââââââââââââââ */
+/* Ã¢ÂÂÃ¢ÂÂ SVG Icons Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
 const Icon = {
   check: (
     <svg className="h-5 w-5 shrink-0" viewBox="0 0 20 20" fill="currentColor">
@@ -70,7 +70,7 @@ const Icon = {
   ),
 };
 
-/* ââ Theme data âââââââââââââââââââââââââââââââââââââââââââââââââââ */
+/* Ã¢ÂÂÃ¢ÂÂ Theme data Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */
 const themes = [
   {
     id: 'mane-edit',
@@ -147,7 +147,7 @@ const themes = [
       'Maximum white space for editorial feel',
       'Sharp black typography with gold details',
       'Grid-based layouts for product focus',
-      'Minimal UI â the hair is the hero',
+      'Minimal UI Ã¢ÂÂ the hair is the hero',
     ],
     bestFor: 'Product-focused brands, wholesale storefronts, clean aesthetics',
     gradient: 'from-[hsl(var(--foreground))] to-[hsl(var(--foreground))]',
@@ -167,9 +167,9 @@ export default function WebsitesPage() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
 
-      {/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+      {/* Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
           NAVIGATION (matches main site)
-          âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */}
+          Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
         <div className="mx-auto max-w-7xl flex items-center justify-between px-5 py-3 md:px-8">
           <Link href="/" className="flex items-center">
@@ -194,9 +194,9 @@ export default function WebsitesPage() {
         </div>
       </nav>
 
-      {/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+      {/* Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
           HERO
-          âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */}
+          Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */}
       <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-white">
         <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-pink/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-lavender/10 rounded-full blur-3xl" />
@@ -214,7 +214,7 @@ export default function WebsitesPage() {
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-black/60 leading-relaxed">
             Choose from 4 professionally designed Shopify hair store themes.
-            Upload to Shopify, customize with drag-and-drop, and launch your branded store in days â no coding required.
+            Upload to Shopify, customize with drag-and-drop, and launch your branded store in days Ã¢ÂÂ no coding required.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a href="#themes" className="group inline-flex items-center gap-2 rounded-full brand-gradient-pink px-8 py-4 text-base font-bold text-white shadow-xl shadow-orange/25 hover:shadow-2xl hover:shadow-orange/30 transition-all hover:-translate-y-0.5">
@@ -228,9 +228,9 @@ export default function WebsitesPage() {
         </div>
       </section>
 
-      {/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-          HOW IT WORKS â 3-step process
-          âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */}
+      {/* Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+          HOW IT WORKS Ã¢ÂÂ 3-step process
+          Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */}
       <section id="how" className="py-20 md:py-28 bg-[#FFF8F3]">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="text-center mb-16">
@@ -245,7 +245,7 @@ export default function WebsitesPage() {
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
               { step: '01', title: 'Pick Your Design', desc: 'Browse our collection of 4 professionally designed hair business themes. Each one is fully coded and ready for Shopify.', icon: Icon.palette },
-              { step: '02', title: 'Customize with Drag & Drop', desc: 'Upload the theme to Shopify and use the built-in theme editor to change colors, text, images, and layout â zero coding needed.', icon: Icon.cursor },
+              { step: '02', title: 'Customize with Drag & Drop', desc: 'Upload the theme to Shopify and use the built-in theme editor to change colors, text, images, and layout Ã¢ÂÂ zero coding needed.', icon: Icon.cursor },
               { step: '03', title: 'Launch & Start Selling', desc: 'Connect your products, set your prices, and go live. Your professional store is ready to take orders from day one.', icon: Icon.bolt },
             ].map((item) => (
               <div key={item.step} className="text-center">
@@ -261,9 +261,9 @@ export default function WebsitesPage() {
         </div>
       </section>
 
-      {/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-          THEME SHOWCASE â 4 themes
-          âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */}
+      {/* Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+          THEME SHOWCASE Ã¢ÂÂ 4 themes
+          Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */}
       <section id="themes" className="py-20 md:py-28 bg-white">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="text-center mb-16">
@@ -272,7 +272,7 @@ export default function WebsitesPage() {
               4 Designs. <Cursive className="brand-gradient-text">Endless Possibilities.</Cursive>
             </h2>
             <p className="mt-4 text-black/60 max-w-xl mx-auto text-lg">
-              Each theme is a complete Shopify Online Store 2.0 theme â fully coded with 12+ customizable sections.
+              Each theme is a complete Shopify Online Store 2.0 theme Ã¢ÂÂ fully coded with 12+ customizable sections.
             </p>
           </div>
 
@@ -315,7 +315,7 @@ export default function WebsitesPage() {
                         {theme.name}
                       </h3>
                       <p className={`text-sm opacity-60 max-w-sm ${theme.previewText}`}>
-                        Premium hair extensions â discover your perfect look with our curated collection.
+                        Premium hair extensions Ã¢ÂÂ discover your perfect look with our curated collection.
                       </p>
                     </div>
                     {/* Simulated CTA button */}
@@ -378,7 +378,7 @@ export default function WebsitesPage() {
                   </div>
 
                   <Link
-                    href="/signup"
+                    href={`/websites/${theme.id}`}
                     className="group inline-flex items-center gap-2 rounded-full brand-gradient-pink px-8 py-4 text-base font-bold text-white shadow-xl shadow-orange/25 hover:shadow-2xl transition-all hover:-translate-y-0.5"
                   >
                     Get This Theme
@@ -391,9 +391,9 @@ export default function WebsitesPage() {
         </div>
       </section>
 
-      {/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+      {/* Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
           WHAT'S IN EVERY THEME
-          âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */}
+          Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */}
       <section className="py-20 md:py-28 bg-[#FFF8F3]">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="text-center mb-16">
@@ -408,12 +408,12 @@ export default function WebsitesPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { icon: Icon.palette, title: '12+ Customizable Sections', desc: 'Hero banners, featured collections, testimonials, newsletter signups, rich text, image galleries, and more â all drag-and-drop.' },
+              { icon: Icon.palette, title: '12+ Customizable Sections', desc: 'Hero banners, featured collections, testimonials, newsletter signups, rich text, image galleries, and more Ã¢ÂÂ all drag-and-drop.' },
               { icon: Icon.cursor, title: 'Shopify Drag & Drop Ready', desc: 'Built on Online Store 2.0 architecture. Customize every section in Shopify\'s visual editor without touching code.' },
               { icon: Icon.device, title: 'Mobile-First Responsive', desc: 'Every theme looks stunning on phones, tablets, and desktops. Your customers shop from everywhere.' },
               { icon: Icon.cart, title: 'Full Shopping Experience', desc: 'Product pages, collection pages, cart, and all the pages you need for a complete online store.' },
               { icon: Icon.sparkle, title: 'On-Brand Typography', desc: 'Each theme ships with a curated Google Fonts pairing. Serif meets sans-serif for a premium feel.' },
-              { icon: Icon.bolt, title: 'Performance Optimized', desc: 'Clean, lightweight code that loads fast. No bloat, no unnecessary scripts â just what you need.' },
+              { icon: Icon.bolt, title: 'Performance Optimized', desc: 'Clean, lightweight code that loads fast. No bloat, no unnecessary scripts Ã¢ÂÂ just what you need.' },
             ].map((f) => (
               <div key={f.title} className="flex items-start gap-4 p-6 rounded-2xl hover:bg-white transition-colors">
                 <div className="shrink-0 h-12 w-12 rounded-full bg-orange-50 border border-orange/20 flex items-center justify-center text-orange">
@@ -429,9 +429,9 @@ export default function WebsitesPage() {
         </div>
       </section>
 
-      {/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+      {/* Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
           FAQ
-          âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */}
+          Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */}
       <section className="py-20 md:py-28 bg-white">
         <div className="mx-auto max-w-3xl px-5 md:px-8">
           <div className="text-center mb-16">
@@ -442,11 +442,11 @@ export default function WebsitesPage() {
           </div>
           <div className="space-y-4">
             {[
-              { q: 'Do I need to know how to code?', a: 'Not at all! Each theme is a complete Shopify theme that you upload to your store. Then you use Shopify\'s built-in drag-and-drop theme editor to customize everything â colors, text, images, layout. It\'s completely visual, no coding required.' },
-              { q: 'How do I install the theme?', a: 'Download the .zip file, go to your Shopify admin â Online Store â Themes â Add Theme â Upload ZIP file. That\'s it! Shopify will install it automatically and you can start customizing right away.' },
+              { q: 'Do I need to know how to code?', a: 'Not at all! Each theme is a complete Shopify theme that you upload to your store. Then you use Shopify\'s built-in drag-and-drop theme editor to customize everything Ã¢ÂÂ colors, text, images, layout. It\'s completely visual, no coding required.' },
+              { q: 'How do I install the theme?', a: 'Download the .zip file, go to your Shopify admin Ã¢ÂÂ Online Store Ã¢ÂÂ Themes Ã¢ÂÂ Add Theme Ã¢ÂÂ Upload ZIP file. That\'s it! Shopify will install it automatically and you can start customizing right away.' },
               { q: 'Can I change the colors and fonts?', a: 'Yes! Every theme has a settings panel in the Shopify theme editor where you can change all colors, font sizes, and styling. The font pairings are loaded via Google Fonts, so they\'re free and look great.' },
-              { q: 'Is the store theme included in the membership?', a: 'The store themes are a separate one-time purchase, not included in the $149/month membership. This gives you full ownership of your website design â it\'s yours to keep forever, even if you cancel the membership.' },
-              { q: 'What Shopify plan do I need?', a: 'Any Shopify plan works â including Shopify Basic ($39/mo). All themes use Shopify Online Store 2.0, which is supported on every Shopify plan.' },
+              { q: 'Is the store theme included in the membership?', a: 'The store themes are a separate one-time purchase, not included in the $149/month membership. This gives you full ownership of your website design Ã¢ÂÂ it\'s yours to keep forever, even if you cancel the membership.' },
+              { q: 'What Shopify plan do I need?', a: 'Any Shopify plan works Ã¢ÂÂ including Shopify Basic ($39/mo). All themes use Shopify Online Store 2.0, which is supported on every Shopify plan.' },
               { q: 'Can I switch themes later?', a: 'Absolutely. If you purchase multiple themes, you can switch between them at any time from your Shopify admin. Your products and content stay the same.' },
             ].map((item) => (
               <details key={item.q} className="group rounded-2xl bg-[#FFF8F3] border border-black/5 overflow-hidden shadow-sm">
@@ -465,9 +465,9 @@ export default function WebsitesPage() {
         </div>
       </section>
 
-      {/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+      {/* Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
           FINAL CTA
-          âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */}
+          Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */}
       <section className="py-20 md:py-28 bg-black">
         <div className="mx-auto max-w-3xl px-5 md:px-8 text-center">
           <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight">
@@ -489,9 +489,9 @@ export default function WebsitesPage() {
         </div>
       </section>
 
-      {/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+      {/* Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
           FOOTER (matches main site)
-          âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */}
+          Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */}
       <footer className="bg-black px-5 md:px-8 py-12">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
