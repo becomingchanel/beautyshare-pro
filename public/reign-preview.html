@@ -3,107 +3,763 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>REIGN — Premium Raw Hair</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>REIGN &mdash; Premium Raw Hair</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,800;1,6..96,400;1,6..96,500;1,6..96,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--wine:#510815;--wine-dark:#391212;--wine-light:#7C2835;--lilac:#B6A1CA;--lilac-light:#D4C8E2;--lilac-dark:#AE8FD1;--brown:#7C4328;--cream:#EDD8C2;--cream-light:#F5EDE3;--cream-dark:#D4BFA6;--bg:#FAF7F4;--text:#1a1a1a;--text-light:#666;--white:#fff;--font-display:'Playfair Display',Georgia,serif;--font-body:'Inter','Helvetica Neue',sans-serif;--nav-h:64px;--max-w:1240px;--radius:6px}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}img{max-width:100%;display:block;visibility:hidden}a{text-decoration:none;color:inherit}.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--wine);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 40px}.nav-logo{font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--cream);letter-spacing:3px;text-transform:uppercase;cursor:pointer}.nav-links{display:flex;gap:32px;list-style:none}.nav-links a{color:var(--cream-light);font-size:13px;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;transition:color .3s;cursor:pointer}.nav-links a:hover,.nav-links a.active{color:var(--lilac-light)}.nav-icons{display:flex;gap:20px;color:var(--cream-light);font-size:14px}.nav-icons span{cursor:pointer;transition:color .3s}.nav-icons span:hover{color:var(--lilac-light)}
-.page{display:none;padding-top:var(--nav-h)}.page.active{display:block}
-.hero{position:relative;height:92vh;overflow:hidden;display:flex;align-items:center}.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--wine-dark) 0%,var(--wine) 50%,var(--wine-light) 100%)}.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(57,18,18,.85) 0%,rgba(81,8,21,.5) 50%,transparent 100%)}.hero-content{position:relative;z-index:2;padding:0 60px;max-width:640px}.hero-eyebrow{font-family:var(--font-body);font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--lilac-light);margin-bottom:20px;font-weight:500}.hero-title{font-family:var(--font-display);font-size:72px;font-weight:600;color:var(--cream);line-height:1.05;margin-bottom:24px}.hero-title em{font-style:italic;color:var(--lilac-light)}.hero-sub{font-size:16px;color:var(--cream-dark);line-height:1.7;margin-bottom:40px;max-width:440px;font-weight:300}
-.btn{display:inline-block;padding:16px 48px;font-family:var(--font-body);font-size:12px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;border:none;cursor:pointer;transition:all .3s}.btn-primary{background:var(--lilac);color:var(--wine-dark);border-radius:var(--radius)}.btn-primary:hover{background:var(--lilac-dark);transform:translateY(-1px)}.btn-outline{background:transparent;color:var(--cream);border:1px solid var(--cream-dark);border-radius:var(--radius)}.btn-outline:hover{background:var(--cream);color:var(--wine)}.btn-wine{background:var(--wine);color:var(--cream);border-radius:var(--radius)}.btn-wine:hover{background:var(--wine-dark)}.hero-btns{display:flex;gap:16px}
-.section{padding:100px 0}.section-eyebrow{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--lilac-dark);margin-bottom:12px;font-weight:600}.section-title{font-family:var(--font-display);font-size:42px;font-weight:600;color:var(--wine);line-height:1.15;margin-bottom:16px}.section-sub{font-size:15px;color:var(--text-light);max-width:520px;line-height:1.7}.text-center{text-align:center}.text-center .section-sub{margin:0 auto}
-.trust-bar{background:var(--wine-dark);padding:28px 0;text-align:center}.trust-items{display:flex;justify-content:center;gap:56px;flex-wrap:wrap}.trust-item{color:var(--cream-dark);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:400}
-.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}.product-card{background:var(--white);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:transform .3s,box-shadow .3s}.product-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(81,8,21,.1)}.product-img{position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,var(--cream-light),var(--lilac-light))}.product-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}.product-card:hover .product-img img{transform:scale(1.04)}.product-badge{position:absolute;top:16px;left:16px;background:var(--wine);color:var(--cream);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:20px}.product-info{padding:24px}.product-name{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--wine-dark);margin-bottom:4px}.product-type{font-size:12px;color:var(--text-light);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}.product-price{font-family:var(--font-display);font-size:20px;color:var(--wine);font-weight:600}.product-price span{font-size:13px;color:var(--text-light);font-weight:400;font-family:var(--font-body)}
-.editorial{position:relative;height:520px;overflow:hidden;display:flex;align-items:center}.editorial-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--lilac),var(--lilac-dark))}.editorial-bg img{width:100%;height:100%;object-fit:cover;opacity:.5}.editorial-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(81,8,21,.9),rgba(81,8,21,.3))}.editorial-content{position:relative;z-index:2;padding:0 60px;max-width:560px}.editorial-content .section-title{color:var(--cream);margin-bottom:20px}.editorial-content p{color:var(--cream-dark);font-size:15px;line-height:1.8;margin-bottom:32px}
-.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:56px}.pillar{text-align:center;padding:40px 24px}.pillar-icon{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--lilac-light),var(--lilac));margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:22px}.pillar h3{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--wine);margin-bottom:8px}.pillar p{font-size:13px;color:var(--text-light);line-height:1.6}
-.lookbook-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:48px}.look-item{position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,var(--cream-light),var(--lilac-light));border-radius:2px}.look-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}.look-item:hover img{transform:scale(1.06)}
-.ugc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-top:48px}.ugc-item{aspect-ratio:1;overflow:hidden;background:linear-gradient(135deg,var(--cream-light),var(--lilac-light))}.ugc-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}.ugc-item:hover img{transform:scale(1.08)}
-.footer{background:var(--wine-dark);padding:72px 0 36px;color:var(--cream-dark)}.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}.footer-brand .nav-logo{font-size:22px;margin-bottom:16px;display:block}.footer-brand p{font-size:13px;line-height:1.7;max-width:280px;color:var(--cream-dark)}.footer h4{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--cream);letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}.footer ul{list-style:none}.footer li{margin-bottom:10px}.footer li a{font-size:13px;color:var(--cream-dark);transition:color .3s}.footer li a:hover{color:var(--lilac-light)}.footer-bottom{border-top:1px solid rgba(237,216,194,.1);padding-top:24px;display:flex;justify-content:space-between;font-size:12px;color:rgba(237,216,194,.4)}
-.shop-hero{background:var(--wine);padding:48px 0;text-align:center}.shop-hero h1{font-family:var(--font-display);font-size:48px;color:var(--cream);margin-bottom:8px}.shop-hero p{color:var(--cream-dark);font-size:14px}.shop-filters{display:flex;justify-content:center;gap:12px;margin:40px 0}.filter-btn{padding:10px 28px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;border:1px solid var(--cream-dark);background:transparent;color:var(--text);border-radius:30px;cursor:pointer;transition:all .3s;font-family:var(--font-body)}.filter-btn.active,.filter-btn:hover{background:var(--wine);color:var(--cream);border-color:var(--wine)}
-.pd-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:40px 0 80px}.pd-gallery{display:grid;grid-template-columns:80px 1fr;gap:12px}.pd-thumbs{display:flex;flex-direction:column;gap:8px}.pd-thumb{width:80px;height:96px;border-radius:4px;overflow:hidden;border:2px solid transparent;cursor:pointer;background:linear-gradient(135deg,var(--cream-light),var(--lilac-light))}.pd-thumb.active{border-color:var(--wine)}.pd-thumb img{width:100%;height:100%;object-fit:cover}.pd-main-img{aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,var(--cream-light),var(--lilac-light))}.pd-main-img img{width:100%;height:100%;object-fit:cover}.pd-info{padding-top:16px}.pd-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--lilac-dark);margin-bottom:8px;font-weight:600}.pd-title{font-family:var(--font-display);font-size:36px;font-weight:600;color:var(--wine-dark);margin-bottom:4px}.pd-subtitle{font-size:13px;color:var(--text-light);margin-bottom:20px}.pd-price{font-family:var(--font-display);font-size:28px;color:var(--wine);font-weight:600;margin-bottom:28px}.pd-label{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text);margin-bottom:12px}.length-options{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}.length-btn{padding:10px 20px;font-size:13px;border:1px solid var(--cream-dark);background:var(--white);border-radius:var(--radius);cursor:pointer;transition:all .3s;font-family:var(--font-body)}.length-btn.selected{background:var(--wine);color:var(--cream);border-color:var(--wine)}.qty-row{display:flex;align-items:center;gap:16px;margin-bottom:28px}.qty-ctrl{display:flex;align-items:center;border:1px solid var(--cream-dark);border-radius:var(--radius);overflow:hidden}.qty-ctrl button{width:40px;height:40px;border:none;background:var(--white);font-size:16px;cursor:pointer;font-family:var(--font-body)}.qty-ctrl span{width:48px;text-align:center;font-size:14px;font-weight:500}.pd-add-btn{flex:1}.pd-features{margin-top:32px;display:flex;flex-direction:column;gap:12px}.pd-feature{display:flex;align-items:flex-start;gap:12px;font-size:13px;color:var(--text-light)}.pd-feature strong{color:var(--text);font-weight:500}
-.also-like{padding:80px 0}.also-like .products-grid{grid-template-columns:repeat(4,1fr)}
-.edu-hero{background:linear-gradient(135deg,var(--wine-dark),var(--wine));padding:64px 0;text-align:center}.edu-hero h1{font-family:var(--font-display);font-size:48px;color:var(--cream);margin-bottom:8px}.edu-hero p{color:var(--cream-dark);font-size:15px}.edu-tabs{display:flex;justify-content:center;gap:0;margin:48px 0;border-bottom:1px solid var(--cream-dark)}.edu-tab{padding:14px 36px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;border:none;background:transparent;color:var(--text-light);cursor:pointer;position:relative;font-family:var(--font-body);font-weight:500}.edu-tab.active{color:var(--wine)}.edu-tab.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--wine)}.edu-panel{display:none;padding:48px 0}.edu-panel.active{display:block}.edu-card{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:var(--white);border-radius:var(--radius);overflow:hidden;margin-bottom:32px}.edu-card-img{aspect-ratio:4/3;background:linear-gradient(135deg,var(--cream-light),var(--lilac-light))}.edu-card-img img{width:100%;height:100%;object-fit:cover}.edu-card-text{padding:40px}.edu-card-text h3{font-family:var(--font-display);font-size:24px;color:var(--wine);margin-bottom:12px}.edu-card-text p{font-size:14px;color:var(--text-light);line-height:1.7}.edu-card-text ul{margin-top:16px;padding-left:20px}.edu-card-text li{font-size:13px;color:var(--text-light);margin-bottom:8px;line-height:1.6}
-.guide-hero{position:relative;padding:80px 0;text-align:center;background:linear-gradient(135deg,var(--wine),var(--lilac-dark));overflow:hidden}.guide-hero h1{font-family:var(--font-display);font-size:52px;color:var(--cream);margin-bottom:12px;position:relative;z-index:1}.guide-hero p{color:var(--cream-dark);font-size:15px;position:relative;z-index:1;max-width:560px;margin:0 auto}.guide-section{padding:72px 0}.guide-section:nth-child(even){background:var(--white)}.guide-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}.guide-step{background:var(--white);border-radius:var(--radius);padding:36px 28px;text-align:center;border:1px solid var(--cream-dark);transition:transform .3s,box-shadow .3s}.guide-step:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(81,8,21,.08)}.step-num{width:48px;height:48px;border-radius:50%;background:var(--wine);color:var(--cream);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:20px;font-weight:600;margin:0 auto 16px}.guide-step h3{font-family:var(--font-display);font-size:18px;color:var(--wine);margin-bottom:8px}.guide-step p{font-size:13px;color:var(--text-light);line-height:1.7}.guide-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px;align-items:center}.guide-img{aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,var(--cream-light),var(--lilac-light))}.guide-img img{width:100%;height:100%;object-fit:cover}.guide-tips{list-style:none;display:flex;flex-direction:column;gap:20px}.guide-tip{display:flex;gap:16px;align-items:flex-start}.tip-icon{width:40px;height:40px;border-radius:50%;background:var(--lilac-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}.tip-text h4{font-size:14px;font-weight:600;color:var(--wine);margin-bottom:2px}.tip-text p{font-size:13px;color:var(--text-light);line-height:1.6}.guide-cta{background:var(--wine);padding:72px 0;text-align:center}.guide-cta h2{font-family:var(--font-display);font-size:36px;color:var(--cream);margin-bottom:12px}.guide-cta p{color:var(--cream-dark);font-size:14px;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto}
-.faq-list{max-width:720px;margin:48px auto 0}.faq-item{border-bottom:1px solid var(--cream-dark)}.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-size:15px;font-weight:500;color:var(--wine-dark)}.faq-q span{font-size:20px;transition:transform .3s;color:var(--lilac-dark)}.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;font-size:14px;color:var(--text-light);line-height:1.7}.faq-item.open .faq-a{max-height:300px;padding-bottom:20px}.faq-item.open .faq-q span{transform:rotate(45deg)}
-.lookbook-hero{background:var(--wine);padding:56px 0;text-align:center}.lookbook-hero h1{font-family:var(--font-display);font-size:48px;color:var(--cream);margin-bottom:8px}.lookbook-hero p{color:var(--cream-dark);font-size:14px;letter-spacing:1px}.lookbook-masonry{columns:3;column-gap:8px;margin-top:8px;padding:0 8px}.masonry-item{break-inside:avoid;margin-bottom:8px;border-radius:2px;overflow:hidden;background:linear-gradient(135deg,var(--cream-light),var(--lilac-light))}.masonry-item img{width:100%;display:block;transition:transform .5s}.masonry-item:hover img{transform:scale(1.04)}
-.about-hero{position:relative;height:60vh;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,var(--wine-dark),var(--wine))}.about-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25}.about-hero-content{position:relative;z-index:2;max-width:640px;padding:0 24px}.about-hero h1{font-family:var(--font-display);font-size:52px;color:var(--cream);margin-bottom:16px}.about-hero p{color:var(--cream-dark);font-size:16px;line-height:1.7}.about-story{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}.about-img{aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,var(--cream-light),var(--lilac-light))}.about-img img{width:100%;height:100%;object-fit:cover}.about-text h2{font-family:var(--font-display);font-size:36px;color:var(--wine);margin-bottom:16px}.about-text p{font-size:14px;color:var(--text-light);line-height:1.8;margin-bottom:16px}.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:56px}.value-card{text-align:center;padding:40px 28px;background:var(--white);border-radius:var(--radius)}.value-icon{font-size:32px;margin-bottom:16px}.value-card h3{font-family:var(--font-display);font-size:18px;color:var(--wine);margin-bottom:8px}.value-card p{font-size:13px;color:var(--text-light);line-height:1.6}
-.contact-hero{background:var(--wine);padding:56px 0;text-align:center}.contact-hero h1{font-family:var(--font-display);font-size:48px;color:var(--cream);margin-bottom:8px}.contact-hero p{color:var(--cream-dark);font-size:14px}.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:72px 0}.contact-form{background:var(--white);padding:48px;border-radius:var(--radius)}.form-group{margin-bottom:24px}.form-group label{display:block;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text);margin-bottom:8px}.form-group input,.form-group textarea,.form-group select{width:100%;padding:14px 16px;border:1px solid var(--cream-dark);border-radius:var(--radius);font-family:var(--font-body);font-size:14px;background:var(--bg);transition:border-color .3s}.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--lilac)}.form-group textarea{height:120px;resize:vertical}.contact-info{padding-top:16px}.contact-info h3{font-family:var(--font-display);font-size:24px;color:var(--wine);margin-bottom:24px}.contact-detail{display:flex;gap:16px;margin-bottom:28px;align-items:flex-start}.contact-icon{width:44px;height:44px;border-radius:50%;background:var(--lilac-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}.contact-detail h4{font-size:14px;font-weight:600;color:var(--wine);margin-bottom:2px}.contact-detail p{font-size:13px;color:var(--text-light);line-height:1.5}.contact-hours{margin-top:40px;padding:28px;background:var(--cream-light);border-radius:var(--radius)}.contact-hours h4{font-family:var(--font-display);font-size:16px;color:var(--wine);margin-bottom:12px}.contact-hours p{font-size:13px;color:var(--text-light);line-height:1.8}
-.newsletter{background:var(--cream-light);padding:72px 0;text-align:center}.newsletter h2{font-family:var(--font-display);font-size:32px;color:var(--wine);margin-bottom:8px}.newsletter p{color:var(--text-light);font-size:14px;margin-bottom:32px}.newsletter-form{display:flex;max-width:480px;margin:0 auto;gap:0}.newsletter-form input{flex:1;padding:16px 20px;border:1px solid var(--cream-dark);border-right:none;border-radius:var(--radius) 0 0 var(--radius);font-family:var(--font-body);font-size:14px;background:var(--white)}.newsletter-form input:focus{outline:none;border-color:var(--lilac)}.newsletter-form button{padding:16px 32px;border-radius:0 var(--radius) var(--radius) 0}
+:root{
+--wine:#510815;--wine-dark:#391212;--wine-light:#7C2835;
+--lilac:#B6A1CA;--lilac-light:#D4C8E2;--lilac-dark:#8E6FB0;
+--brown:#7C4328;--cream:#EDD8C2;--cream-light:#F5EDE3;--cream-dark:#D4BFA6;
+--bg:#FAF7F4;--text:#1a1a1a;--text-light:#666;--white:#fff;
+--font-display:'Bodoni Moda',Georgia,serif;
+--font-body:'Jost','Helvetica Neue',sans-serif;
+--nav-h:72px;--max-w:1240px;--radius:4px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block;visibility:hidden}
+a{text-decoration:none;color:inherit}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(57,18,18,.95);backdrop-filter:blur(12px);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:1px solid rgba(237,216,194,.08)}
+.nav-logo{font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--cream);letter-spacing:6px;text-transform:uppercase;cursor:pointer}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{color:rgba(237,216,194,.7);font-size:11px;font-weight:400;letter-spacing:2.5px;text-transform:uppercase;transition:color .3s;cursor:pointer;font-family:var(--font-body)}
+.nav-links a:hover,.nav-links a.active{color:var(--lilac-light)}
+.nav-icons{display:flex;gap:20px;color:var(--cream-light);font-size:14px}
+.nav-icons span{cursor:pointer;transition:color .3s}
+.nav-icons span:hover{color:var(--lilac-light)}
+
+/* PAGE SYSTEM */
+.page{display:none;padding-top:var(--nav-h)}
+.page.active{display:block}
+
+/* HOMEPAGE HERO */
+.hero-cinema{position:relative;height:100vh;overflow:hidden;display:flex;align-items:flex-end}
+.hero-cinema video,.hero-cinema .hero-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-cinema video{visibility:visible}
+.hero-cinema .hero-poster{z-index:1}
+.hero-cinema::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(57,18,18,.92) 0%,rgba(57,18,18,.4) 40%,rgba(81,8,21,.15) 100%);z-index:2}
+.hero-inner{position:relative;z-index:3;padding:0 64px 80px;width:100%;display:grid;grid-template-columns:1fr auto;align-items:end;gap:48px}
+.hero-text h1{font-family:var(--font-display);font-size:96px;font-weight:700;color:var(--cream);line-height:.95;letter-spacing:-1px;margin-bottom:20px}
+.hero-text h1 em{font-style:italic;color:var(--lilac-light);font-weight:400}
+.hero-text p{font-size:16px;color:var(--cream-dark);line-height:1.8;max-width:480px;font-weight:300;margin-bottom:36px;letter-spacing:.3px}
+.hero-ctas{display:flex;gap:16px}
+.btn{display:inline-block;padding:18px 52px;font-family:var(--font-body);font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;border:none;cursor:pointer;transition:all .35s}
+.btn-primary{background:var(--lilac);color:var(--wine-dark);border-radius:0}
+.btn-primary:hover{background:var(--lilac-dark);color:var(--white)}
+.btn-outline{background:transparent;color:var(--cream);border:1px solid rgba(237,216,194,.4);border-radius:0}
+.btn-outline:hover{background:var(--cream);color:var(--wine)}
+.btn-wine{background:var(--wine);color:var(--cream);border-radius:0}
+.btn-wine:hover{background:var(--wine-dark)}
+.hero-side{text-align:right;padding-bottom:12px}
+.hero-side .hero-stat{margin-bottom:28px}
+.hero-stat span{display:block;font-family:var(--font-display);font-size:42px;font-weight:700;color:var(--cream);line-height:1}
+.hero-stat small{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cream-dark);font-weight:400}
+
+/* MARQUEE */
+.marquee-wrap{background:var(--wine-dark);overflow:hidden;padding:16px 0;border-bottom:1px solid rgba(237,216,194,.06)}
+.marquee{display:flex;animation:marquee 30s linear infinite;width:max-content}
+.marquee span{white-space:nowrap;color:var(--cream-dark);font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:400;padding:0 48px}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* SECTION TITLES */
+.section{padding:100px 0}
+.section-eyebrow{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--lilac-dark);margin-bottom:12px;font-weight:500;font-family:var(--font-body)}
+.section-title{font-family:var(--font-display);font-size:48px;color:var(--wine);line-height:1.1;font-weight:600}
+.section-title em{font-style:italic;color:var(--lilac-dark);font-weight:400}
+.section-sub{font-size:14px;color:var(--text-light);line-height:1.8;margin-top:16px;max-width:540px;font-weight:300}
+.text-center{text-align:center}
+
+/* BENTO GRID */
+.bento-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;grid-template-rows:auto auto;gap:8px;margin-top:40px}
+.bento-grid .product-card:first-child{grid-row:span 2}
+.product-card{position:relative;overflow:hidden;cursor:pointer;background:var(--cream-light);border:1px solid rgba(237,216,194,.3)}
+.product-img{position:relative;overflow:hidden;aspect-ratio:3/4;background:linear-gradient(135deg,var(--cream-light),var(--lilac-light))}
+.bento-grid .product-card:first-child .product-img{aspect-ratio:auto;height:100%}
+.product-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.product-card:hover .product-img img{transform:scale(1.04)}
+.product-badge{position:absolute;top:16px;left:16px;background:var(--wine);color:var(--cream);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;font-weight:500}
+.product-info{padding:20px}
+.product-name{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--wine);margin-bottom:4px}
+.product-type{font-size:11px;color:var(--text-light);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;font-weight:400}
+.product-price{font-family:var(--font-display);font-size:20px;color:var(--wine-dark);font-weight:600}
+.product-price span{font-size:11px;font-weight:400;color:var(--text-light)}
+
+/* EDITORIAL SPLIT */
+.editorial-split{display:grid;grid-template-columns:1fr 1fr;min-height:70vh}
+.editorial-img{overflow:hidden;background:linear-gradient(135deg,var(--cream-light),var(--lilac-light))}
+.editorial-img img{width:100%;height:100%;object-fit:cover}
+.editorial-text-wrap{background:var(--wine);display:flex;align-items:center;padding:80px 72px}
+.editorial-text-wrap .section-eyebrow{color:var(--lilac-light)}
+.editorial-text-wrap .section-title{color:var(--cream);font-size:42px}
+.editorial-text-wrap .section-title em{color:var(--lilac-light)}
+.editorial-text-wrap p{color:var(--cream-dark);font-size:14px;line-height:1.9;margin:24px 0 36px;font-weight:300}
+.editorial-text-wrap .btn-outline{color:var(--cream);border-color:rgba(237,216,194,.3)}
+
+/* QUALITY PILLARS */
+.pillars-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px;border-top:1px solid var(--cream-dark)}
+.pillar{padding:48px 28px 0;border-right:1px solid var(--cream-dark)}
+.pillar:last-child{border-right:none}
+.pillar-num{font-family:var(--font-display);font-size:36px;font-weight:700;color:var(--lilac);margin-bottom:16px}
+.pillar h3{font-family:var(--font-display);font-size:20px;color:var(--wine);margin-bottom:8px;font-weight:600}
+.pillar p{font-size:13px;color:var(--text-light);line-height:1.7;font-weight:300}
+
+/* LOOKBOOK STRIP */
+.look-strip-wrap{overflow:hidden}
+.look-strip{display:flex;gap:4px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.look-strip-item{flex:0 0 28vw;scroll-snap-align:start;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,var(--cream-light),var(--lilac-light))}
+.look-strip-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.look-strip-item:hover img{transform:scale(1.04)}
+
+/* NEWSLETTER */
+.newsletter-cin{background:var(--wine);padding:100px 0;text-align:center;position:relative;overflow:hidden}
+.newsletter-cin::before{content:'REIGN';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-display);font-size:20vw;font-weight:700;color:rgba(237,216,194,.03);white-space:nowrap;pointer-events:none}
+.newsletter-cin h2{font-family:var(--font-display);font-size:42px;color:var(--cream);position:relative;font-weight:600}
+.newsletter-cin h2 em{font-style:italic;color:var(--lilac-light);font-weight:400}
+.newsletter-cin p{color:var(--cream-dark);font-size:14px;margin-top:12px;margin-bottom:40px;font-weight:300}
+.nl-form{display:flex;max-width:440px;margin:0 auto;gap:0;position:relative}
+.nl-form input{flex:1;padding:18px 24px;border:1px solid rgba(237,216,194,.2);background:rgba(255,255,255,.06);color:var(--cream);font-family:var(--font-body);font-size:14px;font-weight:300;border-radius:0}
+.nl-form input::placeholder{color:var(--cream-dark)}
+.nl-form .btn{border-radius:0}
+
+/* FOOTER */
+.footer{background:var(--wine-dark);padding:80px 0 40px;color:var(--cream-dark)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px}
+.footer-brand p{font-size:13px;line-height:1.7;margin-top:16px;font-weight:300}
+.footer h4{font-family:var(--font-display);font-size:16px;color:var(--cream);margin-bottom:16px;font-weight:600}
+.footer ul{list-style:none}
+.footer li{margin-bottom:10px}
+.footer li a{font-size:13px;color:var(--cream-dark);transition:color .3s;font-weight:300}
+.footer li a:hover{color:var(--lilac-light)}
+.footer-bottom{margin-top:64px;padding-top:24px;border-top:1px solid rgba(237,216,194,.08);display:flex;justify-content:space-between;font-size:12px;color:rgba(237,216,194,.4);font-weight:300}
+
+/* SHOP PAGE */
+.shop-hero{background:var(--wine);padding:64px 0;text-align:center}
+.shop-hero h1{font-family:var(--font-display);font-size:56px;color:var(--cream);margin-bottom:8px;font-weight:600}
+.shop-hero p{color:var(--cream-dark);font-size:14px;letter-spacing:1px;font-weight:300}
+.shop-filters{display:flex;gap:8px;margin-bottom:40px;padding-top:48px}
+.filter-btn{padding:12px 28px;border:1px solid var(--cream-dark);background:transparent;font-family:var(--font-body);font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .3s;color:var(--text);font-weight:400}
+.filter-btn.active,.filter-btn:hover{background:var(--wine);color:var(--cream);border-color:var(--wine)}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+/* PRODUCT DETAIL */
+.pd-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;padding-top:24px}
+.pd-gallery{display:grid;grid-template-columns:80px 1fr;gap:12px}
+.pd-thumbs{display:flex;flex-direction:column;gap:8px}
+.pd-thumb{width:80px;height:100px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:border-color .3s;background:linear-gradient(135deg,var(--cream-light),var(--lilac-light))}
+.pd-thumb.active{border-color:var(--wine)}
+.pd-thumb img{width:100%;height:100%;object-fit:cover}
+.pd-main-img{aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,var(--cream-light),var(--lilac-light))}
+.pd-main-img img{width:100%;height:100%;object-fit:cover}
+.pd-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--lilac-dark);margin-bottom:12px;font-weight:500}
+.pd-title{font-family:var(--font-display);font-size:36px;color:var(--wine);margin-bottom:8px;font-weight:600}
+.pd-subtitle{font-size:14px;color:var(--text-light);line-height:1.7;margin-bottom:24px;font-weight:300}
+.pd-price{font-family:var(--font-display);font-size:32px;color:var(--wine-dark);margin-bottom:32px;font-weight:600}
+.pd-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text);margin-bottom:12px;font-weight:500}
+.length-options{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.length-btn{width:64px;height:44px;border:1px solid var(--cream-dark);background:transparent;font-family:var(--font-body);font-size:13px;cursor:pointer;transition:all .3s;font-weight:400}
+.length-btn.selected,.length-btn:hover{background:var(--wine);color:var(--cream);border-color:var(--wine)}
+.qty-row{display:flex;gap:16px;align-items:center;margin-bottom:32px}
+.qty-ctrl{display:flex;align-items:center;border:1px solid var(--cream-dark)}
+.qty-ctrl button{width:44px;height:50px;border:none;background:transparent;font-size:18px;cursor:pointer;transition:background .3s}
+.qty-ctrl button:hover{background:var(--cream-light)}
+.qty-ctrl span{width:48px;text-align:center;font-size:16px;font-weight:500}
+.pd-add-btn{flex:1;text-align:center}
+.pd-features{margin-top:16px;padding-top:24px;border-top:1px solid var(--cream-dark)}
+.pd-feature{font-size:13px;color:var(--text-light);padding:8px 0;font-weight:300}
+.pd-feature strong{color:var(--wine);margin-right:8px;font-weight:600}
+.also-like{padding:80px 0;background:var(--cream-light)}
+
+/* HAIR CARE GUIDE */
+.guide-hero{background:var(--wine);padding:80px 0;text-align:center}
+.guide-hero h1{font-family:var(--font-display);font-size:56px;color:var(--cream);margin-bottom:12px;font-weight:600}
+.guide-hero p{color:var(--cream-dark);font-size:15px;max-width:560px;margin:0 auto;line-height:1.8;font-weight:300}
+.guide-section{padding:80px 0;background:var(--bg)}
+.guide-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
+.guide-step{text-align:center;padding:32px 24px}
+.step-num{width:56px;height:56px;border:2px solid var(--lilac);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:var(--font-display);font-size:24px;color:var(--wine);font-weight:600}
+.guide-step h3{font-family:var(--font-display);font-size:22px;color:var(--wine);margin-bottom:10px;font-weight:600}
+.guide-step p{font-size:13px;color:var(--text-light);line-height:1.8;font-weight:300}
+.guide-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.guide-img{aspect-ratio:4/5;overflow:hidden;background:linear-gradient(135deg,var(--cream-light),var(--lilac-light))}
+.guide-img img{width:100%;height:100%;object-fit:cover}
+.guide-tips{list-style:none;margin-top:28px}
+.guide-tip{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--cream-dark)}
+.tip-icon{width:40px;height:40px;background:var(--lilac-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;font-family:var(--font-display);font-weight:600;color:var(--wine)}
+.tip-text h4{font-size:15px;font-weight:500;color:var(--wine);margin-bottom:4px}
+.tip-text p{font-size:13px;color:var(--text-light);line-height:1.7;font-weight:300}
+.guide-cta{background:var(--wine);padding:72px 0;text-align:center}
+.guide-cta h2{font-family:var(--font-display);font-size:40px;color:var(--cream);margin-bottom:12px;font-weight:600}
+.guide-cta p{color:var(--cream-dark);font-size:14px;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;font-weight:300}
+.faq-list{max-width:720px;margin:48px auto 0}
+.faq-item{border-bottom:1px solid var(--cream-dark)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-size:15px;font-weight:500;color:var(--wine-dark)}
+.faq-q span{font-size:20px;transition:transform .3s;color:var(--lilac-dark)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;font-size:14px;color:var(--text-light);line-height:1.8;font-weight:300}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:20px}
+.faq-item.open .faq-q span{transform:rotate(45deg)}
+
+/* LOOKBOOK PAGE */
+.lookbook-hero{background:var(--wine);padding:64px 0;text-align:center}
+.lookbook-hero h1{font-family:var(--font-display);font-size:56px;color:var(--cream);margin-bottom:8px;font-weight:600}
+.lookbook-hero p{color:var(--cream-dark);font-size:14px;letter-spacing:1px;font-weight:300}
+.lookbook-masonry{columns:3;column-gap:8px;margin-top:8px;padding:0 8px}
+.masonry-item{break-inside:avoid;margin-bottom:8px;overflow:hidden;background:linear-gradient(135deg,var(--cream-light),var(--lilac-light))}
+.masonry-item img{width:100%;display:block;transition:transform .5s}
+.masonry-item:hover img{transform:scale(1.04)}
+
+/* ABOUT PAGE */
+.about-hero{position:relative;height:65vh;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--wine)}
+.about-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.2}
+.about-hero-content{position:relative;z-index:2;max-width:640px;padding:0 24px}
+.about-hero h1{font-family:var(--font-display);font-size:60px;color:var(--cream);margin-bottom:16px;font-weight:600}
+.about-hero p{color:var(--cream-dark);font-size:16px;line-height:1.8;font-weight:300}
+.about-story{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about-img{aspect-ratio:4/5;overflow:hidden;background:linear-gradient(135deg,var(--cream-light),var(--lilac-light))}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-text h2{font-family:var(--font-display);font-size:40px;color:var(--wine);margin-bottom:16px;font-weight:600}
+.about-text p{font-size:14px;color:var(--text-light);line-height:1.9;margin-bottom:16px;font-weight:300}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:64px;border-top:1px solid var(--cream-dark)}
+.value-card{text-align:center;padding:48px 32px;border-right:1px solid var(--cream-dark)}
+.value-card:last-child{border-right:none}
+.value-icon{font-size:28px;margin-bottom:16px}
+.value-card h3{font-family:var(--font-display);font-size:22px;color:var(--wine);margin-bottom:8px;font-weight:600}
+.value-card p{font-size:13px;color:var(--text-light);line-height:1.7;font-weight:300}
+
+/* CONTACT PAGE */
+.contact-hero{background:var(--wine);padding:64px 0;text-align:center}
+.contact-hero h1{font-family:var(--font-display);font-size:56px;color:var(--cream);margin-bottom:8px;font-weight:600}
+.contact-hero p{color:var(--cream-dark);font-size:14px;font-weight:300}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;padding:80px 0}
+.contact-form{background:var(--white);padding:48px;border:1px solid var(--cream-dark)}
+.form-group{margin-bottom:24px}
+.form-group label{display:block;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text);margin-bottom:8px}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:16px 18px;border:1px solid var(--cream-dark);font-family:var(--font-body);font-size:14px;background:var(--bg);transition:border-color .3s;font-weight:300}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--lilac)}
+.form-group textarea{height:120px;resize:vertical}
+.contact-info{padding-top:16px}
+.contact-info h3{font-family:var(--font-display);font-size:28px;color:var(--wine);margin-bottom:28px;font-weight:600}
+.contact-detail{display:flex;gap:16px;margin-bottom:28px;align-items:flex-start}
+.contact-icon{width:44px;height:44px;background:var(--lilac-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.contact-detail h4{font-size:14px;font-weight:500;color:var(--wine);margin-bottom:2px}
+.contact-detail p{font-size:13px;color:var(--text-light);line-height:1.5;font-weight:300}
+.contact-hours{margin-top:40px;padding:28px;background:var(--cream-light)}
+.contact-hours h4{font-family:var(--font-display);font-size:18px;color:var(--wine);margin-bottom:12px;font-weight:600}
+.contact-hours p{font-size:13px;color:var(--text-light);line-height:1.8;font-weight:300}
 </style>
 </head>
 <body>
-<nav class="nav"><div class="nav-logo" onclick="showPage('home')">REIGN</div><ul class="nav-links"><li><a onclick="showPage('home')" class="active" id="nav-home">Home</a></li><li><a onclick="showPage('shop')" id="nav-shop">Shop</a></li><li><a onclick="showPage('education')" id="nav-education">Education</a></li><li><a onclick="showPage('guide')" id="nav-guide">Hair Care</a></li><li><a onclick="showPage('lookbook')" id="nav-lookbook">Lookbook</a></li><li><a onclick="showPage('about')" id="nav-about">About</a></li><li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li></ul><div class="nav-icons"><span>&#9825;</span><span>&#128717;</span></div></nav>
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="nav-logo" onclick="showPage('home')">REIGN</div>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
+    <li><a onclick="showPage('shop')" id="nav-shop">Shop</a></li>
+    <li><a onclick="showPage('guide')" id="nav-guide">Hair Care</a></li>
+    <li><a onclick="showPage('lookbook')" id="nav-lookbook">Lookbook</a></li>
+    <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+    <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+  </ul>
+  <div class="nav-icons">
+    <span>&#9825;</span>
+    <span>&#128717;</span>
+  </div>
+</nav>
+
+<!-- HOME -->
 <div class="page active" id="page-home">
-<section class="hero"><div class="hero-bg"><img id="img-heroModel" src="" alt="REIGN hero"></div><div class="hero-overlay"></div><div class="hero-content"><div class="hero-eyebrow">Premium Raw Hair Collection</div><h1 class="hero-title">Wear Your <em>Crown</em></h1><p class="hero-sub">Ethically sourced, single-donor raw hair that moves, curls, and lasts like your own. From our hands to your crown.</p><div class="hero-btns"><a class="btn btn-primary" onclick="showPage('shop')">Shop Now</a><a class="btn btn-outline" onclick="showPage('lookbook')">View Lookbook</a></div></div></section>
-<div class="trust-bar"><div class="trust-items"><span class="trust-item">&#10022; 100% Raw Human Hair</span><span class="trust-item">&#10022; Single Donor Bundles</span><span class="trust-item">&#10022; Sourced &amp; Prepped In-House</span><span class="trust-item">&#10022; 14" &#8212; 28" Available</span><span class="trust-item">&#10022; Free Shipping $150+</span></div></div>
-<section class="section"><div class="container text-center"><div class="section-eyebrow">The Collection</div><h2 class="section-title">Curated for Royalty</h2><p class="section-sub">Our signature textures &#8212; sourced from single donors &amp; prepped in-house for unmatched quality.</p><div class="products-grid" id="home-products"></div></div></section>
-<section class="editorial"><div class="editorial-bg"><img id="img-editorialBanner" src="" alt="Editorial"></div><div class="editorial-overlay"></div><div class="editorial-content"><div class="section-eyebrow" style="color:var(--lilac-light)">The REIGN Difference</div><h2 class="section-title">Raw, Unprocessed, <em>Unforgettable</em></h2><p>Every bundle is hand-selected from a single donor, ensuring consistent curl patterns from root to tip. Our in-house preparation preserves the natural cuticle alignment for hair that lasts 3&#8211;5 years with proper care.</p><a class="btn btn-outline" onclick="showPage('about')">Our Story</a></div></section>
-<section class="section"><div class="container text-center"><div class="section-eyebrow">Why REIGN</div><h2 class="section-title">The Standard of Excellence</h2><div class="pillars"><div class="pillar"><div class="pillar-icon">&#9830;</div><h3>Single Donor</h3><p>Each bundle comes from one donor for perfect texture consistency from root to tip.</p></div><div class="pillar"><div class="pillar-icon">&#9733;</div><h3>Raw &amp; Unprocessed</h3><p>Never chemically treated. Natural cuticles intact for the most natural movement.</p></div><div class="pillar"><div class="pillar-icon">&#10084;</div><h3>In-House Prep</h3><p>We source and prepare every bundle ourselves &#8212; no middlemen, no compromises.</p></div><div class="pillar"><div class="pillar-icon">&#10004;</div><h3>3-5 Year Lifespan</h3><p>Properly maintained REIGN hair lasts years, making it a true investment piece.</p></div></div></div></section>
-<section class="section" style="padding-bottom:0"><div class="container text-center" style="margin-bottom:40px"><div class="section-eyebrow">@REIGN</div><h2 class="section-title">Join the Movement</h2></div><div class="ugc-grid"><div class="ugc-item"><img id="img-ugc1" src="" alt="UGC 1"></div><div class="ugc-item"><img id="img-ugc2" src="" alt="UGC 2"></div><div class="ugc-item"><img id="img-ugc3" src="" alt="UGC 3"></div><div class="ugc-item"><img id="img-ugc4" src="" alt="UGC 4"></div><div class="ugc-item"><img id="img-ugc5" src="" alt="UGC 5"></div></div></section>
-<section class="newsletter"><div class="container"><h2>Become Part of the Reign</h2><p>Exclusive drops, styling tips, and VIP access &#8212; delivered to your inbox.</p><div class="newsletter-form"><input type="email" placeholder="Enter your email"><button class="btn btn-wine">Subscribe</button></div></div></section>
-<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-logo" style="color:var(--cream)">REIGN</span><p>Premium raw human hair, ethically sourced and prepped in-house. Built for queens who demand the best.</p></div><div><h4>Shop</h4><ul><li><a onclick="showPage('shop')">All Products</a></li><li><a onclick="showPage('shop')">Bundles</a></li><li><a onclick="showPage('shop')">Closures</a></li></ul></div><div><h4>Learn</h4><ul><li><a onclick="showPage('education')">Education</a></li><li><a onclick="showPage('guide')">Hair Care Guide</a></li><li><a onclick="showPage('lookbook')">Lookbook</a></li></ul></div><div><h4>Company</h4><ul><li><a onclick="showPage('about')">About Us</a></li><li><a onclick="showPage('contact')">Contact</a></li><li><a href="#">Shipping &amp; Returns</a></li></ul></div></div><div class="footer-bottom"><span>&#169; 2026 REIGN. All rights reserved.</span><span>A BeautyShare Pro Template</span></div></div></footer>
+  <section class="hero-cinema">
+    <video id="hero-video" autoplay muted loop playsinline poster="">
+      <source src="" type="video/mp4">
+    </video>
+    <img class="hero-poster" id="img-heroModel" src="" alt="REIGN hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Wear Your<br><em>Crown</em></h1>
+        <p>Ethically sourced, single-donor raw hair that moves, curls, and lasts like your own. From our hands to your crown.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" onclick="showPage('shop')">Shop Collection</a>
+          <a class="btn btn-outline" onclick="showPage('lookbook')">View Lookbook</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="hero-stat"><span>100%</span><small>Raw Human Hair</small></div>
+        <div class="hero-stat"><span>3&#8211;5</span><small>Year Lifespan</small></div>
+        <div class="hero-stat"><span>1</span><small>Single Donor</small></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee-wrap">
+    <div class="marquee">
+      <span>&#10022; 100% Raw Human Hair</span>
+      <span>&#10022; Single Donor Bundles</span>
+      <span>&#10022; Sourced &amp; Prepped In-House</span>
+      <span>&#10022; 14&#8221; &#8212; 28&#8221; Available</span>
+      <span>&#10022; Free Shipping $150+</span>
+      <span>&#10022; 3&#8211;5 Year Lifespan</span>
+      <span>&#10022; Natural Cuticle Intact</span>
+      <span>&#10022; Can Be Colored &amp; Styled</span>
+      <span>&#10022; 100% Raw Human Hair</span>
+      <span>&#10022; Single Donor Bundles</span>
+      <span>&#10022; Sourced &amp; Prepped In-House</span>
+      <span>&#10022; 14&#8221; &#8212; 28&#8221; Available</span>
+      <span>&#10022; Free Shipping $150+</span>
+      <span>&#10022; 3&#8211;5 Year Lifespan</span>
+      <span>&#10022; Natural Cuticle Intact</span>
+      <span>&#10022; Can Be Colored &amp; Styled</span>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;margin-bottom:8px">
+        <div>
+          <div class="section-eyebrow">The Collection</div>
+          <h2 class="section-title">Curated for <em>Royalty</em></h2>
+        </div>
+        <a class="btn btn-outline" style="color:var(--wine);border-color:var(--wine);margin-bottom:4px" onclick="showPage('shop')">View All</a>
+      </div>
+      <div class="bento-grid" id="home-products"></div>
+    </div>
+  </section>
+
+  <section class="editorial-split">
+    <div class="editorial-img"><img id="img-editorialBanner" src="" alt="Editorial"></div>
+    <div class="editorial-text-wrap">
+      <div>
+        <div class="section-eyebrow">The Reign Difference</div>
+        <h2 class="section-title">Raw, Unprocessed,<br><em>Unforgettable</em></h2>
+        <p>Every bundle is hand-selected from a single donor, ensuring consistent curl patterns from root to tip. Our in-house preparation preserves the natural cuticle alignment for hair that lasts 3&#8211;5 years with proper care.</p>
+        <a class="btn btn-outline" onclick="showPage('about')">Our Story</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container text-center">
+      <div class="section-eyebrow">Why Reign</div>
+      <h2 class="section-title">The Standard of <em>Excellence</em></h2>
+      <div class="pillars-row">
+        <div class="pillar"><div class="pillar-num">01</div><h3>Single Donor</h3><p>Each bundle comes from one donor for perfect texture consistency from root to tip.</p></div>
+        <div class="pillar"><div class="pillar-num">02</div><h3>Raw &amp; Unprocessed</h3><p>Never chemically treated. Natural cuticles intact for the most natural movement.</p></div>
+        <div class="pillar"><div class="pillar-num">03</div><h3>In-House Prep</h3><p>We source and prepare every bundle ourselves &#8212; no middlemen, no compromises.</p></div>
+        <div class="pillar"><div class="pillar-num">04</div><h3>3&#8211;5 Year Lifespan</h3><p>Properly maintained REIGN hair lasts years, making it a true investment piece.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-bottom:0">
+    <div class="container" style="margin-bottom:32px">
+      <div style="display:flex;justify-content:space-between;align-items:end">
+        <div>
+          <div class="section-eyebrow">@Reign</div>
+          <h2 class="section-title">The <em>Look</em></h2>
+        </div>
+        <a class="btn btn-outline" style="color:var(--wine);border-color:var(--wine);margin-bottom:4px" onclick="showPage('lookbook')">Full Lookbook</a>
+      </div>
+    </div>
+    <div class="look-strip-wrap">
+      <div class="look-strip">
+        <div class="look-strip-item"><img id="img-strip1" src="" alt="Look 1"></div>
+        <div class="look-strip-item"><img id="img-strip2" src="" alt="Look 2"></div>
+        <div class="look-strip-item"><img id="img-strip3" src="" alt="Look 3"></div>
+        <div class="look-strip-item"><img id="img-strip4" src="" alt="Look 4"></div>
+        <div class="look-strip-item"><img id="img-strip5" src="" alt="Look 5"></div>
+        <div class="look-strip-item"><img id="img-strip6" src="" alt="Look 6"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter-cin">
+    <div class="container">
+      <h2>Become Part of the <em>Reign</em></h2>
+      <p>Exclusive drops, styling tips, and VIP access &#8212; delivered to your inbox.</p>
+      <div class="nl-form">
+        <input type="email" placeholder="Enter your email">
+        <button class="btn btn-primary">Subscribe</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="nav-logo" style="color:var(--cream)">REIGN</span>
+          <p>Premium raw human hair, ethically sourced and prepped in-house. Built for queens who demand the best.</p>
+        </div>
+        <div><h4>Shop</h4><ul><li><a onclick="showPage('shop')">All Products</a></li><li><a onclick="showPage('shop')">Bundles</a></li><li><a onclick="showPage('shop')">Closures</a></li></ul></div>
+        <div><h4>Learn</h4><ul><li><a onclick="showPage('guide')">Hair Care Guide</a></li><li><a onclick="showPage('lookbook')">Lookbook</a></li></ul></div>
+        <div><h4>Company</h4><ul><li><a onclick="showPage('about')">About Us</a></li><li><a onclick="showPage('contact')">Contact</a></li><li><a href="#">Shipping &amp; Returns</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>&#169; 2026 REIGN. All rights reserved.</span>
+        <span>A BeautyShare Pro Template</span>
+      </div>
+    </div>
+  </footer>
 </div>
+<!-- SHOP -->
 <div class="page" id="page-shop">
-<div class="shop-hero"><div class="container"><div class="section-eyebrow" style="color:var(--lilac-light)">The Collection</div><h1>Shop All</h1><p>Premium raw hair &#8212; bundles &amp; closures in every texture</p></div></div>
-<section class="section" style="padding-top:0"><div class="container"><div class="shop-filters"><button class="filter-btn active" onclick="filterShop('all',this)">All</button><button class="filter-btn" onclick="filterShop('bundle',this)">Bundles</button><button class="filter-btn" onclick="filterShop('closure',this)">Closures</button></div><div class="products-grid" id="shop-products"></div></div></section>
-<section class="newsletter"><div class="container"><h2>Never Miss a Drop</h2><p>Be the first to know about restocks and new textures.</p><div class="newsletter-form"><input type="email" placeholder="Enter your email"><button class="btn btn-wine">Subscribe</button></div></div></section>
+  <div class="shop-hero">
+    <div class="container">
+      <div class="section-eyebrow" style="color:var(--lilac-light)">The Collection</div>
+      <h1>Shop All</h1>
+      <p>Premium raw hair &#8212; bundles &amp; closures in every texture</p>
+    </div>
+  </div>
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="shop-filters">
+        <button class="filter-btn active" onclick="filterShop('all',this)">All</button>
+        <button class="filter-btn" onclick="filterShop('bundle',this)">Bundles</button>
+        <button class="filter-btn" onclick="filterShop('closure',this)">Closures</button>
+      </div>
+      <div class="products-grid" id="shop-products"></div>
+    </div>
+  </section>
+  <section class="newsletter-cin" style="padding:72px 0">
+    <div class="container">
+      <h2>Never Miss a Drop</h2>
+      <p>Be the first to know about restocks and new textures.</p>
+      <div class="nl-form">
+        <input type="email" placeholder="Enter your email">
+        <button class="btn btn-primary">Subscribe</button>
+      </div>
+    </div>
+  </section>
 </div>
+
+<!-- PRODUCT DETAIL -->
 <div class="page" id="page-product">
-<section class="section"><div class="container"><div class="pd-layout"><div class="pd-gallery"><div class="pd-thumbs" id="pd-thumbs"></div><div class="pd-main-img"><img id="pd-main" src="" alt="Product"></div></div><div class="pd-info"><div class="pd-eyebrow">REIGN Collection</div><h1 class="pd-title" id="pd-title"></h1><p class="pd-subtitle" id="pd-subtitle"></p><div class="pd-price" id="pd-price"></div><div class="pd-label">Select Length</div><div class="length-options" id="pd-lengths"></div><div class="qty-row"><div class="qty-ctrl"><button onclick="changeQty(-1)">&#8722;</button><span id="pd-qty">1</span><button onclick="changeQty(1)">+</button></div><button class="btn btn-primary pd-add-btn">Add to Cart</button></div><div class="pd-features"><div class="pd-feature"><strong>&#10003;</strong> 100% raw human hair &#8212; single donor</div><div class="pd-feature"><strong>&#10003;</strong> Natural cuticle alignment intact</div><div class="pd-feature"><strong>&#10003;</strong> Can be colored, bleached &amp; heat-styled</div><div class="pd-feature"><strong>&#10003;</strong> 3-5 year lifespan with proper care</div><div class="pd-feature"><strong>&#10003;</strong> Sourced &amp; prepped in-house</div></div></div></div></div></section>
-<section class="also-like"><div class="container text-center"><div class="section-eyebrow">Complete the Look</div><h2 class="section-title">You May Also Like</h2><div class="products-grid" id="also-like-grid"></div></div></section>
+  <section class="section">
+    <div class="container">
+      <div class="pd-layout">
+        <div class="pd-gallery">
+          <div class="pd-thumbs" id="pd-thumbs"></div>
+          <div class="pd-main-img"><img id="pd-main" src="" alt="Product"></div>
+        </div>
+        <div class="pd-info">
+          <div class="pd-eyebrow">REIGN Collection</div>
+          <h1 class="pd-title" id="pd-title"></h1>
+          <p class="pd-subtitle" id="pd-subtitle"></p>
+          <div class="pd-price" id="pd-price"></div>
+          <div class="pd-label">Select Length</div>
+          <div class="length-options" id="pd-lengths"></div>
+          <div class="qty-row">
+            <div class="qty-ctrl">
+              <button onclick="changeQty(-1)">&#8722;</button>
+              <span id="pd-qty">1</span>
+              <button onclick="changeQty(1)">+</button>
+            </div>
+            <button class="btn btn-primary pd-add-btn">Add to Cart</button>
+          </div>
+          <div class="pd-features">
+            <div class="pd-feature"><strong>&#10003;</strong> 100% raw human hair &#8212; single donor</div>
+            <div class="pd-feature"><strong>&#10003;</strong> Natural cuticle alignment intact</div>
+            <div class="pd-feature"><strong>&#10003;</strong> Can be colored, bleached &amp; heat-styled</div>
+            <div class="pd-feature"><strong>&#10003;</strong> 3&#8211;5 year lifespan with proper care</div>
+            <div class="pd-feature"><strong>&#10003;</strong> Sourced &amp; prepped in-house</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="also-like">
+    <div class="container text-center">
+      <div class="section-eyebrow">Complete the Look</div>
+      <h2 class="section-title">You May Also <em>Like</em></h2>
+      <div class="products-grid" id="also-like-grid"></div>
+    </div>
+  </section>
 </div>
-<div class="page" id="page-education">
-<div class="edu-hero"><div class="container"><div class="section-eyebrow" style="color:var(--lilac-light)">Knowledge Is Power</div><h1>Hair Education</h1><p>Everything you need to know about raw hair textures, care, and styling.</p></div></div>
-<section class="section" style="padding-top:0"><div class="container"><div class="edu-tabs"><button class="edu-tab active" onclick="switchTab('wavy',this)">Wavy</button><button class="edu-tab" onclick="switchTab('wavycurly',this)">Wavy / Curly</button><button class="edu-tab" onclick="switchTab('curly',this)">Curly</button></div>
-<div class="edu-panel active" id="panel-wavy"><div class="edu-card"><div class="edu-card-img"><img id="img-eduWavy" src="" alt="Wavy"></div><div class="edu-card-text"><h3>Raw Wavy Texture</h3><p>Our wavy texture offers a loose, beachy wave pattern that is incredibly versatile. It blends seamlessly with most natural hair types.</p><ul><li>Natural loose wave pattern (2A-2B)</li><li>Minimal tangling &#8212; easy maintenance</li><li>Straightens beautifully with a flat iron</li><li>Returns to wave pattern after washing</li><li>Best for: everyday wear, professional settings, effortless glam</li></ul></div></div></div>
-<div class="edu-panel" id="panel-wavycurly"><div class="edu-card"><div class="edu-card-img"><img id="img-eduWavyCurly" src="" alt="Wavy/Curly"></div><div class="edu-card-text"><h3>Raw Wavy/Curly Texture</h3><p>The perfect middle ground &#8212; a defined S-wave with soft curls that offer volume and movement. Our most popular texture.</p><ul><li>Defined S-curl pattern (2C-3A)</li><li>Beautiful volume and body</li><li>Can be worn as-is or styled straight</li><li>Pattern bounces back after every wash</li><li>Best for: full-bodied looks, natural blending, versatile styling</li></ul></div></div></div>
-<div class="edu-panel" id="panel-curly"><div class="edu-card"><div class="edu-card-img"><img id="img-eduCurly" src="" alt="Curly"></div><div class="edu-card-text"><h3>Raw Curly Texture</h3><p>Bold, defined curls for those who love volume and statement looks. Tight, springy curl pattern that holds its shape beautifully.</p><ul><li>Tight defined curls (3B-3C)</li><li>Maximum volume and drama</li><li>Blends perfectly with natural curly hair</li><li>Can be stretched or straightened</li><li>Best for: natural looks, bridal styles, high-fashion editorial</li></ul></div></div></div>
-</div></section>
-</div>
+
+<!-- HAIR CARE GUIDE -->
 <div class="page" id="page-guide">
-<div class="guide-hero"><div class="container"><div class="section-eyebrow" style="color:var(--lilac-light)">Your Hair Investment</div><h1>The Ultimate Hair Care Guide</h1><p>Maximize the lifespan of your raw hair with our expert care routine. Follow these steps to keep your bundles looking salon-fresh for years.</p></div></div>
-<div class="guide-section"><div class="container"><div class="text-center"><div class="section-eyebrow">Step by Step</div><h2 class="section-title">The Perfect Wash Routine</h2><p class="section-sub" style="margin:0 auto">Raw hair requires a gentle, sulfate-free wash routine to maintain its natural cuticle integrity.</p></div><div class="guide-steps"><div class="guide-step"><div class="step-num">1</div><h3>Detangle First</h3><p>Gently brush from ends to roots with a wide-tooth comb before wetting. This prevents matting and breakage.</p></div><div class="guide-step"><div class="step-num">2</div><h3>Cleanse Gently</h3><p>Use a sulfate-free shampoo and work in downward strokes only. Never scrub in circular motions.</p></div><div class="guide-step"><div class="step-num">3</div><h3>Deep Condition</h3><p>Apply a hydrating mask from mid-shaft to ends. Leave on for 15-30 minutes under a cap, then rinse with cool water.</p></div></div></div></div>
-<div class="guide-section" style="background:var(--white)"><div class="container"><div class="guide-grid-2"><div class="guide-img"><img id="img-guide1" src="" alt="Hair care"></div><div><div class="section-eyebrow">Daily Care</div><h2 class="section-title" style="font-size:32px">Maintenance Tips</h2><ul class="guide-tips"><li class="guide-tip"><div class="tip-icon">&#127775;</div><div class="tip-text"><h4>Sleep Protection</h4><p>Always wrap your hair in a silk or satin bonnet before bed to prevent friction and tangling.</p></div></li><li class="guide-tip"><div class="tip-icon">&#128167;</div><div class="tip-text"><h4>Hydration is Key</h4><p>Spritz with a light leave-in conditioner every 2-3 days. Raw hair thrives on moisture.</p></div></li><li class="guide-tip"><div class="tip-icon">&#9728;&#65039;</div><div class="tip-text"><h4>Heat Protection</h4><p>Always use a heat protectant before styling. Keep temperature below 375&#176;F.</p></div></li><li class="guide-tip"><div class="tip-icon">&#128150;</div><div class="tip-text"><h4>Storage Matters</h4><p>When not wearing your hair, store in a silk bag away from dust and sunlight.</p></div></li></ul></div></div></div></div>
-<div class="guide-section"><div class="container"><div class="guide-grid-2"><div><div class="section-eyebrow">Advanced</div><h2 class="section-title" style="font-size:32px">Coloring Raw Hair</h2><p class="section-sub">Raw hair can be colored and bleached just like your natural hair. Here is how to do it safely:</p><ul class="guide-tips" style="margin-top:24px"><li class="guide-tip"><div class="tip-icon">1</div><div class="tip-text"><h4>Strand Test First</h4><p>Always do a strand test before full application. Different donors may lift differently.</p></div></li><li class="guide-tip"><div class="tip-icon">2</div><div class="tip-text"><h4>Use Quality Products</h4><p>Invest in salon-grade developer and color. Box dye will damage the cuticle layer.</p></div></li><li class="guide-tip"><div class="tip-icon">3</div><div class="tip-text"><h4>Deep Condition After</h4><p>Always follow color processing with a protein treatment and deep conditioner.</p></div></li></ul></div><div class="guide-img"><img id="img-guide2" src="" alt="Coloring guide"></div></div></div></div>
-<div class="guide-section" style="background:var(--white)"><div class="container text-center"><div class="section-eyebrow">Got Questions?</div><h2 class="section-title">Frequently Asked</h2><div class="faq-list"><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is the difference between raw and virgin hair? <span>+</span></div><div class="faq-a">Raw hair is completely unprocessed. Virgin hair may still have been steam-processed to create uniform curl patterns. Our REIGN hair is 100% raw for the most natural, long-lasting result.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long does raw hair last? <span>+</span></div><div class="faq-a">With proper care, our raw hair bundles last 3-5 years. The key is sulfate-free washing, regular deep conditioning, silk bonnet protection at night, and minimal heat usage.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I bleach and color REIGN hair? <span>+</span></div><div class="faq-a">Yes! Because our hair is raw and unprocessed with intact cuticles, it takes color beautifully. We recommend using a professional colorist and doing a strand test first.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many bundles do I need for a full install? <span>+</span></div><div class="faq-a">For a full sew-in, we recommend 3 bundles + 1 closure. For 22-28 inch lengths, you may want 4 bundles for extra fullness. Each bundle weighs approximately 100g.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is your return policy? <span>+</span></div><div class="faq-a">We offer a 7-day return policy on unaltered, unused hair with original packaging and tags intact. Once hair has been washed, colored, cut, or installed, it cannot be returned.</div></div></div></div></div>
-<div class="guide-cta"><div class="container"><h2>Ready to Invest in Your Crown?</h2><p>Shop our premium raw hair collection and experience the REIGN difference.</p><a class="btn btn-primary" onclick="showPage('shop')">Shop the Collection</a></div></div>
+  <div class="guide-hero">
+    <div class="container">
+      <div class="section-eyebrow" style="color:var(--lilac-light)">Your Hair Investment</div>
+      <h1>The Ultimate<br>Hair Care Guide</h1>
+      <p>Maximize the lifespan of your raw hair with our expert care routine. Follow these steps to keep your bundles looking salon-fresh for years.</p>
+    </div>
+  </div>
+  <div class="guide-section">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-eyebrow">Step by Step</div>
+        <h2 class="section-title">The Perfect Wash <em>Routine</em></h2>
+        <p class="section-sub" style="margin:0 auto">Raw hair requires a gentle, sulfate-free wash routine to maintain its natural cuticle integrity.</p>
+      </div>
+      <div class="guide-steps">
+        <div class="guide-step"><div class="step-num">1</div><h3>Detangle First</h3><p>Gently brush from ends to roots with a wide-tooth comb before wetting. This prevents matting and breakage during the wash process.</p></div>
+        <div class="guide-step"><div class="step-num">2</div><h3>Cleanse Gently</h3><p>Use a sulfate-free shampoo and work in downward strokes only. Never scrub in circular motions &#8212; this disrupts cuticle alignment.</p></div>
+        <div class="guide-step"><div class="step-num">3</div><h3>Deep Condition</h3><p>Apply a hydrating mask from mid-shaft to ends. Leave on for 15&#8211;30 minutes under a cap, then rinse with cool water to seal cuticles.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="guide-section" style="background:var(--white)">
+    <div class="container">
+      <div class="guide-grid-2">
+        <div class="guide-img"><img id="img-guide1" src="" alt="Hair care"></div>
+        <div>
+          <div class="section-eyebrow">Daily Care</div>
+          <h2 class="section-title" style="font-size:36px">Maintenance <em>Tips</em></h2>
+          <ul class="guide-tips">
+            <li class="guide-tip"><div class="tip-icon">&#127775;</div><div class="tip-text"><h4>Sleep Protection</h4><p>Always wrap your hair in a silk or satin bonnet before bed. This prevents friction, tangling, and moisture loss overnight.</p></div></li>
+            <li class="guide-tip"><div class="tip-icon">&#128167;</div><div class="tip-text"><h4>Hydration is Key</h4><p>Spritz with a light leave-in conditioner every 2&#8211;3 days. Raw hair thrives on moisture &#8212; don't let it dry out between washes.</p></div></li>
+            <li class="guide-tip"><div class="tip-icon">&#9728;&#65039;</div><div class="tip-text"><h4>Heat Protection</h4><p>Always use a heat protectant before flat ironing or curling. Keep temperature below 375&#176;F to preserve cuticle health.</p></div></li>
+            <li class="guide-tip"><div class="tip-icon">&#128150;</div><div class="tip-text"><h4>Storage Matters</h4><p>When not wearing your hair, store in a silk bag away from dust and sunlight. Braid loosely to prevent tangling.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="guide-section">
+    <div class="container">
+      <div class="guide-grid-2">
+        <div>
+          <div class="section-eyebrow">Advanced</div>
+          <h2 class="section-title" style="font-size:36px">Coloring <em>Raw Hair</em></h2>
+          <p class="section-sub">One of the biggest advantages of raw hair is that it can be colored and bleached just like your natural hair.</p>
+          <ul class="guide-tips" style="margin-top:24px">
+            <li class="guide-tip"><div class="tip-icon">1</div><div class="tip-text"><h4>Strand Test First</h4><p>Always do a strand test before full application. Raw hair from different donors may lift differently.</p></div></li>
+            <li class="guide-tip"><div class="tip-icon">2</div><div class="tip-text"><h4>Use Quality Products</h4><p>Invest in salon-grade developer and color. Box dye will damage the cuticle layer and shorten lifespan significantly.</p></div></li>
+            <li class="guide-tip"><div class="tip-icon">3</div><div class="tip-text"><h4>Deep Condition After</h4><p>Always follow color processing with a protein treatment and deep conditioner to restore moisture balance.</p></div></li>
+          </ul>
+        </div>
+        <div class="guide-img"><img id="img-guide2" src="" alt="Coloring guide"></div>
+      </div>
+    </div>
+  </div>
+  <div class="guide-section" style="background:var(--white)">
+    <div class="container text-center">
+      <div class="section-eyebrow">Got Questions?</div>
+      <h2 class="section-title">Frequently <em>Asked</em></h2>
+      <div class="faq-list">
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What&#8217;s the difference between raw and virgin hair? <span>+</span></div><div class="faq-a">Raw hair is completely unprocessed &#8212; it hasn&#8217;t been steamed, chemically treated, or altered in any way. Virgin hair may still have been steam-processed to create uniform curl patterns. Our REIGN hair is 100% raw, meaning you get the most natural, long-lasting hair possible.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long does raw hair last? <span>+</span></div><div class="faq-a">With proper care, our raw hair bundles last 3&#8211;5 years. The key is following a consistent maintenance routine: sulfate-free washing, regular deep conditioning, silk bonnet protection at night, and minimal heat usage.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I bleach and color REIGN hair? <span>+</span></div><div class="faq-a">Yes! Because our hair is raw and unprocessed with intact cuticles, it takes color beautifully &#8212; just like your natural hair. We recommend using a professional colorist and always doing a strand test first.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many bundles do I need for a full install? <span>+</span></div><div class="faq-a">For a full sew-in, we recommend 3 bundles + 1 closure. For 14&#8221;&#8211;20&#8221; lengths, 3 bundles is perfect. For 22&#8221;&#8211;28&#8221;, you may want 4 bundles for extra fullness. Each bundle weighs approximately 100g.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What&#8217;s your return policy? <span>+</span></div><div class="faq-a">We offer a 7-day return policy on unaltered, unused hair with original packaging and tags intact. Once hair has been washed, colored, cut, or installed, it cannot be returned. Please inspect your bundles upon receipt.</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="guide-cta">
+    <div class="container">
+      <h2>Ready to Invest in Your <em>Crown</em>?</h2>
+      <p>Shop our premium raw hair collection and experience the REIGN difference.</p>
+      <a class="btn btn-primary" onclick="showPage('shop')">Shop the Collection</a>
+    </div>
+  </div>
 </div>
+
+<!-- LOOKBOOK -->
 <div class="page" id="page-lookbook">
-<div class="lookbook-hero"><div class="container"><div class="section-eyebrow" style="color:var(--lilac-light)">Editorial</div><h1>Lookbook</h1><p>Styled looks featuring the REIGN collection</p></div></div>
-<section class="section"><div class="container"><div class="lookbook-masonry"><div class="masonry-item" style="aspect-ratio:3/4"><img id="img-look1" src="" alt="Look 1"></div><div class="masonry-item" style="aspect-ratio:2/3"><img id="img-look2" src="" alt="Look 2"></div><div class="masonry-item" style="aspect-ratio:3/4"><img id="img-look3" src="" alt="Look 3"></div><div class="masonry-item" style="aspect-ratio:4/5"><img id="img-look4" src="" alt="Look 4"></div><div class="masonry-item" style="aspect-ratio:3/4"><img id="img-look5" src="" alt="Look 5"></div><div class="masonry-item" style="aspect-ratio:2/3"><img id="img-look6" src="" alt="Look 6"></div><div class="masonry-item" style="aspect-ratio:4/5"><img id="img-look7" src="" alt="Look 7"></div><div class="masonry-item" style="aspect-ratio:3/4"><img id="img-look8" src="" alt="Look 8"></div><div class="masonry-item" style="aspect-ratio:3/5"><img id="img-look9" src="" alt="Look 9"></div></div></div></section>
+  <div class="lookbook-hero">
+    <div class="container">
+      <div class="section-eyebrow" style="color:var(--lilac-light)">Editorial</div>
+      <h1>Lookbook</h1>
+      <p>Styled looks featuring the REIGN collection</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="lookbook-masonry">
+        <div class="masonry-item" style="aspect-ratio:3/4"><img id="img-look1" src="" alt="Look 1"></div>
+        <div class="masonry-item" style="aspect-ratio:2/3"><img id="img-look2" src="" alt="Look 2"></div>
+        <div class="masonry-item" style="aspect-ratio:3/4"><img id="img-look3" src="" alt="Look 3"></div>
+        <div class="masonry-item" style="aspect-ratio:4/5"><img id="img-look4" src="" alt="Look 4"></div>
+        <div class="masonry-item" style="aspect-ratio:3/4"><img id="img-look5" src="" alt="Look 5"></div>
+        <div class="masonry-item" style="aspect-ratio:2/3"><img id="img-look6" src="" alt="Look 6"></div>
+        <div class="masonry-item" style="aspect-ratio:4/5"><img id="img-look7" src="" alt="Look 7"></div>
+        <div class="masonry-item" style="aspect-ratio:3/4"><img id="img-look8" src="" alt="Look 8"></div>
+        <div class="masonry-item" style="aspect-ratio:3/5"><img id="img-look9" src="" alt="Look 9"></div>
+        <div class="masonry-item" style="aspect-ratio:3/4"><img id="img-look10" src="" alt="Look 10"></div>
+      </div>
+    </div>
+  </section>
 </div>
+<!-- ABOUT -->
 <div class="page" id="page-about">
-<div class="about-hero"><img id="img-aboutHero" src="" alt="About REIGN"><div class="about-hero-content"><div class="section-eyebrow" style="color:var(--lilac-light)">Our Story</div><h1>Built for Queens</h1><p>REIGN was born from a simple belief: every woman deserves access to the highest quality raw hair &#8212; without the guesswork, the middlemen, or the markup.</p></div></div>
-<section class="section"><div class="container"><div class="about-story"><div class="about-img"><img id="img-aboutMission" src="" alt="Our mission"></div><div class="about-text"><div class="section-eyebrow">The Mission</div><h2>From Source to Crown</h2><p>We partner directly with ethical donors and handle every step of the preparation process in-house. No factories. No outsourcing. Just pure, raw hair that meets our exacting standards.</p><p>Our team personally inspects every bundle for cuticle alignment, texture consistency, and overall quality before it ever reaches your hands.</p></div></div><div class="values-grid"><div class="value-card"><div class="value-icon">&#128142;</div><h3>Ethical Sourcing</h3><p>Direct partnerships with donors who are fairly compensated. Full transparency in our supply chain.</p></div><div class="value-card"><div class="value-icon">&#9997;&#65039;</div><h3>In-House Prep</h3><p>Every bundle is washed, conditioned, and quality-checked by our team. No third-party processing.</p></div><div class="value-card"><div class="value-icon">&#128081;</div><h3>Uncompromising Quality</h3><p>We reject any hair that does not meet our standards. Only the best makes it into a REIGN bundle.</p></div></div></div></section>
+  <div class="about-hero">
+    <img id="img-aboutHero" src="" alt="About REIGN">
+    <div class="about-hero-content">
+      <div class="section-eyebrow" style="color:var(--lilac-light)">Our Story</div>
+      <h1>Built for <em>Queens</em></h1>
+      <p>REIGN was born from a simple belief: every woman deserves access to the highest quality raw hair &#8212; without the guesswork, the middlemen, or the markup.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="about-story">
+        <div class="about-img"><img id="img-aboutMission" src="" alt="Our mission"></div>
+        <div class="about-text">
+          <div class="section-eyebrow">The Mission</div>
+          <h2>From Source to <em>Crown</em></h2>
+          <p>We partner directly with ethical donors and handle every step of the preparation process in-house. No factories. No outsourcing. Just pure, raw hair that meets our exacting standards.</p>
+          <p>Our team personally inspects every bundle for cuticle alignment, texture consistency, and overall quality before it ever reaches your hands. This is what sets REIGN apart &#8212; and why our customers never go back.</p>
+        </div>
+      </div>
+      <div class="values-grid">
+        <div class="value-card"><div class="value-icon">&#128142;</div><h3>Ethical Sourcing</h3><p>Direct partnerships with donors who are fairly compensated. Full transparency in our supply chain.</p></div>
+        <div class="value-card"><div class="value-icon">&#9997;&#65039;</div><h3>In-House Prep</h3><p>Every bundle is washed, conditioned, and quality-checked by our team. No third-party processing.</p></div>
+        <div class="value-card"><div class="value-icon">&#128081;</div><h3>Uncompromising Quality</h3><p>We reject any hair that doesn&#8217;t meet our standards. Only the best makes it into a REIGN bundle.</p></div>
+      </div>
+    </div>
+  </section>
 </div>
+
+<!-- CONTACT -->
 <div class="page" id="page-contact">
-<div class="contact-hero"><div class="container"><div class="section-eyebrow" style="color:var(--lilac-light)">Get in Touch</div><h1>Contact Us</h1><p>We are here to help with orders, styling advice, and wholesale inquiries.</p></div></div>
-<section class="section"><div class="container"><div class="contact-layout"><div class="contact-form"><h3 style="font-family:var(--font-display);font-size:24px;color:var(--wine);margin-bottom:28px">Send a Message</h3><div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name"></div><div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div><div class="form-group"><label>Subject</label><select><option>General Inquiry</option><option>Order Support</option><option>Wholesale / Partnerships</option><option>Styling Consultation</option><option>Returns &amp; Exchanges</option></select></div><div class="form-group"><label>Message</label><textarea placeholder="How can we help?"></textarea></div><button class="btn btn-primary" style="width:100%">Send Message</button></div><div class="contact-info"><h3>We Would Love to Hear From You</h3><div class="contact-detail"><div class="contact-icon">&#9993;</div><div><h4>Email</h4><p>hello@reignhair.com</p></div></div><div class="contact-detail"><div class="contact-icon">&#128241;</div><div><h4>Phone</h4><p>(305) 555-REIGN</p></div></div><div class="contact-detail"><div class="contact-icon">&#128205;</div><div><h4>Location</h4><p>Miami, Florida</p></div></div><div class="contact-detail"><div class="contact-icon">&#128172;</div><div><h4>Social</h4><p>@reignhair on Instagram &amp; TikTok</p></div></div><div class="contact-hours"><h4>Business Hours</h4><p>Monday &#8211; Friday: 10am &#8211; 6pm EST<br>Saturday: 11am &#8211; 4pm EST<br>Sunday: Closed</p></div></div></div></div></section>
+  <div class="contact-hero">
+    <div class="container">
+      <div class="section-eyebrow" style="color:var(--lilac-light)">Get in Touch</div>
+      <h1>Contact Us</h1>
+      <p>We&#8217;re here to help with orders, styling advice, and wholesale inquiries.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-form">
+          <h3 style="font-family:var(--font-display);font-size:28px;color:var(--wine);margin-bottom:28px;font-weight:600">Send a Message</h3>
+          <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name"></div>
+          <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+          <div class="form-group"><label>Subject</label><select><option>General Inquiry</option><option>Order Support</option><option>Wholesale / Partnerships</option><option>Styling Consultation</option><option>Returns &amp; Exchanges</option></select></div>
+          <div class="form-group"><label>Message</label><textarea placeholder="How can we help?"></textarea></div>
+          <button class="btn btn-primary" style="width:100%">Send Message</button>
+        </div>
+        <div class="contact-info">
+          <h3>We&#8217;d Love to Hear From You</h3>
+          <div class="contact-detail"><div class="contact-icon">&#9993;</div><div><h4>Email</h4><p>hello@reignhair.com</p></div></div>
+          <div class="contact-detail"><div class="contact-icon">&#128241;</div><div><h4>Phone</h4><p>(305) 555-REIGN</p></div></div>
+          <div class="contact-detail"><div class="contact-icon">&#128205;</div><div><h4>Location</h4><p>Miami, Florida</p></div></div>
+          <div class="contact-detail"><div class="contact-icon">&#128172;</div><div><h4>Social</h4><p>@reignhair on Instagram &amp; TikTok</p></div></div>
+          <div class="contact-hours"><h4>Business Hours</h4><p>Monday &#8211; Friday: 10am &#8211; 6pm EST<br>Saturday: 11am &#8211; 4pm EST<br>Sunday: Closed</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 <script>
-var products=[
-{id:1,name:"Raw Wavy Bundle",type:"bundle",texture:"Wavy",desc:"Loose beach wave pattern (2A-2B). Versatile, low-maintenance, effortlessly glamorous.",badge:"Bestseller",basePrice:175,lengths:{"14\"":175,"16\"":175,"18\"":180,"20\"":185,"22\"":190,"24\"":195,"26\"":200,"28\"":210}},
-{id:2,name:"Raw Wavy/Curly Bundle",type:"bundle",texture:"Wavy/Curly",desc:"Defined S-curl pattern (2C-3A). Our most popular texture.",badge:"Most Popular",basePrice:185,lengths:{"14\"":185,"16\"":185,"18\"":190,"20\"":195,"22\"":200,"24\"":205,"26\"":210,"28\"":220}},
-{id:3,name:"Raw Curly Bundle",type:"bundle",texture:"Curly",desc:"Tight springy curls (3B-3C). Maximum volume, dramatic and head-turning.",badge:"Statement",basePrice:195,lengths:{"14\"":195,"16\"":195,"18\"":200,"20\"":205,"22\"":210,"24\"":215,"26\"":220,"28\"":230}},
-{id:4,name:"5x5 Lace Closure \u2014 Wavy",type:"closure",texture:"Wavy",desc:"Hand-tied 5x5 HD lace closure in wavy texture. Seamless part, undetectable hairline.",badge:"HD Lace",basePrice:195,lengths:{"14\"":195,"16\"":200,"18\"":205,"20\"":210}},
-{id:5,name:"5x5 Lace Closure \u2014 Wavy/Curly",type:"closure",texture:"Wavy/Curly",desc:"Hand-tied 5x5 HD lace closure in wavy/curly texture.",badge:"HD Lace",basePrice:205,lengths:{"14\"":205,"16\"":210,"18\"":215,"20\"":220}},
-{id:6,name:"5x5 Lace Closure \u2014 Curly",type:"closure",texture:"Curly",desc:"Hand-tied 5x5 HD lace closure in curly texture. Perfect match for our curly bundles.",badge:"HD Lace",basePrice:215,lengths:{"14\"":215,"16\"":220,"18\"":225,"20\"":230}}
+/* PRODUCTS DATA */
+var products = [
+  {id:1,name:'Raw Wavy Bundle',type:'bundle',texture:'Wavy',desc:'Loose beach wave pattern (2A-2B). Versatile, low-maintenance, effortlessly glamorous.',badge:'Bestseller',basePrice:175,lengths:{'14"':175,'16"':175,'18"':180,'20"':185,'22"':190,'24"':195,'26"':200,'28"':210}},
+  {id:2,name:'Raw Wavy/Curly Bundle',type:'bundle',texture:'Wavy/Curly',desc:'Defined S-curl pattern (2C-3A). Our most popular texture \u2014 full body and beautiful movement.',badge:'Most Popular',basePrice:185,lengths:{'14"':185,'16"':185,'18"':190,'20"':195,'22"':200,'24"':205,'26"':210,'28"':220}},
+  {id:3,name:'Raw Curly Bundle',type:'bundle',texture:'Curly',desc:'Tight springy curls (3B-3C). Maximum volume, dramatic and head-turning.',badge:'Statement',basePrice:195,lengths:{'14"':195,'16"':195,'18"':200,'20"':205,'22"':210,'24"':215,'26"':220,'28"':230}},
+  {id:4,name:'5x5 Lace Closure \u2014 Wavy',type:'closure',texture:'Wavy',desc:'Hand-tied 5x5 HD lace closure in wavy texture. Seamless part, undetectable hairline.',badge:'HD Lace',basePrice:195,lengths:{'14"':195,'16"':200,'18"':205,'20"':210}},
+  {id:5,name:'5x5 Lace Closure \u2014 Wavy/Curly',type:'closure',texture:'Wavy/Curly',desc:'Hand-tied 5x5 HD lace closure in wavy/curly texture. Natural-looking part with zero detection.',badge:'HD Lace',basePrice:205,lengths:{'14"':205,'16"':210,'18"':215,'20"':220}},
+  {id:6,name:'5x5 Lace Closure \u2014 Curly',type:'closure',texture:'Curly',desc:'Hand-tied 5x5 HD lace closure in curly texture. Perfect match for our curly bundles.',badge:'HD Lace',basePrice:215,lengths:{'14"':215,'16"':220,'18"':225,'20"':230}}
 ];
-var imgMap={1:"wavy",2:"wavyCurly",3:"curly",4:"closureWavy",5:"closureWavyCurly",6:"closureCurly"};
-var currentProduct=null,currentLength=null,currentQty=1;
-function makeCard(p){return '<div class="product-card" onclick="showProduct('+p.id+')"><div class="product-img"><img id="img-shop-'+imgMap[p.id]+'" src="" alt="'+p.name+'"><div class="product-badge">'+p.badge+'</div></div><div class="product-info"><div class="product-name">'+p.name+'</div><div class="product-type">'+p.texture+' \u2022 Raw Human Hair</div><div class="product-price">$'+p.basePrice+' <span>USD</span></div></div></div>';}
-function renderProducts(){var h="";for(var i=0;i<3;i++)h+=makeCard(products[i]);document.getElementById("home-products").innerHTML=h;var s="";for(var i=0;i<products.length;i++)s+=makeCard(products[i]);document.getElementById("shop-products").innerHTML=s;}
-function filterShop(type,el){document.querySelectorAll(".filter-btn").forEach(function(b){b.classList.remove("active")});el.classList.add("active");var h="";for(var i=0;i<products.length;i++){if(type==="all"||products[i].type===type)h+=makeCard(products[i]);}document.getElementById("shop-products").innerHTML=h;}
-function showProduct(id){var p=null;for(var i=0;i<products.length;i++){if(products[i].id===id){p=products[i];break;}}if(!p)return;currentProduct=p;currentQty=1;document.getElementById("pd-title").textContent=p.name;document.getElementById("pd-subtitle").textContent=p.desc;document.getElementById("pd-qty").textContent="1";var lengths=Object.keys(p.lengths);currentLength=lengths[0];updatePrice();var lhtml="";for(var i=0;i<lengths.length;i++){lhtml+='<button class="length-btn'+(i===0?' selected':'')+'" onclick="selectLength(\'\x27+lengths[i]+\'\x27,this)">'+lengths[i]+'</button>';}document.getElementById("pd-lengths").innerHTML=lhtml;buildAlsoLike(p.id);showPage("product");}
-function selectLength(len,el){currentLength=len;document.querySelectorAll(".length-btn").forEach(function(b){b.classList.remove("selected")});el.classList.add("selected");updatePrice();}
-function changeQty(d){currentQty=Math.max(1,currentQty+d);document.getElementById("pd-qty").textContent=currentQty;}
-function updatePrice(){if(!currentProduct||!currentLength)return;var price=currentProduct.lengths[currentLength]||currentProduct.basePrice;document.getElementById("pd-price").textContent="$"+price+" USD";}
-function buildAlsoLike(excludeId){var h="",count=0;for(var i=0;i<products.length;i++){if(products[i].id!==excludeId&&count<4){h+=makeCard(products[i]);count++;}}document.getElementById("also-like-grid").innerHTML=h;}
-function showPage(page){document.querySelectorAll(".page").forEach(function(p){p.classList.remove("active")});document.querySelectorAll(".nav-links a").forEach(function(a){a.classList.remove("active")});var el=document.getElementById("page-"+page);if(el)el.classList.add("active");var nav=document.getElementById("nav-"+page);if(nav)nav.classList.add("active");window.scrollTo(0,0);}
-function switchTab(tab,el){document.querySelectorAll(".edu-tab").forEach(function(t){t.classList.remove("active")});document.querySelectorAll(".edu-panel").forEach(function(p){p.classList.remove("active")});el.classList.add("active");var panel=document.getElementById("panel-"+tab);if(panel)panel.classList.add("active");}
-function toggleFaq(el){el.parentElement.classList.toggle("open");}
+
+var imgMap = {1:'wavy',2:'wavyCurly',3:'curly',4:'closureWavy',5:'closureWavyCurly',6:'closureCurly'};
+var currentProduct = null;
+var currentLength = null;
+var currentQty = 1;
+
+function makeCard(p) {
+  return '<div class="product-card" onclick="showProduct('+p.id+')">' +
+    '<div class="product-img">' +
+      '<img id="img-shop-'+imgMap[p.id]+'" src="" alt="'+p.name+'">' +
+      '<div class="product-badge">'+p.badge+'<\/div>' +
+    '<\/div>' +
+    '<div class="product-info">' +
+      '<div class="product-name">'+p.name+'<\/div>' +
+      '<div class="product-type">'+p.texture+' \u2022 Raw Human Hair<\/div>' +
+      '<div class="product-price">$'+p.basePrice+' <span>USD<\/span><\/div>' +
+    '<\/div><\/div>';
+}
+
+function renderProducts() {
+  var homeHTML = '';
+  for (var i = 0; i < 3; i++) homeHTML += makeCard(products[i]);
+  document.getElementById('home-products').innerHTML = homeHTML;
+  var shopHTML = '';
+  for (var i = 0; i < products.length; i++) shopHTML += makeCard(products[i]);
+  document.getElementById('shop-products').innerHTML = shopHTML;
+}
+
+function filterShop(type, el) {
+  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
+  el.classList.add('active');
+  var html = '';
+  for (var i = 0; i < products.length; i++) {
+    if (type === 'all' || products[i].type === type) html += makeCard(products[i]);
+  }
+  document.getElementById('shop-products').innerHTML = html;
+}
+
+function showProduct(id) {
+  var p = null;
+  for (var i = 0; i < products.length; i++) { if (products[i].id === id) { p = products[i]; break; } }
+  if (!p) return;
+  currentProduct = p;
+  currentQty = 1;
+  document.getElementById('pd-title').textContent = p.name;
+  document.getElementById('pd-subtitle').textContent = p.desc;
+  document.getElementById('pd-qty').textContent = '1';
+  var lengths = Object.keys(p.lengths);
+  currentLength = lengths[0];
+  updatePrice();
+  var lhtml = '';
+  for (var i = 0; i < lengths.length; i++) {
+    lhtml += '<button class="length-btn'+(i===0?' selected':'')+'" onclick="selectLength(\''+lengths[i]+'\',this)">'+lengths[i]+'<\/button>';
+  }
+  document.getElementById('pd-lengths').innerHTML = lhtml;
+  buildAlsoLike(p.id);
+  showPage('product');
+}
+
+function selectLength(len, el) {
+  currentLength = len;
+  document.querySelectorAll('.length-btn').forEach(function(b){b.classList.remove('selected')});
+  el.classList.add('selected');
+  updatePrice();
+}
+
+function changeQty(d) {
+  currentQty = Math.max(1, currentQty + d);
+  document.getElementById('pd-qty').textContent = currentQty;
+}
+
+function updatePrice() {
+  if (!currentProduct || !currentLength) return;
+  var price = currentProduct.lengths[currentLength] || currentProduct.basePrice;
+  document.getElementById('pd-price').textContent = '$' + price + ' USD';
+}
+
+function buildAlsoLike(excludeId) {
+  var html = '';
+  var count = 0;
+  for (var i = 0; i < products.length; i++) {
+    if (products[i].id !== excludeId && count < 4) {
+      html += makeCard(products[i]);
+      count++;
+    }
+  }
+  document.getElementById('also-like-grid').innerHTML = html;
+}
+
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
+  document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.remove('active')});
+  var el = document.getElementById('page-' + page);
+  if (el) el.classList.add('active');
+  var nav = document.getElementById('nav-' + page);
+  if (nav) nav.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function toggleFaq(el) {
+  el.parentElement.classList.toggle('open');
+}
+
 renderProducts();
 </script>
+
 </body>
 </html>
