@@ -4,13 +4,13 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 /* ================================================================
-   BeautyShare Pro — Semi-Custom Shopify Store Designs
+   BeautyShare Pro â Semi-Custom Shopify Store Designs
    /websites showcase page
    Brand Colors: #FA6A27 (orange), hsl(var(--primary)) (pink), #DCBDEF (lavender),
                  hsl(var(--highlight)) (gold), hsl(var(--foreground)), hsl(var(--background))
    ================================================================ */
 
-/* ── Cursive accent helper ──────────────────────────────────────── */
+/* ââ Cursive accent helper ââââââââââââââââââââââââââââââââââââââââ */
 const Cursive = ({
   children,
   className = '',
@@ -26,7 +26,7 @@ const Cursive = ({
   </span>
 );
 
-/* ── SVG Icons ──────────────────────────────────────────────────── */
+/* ââ SVG Icons ââââââââââââââââââââââââââââââââââââââââââââââââââââ */
 const Icon = {
   check: (
     <svg className="h-5 w-5 shrink-0" viewBox="0 0 20 20" fill="currentColor">
@@ -70,28 +70,28 @@ const Icon = {
   ),
 };
 
-/* ── Theme data ─────────────────────────────────────────────────── */
+/* ââ Theme data âââââââââââââââââââââââââââââââââââââââââââââââââââ */
 const themes = [
   {
-    id: 'luxe-crown',
-    name: 'Luxe Crown',
-    tagline: 'Luxury / High-End',
+    id: 'mane-edit',
+    name: 'MANE edit',
+    tagline: 'Warm / Elevated Natural',
     description:
-      'Opulent black and gold theme for premium hair brands that demand elegance. Cormorant Garamond serif headlines meet sleek sans-serif body text, creating a high-fashion boutique experience.',
-    colors: { bg: 'hsl(var(--foreground))', accent: 'hsl(var(--highlight))', text: 'hsl(var(--background))' },
-    fonts: 'Cormorant Garamond + Montserrat',
+      'Warm earth tones meet muted blue accents for a refined, natural hair brand experience. Cormorant Garamond serif headlines with Work Sans body text create an editorial yet approachable feel \u2014 perfect for raw and textured hair.',
+    colors: { bg: '#351D14', accent: '#7B98B5', text: '#FAFAF8' },
+    fonts: 'Cormorant Garamond + Work Sans',
     features: [
-      'Dramatic dark hero with gold overlay text',
-      'Elegant serif/sans-serif contrast',
-      'Smooth fade-in animations on scroll',
-      'Dark footer with gold social links',
+      'Cinematic video hero with warm gradient overlay',
+      'Elegant serif/sans-serif typographic pairing',
+      'Muted blue accent buttons and eyebrow text',
+      'Warm earth-tone palette with cream backgrounds',
     ],
-    bestFor: 'High-ticket bundles, virgin hair, luxury wig brands',
-    gradient: 'from-[hsl(var(--foreground))] to-[hsl(var(--foreground))]',
-    accentColor: 'hsl(var(--highlight))',
-    previewBg: 'bg-[hsl(var(--foreground))]',
-    previewText: 'text-[hsl(var(--background))]',
-    previewAccent: 'text-[hsl(var(--highlight))]',
+    bestFor: 'Raw hair brands, textured hair, natural hair extensions, curated hair boutiques',
+    gradient: 'from-[#351D14] to-[#483327]',
+    accentColor: '#7B98B5',
+    previewBg: 'bg-[#351D14]',
+    previewText: 'text-[#FAFAF8]',
+    previewAccent: 'text-[#7B98B5]',
   },
   {
     id: 'vibe-hair-co',
@@ -147,7 +147,7 @@ const themes = [
       'Maximum white space for editorial feel',
       'Sharp black typography with gold details',
       'Grid-based layouts for product focus',
-      'Minimal UI — the hair is the hero',
+      'Minimal UI â the hair is the hero',
     ],
     bestFor: 'Product-focused brands, wholesale storefronts, clean aesthetics',
     gradient: 'from-[hsl(var(--foreground))] to-[hsl(var(--foreground))]',
@@ -167,9 +167,9 @@ export default function WebsitesPage() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
 
-      {/* ═══════════════════════════════════════════════════════════
+      {/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
           NAVIGATION (matches main site)
-          ═══════════════════════════════════════════════════════════ */}
+          âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
         <div className="mx-auto max-w-7xl flex items-center justify-between px-5 py-3 md:px-8">
           <Link href="/" className="flex items-center">
@@ -194,9 +194,9 @@ export default function WebsitesPage() {
         </div>
       </nav>
 
-      {/* ═══════════════════════════════════════════════════════════
+      {/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
           HERO
-          ═══════════════════════════════════════════════════════════ */}
+          âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */}
       <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-white">
         <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-pink/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-lavender/10 rounded-full blur-3xl" />
@@ -214,7 +214,7 @@ export default function WebsitesPage() {
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-black/60 leading-relaxed">
             Choose from 4 professionally designed Shopify hair store themes.
-            Upload to Shopify, customize with drag-and-drop, and launch your branded store in days — no coding required.
+            Upload to Shopify, customize with drag-and-drop, and launch your branded store in days â no coding required.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a href="#themes" className="group inline-flex items-center gap-2 rounded-full brand-gradient-pink px-8 py-4 text-base font-bold text-white shadow-xl shadow-orange/25 hover:shadow-2xl hover:shadow-orange/30 transition-all hover:-translate-y-0.5">
@@ -228,9 +228,9 @@ export default function WebsitesPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          HOW IT WORKS — 3-step process
-          ═══════════════════════════════════════════════════════════ */}
+      {/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+          HOW IT WORKS â 3-step process
+          âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */}
       <section id="how" className="py-20 md:py-28 bg-[#FFF8F3]">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="text-center mb-16">
@@ -245,7 +245,7 @@ export default function WebsitesPage() {
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
               { step: '01', title: 'Pick Your Design', desc: 'Browse our collection of 4 professionally designed hair business themes. Each one is fully coded and ready for Shopify.', icon: Icon.palette },
-              { step: '02', title: 'Customize with Drag & Drop', desc: 'Upload the theme to Shopify and use the built-in theme editor to change colors, text, images, and layout — zero coding needed.', icon: Icon.cursor },
+              { step: '02', title: 'Customize with Drag & Drop', desc: 'Upload the theme to Shopify and use the built-in theme editor to change colors, text, images, and layout â zero coding needed.', icon: Icon.cursor },
               { step: '03', title: 'Launch & Start Selling', desc: 'Connect your products, set your prices, and go live. Your professional store is ready to take orders from day one.', icon: Icon.bolt },
             ].map((item) => (
               <div key={item.step} className="text-center">
@@ -261,9 +261,9 @@ export default function WebsitesPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          THEME SHOWCASE — 4 themes
-          ═══════════════════════════════════════════════════════════ */}
+      {/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+          THEME SHOWCASE â 4 themes
+          âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */}
       <section id="themes" className="py-20 md:py-28 bg-white">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="text-center mb-16">
@@ -272,7 +272,7 @@ export default function WebsitesPage() {
               4 Designs. <Cursive className="brand-gradient-text">Endless Possibilities.</Cursive>
             </h2>
             <p className="mt-4 text-black/60 max-w-xl mx-auto text-lg">
-              Each theme is a complete Shopify Online Store 2.0 theme — fully coded with 12+ customizable sections.
+              Each theme is a complete Shopify Online Store 2.0 theme â fully coded with 12+ customizable sections.
             </p>
           </div>
 
@@ -310,12 +310,12 @@ export default function WebsitesPage() {
                       </p>
                       <h3
                         className={`text-3xl md:text-4xl font-extrabold mb-3 ${theme.previewText}`}
-                        style={theme.id === 'blossom-beauty' ? { fontFamily: "'Playfair Display', serif", fontStyle: 'italic' } : theme.id === 'vibe-hair-co' ? { fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' } : {}}
+                        style={theme.id === 'mane-edit' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, letterSpacing: '0.02em' } : theme.id === 'blossom-beauty' ? { fontFamily: "'Playfair Display', serif", fontStyle: 'italic' } : theme.id === 'vibe-hair-co' ? { fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' } : {}}
                       >
                         {theme.name}
                       </h3>
                       <p className={`text-sm opacity-60 max-w-sm ${theme.previewText}`}>
-                        Premium hair extensions — discover your perfect look with our curated collection.
+                        Premium hair extensions â discover your perfect look with our curated collection.
                       </p>
                     </div>
                     {/* Simulated CTA button */}
@@ -324,7 +324,7 @@ export default function WebsitesPage() {
                         className="inline-block px-6 py-3 text-sm font-bold rounded-full"
                         style={{
                           backgroundColor: theme.colors.accent,
-                          color: theme.id === 'luxe-crown' ? 'hsl(var(--foreground))' : 'hsl(var(--background))',
+                          color: theme.id === 'mane-edit' ? '#351D14' : 'hsl(var(--background))',
                           borderRadius: theme.id === 'pure-strand' ? '0' : theme.id === 'blossom-beauty' ? '9999px' : '9999px',
                         }}
                       >
@@ -391,9 +391,9 @@ export default function WebsitesPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
+      {/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
           WHAT'S IN EVERY THEME
-          ═══════════════════════════════════════════════════════════ */}
+          âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */}
       <section className="py-20 md:py-28 bg-[#FFF8F3]">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="text-center mb-16">
@@ -408,12 +408,12 @@ export default function WebsitesPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { icon: Icon.palette, title: '12+ Customizable Sections', desc: 'Hero banners, featured collections, testimonials, newsletter signups, rich text, image galleries, and more — all drag-and-drop.' },
+              { icon: Icon.palette, title: '12+ Customizable Sections', desc: 'Hero banners, featured collections, testimonials, newsletter signups, rich text, image galleries, and more â all drag-and-drop.' },
               { icon: Icon.cursor, title: 'Shopify Drag & Drop Ready', desc: 'Built on Online Store 2.0 architecture. Customize every section in Shopify\'s visual editor without touching code.' },
               { icon: Icon.device, title: 'Mobile-First Responsive', desc: 'Every theme looks stunning on phones, tablets, and desktops. Your customers shop from everywhere.' },
               { icon: Icon.cart, title: 'Full Shopping Experience', desc: 'Product pages, collection pages, cart, and all the pages you need for a complete online store.' },
               { icon: Icon.sparkle, title: 'On-Brand Typography', desc: 'Each theme ships with a curated Google Fonts pairing. Serif meets sans-serif for a premium feel.' },
-              { icon: Icon.bolt, title: 'Performance Optimized', desc: 'Clean, lightweight code that loads fast. No bloat, no unnecessary scripts — just what you need.' },
+              { icon: Icon.bolt, title: 'Performance Optimized', desc: 'Clean, lightweight code that loads fast. No bloat, no unnecessary scripts â just what you need.' },
             ].map((f) => (
               <div key={f.title} className="flex items-start gap-4 p-6 rounded-2xl hover:bg-white transition-colors">
                 <div className="shrink-0 h-12 w-12 rounded-full bg-orange-50 border border-orange/20 flex items-center justify-center text-orange">
@@ -429,9 +429,9 @@ export default function WebsitesPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
+      {/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
           FAQ
-          ═══════════════════════════════════════════════════════════ */}
+          âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */}
       <section className="py-20 md:py-28 bg-white">
         <div className="mx-auto max-w-3xl px-5 md:px-8">
           <div className="text-center mb-16">
@@ -442,11 +442,11 @@ export default function WebsitesPage() {
           </div>
           <div className="space-y-4">
             {[
-              { q: 'Do I need to know how to code?', a: 'Not at all! Each theme is a complete Shopify theme that you upload to your store. Then you use Shopify\'s built-in drag-and-drop theme editor to customize everything — colors, text, images, layout. It\'s completely visual, no coding required.' },
-              { q: 'How do I install the theme?', a: 'Download the .zip file, go to your Shopify admin → Online Store → Themes → Add Theme → Upload ZIP file. That\'s it! Shopify will install it automatically and you can start customizing right away.' },
+              { q: 'Do I need to know how to code?', a: 'Not at all! Each theme is a complete Shopify theme that you upload to your store. Then you use Shopify\'s built-in drag-and-drop theme editor to customize everything â colors, text, images, layout. It\'s completely visual, no coding required.' },
+              { q: 'How do I install the theme?', a: 'Download the .zip file, go to your Shopify admin â Online Store â Themes â Add Theme â Upload ZIP file. That\'s it! Shopify will install it automatically and you can start customizing right away.' },
               { q: 'Can I change the colors and fonts?', a: 'Yes! Every theme has a settings panel in the Shopify theme editor where you can change all colors, font sizes, and styling. The font pairings are loaded via Google Fonts, so they\'re free and look great.' },
-              { q: 'Is the store theme included in the membership?', a: 'The store themes are a separate one-time purchase, not included in the $149/month membership. This gives you full ownership of your website design — it\'s yours to keep forever, even if you cancel the membership.' },
-              { q: 'What Shopify plan do I need?', a: 'Any Shopify plan works — including Shopify Basic ($39/mo). All themes use Shopify Online Store 2.0, which is supported on every Shopify plan.' },
+              { q: 'Is the store theme included in the membership?', a: 'The store themes are a separate one-time purchase, not included in the $149/month membership. This gives you full ownership of your website design â it\'s yours to keep forever, even if you cancel the membership.' },
+              { q: 'What Shopify plan do I need?', a: 'Any Shopify plan works â including Shopify Basic ($39/mo). All themes use Shopify Online Store 2.0, which is supported on every Shopify plan.' },
               { q: 'Can I switch themes later?', a: 'Absolutely. If you purchase multiple themes, you can switch between them at any time from your Shopify admin. Your products and content stay the same.' },
             ].map((item) => (
               <details key={item.q} className="group rounded-2xl bg-[#FFF8F3] border border-black/5 overflow-hidden shadow-sm">
@@ -465,9 +465,9 @@ export default function WebsitesPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
+      {/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
           FINAL CTA
-          ═══════════════════════════════════════════════════════════ */}
+          âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */}
       <section className="py-20 md:py-28 bg-black">
         <div className="mx-auto max-w-3xl px-5 md:px-8 text-center">
           <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight">
@@ -489,9 +489,9 @@ export default function WebsitesPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
+      {/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
           FOOTER (matches main site)
-          ═══════════════════════════════════════════════════════════ */}
+          âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */}
       <footer className="bg-black px-5 md:px-8 py-12">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
