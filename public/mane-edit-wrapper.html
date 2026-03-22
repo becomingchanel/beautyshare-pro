@@ -20,24 +20,36 @@
       var w='/images/hair-wavy.png',c='/images/hair-curly.png',dd='/images/hair-deep-curly.png';
       var hm='/images/hero-model.png',mc='/images/model-curly-1.png';
       var ms='/images/model-straight-1.png',ms2='/images/model-straight-2.png';
+      function setBg(el,url){if(!el)return;el.style.backgroundImage='url('+url+')';el.style.backgroundSize='cover';el.style.backgroundPosition='center';}
+      setBg(d.querySelector('.hero-bg'),hm);
+      setBg(d.querySelector('.collection-hero'),hm);
+      setBg(d.querySelector('.product-main-image'),hm);
+      setBg(d.querySelector('.sticky-atc-img'),w);
+      setBg(d.querySelector('.editorial-banner'),ms);
       var hp=d.querySelectorAll('#page-home .product-card-img img');
       if(hp[0])hp[0].src=w;if(hp[1])hp[1].src=c;if(hp[2])hp[2].src=dd;
       var tg=d.querySelectorAll('.texture-guide-img img');
       if(tg[0])tg[0].src=ms;if(tg[1])tg[1].src=hm;if(tg[2])tg[2].src=mc;
+      var tgc=d.querySelectorAll('.texture-guide-img');
+      setBg(tgc[0],ms);setBg(tgc[1],hm);setBg(tgc[2],mc);
       var pi=d.querySelector('.promise-img img');if(pi)pi.src=ms2;
+      setBg(d.querySelector('.promise-img'),ms2);
       var ug=d.querySelectorAll('.ugc-item img');
-      [hm,mc,ms,ms2,hm].forEach(function(s,i){if(ug[i])ug[i].src=s;});
+      var ugc=d.querySelectorAll('.ugc-item');
+      [hm,mc,ms,ms2,hm].forEach(function(s,i){if(ug[i])ug[i].src=s;setBg(ugc[i],s);});
       var mi=d.getElementById('productMainImg');if(mi)mi.src=hm;
       var si=d.getElementById('stickyImg');if(si)si.src=w;
       var sp=d.querySelectorAll('#page-shop .product-card-img img');
       if(sp[0])sp[0].src=w;if(sp[1])sp[1].src=c;if(sp[2])sp[2].src=dd;
       var ei=d.querySelectorAll('.texture-card-img img');
       if(ei[0])ei[0].src=w;if(ei[1])ei[1].src=c;if(ei[2])ei[2].src=dd;
+      var tc=d.querySelectorAll('.texture-card-img');
+      setBg(tc[0],w);setBg(tc[1],c);setBg(tc[2],dd);
       var win=f.contentWindow;
       if(win.products){win.products[0].img=w;win.products[1].img=c;win.products[2].img=dd;}
     }catch(e){console.error('Fix:',e);}
   };
 })();
-</script>
+<\/script>
 </body>
-</html>
+  </html>
