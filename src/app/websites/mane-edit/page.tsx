@@ -146,7 +146,7 @@ export default function ManeEditShowcase() {
           </div>
           <iframe
             key={activePage}
-            src={`/mane-edit-preview.html?page=${activePage}`}
+            src={`/mane-edit-wrapper.html?page=${activePage}`}
             style={{
               width: "100%",
               height: 700,
