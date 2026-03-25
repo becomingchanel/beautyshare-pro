@@ -94,6 +94,27 @@ const themes = [
     previewAccent: 'text-[#7B98B5]',
   },
   {
+    id: 'reign',
+    name: 'REIGN',
+    tagline: 'Luxe / Miami Glamour',
+    description:
+      'Wine, lilac & cream palette with cinematic hero sections and editorial styling. Bodoni Moda serif headlines with Jost body text create a bold yet sophisticated raw hair experience \u2014 perfect for premium vendors.',
+    colors: { bg: '#510815', accent: '#B6A1CA', text: '#EDD8C2' },
+    fonts: 'Bodoni Moda + Jost',
+    features: [
+      'Cinematic full-viewport hero with gradient overlay',
+      'Wine & lilac luxury palette with cream accents',
+      'Editorial split sections and masonry lookbook gallery',
+      '7 complete pages including hair care guide & contact',
+    ],
+    bestFor: 'Premium raw hair vendors, Miami aesthetic, luxury hair brands, single-donor bundles',
+    gradient: 'from-[#391212] to-[#510815]',
+    accentColor: '#B6A1CA',
+    previewBg: 'bg-[#510815]',
+    previewText: 'text-[#EDD8C2]',
+    previewAccent: 'text-[#B6A1CA]',
+  },
+  {
     id: 'vibe-hair-co',
     name: 'Vibe Hair Co',
     tagline: 'Bold / Street Style',
@@ -213,7 +234,7 @@ export default function WebsitesPage() {
             <span className="brand-gradient-text">Ready to Sell.</span>
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-black/60 leading-relaxed">
-            Choose from 4 professionally designed Shopify hair store themes.
+            Choose from 5 professionally designed Shopify hair store themes.
             Upload to Shopify, customize with drag-and-drop, and launch your branded store in days Ã¢ÂÂ no coding required.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -244,7 +265,7 @@ export default function WebsitesPage() {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { step: '01', title: 'Pick Your Design', desc: 'Browse our collection of 4 professionally designed hair business themes. Each one is fully coded and ready for Shopify.', icon: Icon.palette },
+              { step: '01', title: 'Pick Your Design', desc: 'Browse our collection of 5 professionally designed hair business themes. Each one is fully coded and ready for Shopify.', icon: Icon.palette },
               { step: '02', title: 'Customize with Drag & Drop', desc: 'Upload the theme to Shopify and use the built-in theme editor to change colors, text, images, and layout Ã¢ÂÂ zero coding needed.', icon: Icon.cursor },
               { step: '03', title: 'Launch & Start Selling', desc: 'Connect your products, set your prices, and go live. Your professional store is ready to take orders from day one.', icon: Icon.bolt },
             ].map((item) => (
@@ -262,7 +283,7 @@ export default function WebsitesPage() {
       </section>
 
       {/* Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
-          THEME SHOWCASE Ã¢ÂÂ 4 themes
+          THEME SHOWCASE Ã¢ÂÂ 5 themes
           Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ */}
       <section id="themes" className="py-20 md:py-28 bg-white">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
@@ -310,7 +331,7 @@ export default function WebsitesPage() {
                       </p>
                       <h3
                         className={`text-3xl md:text-4xl font-extrabold mb-3 ${theme.previewText}`}
-                        style={theme.id === 'mane-edit' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, letterSpacing: '0.02em' } : theme.id === 'blossom-beauty' ? { fontFamily: "'Playfair Display', serif", fontStyle: 'italic' } : theme.id === 'vibe-hair-co' ? { fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' } : {}}
+                        style={theme.id === 'mane-edit' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, letterSpacing: '0.02em' } : theme.id === 'reign' ? { fontFamily: "'Bodoni Moda', Georgia, serif", fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' } : theme.id === 'blossom-beauty' ? { fontFamily: "'Playfair Display', serif", fontStyle: 'italic' } : theme.id === 'vibe-hair-co' ? { fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' } : {}}
                       >
                         {theme.name}
                       </h3>

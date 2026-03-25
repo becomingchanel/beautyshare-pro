@@ -97,9 +97,24 @@ function injectProductImages(doc, texture) {
   }, 100);
 }
 
+var requestedPage = new URLSearchParams(location.search).get('page') || 'home';
+
 iframe.addEventListener('load', function() {
   var doc = iframe.contentDocument;
   if (!doc) return;
+
+  /* Navigate to requested page */
+  if (requestedPage === 'product') {
+    if (doc.defaultView && doc.defaultView.showPage) doc.defaultView.showPage('shop');
+    setTimeout(function() {
+      if (doc.defaultView && doc.defaultView.showProduct) doc.defaultView.showProduct(1);
+      injectImages(doc);
+      setTimeout(function() { injectProductImages(doc, 'Wavy'); }, 200);
+    }, 300);
+  } else if (requestedPage !== 'home' && doc.defaultView && doc.defaultView.showPage) {
+    doc.defaultView.showPage(requestedPage);
+  }
+
   injectImages(doc);
   setTimeout(function() { injectImages(doc); }, 500);
   var iframeWin = iframe.contentWindow;
