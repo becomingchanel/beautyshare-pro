@@ -20,7 +20,7 @@ const pages = [
 ];
 
 const features = [
-  { title: "7 Complete Pages", desc: "Home, Shop, Product Detail, Hair Care Guide, Lookbook, About, and Contact \u2014 all fully designed and interactive." },
+  { title: "7 Complete Pages", desc: "Home, Shop, Product Detail, Hair Care Guide, Lookbook, About, and Contact — all fully designed and interactive." },
   { title: "Raw Hair Focused", desc: "Built specifically for raw hair vendors with texture guides, care education, single-donor messaging, and lifespan trust badges." },
   { title: "Conversion Optimized", desc: "Hero CTAs, trust bars, product badges, newsletter capture, and sticky navigation designed to drive sales." },
   { title: "Cinematic Design", desc: "Full-viewport hero with gradient overlay, editorial split sections, and masonry lookbook gallery." },
@@ -46,14 +46,14 @@ export default function ReignShowcase() {
     <div style={{ minHeight: "100vh", background: C.bg, fontFamily: "'Jost', -apple-system, sans-serif" }}>
       {/* Top Bar */}
       <div style={{ background: C.wineDark, color: "rgba(237,216,194,.85)", textAlign: "center", padding: "10px 20px", fontSize: ".72rem", fontWeight: 500, letterSpacing: ".15em", textTransform: "uppercase" as const }}>
-        BeautyShare Pro \u2014 Store Design Preview
+        BeautyShare Pro &mdash; Store Design Preview
       </div>
 
       {/* Sticky Header */}
       <header style={{ position: "sticky", top: 0, zIndex: 100, background: "rgba(250,247,244,.95)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(0,0,0,.06)", padding: "16px 24px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <Link href="/websites" style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none", color: C.textLight, fontSize: ".82rem", fontWeight: 500 }}>
-            \u2190 Back to Templates
+            ← Back to Templates
           </Link>
           <div style={{ fontFamily: "'Bodoni Moda', Georgia, serif", fontSize: "1.4rem", fontWeight: 700, color: C.wine, letterSpacing: "6px", textTransform: "uppercase" as const }}>
             REIGN
@@ -227,7 +227,7 @@ export default function ReignShowcase() {
               Bodoni Moda
             </div>
             <p style={{ fontSize: ".82rem", color: C.textLight, lineHeight: 1.7 }}>
-              Used for headings, product names, prices, and editorial moments. Weights 400\u2013800 with italic variants for elegant emphasis.
+              Used for headings, product names, prices, and editorial moments. Weights 400–800 with italic variants for elegant emphasis.
             </p>
           </div>
           <div style={{ background: "#fff", borderRadius: 0, padding: 32, border: "1px solid rgba(0,0,0,.04)" }}>
