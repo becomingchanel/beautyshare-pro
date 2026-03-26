@@ -1408,6 +1408,7 @@ body {
 <div class="page-switcher">
   <button class="page-tab active" onclick="showPage('home')">Home</button>
   <button class="page-tab" onclick="showPage('product')">Product</button>
+  <button class="page-tab" onclick="showPage('contact')">Contact</button>
 </div>
 
 <!-- ==================== HOME PAGE ==================== -->
@@ -2104,6 +2105,106 @@ body {
 </footer>
 </div>
 
+<!-- ==================== CONTACT PAGE ==================== -->
+<div id="page-contact" style="display:none;">
+
+<!-- Contact Hero -->
+<section style="background:var(--charcoal);padding:80px 24px;text-align:center">
+  <p style="font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-gold);margin-bottom:12px">Get in Touch</p>
+  <h1 style="font-family:var(--font-heading);font-size:clamp(2rem,5vw,3.2rem);font-weight:600;color:var(--cream);margin-bottom:12px">Contact Us</h1>
+  <p style="color:rgba(245,240,235,.65);font-size:.95rem;max-width:500px;margin:0 auto">We're here to help with orders, styling advice, and wholesale inquiries.</p>
+</section>
+
+<!-- Contact Content -->
+<section style="max-width:1100px;margin:0 auto;padding:80px 24px">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
+
+    <!-- Contact Form -->
+    <div style="background:#fff;padding:48px;border:1px solid #eee;border-radius:8px">
+      <h3 style="font-family:var(--font-heading);font-size:1.6rem;font-weight:600;color:var(--deep-black);margin-bottom:32px">Send a Message</h3>
+
+      <div style="margin-bottom:24px">
+        <label style="display:block;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--charcoal);margin-bottom:8px">Full Name</label>
+        <input type="text" placeholder="Your name" style="width:100%;padding:14px 18px;border:1px solid #ddd;border-radius:6px;font-family:var(--font-body);font-size:.9rem;background:var(--cream);transition:border-color .3s;outline:none">
+      </div>
+
+      <div style="margin-bottom:24px">
+        <label style="display:block;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--charcoal);margin-bottom:8px">Email Address</label>
+        <input type="email" placeholder="your@email.com" style="width:100%;padding:14px 18px;border:1px solid #ddd;border-radius:6px;font-family:var(--font-body);font-size:.9rem;background:var(--cream);transition:border-color .3s;outline:none">
+      </div>
+
+      <div style="margin-bottom:24px">
+        <label style="display:block;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--charcoal);margin-bottom:8px">Subject</label>
+        <select style="width:100%;padding:14px 18px;border:1px solid #ddd;border-radius:6px;font-family:var(--font-body);font-size:.9rem;background:var(--cream);cursor:pointer;outline:none">
+          <option>General Inquiry</option>
+          <option>Order Support</option>
+          <option>Wholesale / Partnerships</option>
+          <option>Styling Consultation</option>
+          <option>Returns &amp; Exchanges</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom:32px">
+        <label style="display:block;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--charcoal);margin-bottom:8px">Message</label>
+        <textarea placeholder="How can we help?" style="width:100%;height:140px;padding:14px 18px;border:1px solid #ddd;border-radius:6px;font-family:var(--font-body);font-size:.9rem;background:var(--cream);resize:vertical;outline:none"></textarea>
+      </div>
+
+      <button style="width:100%;padding:16px;background:var(--deep-black);color:var(--cream);border:none;font-family:var(--font-body);font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border-radius:6px;cursor:pointer;transition:opacity .3s" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Send Message</button>
+    </div>
+
+    <!-- Contact Info -->
+    <div style="padding-top:8px">
+      <h3 style="font-family:var(--font-heading);font-size:1.6rem;font-weight:600;color:var(--deep-black);margin-bottom:32px">We'd Love to Hear From You</h3>
+
+      <div style="display:flex;gap:16px;margin-bottom:28px;align-items:flex-start">
+        <div style="width:44px;height:44px;background:var(--sand);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px">✉</div>
+        <div>
+          <h4 style="font-size:.9rem;font-weight:600;color:var(--deep-black);margin-bottom:2px">Email</h4>
+          <p style="font-size:.85rem;color:var(--warm-gray)">hello@luxehairco.com</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:16px;margin-bottom:28px;align-items:flex-start">
+        <div style="width:44px;height:44px;background:var(--sand);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px">📱</div>
+        <div>
+          <h4 style="font-size:.9rem;font-weight:600;color:var(--deep-black);margin-bottom:2px">Phone</h4>
+          <p style="font-size:.85rem;color:var(--warm-gray)">(404) 555-LUXE</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:16px;margin-bottom:28px;align-items:flex-start">
+        <div style="width:44px;height:44px;background:var(--sand);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px">📍</div>
+        <div>
+          <h4 style="font-size:.9rem;font-weight:600;color:var(--deep-black);margin-bottom:2px">Location</h4>
+          <p style="font-size:.85rem;color:var(--warm-gray)">Atlanta, Georgia</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:16px;margin-bottom:40px;align-items:flex-start">
+        <div style="width:44px;height:44px;background:var(--sand);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px">💬</div>
+        <div>
+          <h4 style="font-size:.9rem;font-weight:600;color:var(--deep-black);margin-bottom:2px">Social</h4>
+          <p style="font-size:.85rem;color:var(--warm-gray)">@luxehairco on Instagram &amp; TikTok</p>
+        </div>
+      </div>
+
+      <div style="background:var(--cream);padding:28px;border-radius:8px">
+        <h4 style="font-family:var(--font-heading);font-size:1.1rem;font-weight:600;color:var(--deep-black);margin-bottom:12px">Business Hours</h4>
+        <p style="font-size:.85rem;color:var(--warm-gray);line-height:1.8">Monday – Friday: 10am – 6pm EST<br>Saturday: 11am – 4pm EST<br>Sunday: Closed</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact CTA -->
+<section style="background:var(--deep-black);padding:72px 24px;text-align:center">
+  <h2 style="font-family:var(--font-heading);font-size:clamp(1.4rem,3vw,2rem);font-weight:600;color:#fff;margin-bottom:12px">Ready to Elevate Your <em style="color:var(--accent-gold);font-weight:400">Look</em>?</h2>
+  <p style="color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto">Browse our premium collection and find your perfect match.</p>
+  <a href="#" onclick="showPage('home')" style="display:inline-block;padding:14px 36px;background:var(--accent-gold);color:var(--deep-black);border-radius:6px;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none">Shop the Collection</a>
+</section>
+
+</div>
+
 <!-- Back to Top -->
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
@@ -2112,8 +2213,10 @@ body {
 function showPage(page) {
   document.getElementById('page-home').style.display = page === 'home' ? 'block' : 'none';
   document.getElementById('page-product').style.display = page === 'product' ? 'block' : 'none';
+  document.getElementById('page-contact').style.display = page === 'contact' ? 'block' : 'none';
   document.querySelectorAll('.page-tab').forEach(t => t.classList.remove('active'));
-  document.querySelector(`.page-tab[onclick="showPage('${page}')"]`).classList.add('active');
+  var activeTab = document.querySelector('.page-tab[onclick="showPage(\'' + page + '\')"]');
+  if (activeTab) activeTab.classList.add('active');
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
 

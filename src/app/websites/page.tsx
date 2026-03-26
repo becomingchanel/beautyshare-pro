@@ -135,69 +135,6 @@ const themes = [
     previewText: 'text-[#F5F0EB]',
     previewAccent: 'text-[#C9A96E]',
   },
-  {
-    id: 'vibe-hair-co',
-    name: 'Vibe Hair Co',
-    tagline: 'Bold / Street Style',
-    description:
-      'Vibrant pink and purple energy for bold entrepreneurs who want their brand to pop. Oversized Bebas Neue headings with Poppins body text deliver that street-chic confidence.',
-    colors: { bg: 'hsl(var(--background))', accent: 'hsl(var(--primary))', text: 'hsl(var(--foreground))' },
-    fonts: 'Bebas Neue + Poppins',
-    features: [
-      'Bold uppercase display headings',
-      'Vibrant pink-to-purple gradient accents',
-      'High-contrast cards with rounded corners',
-      'Energetic hover animations',
-    ],
-    bestFor: 'Young audiences, social-media-first brands, trend-driven styles',
-    gradient: 'from-[hsl(var(--primary))] to-[#DCBDEF]',
-    accentColor: 'hsl(var(--primary))',
-    previewBg: 'bg-white',
-    previewText: 'text-[hsl(var(--foreground))]',
-    previewAccent: 'text-[hsl(var(--primary))]',
-  },
-  {
-    id: 'blossom-beauty',
-    name: 'Blossom Beauty',
-    tagline: 'Soft / Feminine',
-    description:
-      'Warm blush tones and rose gold accents for a soft, inviting brand feel. Playfair Display italic headlines paired with Lato create an effortlessly pretty and trustworthy store.',
-    colors: { bg: 'hsl(var(--background))', accent: 'hsl(var(--primary))', text: 'hsl(var(--foreground))' },
-    fonts: 'Playfair Display + Lato',
-    features: [
-      'Warm blush/rose background tones',
-      'Elegant rose gold accent details',
-      'Italic serif headings for a personal touch',
-      'Subtle rounded elements throughout',
-    ],
-    bestFor: 'Bridal hair, natural hair, everyday glam, beauty salon brands',
-    gradient: 'from-[hsl(var(--primary))] to-[hsl(var(--background))]',
-    accentColor: 'hsl(var(--primary))',
-    previewBg: 'bg-[hsl(var(--background))]',
-    previewText: 'text-[hsl(var(--foreground))]',
-    previewAccent: 'text-[hsl(var(--primary))]',
-  },
-  {
-    id: 'pure-strand',
-    name: 'Pure Strand',
-    tagline: 'Clean / Minimalist',
-    description:
-      'Crisp white space with refined black typography and a gold accent. Inter\'s clean lines throughout create a modern, editorial feel that lets your product photography shine.',
-    colors: { bg: 'hsl(var(--background))', accent: 'hsl(var(--highlight))', text: 'hsl(var(--foreground))' },
-    fonts: 'Inter (all weights)',
-    features: [
-      'Maximum white space for editorial feel',
-      'Sharp black typography with gold details',
-      'Grid-based layouts for product focus',
-      'Minimal UI Ã¢ÂÂ the hair is the hero',
-    ],
-    bestFor: 'Product-focused brands, wholesale storefronts, clean aesthetics',
-    gradient: 'from-[hsl(var(--foreground))] to-[hsl(var(--foreground))]',
-    accentColor: 'hsl(var(--highlight))',
-    previewBg: 'bg-white',
-    previewText: 'text-[hsl(var(--foreground))]',
-    previewAccent: 'text-[hsl(var(--highlight))]',
-  },
 ];
 
 /* ================================================================
@@ -352,7 +289,7 @@ export default function WebsitesPage() {
                       </p>
                       <h3
                         className={`text-3xl md:text-4xl font-extrabold mb-3 ${theme.previewText}`}
-                        style={theme.id === 'mane-edit' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, letterSpacing: '0.02em' } : theme.id === 'reign' ? { fontFamily: "'Bodoni Moda', Georgia, serif", fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' } : theme.id === 'luxe' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, letterSpacing: '0.02em' } : theme.id === 'blossom-beauty' ? { fontFamily: "'Playfair Display', serif", fontStyle: 'italic' } : theme.id === 'vibe-hair-co' ? { fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' } : {}}
+                        style={theme.id === 'mane-edit' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, letterSpacing: '0.02em' } : theme.id === 'reign' ? { fontFamily: "'Bodoni Moda', Georgia, serif", fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' } : theme.id === 'luxe' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, letterSpacing: '0.02em' } : {}}
                       >
                         {theme.name}
                       </h3>
@@ -367,7 +304,7 @@ export default function WebsitesPage() {
                         style={{
                           backgroundColor: theme.colors.accent,
                           color: theme.id === 'mane-edit' ? '#351D14' : 'hsl(var(--background))',
-                          borderRadius: theme.id === 'pure-strand' ? '0' : theme.id === 'blossom-beauty' ? '9999px' : '9999px',
+                          borderRadius: '9999px',
                         }}
                       >
                         Shop Now
