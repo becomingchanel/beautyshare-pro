@@ -115,6 +115,27 @@ const themes = [
     previewAccent: 'text-[#B6A1CA]',
   },
   {
+    id: 'luxe',
+    name: 'Luxe Hair Co.',
+    tagline: 'Warm / Elevated Neutral',
+    description:
+      'Warm neutral tones with gold accents create an elevated, premium feel. Cormorant Garamond display font with Outfit body text delivers a luxurious yet approachable storefront \u2014 perfect for hair extension brands.',
+    colors: { bg: '#1A1714', accent: '#C9A96E', text: '#F5F0EB' },
+    fonts: 'Cormorant Garamond + Outfit',
+    features: [
+      'Two-column hero with floating review badge',
+      'Shop by Texture collection grid with hover overlays',
+      'Featured product spotlight with length variant selector',
+      'Static trust bar, video section, and UGC Instagram gallery',
+    ],
+    bestFor: 'Hair extension brands, bundle vendors, premium hair businesses, luxury e-commerce',
+    gradient: 'from-[#1A1714] to-[#3D3630]',
+    accentColor: '#C9A96E',
+    previewBg: 'bg-[#1A1714]',
+    previewText: 'text-[#F5F0EB]',
+    previewAccent: 'text-[#C9A96E]',
+  },
+  {
     id: 'vibe-hair-co',
     name: 'Vibe Hair Co',
     tagline: 'Bold / Street Style',
@@ -331,7 +352,7 @@ export default function WebsitesPage() {
                       </p>
                       <h3
                         className={`text-3xl md:text-4xl font-extrabold mb-3 ${theme.previewText}`}
-                        style={theme.id === 'mane-edit' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, letterSpacing: '0.02em' } : theme.id === 'reign' ? { fontFamily: "'Bodoni Moda', Georgia, serif", fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' } : theme.id === 'blossom-beauty' ? { fontFamily: "'Playfair Display', serif", fontStyle: 'italic' } : theme.id === 'vibe-hair-co' ? { fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' } : {}}
+                        style={theme.id === 'mane-edit' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, letterSpacing: '0.02em' } : theme.id === 'reign' ? { fontFamily: "'Bodoni Moda', Georgia, serif", fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' } : theme.id === 'luxe' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, letterSpacing: '0.02em' } : theme.id === 'blossom-beauty' ? { fontFamily: "'Playfair Display', serif", fontStyle: 'italic' } : theme.id === 'vibe-hair-co' ? { fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase' } : {}}
                       >
                         {theme.name}
                       </h3>
