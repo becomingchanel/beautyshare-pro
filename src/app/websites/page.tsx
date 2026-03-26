@@ -135,6 +135,27 @@ const themes = [
     previewText: 'text-[#F5F0EB]',
     previewAccent: 'text-[#C9A96E]',
   },
+  {
+    id: 'noir-crown',
+    name: 'Noir Crown',
+    tagline: 'Cinematic / Editorial Luxury',
+    description:
+      'Deep wine, warm tan, and forest tones create a cinematic, editorial feel. Playfair Display serif headlines with DM Sans body text deliver bold luxury \u2014 perfect for premium raw hair brands.',
+    colors: { bg: '#400106', accent: '#D9B991', text: '#FAF6F1' },
+    fonts: 'Playfair Display + DM Sans',
+    features: [
+      'Cinematic gradient hero with warm tan accents',
+      'Deep wine & forest luxury color palette',
+      'Shop-by-texture grid with product weft images',
+      '7 complete pages including hair care guide & FAQ',
+    ],
+    bestFor: 'Premium raw hair vendors, luxury hair brands, single-donor bundles, editorial storefronts',
+    gradient: 'from-[#400106] to-[#0D0C00]',
+    accentColor: '#D9B991',
+    previewBg: 'bg-[#400106]',
+    previewText: 'text-[#FAF6F1]',
+    previewAccent: 'text-[#D9B991]',
+  },
 ];
 
 /* ================================================================
@@ -289,7 +310,7 @@ export default function WebsitesPage() {
                       </p>
                       <h3
                         className={`text-3xl md:text-4xl font-extrabold mb-3 ${theme.previewText}`}
-                        style={theme.id === 'mane-edit' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, letterSpacing: '0.02em' } : theme.id === 'reign' ? { fontFamily: "'Bodoni Moda', Georgia, serif", fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' } : theme.id === 'luxe' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, letterSpacing: '0.02em' } : {}}
+                        style={theme.id === 'mane-edit' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, letterSpacing: '0.02em' } : theme.id === 'reign' ? { fontFamily: "'Bodoni Moda', Georgia, serif", fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' } : theme.id === 'luxe' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, letterSpacing: '0.02em' } : theme.id === 'noir-crown' ? { fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, letterSpacing: '0.02em' } : {}}
                       >
                         {theme.name}
                       </h3>

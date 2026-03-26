@@ -1,0 +1,2610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noir Crown | Premium Raw Hair Extensions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   CSS VARIABLES & RESET
+   ============================================================ */
+:root {
+  --wine: #400106;
+  --tan: #D9B991;
+  --brown: #402814;
+  --forest: #0D0C00;
+  --burgundy: #260101;
+  --bg: #FAF6F1;
+  --text: #1A1714;
+  --wine-rgb: 64,1,6;
+  --tan-rgb: 217,185,145;
+  --brown-rgb: 64,40,20;
+  --forest-rgb: 13,12,0;
+  --burgundy-rgb: 38,1,1;
+  --radius: 8px;
+  --radius-lg: 16px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+  --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; font-family: 'DM Sans', sans-serif; border: none; outline: none; }
+input, textarea, select { font-family: 'DM Sans', sans-serif; outline: none; }
+ul { list-style: none; }
+
+/* ============================================================
+   PAGE SWITCHER TABS (top bar)
+   ============================================================ */
+.page-switcher {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9999;
+  background: var(--forest);
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  border-bottom: 2px solid var(--wine);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.page-switcher button {
+  background: none;
+  color: var(--tan);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.page-switcher button:hover,
+.page-switcher button.active {
+  color: #fff;
+  background: rgba(var(--wine-rgb), 0.3);
+  border-bottom-color: var(--tan);
+}
+
+/* ============================================================
+   GLOBAL PAGE STYLES
+   ============================================================ */
+.page { display: none; padding-top: 42px; }
+.page.active { display: block; }
+
+/* ============================================================
+   STICKY NAV
+   ============================================================ */
+.nav {
+  position: sticky;
+  top: 42px;
+  z-index: 1000;
+  background: rgba(250,246,241,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(var(--brown-rgb),0.1);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  transition: var(--transition);
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--wine);
+  letter-spacing: 1px;
+}
+
+.nav-logo span { color: var(--tan); font-style: italic; }
+
+.nav-links { display: flex; gap: 32px; align-items: center; }
+
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text);
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--wine);
+  transition: var(--transition);
+}
+
+.nav-links a:hover::after { width: 100%; }
+
+.nav-links .nav-cart {
+  background: var(--wine);
+  color: var(--tan);
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.nav-links .nav-cart:hover { background: var(--burgundy); }
+
+/* Mobile nav toggle */
+.nav-toggle { display: none; background: none; font-size: 1.5rem; color: var(--text); }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  background: var(--tan);
+  color: var(--forest);
+}
+.btn-primary:hover { background: #c9a97d; transform: translateY(-2px); box-shadow: var(--shadow); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--wine);
+  border: 2px solid var(--wine);
+}
+.btn-outline:hover { background: var(--wine); color: var(--tan); }
+
+.btn-wine {
+  background: var(--wine);
+  color: var(--tan);
+}
+.btn-wine:hover { background: var(--burgundy); transform: translateY(-2px); box-shadow: var(--shadow); }
+
+.btn-white {
+  background: #fff;
+  color: var(--wine);
+}
+.btn-white:hover { background: var(--tan); color: var(--forest); }
+
+/* ============================================================
+   HERO SECTIONS
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 40px;
+  background: linear-gradient(135deg, var(--wine) 0%, var(--forest) 50%, var(--burgundy) 100%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(var(--tan-rgb),0.08) 0%, transparent 70%);
+}
+
+.hero-content { position: relative; z-index: 2; max-width: 800px; }
+
+.hero-badge {
+  display: inline-block;
+  padding: 8px 24px;
+  border: 1px solid rgba(var(--tan-rgb),0.4);
+  border-radius: 100px;
+  color: var(--tan);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.hero h1 em {
+  color: var(--tan);
+  font-style: italic;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.8);
+  max-width: 600px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+
+.hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* Mini hero (subpages) */
+.hero-mini {
+  min-height: 40vh;
+  padding: 60px 40px;
+}
+
+.hero-mini h1 { font-size: clamp(2rem, 4vw, 3rem); }
+
+/* ============================================================
+   SECTION LAYOUTS
+   ============================================================ */
+.section {
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.section-header .label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin-bottom: 12px;
+}
+
+.section-header h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.section-header p {
+  font-size: 1.05rem;
+  color: rgba(var(--brown-rgb),0.7);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   TRUST / MARQUEE BAR
+   ============================================================ */
+.trust-bar {
+  background: var(--forest);
+  padding: 14px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.trust-bar-inner {
+  display: inline-flex;
+  animation: marquee 30s linear infinite;
+}
+
+.trust-bar-inner span {
+  color: var(--tan);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0 40px;
+}
+
+.trust-bar-inner span::before {
+  content: '\2726';
+  margin-right: 12px;
+  opacity: 0.5;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   PRODUCT CARDS / GRID
+   ============================================================ */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-card-img {
+  aspect-ratio: 3/4;
+  background: linear-gradient(135deg, var(--wine), var(--brown), var(--burgundy));
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 40% 60%, rgba(var(--tan-rgb),0.15), transparent 60%);
+}
+
+.product-badge {
+  position: absolute;
+  top: 16px; left: 16px;
+  background: var(--tan);
+  color: var(--forest);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  z-index: 2;
+}
+
+.product-card-body { padding: 24px; }
+
+.product-card-body h3 {
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.product-card-body .product-lengths {
+  font-size: 0.8rem;
+  color: rgba(var(--brown-rgb),0.6);
+  margin-bottom: 12px;
+}
+
+.product-card-body .product-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--wine);
+  margin-bottom: 16px;
+}
+
+.product-card-body .product-price span {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(var(--brown-rgb),0.6);
+}
+
+.product-card-body .btn { width: 100%; font-size: 0.8rem; padding: 12px 20px; }
+
+/* Texture grid (4 columns) */
+.texture-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.texture-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 3/4;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.texture-card:hover { transform: scale(1.03); }
+
+.texture-card-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--wine), var(--brown));
+  overflow: hidden;
+}
+.texture-card-bg img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; object-position: center 40%;
+  z-index: 1; padding: 12%;
+  background: var(--bg);
+}
+
+.texture-card:nth-child(2) .texture-card-bg { background: linear-gradient(135deg, var(--brown), var(--forest)); }
+.texture-card:nth-child(3) .texture-card-bg { background: linear-gradient(135deg, var(--burgundy), var(--wine)); }
+.texture-card:nth-child(4) .texture-card-bg { background: linear-gradient(135deg, var(--forest), var(--burgundy)); }
+
+.texture-card-content {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 24px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: #fff;
+  z-index: 2;
+}
+
+.texture-card-content h3 { font-size: 1.15rem; margin-bottom: 4px; }
+.texture-card-content p { font-size: 0.8rem; opacity: 0.8; }
+
+/* ============================================================
+   FEATURED PRODUCT SPOTLIGHT
+   ============================================================ */
+.spotlight {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.spotlight-img {
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--wine), var(--brown), var(--forest));
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(var(--tan-rgb),0.12), transparent 60%);
+}
+
+.spotlight-info .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.spotlight-info h2 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.spotlight-info p {
+  color: rgba(var(--brown-rgb),0.7);
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+
+.spotlight-info ul {
+  margin-bottom: 32px;
+}
+
+.spotlight-info ul li {
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.spotlight-info ul li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  color: var(--wine);
+  font-weight: 700;
+}
+
+/* ============================================================
+   PILLARS / WHY CHOOSE US
+   ============================================================ */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.pillar-card {
+  text-align: center;
+  padding: 40px 24px;
+  border-radius: var(--radius-lg);
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  transition: var(--transition);
+}
+
+.pillar-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+.pillar-icon {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--wine), var(--burgundy));
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.5rem;
+  color: var(--tan);
+}
+
+.pillar-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.pillar-card p { font-size: 0.9rem; color: rgba(var(--brown-rgb),0.65); line-height: 1.6; }
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.testimonial-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '\201C';
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  color: var(--tan);
+  position: absolute;
+  top: 16px; left: 24px;
+  line-height: 1;
+}
+
+.testimonial-stars { color: var(--tan); font-size: 0.9rem; margin-bottom: 16px; letter-spacing: 2px; }
+
+.testimonial-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(var(--brown-rgb),0.8);
+  margin-bottom: 20px;
+  padding-top: 24px;
+}
+
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+
+.testimonial-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--tan), var(--brown));
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.testimonial-avatar img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+.testimonial-author-info h4 { font-size: 0.9rem; font-family: 'DM Sans', sans-serif; font-weight: 600; }
+.testimonial-author-info span { font-size: 0.8rem; color: rgba(var(--brown-rgb),0.5); }
+
+/* ============================================================
+   INSTAGRAM / UGC GALLERY
+   ============================================================ */
+.ugc-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+}
+
+.ugc-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.ugc-item-bg {
+  width: 100%; height: 100%;
+  transition: var(--transition);
+}
+
+.ugc-item:nth-child(1) .ugc-item-bg { background: linear-gradient(135deg, var(--wine), var(--brown)); }
+.ugc-item:nth-child(2) .ugc-item-bg { background: linear-gradient(135deg, var(--brown), var(--tan)); }
+.ugc-item:nth-child(3) .ugc-item-bg { background: linear-gradient(135deg, var(--burgundy), var(--wine)); }
+.ugc-item:nth-child(4) .ugc-item-bg { background: linear-gradient(135deg, var(--forest), var(--brown)); }
+.ugc-item:nth-child(5) .ugc-item-bg { background: linear-gradient(135deg, var(--tan), var(--wine)); }
+.ugc-item:nth-child(6) .ugc-item-bg { background: linear-gradient(135deg, var(--wine), var(--forest)); }
+
+.ugc-item:hover .ugc-item-bg { transform: scale(1.1); }
+
+.ugc-item::after {
+  content: '@noircrown';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--wine-rgb),0.6);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.ugc-item:hover::after { opacity: 1; }
+
+/* ============================================================
+   NEWSLETTER
+   ============================================================ */
+.newsletter {
+  background: linear-gradient(135deg, var(--wine), var(--burgundy));
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.newsletter h2 { color: #fff; font-size: 2rem; margin-bottom: 12px; }
+.newsletter p { color: rgba(var(--tan-rgb),0.8); margin-bottom: 32px; font-size: 1.05rem; }
+
+.newsletter-form {
+  display: flex;
+  gap: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 14px 24px;
+  border: 1px solid rgba(var(--tan-rgb),0.3);
+  border-radius: 100px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.newsletter-form input::placeholder { color: rgba(255,255,255,0.5); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: linear-gradient(180deg, var(--forest) 0%, var(--burgundy) 100%);
+  padding: 60px 40px 30px;
+  color: var(--tan);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.footer-brand h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.footer-brand p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+.footer-social { display: flex; gap: 12px; }
+
+.footer-social a {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(var(--tan-rgb),0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+
+.footer-social a:hover { background: var(--wine); border-color: var(--wine); }
+
+.footer-col h4 {
+  font-size: 0.85rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 0.9rem;
+  opacity: 0.7;
+  padding: 6px 0;
+}
+
+.footer-col a:hover { opacity: 1; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(var(--tan-rgb),0.15);
+  padding-top: 24px;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.5;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   PRODUCT DETAIL PAGE
+   ============================================================ */
+.pdp-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.pdp-image {
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--wine), var(--brown), var(--forest));
+  position: relative;
+  overflow: hidden;
+  position: sticky;
+  top: 130px;
+}
+
+.pdp-image::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 35% 40%, rgba(var(--tan-rgb),0.15), transparent 60%);
+}
+
+.breadcrumb {
+  font-size: 0.8rem;
+  color: rgba(var(--brown-rgb),0.5);
+  margin-bottom: 16px;
+}
+
+.breadcrumb a { color: var(--wine); }
+.breadcrumb a:hover { text-decoration: underline; }
+
+.pdp-title { font-size: 2rem; margin-bottom: 8px; }
+
+.pdp-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.pdp-rating .stars { color: var(--tan); font-size: 0.9rem; letter-spacing: 2px; }
+.pdp-rating span { font-size: 0.85rem; color: rgba(var(--brown-rgb),0.6); }
+
+.pdp-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--wine);
+  margin-bottom: 16px;
+}
+
+.pdp-price span { font-size: 0.9rem; font-weight: 400; color: rgba(var(--brown-rgb),0.5); }
+
+.pdp-description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(var(--brown-rgb),0.7);
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(var(--brown-rgb),0.1);
+}
+
+/* Length variants */
+.pdp-variants-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.pdp-variants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.variant-btn {
+  padding: 10px 20px;
+  border: 2px solid rgba(var(--brown-rgb),0.15);
+  border-radius: var(--radius);
+  background: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: var(--transition);
+}
+
+.variant-btn:hover { border-color: var(--wine); }
+.variant-btn.active { border-color: var(--wine); background: var(--wine); color: #fff; }
+
+/* Quantity */
+.qty-selector {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 20px;
+}
+
+.qty-selector button {
+  width: 44px; height: 44px;
+  border: 2px solid rgba(var(--brown-rgb),0.15);
+  background: #fff;
+  font-size: 1.2rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition);
+}
+
+.qty-selector button:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+.qty-selector button:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+.qty-selector button:hover { background: var(--bg); }
+
+.qty-selector input {
+  width: 60px; height: 44px;
+  border: 2px solid rgba(var(--brown-rgb),0.15);
+  border-left: none; border-right: none;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #fff;
+}
+
+.add-to-cart {
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--radius);
+  background: var(--tan);
+  color: var(--forest);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: var(--transition);
+  margin-bottom: 24px;
+}
+
+.add-to-cart:hover { background: #c9a97d; transform: translateY(-2px); box-shadow: var(--shadow); }
+
+/* Trust badges */
+.trust-badges {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(var(--brown-rgb),0.1);
+}
+
+.trust-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: rgba(var(--brown-rgb),0.7);
+}
+
+.trust-badge-icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(var(--wine-rgb),0.08);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  color: var(--wine);
+  flex-shrink: 0;
+}
+
+/* Specs table */
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+}
+
+.specs-table tr { border-bottom: 1px solid rgba(var(--brown-rgb),0.08); }
+
+.specs-table td {
+  padding: 14px 0;
+  font-size: 0.9rem;
+}
+
+.specs-table td:first-child {
+  font-weight: 600;
+  color: var(--text);
+  width: 40%;
+}
+
+.specs-table td:last-child {
+  color: rgba(var(--brown-rgb),0.7);
+}
+
+/* ============================================================
+   FAQ ACCORDION
+   ============================================================ */
+.faq-list { max-width: 800px; margin: 0 auto; }
+
+.faq-item {
+  border-bottom: 1px solid rgba(var(--brown-rgb),0.1);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  background: none;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  color: var(--text);
+  transition: var(--transition);
+}
+
+.faq-question:hover { color: var(--wine); }
+
+.faq-icon {
+  font-size: 1.5rem;
+  font-weight: 300;
+  transition: var(--transition);
+  color: var(--wine);
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.faq-answer-inner {
+  padding: 0 0 20px;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: rgba(var(--brown-rgb),0.7);
+}
+
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+.about-mission {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-mission-img {
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--brown), var(--wine));
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.value-card {
+  padding: 40px 28px;
+  border-radius: var(--radius-lg);
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  transition: var(--transition);
+}
+
+.value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+.value-icon {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--wine), var(--burgundy));
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.8rem;
+  color: var(--tan);
+}
+
+.value-card h3 { font-size: 1.15rem; margin-bottom: 12px; }
+.value-card p { font-size: 0.9rem; color: rgba(var(--brown-rgb),0.65); line-height: 1.6; }
+
+/* ============================================================
+   HAIR CARE GUIDE
+   ============================================================ */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.step-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  transition: var(--transition);
+}
+
+.step-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+.step-number {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--wine);
+  color: var(--tan);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 auto 16px;
+}
+
+.step-card h3 { font-size: 1.1rem; margin-bottom: 12px; }
+.step-card p { font-size: 0.9rem; color: rgba(var(--brown-rgb),0.65); line-height: 1.6; }
+
+.maintenance-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.maintenance-img {
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--wine), var(--brown));
+}
+
+.tips-list li {
+  padding: 12px 0;
+  padding-left: 28px;
+  position: relative;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  border-bottom: 1px solid rgba(var(--brown-rgb),0.08);
+}
+
+.tips-list li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  color: var(--wine);
+  font-weight: 700;
+}
+
+/* ============================================================
+   CONTACT PAGE
+   ============================================================ */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+}
+
+.contact-form { background: #fff; border-radius: var(--radius-lg); padding: 40px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+
+.form-group { margin-bottom: 20px; }
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid rgba(var(--brown-rgb),0.12);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  background: var(--bg);
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--wine);
+  box-shadow: 0 0 0 3px rgba(var(--wine-rgb),0.1);
+}
+
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+.info-cards { display: flex; flex-direction: column; gap: 20px; }
+
+.info-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.info-card h3 { font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+
+.info-card h3 .icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(var(--wine-rgb),0.08);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  color: var(--wine);
+}
+
+.info-card p, .info-card a {
+  font-size: 0.9rem;
+  color: rgba(var(--brown-rgb),0.7);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   CTA SECTIONS
+   ============================================================ */
+.cta-section {
+  background: linear-gradient(135deg, var(--wine), var(--forest));
+  padding: 80px 40px;
+  text-align: center;
+  border-radius: var(--radius-lg);
+  margin: 0 40px 60px;
+}
+
+.cta-section h2 { color: #fff; font-size: 2rem; margin-bottom: 12px; }
+.cta-section p { color: rgba(var(--tan-rgb),0.8); margin-bottom: 32px; font-size: 1.05rem; }
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+.back-to-top {
+  position: fixed;
+  bottom: 30px; right: 30px;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--wine);
+  color: var(--tan);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: var(--transition);
+  z-index: 9998;
+  cursor: pointer;
+  border: none;
+}
+
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { background: var(--burgundy); transform: translateY(-2px); }
+
+/* ============================================================
+   REVEAL ANIMATIONS
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   SHOP COLLECTION HERO
+   ============================================================ */
+.collection-hero {
+  background: linear-gradient(135deg, var(--wine), var(--brown));
+  padding: 60px 40px;
+  text-align: center;
+  color: #fff;
+}
+
+.collection-hero h2 { font-size: 2rem; margin-bottom: 8px; }
+.collection-hero p { opacity: 0.8; font-size: 1rem; }
+
+/* ============================================================
+   REVIEWS SECTION ON PDP
+   ============================================================ */
+.pdp-reviews { margin-top: 40px; }
+
+.reviews-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.reviews-header h3 { font-size: 1.3rem; }
+
+/* ============================================================
+   COLORING SECTION
+   ============================================================ */
+.coloring-section {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.coloring-section h3 { font-size: 1.3rem; margin-bottom: 16px; }
+.coloring-section p { font-size: 0.95rem; color: rgba(var(--brown-rgb),0.7); line-height: 1.7; margin-bottom: 12px; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .page-switcher button { padding: 10px 14px; font-size: 0.65rem; letter-spacing: 1px; }
+
+  .nav { padding: 0 20px; height: 60px; }
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+
+  .hero { min-height: 70vh; padding: 60px 20px; }
+  .hero-mini { min-height: 30vh; }
+  .section { padding: 50px 20px; }
+
+  .texture-grid { grid-template-columns: repeat(2, 1fr); }
+  .spotlight { grid-template-columns: 1fr; gap: 32px; }
+  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .ugc-grid { grid-template-columns: repeat(3, 1fr); }
+  .product-grid { grid-template-columns: 1fr; }
+  .pdp-layout { grid-template-columns: 1fr; gap: 32px; }
+  .pdp-image { position: static; }
+  .about-mission { grid-template-columns: 1fr; gap: 32px; }
+  .values-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .maintenance-layout { grid-template-columns: 1fr; gap: 32px; }
+  .contact-layout { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+
+  .newsletter-form { flex-direction: column; }
+  .trust-badges { grid-template-columns: 1fr; }
+  .hero-buttons { flex-direction: column; align-items: center; }
+  .cta-section { margin: 0 20px 40px; padding: 50px 20px; }
+}
+/* ============================================================
+   REAL IMAGE OVERRIDES
+   ============================================================ */
+.product-card-img img, .texture-card-bg img, .hero img, .about-mission-img img, .gallery-item img, .editorial-img img, .spotlight-img img, .ugc-item-bg img, .pdp-image img, .maintenance-img img, .collection-hero img {
+  width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; z-index: 1;
+}
+.product-card-img, .texture-card-bg, .about-mission-img, .spotlight-img, .ugc-item-bg, .pdp-image, .maintenance-img, .collection-hero { position: relative; overflow: hidden; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     PAGE SWITCHER TABS
+     ============================================================ -->
+<div class="page-switcher">
+  <button class="active" onclick="showPage('home')">Home</button>
+  <button onclick="showPage('shop')">Shop</button>
+  <button onclick="showPage('product')">Product</button>
+  <button onclick="showPage('about')">About</button>
+  <button onclick="showPage('haircare')">Hair Care</button>
+  <button onclick="showPage('contact')">Contact</button>
+  <button onclick="showPage('faq')">FAQ</button>
+</div>
+
+
+<!-- ============================================================
+     HOME PAGE
+     ============================================================ -->
+<div id="page-home" class="page active">
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="#" class="nav-logo">Noir <span>Crown</span></a>
+    <div class="nav-links">
+      <a href="#" onclick="showPage('shop')">Shop</a>
+      <a href="#" onclick="showPage('about')">About</a>
+      <a href="#" onclick="showPage('haircare')">Hair Care</a>
+      <a href="#" onclick="showPage('contact')">Contact</a>
+      <a href="#" onclick="showPage('faq')">FAQ</a>
+      <a href="#" class="nav-cart">Cart (0)</a>
+    </div>
+    <button class="nav-toggle" onclick="toggleMobileNav(this)">&#9776;</button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <img src="https://beautyshare-pro.vercel.app/images/noir-crown/duo-hero.png" alt="NOIR CROWN models" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0.25;">
+    <div class="hero-content reveal">
+      <div class="hero-badge">Premium Raw Hair Extensions</div>
+      <h1>Your Hair, Your Crown, <em>Your Legacy</em></h1>
+      <p>Ethically sourced, single-donor raw hair that moves, shines, and lasts like your natural crown. Unprocessed. Unmatched. Undeniably you.</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="showPage('shop')">Shop Collection</button>
+        <button class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.4);" onclick="showPage('about')">Our Story</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <span>100% Raw Unprocessed Hair</span>
+      <span>Single Donor Bundles</span>
+      <span>Free Shipping Over $150</span>
+      <span>3-5 Year Lifespan</span>
+      <span>30-Day Return Policy</span>
+      <span>Ethically Sourced</span>
+      <span>Heat & Color Safe</span>
+      <span>In-House Quality Control</span>
+      <!-- Duplicate for seamless loop -->
+      <span>100% Raw Unprocessed Hair</span>
+      <span>Single Donor Bundles</span>
+      <span>Free Shipping Over $150</span>
+      <span>3-5 Year Lifespan</span>
+      <span>30-Day Return Policy</span>
+      <span>Ethically Sourced</span>
+      <span>Heat & Color Safe</span>
+      <span>In-House Quality Control</span>
+    </div>
+  </div>
+
+  <!-- Shop by Texture -->
+  <section class="section">
+    <div class="section-header reveal">
+      <div class="label">Curated Textures</div>
+      <h2>Shop by Texture</h2>
+      <p>From soft waves to tight coils, find the texture that matches your unique crown.</p>
+    </div>
+    <div class="texture-grid reveal">
+      <div class="texture-card" onclick="showPage('shop')">
+        <div class="texture-card-bg"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/texture-wavy.png" alt="Raw Wavy texture"></div>
+        <div class="texture-card-content">
+          <h3>Raw Wavy</h3>
+          <p>Soft, flowing waves</p>
+        </div>
+      </div>
+      <div class="texture-card" onclick="showPage('shop')">
+        <div class="texture-card-bg"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/texture-wavycurly.png" alt="Raw Wavy/Curly texture"></div>
+        <div class="texture-card-content">
+          <h3>Raw Wavy/Curly</h3>
+          <p>Versatile curl pattern</p>
+        </div>
+      </div>
+      <div class="texture-card" onclick="showPage('shop')">
+        <div class="texture-card-bg"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/texture-curly.png" alt="Raw Curly texture"></div>
+        <div class="texture-card-content">
+          <h3>Raw Curly</h3>
+          <p>Defined, bouncy curls</p>
+        </div>
+      </div>
+      <div class="texture-card" onclick="showPage('shop')">
+        <div class="texture-card-bg"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/texture-kinky.png" alt="Kinky Curly texture"></div>
+        <div class="texture-card-content">
+          <h3>Raw Kinky Curly</h3>
+          <p>Natural coil texture</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Product Spotlight -->
+  <section class="section" style="background:#fff;max-width:100%;padding:80px 40px;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="spotlight reveal">
+        <div class="spotlight-img"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/solo-curly-3.png" alt="Raw Wavy/Curly Bundle model"></div>
+        <div class="spotlight-info">
+          <span class="label">Bestseller</span>
+          <h2>Raw Wavy/Curly Bundle</h2>
+          <p>Our most versatile texture blends a soft wave pattern with a loose curl, giving you the freedom to style your crown however you desire. Single-donor sourced and completely unprocessed for a natural look that lasts.</p>
+          <ul>
+            <li>Available in 14" to 28" lengths</li>
+            <li>Single donor for consistent texture</li>
+            <li>Heat safe up to 400&deg;F</li>
+            <li>3-5 year lifespan with proper care</li>
+          </ul>
+          <button class="btn btn-wine" onclick="showPage('product')">View Product &rarr;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section">
+    <div class="section-header reveal">
+      <div class="label">The Noir Crown Difference</div>
+      <h2>Why Choose Us</h2>
+      <p>We set the standard for premium raw hair with uncompromising quality at every step.</p>
+    </div>
+    <div class="pillars-grid reveal">
+      <div class="pillar-card">
+        <div class="pillar-icon">&#9830;</div>
+        <h3>Ethically Sourced</h3>
+        <p>Our hair is sourced directly from donors in ethical, fair-trade partnerships that uplift communities.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">&#9733;</div>
+        <h3>Single Donor</h3>
+        <p>Each bundle comes from a single donor, ensuring consistent texture, pattern, and quality from root to tip.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">&#9745;</div>
+        <h3>In-House QC</h3>
+        <p>Every bundle passes our rigorous 7-point quality inspection before it ever reaches your hands.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">&#9829;</div>
+        <h3>3-5 Year Lifespan</h3>
+        <p>With proper care, our raw bundles last 3 to 5 years, making them the best investment for your crown.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" style="background:#fff;max-width:100%;padding:80px 40px;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section-header reveal">
+        <div class="label">Reviews</div>
+        <h2>What Our Queens Say</h2>
+        <p>Real women, real hair, real confidence.</p>
+      </div>
+      <div class="testimonials-grid reveal">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>I have been wearing extensions for over 10 years and these bundles are hands down the best I have ever purchased. The curl pattern is beautiful and consistent.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/client-curly.png" alt="Aisha M."></div>
+            <div class="testimonial-author-info">
+              <h4>Aisha M.</h4>
+              <span>Raw Curly Bundle &middot; 22"</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>Minimal shedding, no tangling, and the hair blends perfectly with my natural texture. It has been 8 months and these bundles still look brand new.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/client-straight-1.png" alt="Jasmine T."></div>
+            <div class="testimonial-author-info">
+              <h4>Jasmine T.</h4>
+              <span>Raw Wavy/Curly Bundle &middot; 18"</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>The quality of this raw hair is unmatched. I colored it honey blonde and it took the color beautifully with no damage. Worth every single penny.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/client-blonde.png" alt="Destiny R."></div>
+            <div class="testimonial-author-info">
+              <h4>Destiny R.</h4>
+              <span>Raw Wavy Bundle &middot; 24"</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram / UGC Gallery -->
+  <section style="padding:0;">
+    <div style="text-align:center;padding:60px 40px 30px;">
+      <div class="section-header reveal">
+        <div class="label">Community</div>
+        <h2>Wear Your Crown</h2>
+        <p>Tag @noircrown to be featured</p>
+      </div>
+    </div>
+    <div class="ugc-grid">
+      <div class="ugc-item"><div class="ugc-item-bg"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/solo-curly-1.png" alt="Curly hair model"></div></div>
+      <div class="ugc-item"><div class="ugc-item-bg"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/duo-3.png" alt="Duo models"></div></div>
+      <div class="ugc-item"><div class="ugc-item-bg"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/solo-wavy-1.png" alt="Wavy hair model"></div></div>
+      <div class="ugc-item"><div class="ugc-item-bg"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/duo-4.png" alt="Duo models"></div></div>
+      <div class="ugc-item"><div class="ugc-item-bg"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/solo-wavy-2.png" alt="Wavy hair model"></div></div>
+      <div class="ugc-item"><div class="ugc-item-bg"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/solo-curly-2.png" alt="Curly hair model"></div></div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="reveal">
+      <h2>Join the Crown Circle</h2>
+      <p>Be the first to know about new drops, exclusive offers, and hair care tips.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+        <input type="email" placeholder="Enter your email address" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Noir Crown</h3>
+        <p>Premium raw hair extensions for queens who demand nothing but the best. Ethically sourced, single-donor quality.</p>
+        <div class="footer-social">
+          <a href="#">IG</a>
+          <a href="#">TT</a>
+          <a href="#">FB</a>
+          <a href="#">YT</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="#" onclick="showPage('shop')">All Products</a>
+        <a href="#" onclick="showPage('shop')">Bundles</a>
+        <a href="#" onclick="showPage('shop')">Closures</a>
+        <a href="#">Accessories</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#" onclick="showPage('contact')">Contact Us</a>
+        <a href="#" onclick="showPage('faq')">FAQ</a>
+        <a href="#" onclick="showPage('haircare')">Hair Care Guide</a>
+        <a href="#">Shipping Info</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#" onclick="showPage('about')">Our Story</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Refund Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Noir Crown. All Rights Reserved. | Premium Raw Hair Extensions
+    </div>
+  </footer>
+
+</div><!-- end page-home -->
+
+
+<!-- ============================================================
+     SHOP PAGE
+     ============================================================ -->
+<div id="page-shop" class="page">
+
+  <nav class="nav">
+    <a href="#" class="nav-logo" onclick="showPage('home')">Noir <span>Crown</span></a>
+    <div class="nav-links">
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('shop')">Shop</a>
+      <a href="#" onclick="showPage('about')">About</a>
+      <a href="#" onclick="showPage('haircare')">Hair Care</a>
+      <a href="#" onclick="showPage('contact')">Contact</a>
+      <a href="#" class="nav-cart">Cart (0)</a>
+    </div>
+    <button class="nav-toggle" onclick="toggleMobileNav(this)">&#9776;</button>
+  </nav>
+
+  <!-- Collection Hero -->
+  <div class="collection-hero">
+    <img src="https://beautyshare-pro.vercel.app/images/noir-crown/duo-5.png" alt="NOIR CROWN collection models" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0.2;">
+    <div class="reveal" style="position:relative;z-index:1;">
+      <div class="hero-badge" style="color:var(--tan);border-color:rgba(var(--tan-rgb),0.3);margin-bottom:16px;">The Collection</div>
+      <h2>Premium Raw Bundles &amp; Closures</h2>
+      <p>Ethically sourced, unprocessed hair in every texture for your perfect crown.</p>
+    </div>
+  </div>
+
+  <!-- Product Grid -->
+  <section class="section">
+    <div class="product-grid">
+
+      <!-- Product 1 -->
+      <div class="product-card reveal">
+        <div class="product-card-img">
+          <img src="https://beautyshare-pro.vercel.app/images/noir-crown/solo-wavy-3.png" alt="Raw Wavy Bundle model">
+          <div class="product-badge">Best Seller</div>
+        </div>
+        <div class="product-card-body">
+          <h3>Raw Wavy Bundle</h3>
+          <div class="product-lengths">14" - 28" available</div>
+          <div class="product-price">$165+ <span>per bundle</span></div>
+          <button class="btn btn-wine" onclick="showPage('product')">Shop Now</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card reveal">
+        <div class="product-card-img" style="background:linear-gradient(135deg,var(--brown),var(--wine),var(--forest));">
+          <img src="https://beautyshare-pro.vercel.app/images/noir-crown/solo-curly-3.png" alt="Raw Wavy/Curly Bundle model">
+          <div class="product-badge">Most Popular</div>
+        </div>
+        <div class="product-card-body">
+          <h3>Raw Wavy/Curly Bundle</h3>
+          <div class="product-lengths">14" - 28" available</div>
+          <div class="product-price">$175+ <span>per bundle</span></div>
+          <button class="btn btn-wine" onclick="showPage('product')">Shop Now</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card reveal">
+        <div class="product-card-img" style="background:linear-gradient(135deg,var(--burgundy),var(--wine),var(--brown));">
+          <img src="https://beautyshare-pro.vercel.app/images/noir-crown/solo-curly-1.png" alt="Raw Curly Bundle model">
+          <div class="product-badge">Fan Favorite</div>
+        </div>
+        <div class="product-card-body">
+          <h3>Raw Curly Bundle</h3>
+          <div class="product-lengths">14" - 28" available</div>
+          <div class="product-price">$185+ <span>per bundle</span></div>
+          <button class="btn btn-wine" onclick="showPage('product')">Shop Now</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card reveal">
+        <div class="product-card-img" style="background:linear-gradient(135deg,var(--forest),var(--burgundy),var(--wine));">
+          <img src="https://beautyshare-pro.vercel.app/images/noir-crown/solo-kinky-1.png" alt="Raw Kinky Curly Bundle model">
+          <div class="product-badge">Premium</div>
+        </div>
+        <div class="product-card-body">
+          <h3>Raw Kinky Curly Bundle</h3>
+          <div class="product-lengths">14" - 28" available</div>
+          <div class="product-price">$195+ <span>per bundle</span></div>
+          <button class="btn btn-wine" onclick="showPage('product')">Shop Now</button>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-card reveal">
+        <div class="product-card-img" style="background:linear-gradient(135deg,var(--wine),var(--tan),var(--brown));">
+          <img src="https://beautyshare-pro.vercel.app/images/noir-crown/solo-wavy-1.png" alt="5x5 HD Lace Closure Wavy model">
+          <div class="product-badge">Closure</div>
+        </div>
+        <div class="product-card-body">
+          <h3>5x5 HD Lace Closure (Wavy)</h3>
+          <div class="product-lengths">18" only</div>
+          <div class="product-price">$195</div>
+          <button class="btn btn-wine" onclick="showPage('product')">Shop Now</button>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-card reveal">
+        <div class="product-card-img" style="background:linear-gradient(135deg,var(--brown),var(--burgundy),var(--tan));">
+          <img src="https://beautyshare-pro.vercel.app/images/noir-crown/solo-curly-4.png" alt="5x5 HD Lace Closure Curly model">
+          <div class="product-badge">Closure</div>
+        </div>
+        <div class="product-card-body">
+          <h3>5x5 HD Lace Closure (Curly)</h3>
+          <div class="product-lengths">18" only</div>
+          <div class="product-price">$205</div>
+          <button class="btn btn-wine" onclick="showPage('product')">Shop Now</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer (Shop) -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Noir Crown</h3>
+        <p>Premium raw hair extensions for queens who demand nothing but the best.</p>
+        <div class="footer-social">
+          <a href="#">IG</a><a href="#">TT</a><a href="#">FB</a><a href="#">YT</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Shop</h4><a href="#" onclick="showPage('shop')">All Products</a><a href="#">Bundles</a><a href="#">Closures</a></div>
+      <div class="footer-col"><h4>Support</h4><a href="#" onclick="showPage('contact')">Contact</a><a href="#" onclick="showPage('faq')">FAQ</a><a href="#" onclick="showPage('haircare')">Hair Care</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">Our Story</a><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Noir Crown. All Rights Reserved.</div>
+  </footer>
+
+</div><!-- end page-shop -->
+
+
+<!-- ============================================================
+     PRODUCT DETAIL PAGE
+     ============================================================ -->
+<div id="page-product" class="page">
+
+  <nav class="nav">
+    <a href="#" class="nav-logo" onclick="showPage('home')">Noir <span>Crown</span></a>
+    <div class="nav-links">
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('shop')">Shop</a>
+      <a href="#" onclick="showPage('about')">About</a>
+      <a href="#" onclick="showPage('haircare')">Hair Care</a>
+      <a href="#" onclick="showPage('contact')">Contact</a>
+      <a href="#" class="nav-cart">Cart (0)</a>
+    </div>
+    <button class="nav-toggle" onclick="toggleMobileNav(this)">&#9776;</button>
+  </nav>
+
+  <section class="section">
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb reveal">
+      <a href="#" onclick="showPage('home')">Home</a> / <a href="#" onclick="showPage('shop')">Bundles</a> / Raw Wavy/Curly Bundle
+    </div>
+
+    <!-- PDP Layout -->
+    <div class="pdp-layout">
+
+      <!-- Product Image -->
+      <div class="pdp-image reveal"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/solo-curly-1.png" alt="Raw Wavy/Curly Bundle product image"></div>
+
+      <!-- Product Info -->
+      <div class="pdp-info reveal">
+        <h1 class="pdp-title">Raw Wavy/Curly Bundle</h1>
+
+        <div class="pdp-rating">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>4.9 (127 reviews)</span>
+        </div>
+
+        <div class="pdp-price">$175+ <span>per bundle</span></div>
+
+        <p class="pdp-description">Our Raw Wavy/Curly Bundle is the perfect fusion of soft wave and defined curl, offering unmatched versatility for any look. Sourced from a single donor, every strand maintains a natural, consistent pattern from root to tip. Completely unprocessed and cuticle-aligned for a flawless blend with your natural hair.</p>
+
+        <!-- Length Variants -->
+        <div class="pdp-variants-label">Select Length</div>
+        <div class="pdp-variants">
+          <button class="variant-btn active" onclick="selectVariant(this, 175)">14"</button>
+          <button class="variant-btn" onclick="selectVariant(this, 185)">16"</button>
+          <button class="variant-btn" onclick="selectVariant(this, 200)">18"</button>
+          <button class="variant-btn" onclick="selectVariant(this, 220)">20"</button>
+          <button class="variant-btn" onclick="selectVariant(this, 245)">22"</button>
+          <button class="variant-btn" onclick="selectVariant(this, 270)">24"</button>
+          <button class="variant-btn" onclick="selectVariant(this, 300)">26"</button>
+          <button class="variant-btn" onclick="selectVariant(this, 335)">28"</button>
+        </div>
+
+        <!-- Quantity Selector -->
+        <div class="pdp-variants-label">Quantity</div>
+        <div class="qty-selector">
+          <button onclick="changeQty(-1)">&#8722;</button>
+          <input type="number" id="qtyInput" value="1" min="1" max="10" readonly>
+          <button onclick="changeQty(1)">&#43;</button>
+        </div>
+
+        <!-- Add to Cart -->
+        <button class="add-to-cart" onclick="alert('Added to cart!')">Add to Cart &mdash; <span id="cartPrice">$175</span></button>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges">
+          <div class="trust-badge-item">
+            <div class="trust-badge-icon">&#9992;</div>
+            <span>Free Shipping on Orders $150+</span>
+          </div>
+          <div class="trust-badge-item">
+            <div class="trust-badge-icon">&#8634;</div>
+            <span>30-Day Return Policy</span>
+          </div>
+          <div class="trust-badge-item">
+            <div class="trust-badge-icon">&#9830;</div>
+            <span>Single Donor Guarantee</span>
+          </div>
+          <div class="trust-badge-item">
+            <div class="trust-badge-icon">&#8734;</div>
+            <span>3-5 Year Lifespan</span>
+          </div>
+        </div>
+
+        <!-- Specs Table -->
+        <h3 style="font-size:1.1rem;margin-bottom:16px;">Product Specifications</h3>
+        <table class="specs-table">
+          <tr><td>Hair Type</td><td>100% Raw Human Hair</td></tr>
+          <tr><td>Texture</td><td>Wavy/Curly (Natural Pattern)</td></tr>
+          <tr><td>Source</td><td>Single Donor, Ethically Sourced</td></tr>
+          <tr><td>Processing</td><td>Completely Unprocessed</td></tr>
+          <tr><td>Cuticle</td><td>Full Cuticle Aligned</td></tr>
+          <tr><td>Weight</td><td>~100g per bundle</td></tr>
+          <tr><td>Available Lengths</td><td>14", 16", 18", 20", 22", 24", 26", 28"</td></tr>
+          <tr><td>Heat Safe</td><td>Yes, up to 400&deg;F</td></tr>
+          <tr><td>Color Safe</td><td>Yes (professional coloring recommended)</td></tr>
+          <tr><td>Lifespan</td><td>3-5 years with proper care</td></tr>
+        </table>
+
+        <!-- Product Reviews -->
+        <div class="pdp-reviews">
+          <div class="reviews-header">
+            <h3>Customer Reviews</h3>
+            <span style="color:var(--tan);font-size:0.9rem;">&#9733;&#9733;&#9733;&#9733;&#9733; 4.9/5</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p>This wavy curly texture is everything. It blends perfectly with my natural hair and I get compliments daily. Already ordering more bundles.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/client-straight-2.png" alt="Keisha W."></div>
+                <div class="testimonial-author-info">
+                  <h4>Keisha W.</h4>
+                  <span>Verified Purchase &middot; 20"</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p>I have had these bundles for over a year now with zero tangling. The quality is incredible for the price. Noir Crown has a customer for life.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/client-curly.png" alt="Brianna S."></div>
+                <div class="testimonial-author-info">
+                  <h4>Brianna S.</h4>
+                  <span>Verified Purchase &middot; 24"</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+              <p>Great quality hair, beautiful curl pattern. Took a star off because shipping took a little longer than expected, but the product itself is top tier.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/client-blonde.png" alt="Taylor J."></div>
+                <div class="testimonial-author-info">
+                  <h4>Taylor J.</h4>
+                  <span>Verified Purchase &middot; 18"</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product FAQ -->
+        <div style="margin-top:40px;">
+          <h3 style="font-size:1.1rem;margin-bottom:16px;">Frequently Asked Questions</h3>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                How many bundles do I need for a full install?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer-inner">We recommend 3-4 bundles for a full sew-in or wig install. For lengths 22" and above, 4 bundles are ideal for maximum fullness. If you are adding a closure, 3 bundles plus a closure provides beautiful volume and coverage.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                Can I color or bleach this hair?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer-inner">Yes! Our raw hair takes color beautifully because it is completely unprocessed with intact cuticles. We recommend having a professional colorist handle the process for best results. The hair can be lightened up to a 613 blonde with proper technique.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                What is the difference between raw and virgin hair?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer-inner">Raw hair is collected directly from a single donor and is completely unprocessed with no chemical treatments, steam processing, or acid baths. Virgin hair may come from multiple donors and can undergo steam processing to create uniform texture. Our raw hair retains its natural characteristics for a more authentic look and longer lifespan.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                How should I maintain this hair?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer-inner">Wash with sulfate-free shampoo and follow with a hydrating conditioner. Deep condition weekly. Detangle from ends to roots using a wide-tooth comb. Air dry when possible, and use a heat protectant before any heat styling. Sleep on a silk or satin pillowcase.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFaq(this)">
+                Will the curl pattern revert after washing?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer"><div class="faq-answer-inner">Absolutely. Since this is raw unprocessed hair, the natural curl pattern will revert to its original state after washing. This is actually one of the best indicators that you have genuine raw hair. You can straighten or restyle as desired and it will revert back after each wash.</div></div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end pdp-info -->
+    </div><!-- end pdp-layout -->
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section reveal">
+    <h2>Ready to Wear Your Crown?</h2>
+    <p>Explore our full collection of premium raw bundles and closures.</p>
+    <button class="btn btn-primary" onclick="showPage('shop')">Shop All Products</button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>Noir Crown</h3><p>Premium raw hair extensions for queens who demand nothing but the best.</p></div>
+      <div class="footer-col"><h4>Shop</h4><a href="#" onclick="showPage('shop')">All Products</a><a href="#">Bundles</a><a href="#">Closures</a></div>
+      <div class="footer-col"><h4>Support</h4><a href="#" onclick="showPage('contact')">Contact</a><a href="#" onclick="showPage('faq')">FAQ</a><a href="#" onclick="showPage('haircare')">Hair Care</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">Our Story</a><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Noir Crown. All Rights Reserved.</div>
+  </footer>
+
+</div><!-- end page-product -->
+
+
+<!-- ============================================================
+     ABOUT PAGE
+     ============================================================ -->
+<div id="page-about" class="page">
+
+  <nav class="nav">
+    <a href="#" class="nav-logo" onclick="showPage('home')">Noir <span>Crown</span></a>
+    <div class="nav-links">
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('shop')">Shop</a>
+      <a href="#" onclick="showPage('about')">About</a>
+      <a href="#" onclick="showPage('haircare')">Hair Care</a>
+      <a href="#" onclick="showPage('contact')">Contact</a>
+      <a href="#" class="nav-cart">Cart (0)</a>
+    </div>
+    <button class="nav-toggle" onclick="toggleMobileNav(this)">&#9776;</button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero hero-mini">
+    <img src="https://beautyshare-pro.vercel.app/images/noir-crown/duo-6.png" alt="NOIR CROWN about" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0.2;">
+    <div class="hero-content reveal">
+      <div class="hero-badge">Our Story</div>
+      <h1>The Crown Behind <em>the Brand</em></h1>
+      <p>Born from a passion for authentic beauty and a commitment to quality that refuses to compromise.</p>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="section">
+    <div class="about-mission reveal">
+      <div class="about-mission-img"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/duo-2.png" alt="NOIR CROWN founders"></div>
+      <div>
+        <span class="label" style="display:block;font-size:0.75rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--wine);margin-bottom:12px;">Our Mission</span>
+        <h2 style="font-size:2rem;margin-bottom:16px;">Redefining Raw Hair Standards</h2>
+        <p style="color:rgba(var(--brown-rgb),0.7);line-height:1.7;margin-bottom:16px;">Noir Crown was founded with a singular vision: to provide women with the highest quality raw hair extensions that honor both the wearer and the source. We believe that every woman deserves to feel like royalty, and that starts with hair you can trust.</p>
+        <p style="color:rgba(var(--brown-rgb),0.7);line-height:1.7;margin-bottom:16px;">We work directly with our sourcing partners to ensure fair compensation and ethical practices at every step. From donor to doorstep, we maintain complete transparency and uncompromising quality control.</p>
+        <p style="color:rgba(var(--brown-rgb),0.7);line-height:1.7;">Our in-house preparation process preserves the natural integrity of each bundle, so you receive hair that moves, shines, and lasts exactly as nature intended. No chemicals. No shortcuts. Just pure, raw excellence.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section" style="background:#fff;max-width:100%;padding:80px 40px;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section-header reveal">
+        <div class="label">Our Values</div>
+        <h2>What We Stand For</h2>
+        <p>Three pillars that guide everything we do.</p>
+      </div>
+      <div class="values-grid reveal">
+        <div class="value-card">
+          <div class="value-icon">&#9830;</div>
+          <h3>Ethical Sourcing</h3>
+          <p>Every strand is sourced through fair-trade partnerships that ensure donors are compensated fairly and treated with respect. We maintain direct relationships with our sourcing communities and conduct regular audits to uphold our ethical standards.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">&#9733;</div>
+          <h3>Single Donor Quality</h3>
+          <p>Each bundle comes from one individual donor, ensuring perfect consistency in texture, curl pattern, and quality from root to tip. This means no mixing, no blending, and no surprises when you open your package.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">&#9745;</div>
+          <h3>In-House Preparation</h3>
+          <p>We never outsource our quality control. Every bundle is inspected, cleaned, and prepared in our own facility using gentle, chemical-free methods that preserve the hair's natural cuticle alignment and integrity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section reveal">
+    <h2>Experience the Noir Crown Difference</h2>
+    <p>Shop our premium collection and feel the difference that true raw hair makes.</p>
+    <button class="btn btn-primary" onclick="showPage('shop')">Shop Now</button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>Noir Crown</h3><p>Premium raw hair extensions for queens who demand nothing but the best.</p></div>
+      <div class="footer-col"><h4>Shop</h4><a href="#" onclick="showPage('shop')">All Products</a><a href="#">Bundles</a><a href="#">Closures</a></div>
+      <div class="footer-col"><h4>Support</h4><a href="#" onclick="showPage('contact')">Contact</a><a href="#" onclick="showPage('faq')">FAQ</a><a href="#" onclick="showPage('haircare')">Hair Care</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">Our Story</a><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Noir Crown. All Rights Reserved.</div>
+  </footer>
+
+</div><!-- end page-about -->
+
+
+<!-- ============================================================
+     HAIR CARE GUIDE PAGE
+     ============================================================ -->
+<div id="page-haircare" class="page">
+
+  <nav class="nav">
+    <a href="#" class="nav-logo" onclick="showPage('home')">Noir <span>Crown</span></a>
+    <div class="nav-links">
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('shop')">Shop</a>
+      <a href="#" onclick="showPage('about')">About</a>
+      <a href="#" onclick="showPage('haircare')">Hair Care</a>
+      <a href="#" onclick="showPage('contact')">Contact</a>
+      <a href="#" class="nav-cart">Cart (0)</a>
+    </div>
+    <button class="nav-toggle" onclick="toggleMobileNav(this)">&#9776;</button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero hero-mini">
+    <img src="https://beautyshare-pro.vercel.app/images/noir-crown/duo-7.png" alt="NOIR CROWN hair care" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0.2;">
+    <div class="hero-content reveal">
+      <div class="hero-badge">Hair Care Guide</div>
+      <h1>Caring for Your <em>Crown</em></h1>
+      <p>Proper care is the secret to getting 3-5 years of beautiful wear from your raw bundles. Follow our expert guide below.</p>
+    </div>
+  </section>
+
+  <!-- 3-Step Wash Routine -->
+  <section class="section">
+    <div class="section-header reveal">
+      <div class="label">Wash Day</div>
+      <h2>The 3-Step Wash Routine</h2>
+      <p>Keep your bundles looking fresh and beautiful with our recommended wash routine.</p>
+    </div>
+    <div class="steps-grid reveal">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>Detangle &amp; Pre-Treat</h3>
+        <p>Before wetting the hair, gently detangle from ends to roots using a wide-tooth comb. Apply a lightweight oil to the ends to prevent dryness. This step minimizes tangling and shedding during the wash process.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>Cleanse Gently</h3>
+        <p>Use a sulfate-free, pH-balanced shampoo. Work the shampoo in a downward motion from roots to ends. Never scrub in circular motions as this can cause tangling. Rinse thoroughly with lukewarm water.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>Condition &amp; Seal</h3>
+        <p>Apply a hydrating conditioner from mid-length to ends. Leave on for 5-10 minutes, then rinse with cool water to seal the cuticle. Follow with a leave-in conditioner and air dry whenever possible.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Maintenance Tips -->
+  <section class="section" style="background:#fff;max-width:100%;padding:80px 40px;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="maintenance-layout reveal">
+        <div class="maintenance-img"><img src="https://beautyshare-pro.vercel.app/images/noir-crown/solo-wavy-4.png" alt="Hair maintenance model"></div>
+        <div>
+          <h2 style="font-size:1.8rem;margin-bottom:20px;">Maintenance Tips</h2>
+          <p style="color:rgba(var(--brown-rgb),0.7);margin-bottom:20px;">Follow these tips to extend the life of your raw bundles and keep them looking like new.</p>
+          <ul class="tips-list">
+            <li>Deep condition at least once a week to maintain moisture and elasticity</li>
+            <li>Sleep on a silk or satin pillowcase to reduce friction and prevent dryness</li>
+            <li>Always use a heat protectant spray before flat ironing or curling</li>
+            <li>Avoid using products with sulfates, parabens, or heavy silicones</li>
+            <li>Detangle gently from ends to roots using a wide-tooth comb or your fingers</li>
+            <li>Wash your bundles every 7-10 days, or more frequently if using heavy products</li>
+            <li>Store unused bundles in a silk bag or wrap to prevent tangling and dust buildup</li>
+            <li>Limit heat styling to 350-400 degrees Fahrenheit maximum</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coloring Section -->
+  <section class="section">
+    <div class="section-header reveal">
+      <div class="label">Advanced Care</div>
+      <h2>Coloring Your Raw Hair</h2>
+    </div>
+    <div class="coloring-section reveal">
+      <h3>Can I Color My Noir Crown Bundles?</h3>
+      <p>Absolutely. Because our hair is 100% raw and unprocessed with intact cuticles, it accepts color beautifully. You can lighten, tone, or deposit color just as you would with your natural hair.</p>
+      <p><strong>Our Recommendations:</strong></p>
+      <ul class="tips-list" style="margin-top:12px;">
+        <li>Always perform a strand test on a small section before coloring the full bundle</li>
+        <li>We strongly recommend having a licensed professional handle any lightening or bleaching</li>
+        <li>Use a bond-building treatment during the coloring process to maintain hair integrity</li>
+        <li>Deep condition immediately after coloring and continue weekly treatments</li>
+        <li>Avoid box dyes. Use professional-grade color formulations for the best and safest results</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Hair Care FAQ -->
+  <section class="section" style="background:#fff;max-width:100%;padding:80px 40px;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section-header reveal">
+        <div class="label">Questions</div>
+        <h2>Hair Care FAQ</h2>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">How often should I wash my raw bundles?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We recommend washing every 7-10 days for daily wear. If you use minimal styling products, you can extend this to every 2 weeks. Over-washing can strip natural oils, while under-washing can lead to product buildup.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Can I use heat tools on raw hair?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes! Our raw hair is heat safe up to 400 degrees Fahrenheit. Always use a heat protectant spray before styling. The natural curl pattern will revert after washing, which is a hallmark of genuine raw hair.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">What products do you recommend?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Use sulfate-free shampoos, hydrating conditioners, and lightweight leave-in treatments. Avoid heavy silicones and products containing alcohol. Argan oil, jojoba oil, and coconut oil are excellent for sealing moisture into raw hair.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">How do I prevent tangling?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Detangle gently from ends to roots before washing and before bed. Sleep on a silk or satin pillowcase. Keep the hair moisturized and avoid rubbing or bunching the hair excessively. Regular deep conditioning also helps maintain smooth, tangle-free hair.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Why is my raw hair shedding?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Minimal shedding is normal for any hair extension. However, excessive shedding can be caused by rough handling, not detangling before washing, or using the wrong products. Always comb gently from ends to roots with a wide-tooth comb.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section reveal">
+    <h2>Ready to Crown Yourself?</h2>
+    <p>Now that you know how to care for your bundles, explore our collection.</p>
+    <button class="btn btn-primary" onclick="showPage('shop')">Shop Collection</button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>Noir Crown</h3><p>Premium raw hair extensions for queens who demand nothing but the best.</p></div>
+      <div class="footer-col"><h4>Shop</h4><a href="#" onclick="showPage('shop')">All Products</a><a href="#">Bundles</a><a href="#">Closures</a></div>
+      <div class="footer-col"><h4>Support</h4><a href="#" onclick="showPage('contact')">Contact</a><a href="#" onclick="showPage('faq')">FAQ</a><a href="#" onclick="showPage('haircare')">Hair Care</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">Our Story</a><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Noir Crown. All Rights Reserved.</div>
+  </footer>
+
+</div><!-- end page-haircare -->
+
+
+<!-- ============================================================
+     CONTACT PAGE
+     ============================================================ -->
+<div id="page-contact" class="page">
+
+  <nav class="nav">
+    <a href="#" class="nav-logo" onclick="showPage('home')">Noir <span>Crown</span></a>
+    <div class="nav-links">
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('shop')">Shop</a>
+      <a href="#" onclick="showPage('about')">About</a>
+      <a href="#" onclick="showPage('haircare')">Hair Care</a>
+      <a href="#" onclick="showPage('contact')">Contact</a>
+      <a href="#" class="nav-cart">Cart (0)</a>
+    </div>
+    <button class="nav-toggle" onclick="toggleMobileNav(this)">&#9776;</button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero hero-mini">
+    <img src="https://beautyshare-pro.vercel.app/images/noir-crown/duo-8.png" alt="NOIR CROWN contact" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0.2;">
+    <div class="hero-content reveal">
+      <div class="hero-badge">Get in Touch</div>
+      <h1>Contact <em>Us</em></h1>
+      <p>We would love to hear from you. Reach out with any questions about our products, orders, or partnerships.</p>
+    </div>
+  </section>
+
+  <!-- Contact Layout -->
+  <section class="section">
+    <div class="contact-layout reveal">
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h2 style="font-size:1.5rem;margin-bottom:24px;">Send Us a Message</h2>
+        <form onsubmit="event.preventDefault(); alert('Message sent! We will respond within 24 hours.');">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="Your first name" required>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Your last name" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <select required>
+              <option value="">Select a topic</option>
+              <option>Order Inquiry</option>
+              <option>Product Question</option>
+              <option>Returns & Exchanges</option>
+              <option>Wholesale/Partnership</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Tell us how we can help..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-wine" style="width:100%;">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Info Cards -->
+      <div class="info-cards">
+        <div class="info-card">
+          <h3><span class="icon">&#9993;</span> Email Us</h3>
+          <p>hello@noircrown.com</p>
+          <p style="font-size:0.8rem;margin-top:6px;opacity:0.6;">We typically respond within 24 hours</p>
+        </div>
+        <div class="info-card">
+          <h3><span class="icon">&#9742;</span> Call Us</h3>
+          <p>(555) CROWN-01</p>
+          <p style="font-size:0.8rem;margin-top:6px;opacity:0.6;">Mon-Fri: 9AM - 6PM EST</p>
+        </div>
+        <div class="info-card">
+          <h3><span class="icon">&#9201;</span> Business Hours</h3>
+          <p>Monday - Friday: 9:00 AM - 6:00 PM EST</p>
+          <p>Saturday: 10:00 AM - 4:00 PM EST</p>
+          <p>Sunday: Closed</p>
+        </div>
+        <div class="info-card">
+          <h3><span class="icon">&#9734;</span> Follow Us</h3>
+          <p>Instagram: @noircrown</p>
+          <p>TikTok: @noircrown</p>
+          <p>Facebook: Noir Crown Hair</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>Noir Crown</h3><p>Premium raw hair extensions for queens who demand nothing but the best.</p></div>
+      <div class="footer-col"><h4>Shop</h4><a href="#" onclick="showPage('shop')">All Products</a><a href="#">Bundles</a><a href="#">Closures</a></div>
+      <div class="footer-col"><h4>Support</h4><a href="#" onclick="showPage('contact')">Contact</a><a href="#" onclick="showPage('faq')">FAQ</a><a href="#" onclick="showPage('haircare')">Hair Care</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">Our Story</a><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Noir Crown. All Rights Reserved.</div>
+  </footer>
+
+</div><!-- end page-contact -->
+
+
+<!-- ============================================================
+     FAQ PAGE
+     ============================================================ -->
+<div id="page-faq" class="page">
+
+  <nav class="nav">
+    <a href="#" class="nav-logo" onclick="showPage('home')">Noir <span>Crown</span></a>
+    <div class="nav-links">
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('shop')">Shop</a>
+      <a href="#" onclick="showPage('about')">About</a>
+      <a href="#" onclick="showPage('haircare')">Hair Care</a>
+      <a href="#" onclick="showPage('contact')">Contact</a>
+      <a href="#" class="nav-cart">Cart (0)</a>
+    </div>
+    <button class="nav-toggle" onclick="toggleMobileNav(this)">&#9776;</button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero hero-mini">
+    <img src="https://beautyshare-pro.vercel.app/images/noir-crown/solo-curly-5.png" alt="NOIR CROWN FAQ" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0.2;">
+    <div class="hero-content reveal">
+      <div class="hero-badge">Help Center</div>
+      <h1>Frequently Asked <em>Questions</em></h1>
+      <p>Everything you need to know about our raw hair extensions, ordering, shipping, and more.</p>
+    </div>
+  </section>
+
+  <!-- FAQ List -->
+  <section class="section">
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">What makes Noir Crown hair different from other brands?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Our hair is 100% raw and completely unprocessed. Unlike many brands that steam-process or chemically treat their hair to create uniform textures, our bundles retain their natural curl pattern, cuticle alignment, and integrity. Each bundle comes from a single donor, ensuring consistent quality from root to tip.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">How many bundles do I need?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">For a full sew-in install, we recommend 3-4 bundles depending on your desired fullness and the length you choose. For lengths 14"-18", 3 bundles typically provide great coverage. For 20" and above, 4 bundles are recommended. If adding a closure, 2-3 bundles plus a closure is ideal.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">What is your shipping policy?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">We offer free standard shipping on all orders over $150 within the United States. Standard shipping takes 3-5 business days. Express shipping (1-2 business days) is available for an additional fee. International shipping is available to select countries with delivery times varying by destination.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">What is your return and exchange policy?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">We accept returns and exchanges within 30 days of delivery. Hair must be in its original, uninstalled condition with all packaging and tags intact. Installed, cut, colored, or altered hair cannot be returned. To initiate a return, please contact our support team with your order number.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Can I color or bleach the hair?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes! Our raw hair takes color beautifully since it is completely unprocessed. We recommend professional coloring for the best results. The hair can be lightened, toned, or have color deposited. Always perform a strand test first and deep condition after any chemical processing.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">How long will my raw bundles last?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">With proper care and maintenance, our raw bundles can last 3-5 years. This includes regular washing with sulfate-free products, deep conditioning weekly, gentle detangling, and using heat protectant before any heat styling. The lifespan also depends on how frequently the hair is worn and styled.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Do you offer wholesale or bulk pricing?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes, we offer wholesale pricing for qualified stylists, salon owners, and resellers. Minimum order quantities apply. Please contact us at wholesale@noircrown.com or fill out our contact form with the subject "Wholesale/Partnership" for more information and pricing details.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">What payment methods do you accept?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">We accept all major credit cards (Visa, Mastercard, American Express, Discover), PayPal, Apple Pay, Google Pay, and Shop Pay. We also offer buy-now-pay-later options through Afterpay and Klarna, allowing you to split your purchase into 4 interest-free payments.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">How do I know if I am getting real raw hair?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Real raw hair has natural variation in its curl pattern and will revert to its original texture after washing. It also responds to humidity, holds color well, and has a natural luster. Our bundles come with an authenticity card, and we are happy to provide sourcing information upon request. Beware of brands selling "raw" hair that appears too uniform or does not revert after washing.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Do you offer a loyalty or rewards program?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes! Our Crown Circle loyalty program rewards you for every purchase. Earn 1 point for every dollar spent, and redeem points for discounts on future orders. You also get exclusive early access to new drops, birthday discounts, and VIP-only promotions. Sign up is free through our newsletter.</div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section reveal">
+    <h2>Still Have Questions?</h2>
+    <p>Our team is here to help you find the perfect bundles for your crown.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <button class="btn btn-primary" onclick="showPage('contact')">Contact Us</button>
+      <button class="btn btn-white" onclick="showPage('shop')">Shop Collection</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>Noir Crown</h3><p>Premium raw hair extensions for queens who demand nothing but the best.</p></div>
+      <div class="footer-col"><h4>Shop</h4><a href="#" onclick="showPage('shop')">All Products</a><a href="#">Bundles</a><a href="#">Closures</a></div>
+      <div class="footer-col"><h4>Support</h4><a href="#" onclick="showPage('contact')">Contact</a><a href="#" onclick="showPage('faq')">FAQ</a><a href="#" onclick="showPage('haircare')">Hair Care</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">Our Story</a><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Noir Crown. All Rights Reserved.</div>
+  </footer>
+
+</div><!-- end page-faq -->
+
+
+<!-- ============================================================
+     BACK TO TOP BUTTON
+     ============================================================ -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+/* ============================================================
+   PAGE SWITCHER
+   ============================================================ */
+function showPage(pageName) {
+  // Map page names to IDs
+  const pageMap = {
+    'home': 'page-home',
+    'shop': 'page-shop',
+    'product': 'page-product',
+    'about': 'page-about',
+    'haircare': 'page-haircare',
+    'contact': 'page-contact',
+    'faq': 'page-faq'
+  };
+
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(function(page) {
+    page.classList.remove('active');
+  });
+
+  // Show target page
+  var targetPage = document.getElementById(pageMap[pageName]);
+  if (targetPage) {
+    targetPage.classList.add('active');
+  }
+
+  // Update tab buttons
+  document.querySelectorAll('.page-switcher button').forEach(function(btn) {
+    btn.classList.remove('active');
+  });
+
+  // Find and activate the matching tab
+  var tabNames = ['home', 'shop', 'product', 'about', 'haircare', 'contact', 'faq'];
+  var tabIndex = tabNames.indexOf(pageName);
+  if (tabIndex >= 0) {
+    document.querySelectorAll('.page-switcher button')[tabIndex].classList.add('active');
+  }
+
+  // Scroll to top of page
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Re-trigger reveal animations for the new page
+  setTimeout(function() {
+    initRevealAnimations();
+  }, 100);
+}
+
+/* ============================================================
+   FAQ ACCORDION
+   ============================================================ */
+function toggleFaq(button) {
+  var item = button.parentElement;
+  var answer = item.querySelector('.faq-answer');
+  var isOpen = item.classList.contains('open');
+
+  // Close all siblings in the same list
+  var parentList = item.parentElement;
+  parentList.querySelectorAll('.faq-item').forEach(function(faqItem) {
+    faqItem.classList.remove('open');
+    faqItem.querySelector('.faq-answer').style.maxHeight = null;
+  });
+
+  // Toggle clicked item
+  if (!isOpen) {
+    item.classList.add('open');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
+
+/* ============================================================
+   PRODUCT DETAIL INTERACTIONS
+   ============================================================ */
+var currentPrice = 175;
+var currentQty = 1;
+
+function selectVariant(button, price) {
+  // Update active state
+  document.querySelectorAll('.variant-btn').forEach(function(btn) {
+    btn.classList.remove('active');
+  });
+  button.classList.add('active');
+
+  // Update price
+  currentPrice = price;
+  updateCartPrice();
+}
+
+function changeQty(delta) {
+  currentQty = Math.max(1, Math.min(10, currentQty + delta));
+  document.getElementById('qtyInput').value = currentQty;
+  updateCartPrice();
+}
+
+function updateCartPrice() {
+  var total = currentPrice * currentQty;
+  document.getElementById('cartPrice').textContent = '$' + total;
+}
+
+/* ============================================================
+   MOBILE NAV TOGGLE
+   ============================================================ */
+function toggleMobileNav(btn) {
+  var nav = btn.closest('.nav');
+  var links = nav.querySelector('.nav-links');
+  if (links.style.display === 'flex') {
+    links.style.display = 'none';
+  } else {
+    links.style.display = 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '100%';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.background = 'var(--bg)';
+    links.style.padding = '20px';
+    links.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
+    links.style.gap = '16px';
+    links.style.zIndex = '100';
+  }
+}
+
+/* ============================================================
+   INTERSECTION OBSERVER (Reveal Animations)
+   ============================================================ */
+function initRevealAnimations() {
+  var reveals = document.querySelectorAll('.reveal:not(.revealed)');
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    reveals.forEach(function(el) {
+      observer.observe(el);
+    });
+  } else {
+    // Fallback: just show everything
+    reveals.forEach(function(el) {
+      el.classList.add('revealed');
+    });
+  }
+}
+
+/* ============================================================
+   BACK TO TOP BUTTON
+   ============================================================ */
+window.addEventListener('scroll', function() {
+  var btn = document.getElementById('backToTop');
+  if (window.scrollY > 500) {
+    btn.classList.add('visible');
+  } else {
+    btn.classList.remove('visible');
+  }
+});
+
+/* ============================================================
+   INITIALIZE ON LOAD
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', function() {
+  initRevealAnimations();
+});
+</script>
+
+</body>
+</html>
