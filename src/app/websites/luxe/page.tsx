@@ -11,13 +11,11 @@ const C = {
 
 const pages = [
   { id: "home", label: "Home", desc: "Full homepage with hero, trust bar, shop-by-texture grid, featured product spotlight, video section, bestsellers, how-it-works, reviews, UGC gallery, and email signup." },
-  { id: "shop", label: "Shop", desc: "Collection page with cream hero banner, 3-column product grid with badges, quick-add buttons, and star ratings." },
-  { id: "product", label: "Product Detail", desc: "Full product page with image gallery, length variant selector, quantity controls, add-to-cart, trust badges, specs table, and accordion FAQ." },
-  { id: "contact", label: "Contact", desc: "Two-column contact page with form (name, email, subject, message) and contact info cards with business hours." },
+  { id: "product", label: "Product Detail", desc: "Full product page with image gallery, breadcrumb navigation, length variant selector, quantity controls, add-to-cart, trust badges, specs table, and accordion FAQ." },
 ];
 
 const features = [
-  { title: "4 Complete Pages", desc: "Home, Shop, Product Detail, and Contact — fully designed and interactive with Shopify Liquid integration." },
+  { title: "2 Complete Pages", desc: "Home and Product Detail — fully designed and interactive with Shopify Liquid integration." },
   { title: "Hair Extension Focused", desc: "Purpose-built for hair vendors with texture grids, length variant selectors, bundle deals, and product spotlights." },
   { title: "Conversion Optimized", desc: "Trust bars, star ratings, quick-add buttons, compare-at pricing, review cards, and prominent CTAs throughout." },
   { title: "Warm Neutral Design", desc: "Cormorant Garamond + Outfit typography with a refined cream, charcoal, and gold accent palette." },

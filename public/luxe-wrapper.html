@@ -10,20 +10,18 @@
 (function(){
   var page = new URLSearchParams(location.search).get('page') || 'home';
   var f = document.getElementById('preview');
-  f.src = '/luxe-preview.html#' + page;
+  f.src = '/luxe-preview.html';
   f.onload = function(){
     try {
       var d = f.contentDocument;
-      /* Make all images visible */
-      d.querySelectorAll('img').forEach(function(img){ img.style.visibility = 'visible'; });
-      /* Navigate to the right page tab if the preview has page switching */
-      var pageMap = { home: 'HOME', shop: 'PRODUCT', product: 'PRODUCT', contact: 'HOME' };
-      var tabs = d.querySelectorAll('.page-tab');
-      tabs.forEach(function(tab){
-        if (tab.textContent.trim() === (pageMap[page] || 'HOME')) {
-          tab.click();
-        }
-      });
+      var w = f.contentWindow;
+      /* Call the showPage function that exists in the preview */
+      if (w && w.showPage) {
+        w.showPage(page);
+      }
+      /* Also hide the page switcher tabs since the parent handles that */
+      var switcher = d.querySelector('.page-switcher');
+      if (switcher) switcher.style.display = 'none';
     } catch(e){}
   };
 })();
