@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>*{margin:0;padding:0;overflow:hidden}iframe{width:100%;height:100vh;border:none}</style>
+</head>
+<body>
+<iframe id="preview"></iframe>
+<script>
+(function(){
+  var page = new URLSearchParams(location.search).get('page') || 'home';
+  var f = document.getElementById('preview');
+  f.src = '/rose-preview.html';
+  f.onload = function(){
+    try {
+      var d = f.contentDocument;
+      var w = f.contentWindow;
+      if (w && w.switchPage) {
+        w.switchPage(page);
+      }
+      var switcher = d.querySelector('.pill-tabs');
+      if (switcher) switcher.style.display = 'none';
+    } catch(e){}
+  };
+})();
+</script>
+</body>
+</html>

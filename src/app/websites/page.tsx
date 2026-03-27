@@ -136,6 +136,27 @@ const themes = [
     previewAccent: 'text-[#C9A96E]',
   },
   {
+    id: 'rose',
+    name: 'Rosé',
+    tagline: 'Soft / Feminine Pink',
+    description:
+      'Warm pink, mauve & blush palette with arch shapes, pill buttons, and polaroid testimonials. Cormorant Infant display font with Nunito Sans body text creates a soft, feminine hair brand experience.',
+    colors: { bg: '#7C4A4A', accent: '#E6BABB', text: '#FFFAF8' },
+    fonts: 'Cormorant Infant + Nunito Sans',
+    features: [
+      'Asymmetric arch hero with floating review badges',
+      'Pink & mauve palette with rounded card design',
+      'Polaroid-style testimonials and wave SVG footer',
+      '7 complete pages including hair care guide & FAQ',
+    ],
+    bestFor: 'Feminine hair brands, pink aesthetic, soft luxury, bridal hair, extensions boutiques',
+    gradient: 'from-[#7C4A4A] to-[#A6686A]',
+    accentColor: '#E6BABB',
+    previewBg: 'bg-[#7C4A4A]',
+    previewText: 'text-[#FFFAF8]',
+    previewAccent: 'text-[#E6BABB]',
+  },
+  {
     id: 'noir-crown',
     name: 'Noir Crown',
     tagline: 'Cinematic / Editorial Luxury',
@@ -310,7 +331,7 @@ export default function WebsitesPage() {
                       </p>
                       <h3
                         className={`text-3xl md:text-4xl font-extrabold mb-3 ${theme.previewText}`}
-                        style={theme.id === 'mane-edit' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, letterSpacing: '0.02em' } : theme.id === 'reign' ? { fontFamily: "'Bodoni Moda', Georgia, serif", fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' } : theme.id === 'luxe' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, letterSpacing: '0.02em' } : theme.id === 'noir-crown' ? { fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, letterSpacing: '0.02em' } : {}}
+                        style={theme.id === 'mane-edit' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 500, letterSpacing: '0.02em' } : theme.id === 'reign' ? { fontFamily: "'Bodoni Moda', Georgia, serif", fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' } : theme.id === 'luxe' ? { fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, letterSpacing: '0.02em' } : theme.id === 'noir-crown' ? { fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, letterSpacing: '0.02em' } : theme.id === 'rose' ? { fontFamily: "'Cormorant Infant', Georgia, serif", fontWeight: 500, letterSpacing: '0.08em' } : {}}
                       >
                         {theme.name}
                       </h3>
