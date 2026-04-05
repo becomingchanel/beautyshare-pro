@@ -820,13 +820,27 @@ document.getElementById('webinar-form').addEventListener('submit', function(e) {
   const btn = this.querySelector('.submit-btn');
   btn.textContent = 'Registering...';
   btn.disabled = true;
-  setTimeout(() => {
-    // TODO: Replace with your GHL webhook:
-    // fetch('YOUR_GHL_WEBHOOK_URL', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ firstName: fname, email, phone: document.getElementById('phone').value, stage: document.getElementById('stage').value }) });
+  fetch('/api/webinar-register', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: fname,
+      email: email,
+      phone: document.getElementById('phone').value || ''
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
     document.getElementById('webinar-form').style.display = 'none';
     document.getElementById('success-msg').style.display = 'block';
     setTimeout(() => { window.location.href = '/thank-you?ref=webinar'; }, 1500);
-  }, 1200);
+  })
+  .catch(err => {
+    console.error('Registration error:', err);
+    document.getElementById('webinar-form').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+    setTimeout(() => { window.location.href = '/thank-you?ref=webinar'; }, 1500);
+  });
 });
 
 // ── SMOOTH SCROLL ──────────────────────────────────
