@@ -263,10 +263,13 @@ export default function PricingGuidePage() {
                   />
                   <input
                     type="tel"
-                    placeholder="Phone (optional, for SMS updates)"
+                    required
+                    pattern="[0-9\s\-\(\)\+]{7,}"
+                    placeholder="Phone number (for SMS playbook + bonus invite)"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     className="w-full px-4 py-3.5 rounded-md border-2 border-gray-200 text-gray-900 placeholder-gray-400 focus:border-[#FA6A27] focus:outline-none transition-colors"
+                    title="Please enter a valid phone number"
                   />
                   <button
                     type="submit"
