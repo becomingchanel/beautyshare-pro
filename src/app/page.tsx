@@ -137,6 +137,7 @@ export default function HomePage() {
             <Link href="/websites" className="hover:text-orange transition-colors">Store Designs</Link>
             <a href="#faq" className="hover:text-orange transition-colors">FAQ</a>
             <Link href="/education" className="font-semibold hover:text-orange transition-colors">Education</Link>
+             <Link href="/pricing-guide" className="hover:text-orange transition-colors">Pricing Guide</Link>
             <Link href="/webinar" className="text-orange font-bold hover:text-orange/80 transition-colors">Free Webinar</Link>
           </div>
           <div className="flex items-center gap-3">
@@ -171,6 +172,7 @@ export default function HomePage() {
               <Link href="/websites" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">Store Designs</Link>
               <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">FAQ</a>
               <Link href="/education" onClick={() => setMobileMenuOpen(false)} className="font-semibold hover:text-orange transition-colors py-1">Education</Link>
+               <Link href="/pricing-guide" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">Pricing Guide</Link>
               <Link href="/webinar" onClick={() => setMobileMenuOpen(false)} className="text-orange font-bold py-1">Free Webinar</Link>
               <div className="flex gap-3 pt-2 border-t border-black/10">
                 <Link href="/login" className="flex-1 text-center py-3 rounded-full border-2 border-black/10 font-semibold text-sm hover:border-orange/40 transition-colors">Log In</Link>
@@ -676,6 +678,7 @@ export default function HomePage() {
               <Link href="/websites" className="hover:text-white transition-colors">Store Designs</Link>
               <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
               <Link href="/education" className="hover:text-white transition-colors font-semibold">Education</Link>
+               <Link href="/pricing-guide" className="hover:text-white transition-colors">Pricing Guide</Link>
               <Link href="/webinar" className="text-orange hover:text-white transition-colors font-semibold">Free Webinar</Link>
               <Link href="/login" className="hover:text-white transition-colors">Boss Login</Link>
             </div>
