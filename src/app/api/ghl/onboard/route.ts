@@ -33,7 +33,7 @@ export async function POST(req: Request) {
     }
 
     const normalized = email.toLowerCase().trim();
-    const fullName   = full_name ?? `${first_name ?? ''} ${last_name ?? ''}`.trim() || 'Boss';
+    const fullName   = (full_name ?? `${first_name ?? ''} ${last_name ?? ''}`.trim()) || 'Boss';
     const supabase   = createAdminClient();
 
     // 1. Check if Supabase auth user already exists
