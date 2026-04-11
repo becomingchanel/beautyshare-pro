@@ -6,26 +6,33 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Public routes — no auth needed
-  const publicRoutes = ['/', '/login', '/signup', '/websites', '/auth', '/api/stripe/webhook', '/webinar', '/upsells', '/stylist-calculator', '/fast-track', '/marketing-playbook', '/thank-you', '/upgrade', '/products', '/education', '/replay'];
+  const publicRoutes = [
+    '/', '/login', '/signup', '/websites', '/auth',
+    '/api/stripe/webhook', '/api/ghl/onboard',
+    '/webinar', '/upsells', '/stylist-calculator',
+    '/fast-track', '/marketing-playbook', '/thank-you',
+    '/upgrade', '/products', '/education', '/replay',
+  ];
   const isPublic = publicRoutes.some(
     (route) => pathname === route || pathname.startsWith(route + '/'),
   );
 
-  if (isPublic) {
-    return supabaseResponse;
-  }
+  if (isPublic) return supabaseResponse;
 
-  // Protected routes — redirect to login if not authenticated
-  if (!user && (pathname.startsWith('/dashboard') || pathname.startsWith('/templates'))) {
+  // Protect /dashboard/* and /members/*
+  const isProtected = pathname.startsWith('/dashboard') ||
+                      pathname.startsWith('/members') ||
+                      pathname.startsWith('/templates');
+
+  if (!user && isProtected) {
     const url = request.nextUrl.clone();
     url.pathname = '/login';
     url.searchParams.set('redirect', pathname);
     return NextResponse.redirect(url);
   }
 
-  // If logged-in user visits /login, redirect to dashboard
+  // Logged-in user visits /login → send to right dashboard
   if (user && pathname === '/login') {
-    // Check role to decide where to send them
     const { data: profile } = await supabase
       .from('profiles')
       .select('role')
@@ -33,7 +40,13 @@ export async function middleware(request: NextRequest) {
       .single();
 
     const url = request.nextUrl.clone();
-    url.pathname = profile?.role === 'admin' ? '/dashboard/admin' : '/dashboard';
+    if (profile?.role === 'admin') {
+      url.pathname = '/dashboard/admin';
+    } else if (profile?.role === 'bsp_member' || profile?.role === 'subscriber') {
+      url.pathname = '/members/dashboard';
+    } else {
+      url.pathname = '/dashboard';
+    }
     return NextResponse.redirect(url);
   }
 
@@ -52,18 +65,26 @@ export async function middleware(request: NextRequest) {
     }
   }
 
+  // BSP member routes — must be bsp_member, subscriber, or admin
+  if (user && pathname.startsWith('/members')) {
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', user.id)
+      .single();
+
+    if (!profile || !['bsp_member', 'subscriber', 'admin'].includes(profile.role)) {
+      const url = request.nextUrl.clone();
+      url.pathname = '/signup';
+      return NextResponse.redirect(url);
+    }
+  }
+
   return supabaseResponse;
 }
 
 export const config = {
   matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - public files
-     */
     '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 };
