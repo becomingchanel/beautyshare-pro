@@ -18,15 +18,9 @@ export async function GET(req: Request) {
     const supabase = createAdminClient();
 
     // 1. Look up token — join profiles via user_id
-    const { data: record } = await supabase
-      .from('bsp_magic_tokens')
-      .select(`
-        *,
-        profiles!inner(
-          id, full_name, email, business_name,
-          role, avatar_url, member_since, ghl_contact_id
-        )
-      `)
+    const { data: record } = await (supabase
+      .from('bsp_magic_tokens' as any) as any)
+      .select(`*, profiles!inner(id, full_name, email, business_name, role, avatar_url, member_since, ghl_contact_id)`)
       .eq('token', token)
       .eq('used', false)
       .single();
@@ -47,7 +41,7 @@ export async function GET(req: Request) {
 
     // 3. Mark token used (single-use)
     await supabase
-      .from('bsp_magic_tokens')
+      .from('bsp_magic_tokens' as any)
       .update({ used: true, used_at: new Date().toISOString() })
       .eq('token', token);
 

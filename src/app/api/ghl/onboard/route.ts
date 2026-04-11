@@ -62,7 +62,7 @@ export async function POST(req: Request) {
       userId = newUser.user.id;
 
       // 3. Insert profile row
-      await supabase.from('profiles').upsert({
+      await (supabase.from('profiles') as any).upsert({
         id:             userId,
         email:          normalized,
         full_name:      fullName,
@@ -75,7 +75,7 @@ export async function POST(req: Request) {
 
     // 4. Generate welcome magic token (30 min for first login)
     const welcomeToken = crypto.randomBytes(32).toString('hex');
-    await supabase.from('bsp_magic_tokens').upsert({
+    await supabase.from('bsp_magic_tokens' as any).upsert({
       user_id:    userId,
       email:      normalized,
       token:      welcomeToken,

@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     const expiresAt = new Date(Date.now() + 15 * 60 * 1000);
 
     await supabase
-      .from('bsp_magic_tokens')
+      .from('bsp_magic_tokens' as any)
       .upsert({
         user_id:    profile.id,
         email:      normalized,

@@ -177,7 +177,7 @@ function LoginForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 icon={<Mail className="h-4 w-4" />}
-                onKeyDown={(e: React.KeyboardEvent) => e.key === 'Enter' && sendMagicLink()}
+                onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' && sendMagicLink()}
               />
               <Button className="w-full mt-4" size="lg" loading={loading} onClick={() => sendMagicLink()}>
                 Send My Login Link →
@@ -200,7 +200,7 @@ function LoginForm() {
               <Input label="Email address" type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} icon={<Mail className="h-4 w-4" />} />
               <div className="mt-4">
                 <Input label="Password" type="password" placeholder="Your password" value={password} onChange={(e) => setPassword(e.target.value)} icon={<Lock className="h-4 w-4" />}
-                  onKeyDown={(e: React.KeyboardEvent) => e.key === 'Enter' && handlePasswordLogin()} />
+                  onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' && handlePasswordLogin()} />
               </div>
               <Button className="w-full mt-5" size="lg" loading={loading} onClick={handlePasswordLogin}>Sign In →</Button>
               <p className="mt-4 text-center text-sm text-gray-500">
