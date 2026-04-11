@@ -14,8 +14,8 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { firstName, email, phone, source } = body;
 
-    if (!email || !firstName) {
-      return NextResponse.json({ error: "Missing fields" }, { status: 400 });
+    if (!email || !firstName || !phone) {
+      return NextResponse.json({ error: "Missing required fields (first name, email, phone)" }, { status: 400 });
     }
 
     // Forward to GHL — this fires your pricing-guide email automation
@@ -26,7 +26,7 @@ export async function POST(req: Request) {
         body: JSON.stringify({
           first_name: firstName,
           email,
-          phone: phone || "",
+          phone,
           source: source || "pricing-guide",
           tags: ["pricing-guide-lead", "bsp-prospect"],
           custom_fields: {
