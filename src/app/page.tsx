@@ -130,12 +130,9 @@ export default function HomePage() {
           </Link>
           <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-black/60">
             <a href="#how-it-works" className="hover:text-orange transition-colors">How It Works</a>
-            <a href="#why" className="hover:text-orange transition-colors">Why BSP</a>
-            <a href="#hair" className="hover:text-orange transition-colors">Our Hair</a>
             <a href="#compare" className="hover:text-orange transition-colors">Compare</a>
             <a href="#pricing" className="hover:text-orange transition-colors">Plans</a>
             <Link href="/websites" className="hover:text-orange transition-colors">Store Designs</Link>
-            <a href="#faq" className="hover:text-orange transition-colors">FAQ</a>
             <Link href="/education" className="font-semibold hover:text-orange transition-colors">Education</Link>
              <Link href="/pricing-guide" className="hover:text-orange transition-colors">Pricing Guide</Link>
             <Link href="/webinar" className="text-orange font-bold hover:text-orange/80 transition-colors">Free Webinar</Link>
@@ -165,12 +162,9 @@ export default function HomePage() {
           <div className="lg:hidden bg-white border-t border-black/5 shadow-xl">
             <div className="flex flex-col px-6 py-4 gap-4 text-base font-medium text-black/70">
               <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">How It Works</a>
-              <a href="#why" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">Why BSP</a>
-              <a href="#hair" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">Our Hair</a>
               <a href="#compare" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">Compare</a>
               <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">Plans</a>
               <Link href="/websites" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">Store Designs</Link>
-              <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">FAQ</a>
               <Link href="/education" onClick={() => setMobileMenuOpen(false)} className="font-semibold hover:text-orange transition-colors py-1">Education</Link>
                <Link href="/pricing-guide" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange transition-colors py-1">Pricing Guide</Link>
               <Link href="/webinar" onClick={() => setMobileMenuOpen(false)} className="text-orange font-bold py-1">Free Webinar</Link>
@@ -671,12 +665,9 @@ export default function HomePage() {
             <img src="/images/logo.png" alt="BeautyShare Pro" className="h-9 w-auto brightness-0 invert" />
             <div className="flex flex-wrap justify-center gap-6 text-sm text-white/60">
               <a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a>
-              <a href="#why" className="hover:text-white transition-colors">Why BSP</a>
-              <a href="#hair" className="hover:text-white transition-colors">Our Hair</a>
               <a href="#compare" className="hover:text-white transition-colors">Compare</a>
               <a href="#pricing" className="hover:text-white transition-colors">Plans</a>
               <Link href="/websites" className="hover:text-white transition-colors">Store Designs</Link>
-              <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
               <Link href="/education" className="hover:text-white transition-colors font-semibold">Education</Link>
                <Link href="/pricing-guide" className="hover:text-white transition-colors">Pricing Guide</Link>
               <Link href="/webinar" className="text-orange hover:text-white transition-colors font-semibold">Free Webinar</Link>
