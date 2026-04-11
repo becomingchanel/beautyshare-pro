@@ -1,6 +1,4 @@
 // src/app/api/auth/magic-link/route.ts
-// POST { email } → validates BSP member, generates token, fires GHL workflow
-
 import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import crypto from 'crypto';
@@ -17,9 +15,8 @@ export async function POST(req: Request) {
     }
 
     const normalized = email.toLowerCase().trim();
-    const supabase   = createAdminClient();
+    const supabase   = createAdminClient() as any;
 
-    // 1. Verify this is an active BSP member
     const { data: profile } = await supabase
       .from('profiles')
       .select('id, full_name, email, role, ghl_contact_id')
@@ -31,12 +28,11 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'not_member' }, { status: 404 });
     }
 
-    // 2. Generate secure single-use token (15 min expiry)
     const token     = crypto.randomBytes(32).toString('hex');
     const expiresAt = new Date(Date.now() + 15 * 60 * 1000);
 
     await supabase
-      .from('bsp_magic_tokens' as any)
+      .from('bsp_magic_tokens')
       .upsert({
         user_id:    profile.id,
         email:      normalized,
@@ -45,10 +41,9 @@ export async function POST(req: Request) {
         used:       false,
       }, { onConflict: 'user_id' });
 
-    const loginUrl = `${BASE_URL}/login?token=${token}`;
-    const firstName = profile.full_name?.split(' ')[0] ?? 'Boss';
+    const loginUrl  = `${BASE_URL}/login?token=${token}`;
+    const firstName = (profile.full_name as string)?.split(' ')[0] ?? 'Boss';
 
-    // 3. Fire GHL workflow OR log in dev
     if (profile.ghl_contact_id && GHL_API_KEY && GHL_MAGIC_WORKFLOW_ID) {
       await fireGHLMagicLink({ contactId: profile.ghl_contact_id, firstName, loginUrl });
     } else {
@@ -56,7 +51,6 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ success: true });
-
   } catch (err) {
     console.error('[magic-link]', err);
     return NextResponse.json({ error: 'server_error' }, { status: 500 });
@@ -71,23 +65,15 @@ async function fireGHLMagicLink({ contactId, firstName, loginUrl }: {
     'Content-Type': 'application/json',
     Version: '2021-07-28',
   };
-
-  // Update custom fields on the GHL contact
   await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}`, {
-    method: 'PUT',
-    headers,
-    body: JSON.stringify({
-      customFields: [
-        { key: 'bsp_dashboard_link', field_value: loginUrl },
-        { key: 'bsp_first_name',     field_value: firstName },
-      ],
-    }),
+    method: 'PUT', headers,
+    body: JSON.stringify({ customFields: [
+      { key: 'bsp_dashboard_link', field_value: loginUrl },
+      { key: 'bsp_first_name',     field_value: firstName },
+    ]}),
   });
-
-  // Enroll in magic link email workflow
   await fetch('https://services.leadconnectorhq.com/contacts/workflows/', {
-    method: 'POST',
-    headers,
+    method: 'POST', headers,
     body: JSON.stringify({ workflowId: GHL_MAGIC_WORKFLOW_ID, contactId }),
   });
 }
